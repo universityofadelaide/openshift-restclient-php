@@ -99,7 +99,7 @@ class V1SubjectAccessReviewSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "non_resource_attributes"
+     * Test attribute "nonResourceAttributes"
      */
     public function testPropertyNonResourceAttributes()
     {
@@ -107,7 +107,7 @@ class V1SubjectAccessReviewSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_attributes"
+     * Test attribute "resourceAttributes"
      */
     public function testPropertyResourceAttributes()
     {

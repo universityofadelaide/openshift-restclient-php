@@ -55,9 +55,9 @@ class V1PodAffinityTerm implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label_selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
+        'labelSelector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
         'namespaces' => 'string[]',
-        'topology_key' => 'string'
+        'topologyKey' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1PodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label_selector' => 'labelSelector',
+        'labelSelector' => 'labelSelector',
         'namespaces' => 'namespaces',
-        'topology_key' => 'topologyKey'
+        'topologyKey' => 'topologyKey'
     ];
 
 
@@ -81,9 +81,9 @@ class V1PodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label_selector' => 'setLabelSelector',
+        'labelSelector' => 'setLabelSelector',
         'namespaces' => 'setNamespaces',
-        'topology_key' => 'setTopologyKey'
+        'topologyKey' => 'setTopologyKey'
     ];
 
 
@@ -92,9 +92,9 @@ class V1PodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label_selector' => 'getLabelSelector',
+        'labelSelector' => 'getLabelSelector',
         'namespaces' => 'getNamespaces',
-        'topology_key' => 'getTopologyKey'
+        'topologyKey' => 'getTopologyKey'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1PodAffinityTerm implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label_selector'] = isset($data['label_selector']) ? $data['label_selector'] : null;
+        $this->container['labelSelector'] = isset($data['labelSelector']) ? $data['labelSelector'] : null;
         $this->container['namespaces'] = isset($data['namespaces']) ? $data['namespaces'] : null;
-        $this->container['topology_key'] = isset($data['topology_key']) ? $data['topology_key'] : null;
+        $this->container['topologyKey'] = isset($data['topologyKey']) ? $data['topologyKey'] : null;
     }
 
     /**
@@ -159,22 +159,22 @@ class V1PodAffinityTerm implements ArrayAccess
 
 
     /**
-     * Gets label_selector
+     * Gets labelSelector
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector
      */
     public function getLabelSelector()
     {
-        return $this->container['label_selector'];
+        return $this->container['labelSelector'];
     }
 
     /**
-     * Sets label_selector
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $label_selector A label query over a set of resources, in this case pods.
+     * Sets labelSelector
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $labelSelector A label query over a set of resources, in this case pods.
      * @return $this
      */
-    public function setLabelSelector($label_selector)
+    public function setLabelSelector($labelSelector)
     {
-        $this->container['label_selector'] = $label_selector;
+        $this->container['labelSelector'] = $labelSelector;
 
         return $this;
     }
@@ -201,22 +201,22 @@ class V1PodAffinityTerm implements ArrayAccess
     }
 
     /**
-     * Gets topology_key
+     * Gets topologyKey
      * @return string
      */
     public function getTopologyKey()
     {
-        return $this->container['topology_key'];
+        return $this->container['topologyKey'];
     }
 
     /**
-     * Sets topology_key
-     * @param string $topology_key This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. For PreferredDuringScheduling pod anti-affinity, empty topologyKey is interpreted as \"all topologies\" (\"all topologies\" here means all the topologyKeys indicated by scheduler command-line argument --failure-domains); for affinity and for RequiredDuringScheduling pod anti-affinity, empty topologyKey is not allowed.
+     * Sets topologyKey
+     * @param string $topologyKey This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. For PreferredDuringScheduling pod anti-affinity, empty topologyKey is interpreted as \"all topologies\" (\"all topologies\" here means all the topologyKeys indicated by scheduler command-line argument --failure-domains); for affinity and for RequiredDuringScheduling pod anti-affinity, empty topologyKey is not allowed.
      * @return $this
      */
-    public function setTopologyKey($topology_key)
+    public function setTopologyKey($topologyKey)
     {
-        $this->container['topology_key'] = $topology_key;
+        $this->container['topologyKey'] = $topologyKey;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1ImageChangeCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "from_ref"
+     * Test attribute "fromRef"
      */
     public function testPropertyFromRef()
     {
@@ -91,9 +91,9 @@ class V1ImageChangeCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_id"
+     * Test attribute "imageID"
      */
-    public function testPropertyImageId()
+    public function testPropertyImageID()
     {
 
     }

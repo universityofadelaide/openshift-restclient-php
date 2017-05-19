@@ -83,7 +83,7 @@ class V1beta1PodDisruptionBudgetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_available"
+     * Test attribute "minAvailable"
      */
     public function testPropertyMinAvailable()
     {

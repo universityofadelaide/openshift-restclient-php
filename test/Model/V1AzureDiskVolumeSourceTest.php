@@ -83,7 +83,7 @@ class V1AzureDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "caching_mode"
+     * Test attribute "cachingMode"
      */
     public function testPropertyCachingMode()
     {
@@ -91,7 +91,7 @@ class V1AzureDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "disk_name"
+     * Test attribute "diskName"
      */
     public function testPropertyDiskName()
     {
@@ -99,15 +99,15 @@ class V1AzureDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "disk_uri"
+     * Test attribute "diskURI"
      */
-    public function testPropertyDiskUri()
+    public function testPropertyDiskURI()
     {
 
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -115,7 +115,7 @@ class V1AzureDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {

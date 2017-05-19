@@ -55,13 +55,13 @@ class V1ContainerStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'container_id' => 'string',
+        'containerID' => 'string',
         'image' => 'string',
-        'image_id' => 'string',
-        'last_state' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerState',
+        'imageID' => 'string',
+        'lastState' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerState',
         'name' => 'string',
         'ready' => 'bool',
-        'restart_count' => 'int',
+        'restartCount' => 'int',
         'state' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerState'
     ];
 
@@ -75,13 +75,13 @@ class V1ContainerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_id' => 'containerID',
+        'containerID' => 'containerID',
         'image' => 'image',
-        'image_id' => 'imageID',
-        'last_state' => 'lastState',
+        'imageID' => 'imageID',
+        'lastState' => 'lastState',
         'name' => 'name',
         'ready' => 'ready',
-        'restart_count' => 'restartCount',
+        'restartCount' => 'restartCount',
         'state' => 'state'
     ];
 
@@ -91,13 +91,13 @@ class V1ContainerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'container_id' => 'setContainerId',
+        'containerID' => 'setContainerID',
         'image' => 'setImage',
-        'image_id' => 'setImageId',
-        'last_state' => 'setLastState',
+        'imageID' => 'setImageID',
+        'lastState' => 'setLastState',
         'name' => 'setName',
         'ready' => 'setReady',
-        'restart_count' => 'setRestartCount',
+        'restartCount' => 'setRestartCount',
         'state' => 'setState'
     ];
 
@@ -107,13 +107,13 @@ class V1ContainerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'container_id' => 'getContainerId',
+        'containerID' => 'getContainerID',
         'image' => 'getImage',
-        'image_id' => 'getImageId',
-        'last_state' => 'getLastState',
+        'imageID' => 'getImageID',
+        'lastState' => 'getLastState',
         'name' => 'getName',
         'ready' => 'getReady',
-        'restart_count' => 'getRestartCount',
+        'restartCount' => 'getRestartCount',
         'state' => 'getState'
     ];
 
@@ -148,13 +148,13 @@ class V1ContainerStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
+        $this->container['containerID'] = isset($data['containerID']) ? $data['containerID'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['last_state'] = isset($data['last_state']) ? $data['last_state'] : null;
+        $this->container['imageID'] = isset($data['imageID']) ? $data['imageID'] : null;
+        $this->container['lastState'] = isset($data['lastState']) ? $data['lastState'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ready'] = isset($data['ready']) ? $data['ready'] : null;
-        $this->container['restart_count'] = isset($data['restart_count']) ? $data['restart_count'] : null;
+        $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
@@ -170,8 +170,8 @@ class V1ContainerStatus implements ArrayAccess
         if ($this->container['image'] === null) {
             $invalid_properties[] = "'image' can't be null";
         }
-        if ($this->container['image_id'] === null) {
-            $invalid_properties[] = "'image_id' can't be null";
+        if ($this->container['imageID'] === null) {
+            $invalid_properties[] = "'imageID' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
@@ -179,8 +179,8 @@ class V1ContainerStatus implements ArrayAccess
         if ($this->container['ready'] === null) {
             $invalid_properties[] = "'ready' can't be null";
         }
-        if ($this->container['restart_count'] === null) {
-            $invalid_properties[] = "'restart_count' can't be null";
+        if ($this->container['restartCount'] === null) {
+            $invalid_properties[] = "'restartCount' can't be null";
         }
         return $invalid_properties;
     }
@@ -197,7 +197,7 @@ class V1ContainerStatus implements ArrayAccess
         if ($this->container['image'] === null) {
             return false;
         }
-        if ($this->container['image_id'] === null) {
+        if ($this->container['imageID'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -206,7 +206,7 @@ class V1ContainerStatus implements ArrayAccess
         if ($this->container['ready'] === null) {
             return false;
         }
-        if ($this->container['restart_count'] === null) {
+        if ($this->container['restartCount'] === null) {
             return false;
         }
         return true;
@@ -214,22 +214,22 @@ class V1ContainerStatus implements ArrayAccess
 
 
     /**
-     * Gets container_id
+     * Gets containerID
      * @return string
      */
-    public function getContainerId()
+    public function getContainerID()
     {
-        return $this->container['container_id'];
+        return $this->container['containerID'];
     }
 
     /**
-     * Sets container_id
-     * @param string $container_id Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information
+     * Sets containerID
+     * @param string $containerID Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information
      * @return $this
      */
-    public function setContainerId($container_id)
+    public function setContainerID($containerID)
     {
-        $this->container['container_id'] = $container_id;
+        $this->container['containerID'] = $containerID;
 
         return $this;
     }
@@ -256,43 +256,43 @@ class V1ContainerStatus implements ArrayAccess
     }
 
     /**
-     * Gets image_id
+     * Gets imageID
      * @return string
      */
-    public function getImageId()
+    public function getImageID()
     {
-        return $this->container['image_id'];
+        return $this->container['imageID'];
     }
 
     /**
-     * Sets image_id
-     * @param string $image_id ImageID of the container's image.
+     * Sets imageID
+     * @param string $imageID ImageID of the container's image.
      * @return $this
      */
-    public function setImageId($image_id)
+    public function setImageID($imageID)
     {
-        $this->container['image_id'] = $image_id;
+        $this->container['imageID'] = $imageID;
 
         return $this;
     }
 
     /**
-     * Gets last_state
+     * Gets lastState
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ContainerState
      */
     public function getLastState()
     {
-        return $this->container['last_state'];
+        return $this->container['lastState'];
     }
 
     /**
-     * Sets last_state
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerState $last_state Details about the container's last termination condition.
+     * Sets lastState
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerState $lastState Details about the container's last termination condition.
      * @return $this
      */
-    public function setLastState($last_state)
+    public function setLastState($lastState)
     {
-        $this->container['last_state'] = $last_state;
+        $this->container['lastState'] = $lastState;
 
         return $this;
     }
@@ -340,22 +340,22 @@ class V1ContainerStatus implements ArrayAccess
     }
 
     /**
-     * Gets restart_count
+     * Gets restartCount
      * @return int
      */
     public function getRestartCount()
     {
-        return $this->container['restart_count'];
+        return $this->container['restartCount'];
     }
 
     /**
-     * Sets restart_count
-     * @param int $restart_count The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
+     * Sets restartCount
+     * @param int $restartCount The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
      * @return $this
      */
-    public function setRestartCount($restart_count)
+    public function setRestartCount($restartCount)
     {
-        $this->container['restart_count'] = $restart_count;
+        $this->container['restartCount'] = $restartCount;
 
         return $this;
     }

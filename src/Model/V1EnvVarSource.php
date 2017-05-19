@@ -55,10 +55,10 @@ class V1EnvVarSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config_map_key_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapKeySelector',
-        'field_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector',
-        'resource_field_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector',
-        'secret_key_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretKeySelector'
+        'configMapKeyRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapKeySelector',
+        'fieldRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector',
+        'resourceFieldRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector',
+        'secretKeyRef' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretKeySelector'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1EnvVarSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'config_map_key_ref' => 'configMapKeyRef',
-        'field_ref' => 'fieldRef',
-        'resource_field_ref' => 'resourceFieldRef',
-        'secret_key_ref' => 'secretKeyRef'
+        'configMapKeyRef' => 'configMapKeyRef',
+        'fieldRef' => 'fieldRef',
+        'resourceFieldRef' => 'resourceFieldRef',
+        'secretKeyRef' => 'secretKeyRef'
     ];
 
 
@@ -83,10 +83,10 @@ class V1EnvVarSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'config_map_key_ref' => 'setConfigMapKeyRef',
-        'field_ref' => 'setFieldRef',
-        'resource_field_ref' => 'setResourceFieldRef',
-        'secret_key_ref' => 'setSecretKeyRef'
+        'configMapKeyRef' => 'setConfigMapKeyRef',
+        'fieldRef' => 'setFieldRef',
+        'resourceFieldRef' => 'setResourceFieldRef',
+        'secretKeyRef' => 'setSecretKeyRef'
     ];
 
 
@@ -95,10 +95,10 @@ class V1EnvVarSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'config_map_key_ref' => 'getConfigMapKeyRef',
-        'field_ref' => 'getFieldRef',
-        'resource_field_ref' => 'getResourceFieldRef',
-        'secret_key_ref' => 'getSecretKeyRef'
+        'configMapKeyRef' => 'getConfigMapKeyRef',
+        'fieldRef' => 'getFieldRef',
+        'resourceFieldRef' => 'getResourceFieldRef',
+        'secretKeyRef' => 'getSecretKeyRef'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1EnvVarSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['config_map_key_ref'] = isset($data['config_map_key_ref']) ? $data['config_map_key_ref'] : null;
-        $this->container['field_ref'] = isset($data['field_ref']) ? $data['field_ref'] : null;
-        $this->container['resource_field_ref'] = isset($data['resource_field_ref']) ? $data['resource_field_ref'] : null;
-        $this->container['secret_key_ref'] = isset($data['secret_key_ref']) ? $data['secret_key_ref'] : null;
+        $this->container['configMapKeyRef'] = isset($data['configMapKeyRef']) ? $data['configMapKeyRef'] : null;
+        $this->container['fieldRef'] = isset($data['fieldRef']) ? $data['fieldRef'] : null;
+        $this->container['resourceFieldRef'] = isset($data['resourceFieldRef']) ? $data['resourceFieldRef'] : null;
+        $this->container['secretKeyRef'] = isset($data['secretKeyRef']) ? $data['secretKeyRef'] : null;
     }
 
     /**
@@ -164,85 +164,85 @@ class V1EnvVarSource implements ArrayAccess
 
 
     /**
-     * Gets config_map_key_ref
+     * Gets configMapKeyRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapKeySelector
      */
     public function getConfigMapKeyRef()
     {
-        return $this->container['config_map_key_ref'];
+        return $this->container['configMapKeyRef'];
     }
 
     /**
-     * Sets config_map_key_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapKeySelector $config_map_key_ref Selects a key of a ConfigMap.
+     * Sets configMapKeyRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapKeySelector $configMapKeyRef Selects a key of a ConfigMap.
      * @return $this
      */
-    public function setConfigMapKeyRef($config_map_key_ref)
+    public function setConfigMapKeyRef($configMapKeyRef)
     {
-        $this->container['config_map_key_ref'] = $config_map_key_ref;
+        $this->container['configMapKeyRef'] = $configMapKeyRef;
 
         return $this;
     }
 
     /**
-     * Gets field_ref
+     * Gets fieldRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector
      */
     public function getFieldRef()
     {
-        return $this->container['field_ref'];
+        return $this->container['fieldRef'];
     }
 
     /**
-     * Sets field_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector $field_ref Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.podIP.
+     * Sets fieldRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector $fieldRef Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.podIP.
      * @return $this
      */
-    public function setFieldRef($field_ref)
+    public function setFieldRef($fieldRef)
     {
-        $this->container['field_ref'] = $field_ref;
+        $this->container['fieldRef'] = $fieldRef;
 
         return $this;
     }
 
     /**
-     * Gets resource_field_ref
+     * Gets resourceFieldRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector
      */
     public function getResourceFieldRef()
     {
-        return $this->container['resource_field_ref'];
+        return $this->container['resourceFieldRef'];
     }
 
     /**
-     * Sets resource_field_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector $resource_field_ref Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+     * Sets resourceFieldRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector $resourceFieldRef Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
      * @return $this
      */
-    public function setResourceFieldRef($resource_field_ref)
+    public function setResourceFieldRef($resourceFieldRef)
     {
-        $this->container['resource_field_ref'] = $resource_field_ref;
+        $this->container['resourceFieldRef'] = $resourceFieldRef;
 
         return $this;
     }
 
     /**
-     * Gets secret_key_ref
+     * Gets secretKeyRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SecretKeySelector
      */
     public function getSecretKeyRef()
     {
-        return $this->container['secret_key_ref'];
+        return $this->container['secretKeyRef'];
     }
 
     /**
-     * Sets secret_key_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecretKeySelector $secret_key_ref Selects a key of a secret in the pod's namespace
+     * Sets secretKeyRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecretKeySelector $secretKeyRef Selects a key of a secret in the pod's namespace
      * @return $this
      */
-    public function setSecretKeyRef($secret_key_ref)
+    public function setSecretKeyRef($secretKeyRef)
     {
-        $this->container['secret_key_ref'] = $secret_key_ref;
+        $this->container['secretKeyRef'] = $secretKeyRef;
 
         return $this;
     }

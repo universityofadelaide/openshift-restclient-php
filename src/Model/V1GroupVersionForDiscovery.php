@@ -55,7 +55,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_version' => 'string',
+        'groupVersion' => 'string',
         'version' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_version' => 'groupVersion',
+        'groupVersion' => 'groupVersion',
         'version' => 'version'
     ];
 
@@ -79,7 +79,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_version' => 'setGroupVersion',
+        'groupVersion' => 'setGroupVersion',
         'version' => 'setVersion'
     ];
 
@@ -89,7 +89,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_version' => 'getGroupVersion',
+        'groupVersion' => 'getGroupVersion',
         'version' => 'getVersion'
     ];
 
@@ -124,7 +124,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_version'] = isset($data['group_version']) ? $data['group_version'] : null;
+        $this->container['groupVersion'] = isset($data['groupVersion']) ? $data['groupVersion'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
@@ -137,8 +137,8 @@ class V1GroupVersionForDiscovery implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['group_version'] === null) {
-            $invalid_properties[] = "'group_version' can't be null";
+        if ($this->container['groupVersion'] === null) {
+            $invalid_properties[] = "'groupVersion' can't be null";
         }
         if ($this->container['version'] === null) {
             $invalid_properties[] = "'version' can't be null";
@@ -155,7 +155,7 @@ class V1GroupVersionForDiscovery implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['group_version'] === null) {
+        if ($this->container['groupVersion'] === null) {
             return false;
         }
         if ($this->container['version'] === null) {
@@ -166,22 +166,22 @@ class V1GroupVersionForDiscovery implements ArrayAccess
 
 
     /**
-     * Gets group_version
+     * Gets groupVersion
      * @return string
      */
     public function getGroupVersion()
     {
-        return $this->container['group_version'];
+        return $this->container['groupVersion'];
     }
 
     /**
-     * Sets group_version
-     * @param string $group_version groupVersion specifies the API group and version in the form \"group/version\"
+     * Sets groupVersion
+     * @param string $groupVersion groupVersion specifies the API group and version in the form \"group/version\"
      * @return $this
      */
-    public function setGroupVersion($group_version)
+    public function setGroupVersion($groupVersion)
     {
-        $this->container['group_version'] = $group_version;
+        $this->container['groupVersion'] = $groupVersion;
 
         return $this;
     }

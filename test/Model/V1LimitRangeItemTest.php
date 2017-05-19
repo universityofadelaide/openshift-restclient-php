@@ -91,7 +91,7 @@ class V1LimitRangeItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "default_request"
+     * Test attribute "defaultRequest"
      */
     public function testPropertyDefaultRequest()
     {
@@ -107,7 +107,7 @@ class V1LimitRangeItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_limit_request_ratio"
+     * Test attribute "maxLimitRequestRatio"
      */
     public function testPropertyMaxLimitRequestRatio()
     {

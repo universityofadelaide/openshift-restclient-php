@@ -91,7 +91,7 @@ class V1beta1SELinuxStrategyOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "se_linux_options"
+     * Test attribute "seLinuxOptions"
      */
     public function testPropertySeLinuxOptions()
     {

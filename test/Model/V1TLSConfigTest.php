@@ -83,7 +83,7 @@ class V1TLSConfigTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ca_certificate"
+     * Test attribute "caCertificate"
      */
     public function testPropertyCaCertificate()
     {
@@ -99,15 +99,15 @@ class V1TLSConfigTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "destination_ca_certificate"
+     * Test attribute "destinationCACertificate"
      */
-    public function testPropertyDestinationCaCertificate()
+    public function testPropertyDestinationCACertificate()
     {
 
     }
 
     /**
-     * Test attribute "insecure_edge_termination_policy"
+     * Test attribute "insecureEdgeTerminationPolicy"
      */
     public function testPropertyInsecureEdgeTerminationPolicy()
     {

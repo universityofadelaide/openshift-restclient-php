@@ -55,8 +55,8 @@ class V1beta1Eviction implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'delete_options' => '\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions',
+        'apiVersion' => 'string',
+        'deleteOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta'
     ];
@@ -71,8 +71,8 @@ class V1beta1Eviction implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'delete_options' => 'deleteOptions',
+        'apiVersion' => 'apiVersion',
+        'deleteOptions' => 'deleteOptions',
         'kind' => 'kind',
         'metadata' => 'metadata'
     ];
@@ -83,8 +83,8 @@ class V1beta1Eviction implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'delete_options' => 'setDeleteOptions',
+        'apiVersion' => 'setApiVersion',
+        'deleteOptions' => 'setDeleteOptions',
         'kind' => 'setKind',
         'metadata' => 'setMetadata'
     ];
@@ -95,8 +95,8 @@ class V1beta1Eviction implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'delete_options' => 'getDeleteOptions',
+        'apiVersion' => 'getApiVersion',
+        'deleteOptions' => 'getDeleteOptions',
         'kind' => 'getKind',
         'metadata' => 'getMetadata'
     ];
@@ -132,8 +132,8 @@ class V1beta1Eviction implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['delete_options'] = isset($data['delete_options']) ? $data['delete_options'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['deleteOptions'] = isset($data['deleteOptions']) ? $data['deleteOptions'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
@@ -164,43 +164,43 @@ class V1beta1Eviction implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets delete_options
+     * Gets deleteOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions
      */
     public function getDeleteOptions()
     {
-        return $this->container['delete_options'];
+        return $this->container['deleteOptions'];
     }
 
     /**
-     * Sets delete_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $delete_options DeleteOptions may be provided
+     * Sets deleteOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $deleteOptions DeleteOptions may be provided
      * @return $this
      */
-    public function setDeleteOptions($delete_options)
+    public function setDeleteOptions($deleteOptions)
     {
-        $this->container['delete_options'] = $delete_options;
+        $this->container['deleteOptions'] = $deleteOptions;
 
         return $this;
     }

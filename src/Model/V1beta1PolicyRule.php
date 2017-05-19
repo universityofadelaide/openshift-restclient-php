@@ -55,9 +55,9 @@ class V1beta1PolicyRule implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_groups' => 'string[]',
-        'non_resource_ur_ls' => 'string[]',
-        'resource_names' => 'string[]',
+        'apiGroups' => 'string[]',
+        'nonResourceURLs' => 'string[]',
+        'resourceNames' => 'string[]',
         'resources' => 'string[]',
         'verbs' => 'string[]'
     ];
@@ -72,9 +72,9 @@ class V1beta1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_groups' => 'apiGroups',
-        'non_resource_ur_ls' => 'nonResourceURLs',
-        'resource_names' => 'resourceNames',
+        'apiGroups' => 'apiGroups',
+        'nonResourceURLs' => 'nonResourceURLs',
+        'resourceNames' => 'resourceNames',
         'resources' => 'resources',
         'verbs' => 'verbs'
     ];
@@ -85,9 +85,9 @@ class V1beta1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_groups' => 'setApiGroups',
-        'non_resource_ur_ls' => 'setNonResourceUrLs',
-        'resource_names' => 'setResourceNames',
+        'apiGroups' => 'setApiGroups',
+        'nonResourceURLs' => 'setNonResourceURLs',
+        'resourceNames' => 'setResourceNames',
         'resources' => 'setResources',
         'verbs' => 'setVerbs'
     ];
@@ -98,9 +98,9 @@ class V1beta1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_groups' => 'getApiGroups',
-        'non_resource_ur_ls' => 'getNonResourceUrLs',
-        'resource_names' => 'getResourceNames',
+        'apiGroups' => 'getApiGroups',
+        'nonResourceURLs' => 'getNonResourceURLs',
+        'resourceNames' => 'getResourceNames',
         'resources' => 'getResources',
         'verbs' => 'getVerbs'
     ];
@@ -136,9 +136,9 @@ class V1beta1PolicyRule implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_groups'] = isset($data['api_groups']) ? $data['api_groups'] : null;
-        $this->container['non_resource_ur_ls'] = isset($data['non_resource_ur_ls']) ? $data['non_resource_ur_ls'] : null;
-        $this->container['resource_names'] = isset($data['resource_names']) ? $data['resource_names'] : null;
+        $this->container['apiGroups'] = isset($data['apiGroups']) ? $data['apiGroups'] : null;
+        $this->container['nonResourceURLs'] = isset($data['nonResourceURLs']) ? $data['nonResourceURLs'] : null;
+        $this->container['resourceNames'] = isset($data['resourceNames']) ? $data['resourceNames'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['verbs'] = isset($data['verbs']) ? $data['verbs'] : null;
     }
@@ -175,64 +175,64 @@ class V1beta1PolicyRule implements ArrayAccess
 
 
     /**
-     * Gets api_groups
+     * Gets apiGroups
      * @return string[]
      */
     public function getApiGroups()
     {
-        return $this->container['api_groups'];
+        return $this->container['apiGroups'];
     }
 
     /**
-     * Sets api_groups
-     * @param string[] $api_groups APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
+     * Sets apiGroups
+     * @param string[] $apiGroups APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
      * @return $this
      */
-    public function setApiGroups($api_groups)
+    public function setApiGroups($apiGroups)
     {
-        $this->container['api_groups'] = $api_groups;
+        $this->container['apiGroups'] = $apiGroups;
 
         return $this;
     }
 
     /**
-     * Gets non_resource_ur_ls
+     * Gets nonResourceURLs
      * @return string[]
      */
-    public function getNonResourceUrLs()
+    public function getNonResourceURLs()
     {
-        return $this->container['non_resource_ur_ls'];
+        return $this->container['nonResourceURLs'];
     }
 
     /**
-     * Sets non_resource_ur_ls
-     * @param string[] $non_resource_ur_ls NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.
+     * Sets nonResourceURLs
+     * @param string[] $nonResourceURLs NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.
      * @return $this
      */
-    public function setNonResourceUrLs($non_resource_ur_ls)
+    public function setNonResourceURLs($nonResourceURLs)
     {
-        $this->container['non_resource_ur_ls'] = $non_resource_ur_ls;
+        $this->container['nonResourceURLs'] = $nonResourceURLs;
 
         return $this;
     }
 
     /**
-     * Gets resource_names
+     * Gets resourceNames
      * @return string[]
      */
     public function getResourceNames()
     {
-        return $this->container['resource_names'];
+        return $this->container['resourceNames'];
     }
 
     /**
-     * Sets resource_names
-     * @param string[] $resource_names ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.
+     * Sets resourceNames
+     * @param string[] $resourceNames ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.
      * @return $this
      */
-    public function setResourceNames($resource_names)
+    public function setResourceNames($resourceNames)
     {
-        $this->container['resource_names'] = $resource_names;
+        $this->container['resourceNames'] = $resourceNames;
 
         return $this;
     }

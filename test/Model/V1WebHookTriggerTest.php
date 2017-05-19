@@ -83,7 +83,7 @@ class V1WebHookTriggerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_env"
+     * Test attribute "allowEnv"
      */
     public function testPropertyAllowEnv()
     {

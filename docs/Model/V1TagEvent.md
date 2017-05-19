@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | Created holds the time the TagEvent was created | 
-**docker_image_reference** | **string** | DockerImageReference is the string that can be used to pull this image | 
+**dockerImageReference** | **string** | DockerImageReference is the string that can be used to pull this image | 
 **generation** | **int** | Generation is the spec tag generation that resulted in this tag being updated | 
 **image** | **string** | Image is the image | 
 

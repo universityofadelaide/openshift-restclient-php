@@ -55,8 +55,8 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_cidr' => 'string',
-        'server_address' => 'string'
+        'clientCIDR' => 'string',
+        'serverAddress' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_cidr' => 'clientCIDR',
-        'server_address' => 'serverAddress'
+        'clientCIDR' => 'clientCIDR',
+        'serverAddress' => 'serverAddress'
     ];
 
 
@@ -79,8 +79,8 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_cidr' => 'setClientCidr',
-        'server_address' => 'setServerAddress'
+        'clientCIDR' => 'setClientCIDR',
+        'serverAddress' => 'setServerAddress'
     ];
 
 
@@ -89,8 +89,8 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_cidr' => 'getClientCidr',
-        'server_address' => 'getServerAddress'
+        'clientCIDR' => 'getClientCIDR',
+        'serverAddress' => 'getServerAddress'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_cidr'] = isset($data['client_cidr']) ? $data['client_cidr'] : null;
-        $this->container['server_address'] = isset($data['server_address']) ? $data['server_address'] : null;
+        $this->container['clientCIDR'] = isset($data['clientCIDR']) ? $data['clientCIDR'] : null;
+        $this->container['serverAddress'] = isset($data['serverAddress']) ? $data['serverAddress'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['client_cidr'] === null) {
-            $invalid_properties[] = "'client_cidr' can't be null";
+        if ($this->container['clientCIDR'] === null) {
+            $invalid_properties[] = "'clientCIDR' can't be null";
         }
-        if ($this->container['server_address'] === null) {
-            $invalid_properties[] = "'server_address' can't be null";
+        if ($this->container['serverAddress'] === null) {
+            $invalid_properties[] = "'serverAddress' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['client_cidr'] === null) {
+        if ($this->container['clientCIDR'] === null) {
             return false;
         }
-        if ($this->container['server_address'] === null) {
+        if ($this->container['serverAddress'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V1ServerAddressByClientCIDR implements ArrayAccess
 
 
     /**
-     * Gets client_cidr
+     * Gets clientCIDR
      * @return string
      */
-    public function getClientCidr()
+    public function getClientCIDR()
     {
-        return $this->container['client_cidr'];
+        return $this->container['clientCIDR'];
     }
 
     /**
-     * Sets client_cidr
-     * @param string $client_cidr The CIDR with which clients can match their IP to figure out the server address that they should use.
+     * Sets clientCIDR
+     * @param string $clientCIDR The CIDR with which clients can match their IP to figure out the server address that they should use.
      * @return $this
      */
-    public function setClientCidr($client_cidr)
+    public function setClientCIDR($clientCIDR)
     {
-        $this->container['client_cidr'] = $client_cidr;
+        $this->container['clientCIDR'] = $clientCIDR;
 
         return $this;
     }
 
     /**
-     * Gets server_address
+     * Gets serverAddress
      * @return string
      */
     public function getServerAddress()
     {
-        return $this->container['server_address'];
+        return $this->container['serverAddress'];
     }
 
     /**
-     * Sets server_address
-     * @param string $server_address Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
+     * Sets serverAddress
+     * @param string $serverAddress Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
      * @return $this
      */
-    public function setServerAddress($server_address)
+    public function setServerAddress($serverAddress)
     {
-        $this->container['server_address'] = $server_address;
+        $this->container['serverAddress'] = $serverAddress;
 
         return $this;
     }

@@ -55,9 +55,9 @@ class V1ServiceAccount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'automount_service_account_token' => 'bool',
-        'image_pull_secrets' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]',
+        'apiVersion' => 'string',
+        'automountServiceAccountToken' => 'bool',
+        'imagePullSecrets' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'secrets' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference[]'
@@ -73,9 +73,9 @@ class V1ServiceAccount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'automount_service_account_token' => 'automountServiceAccountToken',
-        'image_pull_secrets' => 'imagePullSecrets',
+        'apiVersion' => 'apiVersion',
+        'automountServiceAccountToken' => 'automountServiceAccountToken',
+        'imagePullSecrets' => 'imagePullSecrets',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'secrets' => 'secrets'
@@ -87,9 +87,9 @@ class V1ServiceAccount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'automount_service_account_token' => 'setAutomountServiceAccountToken',
-        'image_pull_secrets' => 'setImagePullSecrets',
+        'apiVersion' => 'setApiVersion',
+        'automountServiceAccountToken' => 'setAutomountServiceAccountToken',
+        'imagePullSecrets' => 'setImagePullSecrets',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'secrets' => 'setSecrets'
@@ -101,9 +101,9 @@ class V1ServiceAccount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'automount_service_account_token' => 'getAutomountServiceAccountToken',
-        'image_pull_secrets' => 'getImagePullSecrets',
+        'apiVersion' => 'getApiVersion',
+        'automountServiceAccountToken' => 'getAutomountServiceAccountToken',
+        'imagePullSecrets' => 'getImagePullSecrets',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'secrets' => 'getSecrets'
@@ -140,9 +140,9 @@ class V1ServiceAccount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['automount_service_account_token'] = isset($data['automount_service_account_token']) ? $data['automount_service_account_token'] : null;
-        $this->container['image_pull_secrets'] = isset($data['image_pull_secrets']) ? $data['image_pull_secrets'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['automountServiceAccountToken'] = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
+        $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['secrets'] = isset($data['secrets']) ? $data['secrets'] : null;
@@ -174,64 +174,64 @@ class V1ServiceAccount implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets automount_service_account_token
+     * Gets automountServiceAccountToken
      * @return bool
      */
     public function getAutomountServiceAccountToken()
     {
-        return $this->container['automount_service_account_token'];
+        return $this->container['automountServiceAccountToken'];
     }
 
     /**
-     * Sets automount_service_account_token
-     * @param bool $automount_service_account_token AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
+     * Sets automountServiceAccountToken
+     * @param bool $automountServiceAccountToken AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
      * @return $this
      */
-    public function setAutomountServiceAccountToken($automount_service_account_token)
+    public function setAutomountServiceAccountToken($automountServiceAccountToken)
     {
-        $this->container['automount_service_account_token'] = $automount_service_account_token;
+        $this->container['automountServiceAccountToken'] = $automountServiceAccountToken;
 
         return $this;
     }
 
     /**
-     * Gets image_pull_secrets
+     * Gets imagePullSecrets
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]
      */
     public function getImagePullSecrets()
     {
-        return $this->container['image_pull_secrets'];
+        return $this->container['imagePullSecrets'];
     }
 
     /**
-     * Sets image_pull_secrets
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[] $image_pull_secrets ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: http://kubernetes.io/docs/user-guide/secrets#manually-specifying-an-imagepullsecret
+     * Sets imagePullSecrets
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[] $imagePullSecrets ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: http://kubernetes.io/docs/user-guide/secrets#manually-specifying-an-imagepullsecret
      * @return $this
      */
-    public function setImagePullSecrets($image_pull_secrets)
+    public function setImagePullSecrets($imagePullSecrets)
     {
-        $this->container['image_pull_secrets'] = $image_pull_secrets;
+        $this->container['imagePullSecrets'] = $imagePullSecrets;
 
         return $this;
     }

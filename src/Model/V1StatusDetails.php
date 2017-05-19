@@ -59,7 +59,7 @@ class V1StatusDetails implements ArrayAccess
         'group' => 'string',
         'kind' => 'string',
         'name' => 'string',
-        'retry_after_seconds' => 'int'
+        'retryAfterSeconds' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -76,7 +76,7 @@ class V1StatusDetails implements ArrayAccess
         'group' => 'group',
         'kind' => 'kind',
         'name' => 'name',
-        'retry_after_seconds' => 'retryAfterSeconds'
+        'retryAfterSeconds' => 'retryAfterSeconds'
     ];
 
 
@@ -89,7 +89,7 @@ class V1StatusDetails implements ArrayAccess
         'group' => 'setGroup',
         'kind' => 'setKind',
         'name' => 'setName',
-        'retry_after_seconds' => 'setRetryAfterSeconds'
+        'retryAfterSeconds' => 'setRetryAfterSeconds'
     ];
 
 
@@ -102,7 +102,7 @@ class V1StatusDetails implements ArrayAccess
         'group' => 'getGroup',
         'kind' => 'getKind',
         'name' => 'getName',
-        'retry_after_seconds' => 'getRetryAfterSeconds'
+        'retryAfterSeconds' => 'getRetryAfterSeconds'
     ];
 
     public static function attributeMap()
@@ -140,7 +140,7 @@ class V1StatusDetails implements ArrayAccess
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['retry_after_seconds'] = isset($data['retry_after_seconds']) ? $data['retry_after_seconds'] : null;
+        $this->container['retryAfterSeconds'] = isset($data['retryAfterSeconds']) ? $data['retryAfterSeconds'] : null;
     }
 
     /**
@@ -253,22 +253,22 @@ class V1StatusDetails implements ArrayAccess
     }
 
     /**
-     * Gets retry_after_seconds
+     * Gets retryAfterSeconds
      * @return int
      */
     public function getRetryAfterSeconds()
     {
-        return $this->container['retry_after_seconds'];
+        return $this->container['retryAfterSeconds'];
     }
 
     /**
-     * Sets retry_after_seconds
-     * @param int $retry_after_seconds If specified, the time in seconds before the operation should be retried.
+     * Sets retryAfterSeconds
+     * @param int $retryAfterSeconds If specified, the time in seconds before the operation should be retried.
      * @return $this
      */
-    public function setRetryAfterSeconds($retry_after_seconds)
+    public function setRetryAfterSeconds($retryAfterSeconds)
     {
-        $this->container['retry_after_seconds'] = $retry_after_seconds;
+        $this->container['retryAfterSeconds'] = $retryAfterSeconds;
 
         return $this;
     }

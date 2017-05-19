@@ -55,7 +55,7 @@ class V1BinaryBuildSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'as_file' => 'string'
+        'asFile' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1BinaryBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'as_file' => 'asFile'
+        'asFile' => 'asFile'
     ];
 
 
@@ -77,7 +77,7 @@ class V1BinaryBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'as_file' => 'setAsFile'
+        'asFile' => 'setAsFile'
     ];
 
 
@@ -86,7 +86,7 @@ class V1BinaryBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'as_file' => 'getAsFile'
+        'asFile' => 'getAsFile'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1BinaryBuildSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['as_file'] = isset($data['as_file']) ? $data['as_file'] : null;
+        $this->container['asFile'] = isset($data['asFile']) ? $data['asFile'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1BinaryBuildSource implements ArrayAccess
 
 
     /**
-     * Gets as_file
+     * Gets asFile
      * @return string
      */
     public function getAsFile()
     {
-        return $this->container['as_file'];
+        return $this->container['asFile'];
     }
 
     /**
-     * Sets as_file
-     * @param string $as_file asFile indicates that the provided binary input should be considered a single file within the build input. For example, specifying \"webapp.war\" would place the provided binary as `/webapp.war` for the builder. If left empty, the Docker and Source build strategies assume this file is a zip, tar, or tar.gz file and extract it as the source. The custom strategy receives this binary as standard input. This filename may not contain slashes or be '..' or '.'.
+     * Sets asFile
+     * @param string $asFile asFile indicates that the provided binary input should be considered a single file within the build input. For example, specifying \"webapp.war\" would place the provided binary as `/webapp.war` for the builder. If left empty, the Docker and Source build strategies assume this file is a zip, tar, or tar.gz file and extract it as the source. The custom strategy receives this binary as standard input. This filename may not contain slashes or be '..' or '.'.
      * @return $this
      */
-    public function setAsFile($as_file)
+    public function setAsFile($asFile)
     {
-        $this->container['as_file'] = $as_file;
+        $this->container['asFile'] = $asFile;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1BuildTriggerCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "bitbucket_web_hook"
+     * Test attribute "bitbucketWebHook"
      */
     public function testPropertyBitbucketWebHook()
     {
@@ -91,7 +91,7 @@ class V1BuildTriggerCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "generic_web_hook"
+     * Test attribute "genericWebHook"
      */
     public function testPropertyGenericWebHook()
     {
@@ -99,7 +99,7 @@ class V1BuildTriggerCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "github_web_hook"
+     * Test attribute "githubWebHook"
      */
     public function testPropertyGithubWebHook()
     {
@@ -107,7 +107,7 @@ class V1BuildTriggerCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "gitlab_web_hook"
+     * Test attribute "gitlabWebHook"
      */
     public function testPropertyGitlabWebHook()
     {
@@ -115,7 +115,7 @@ class V1BuildTriggerCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_change_build"
+     * Test attribute "imageChangeBuild"
      */
     public function testPropertyImageChangeBuild()
     {

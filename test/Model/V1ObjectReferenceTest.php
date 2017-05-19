@@ -83,7 +83,7 @@ class V1ObjectReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1ObjectReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "field_path"
+     * Test attribute "fieldPath"
      */
     public function testPropertyFieldPath()
     {
@@ -123,7 +123,7 @@ class V1ObjectReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_version"
+     * Test attribute "resourceVersion"
      */
     public function testPropertyResourceVersion()
     {

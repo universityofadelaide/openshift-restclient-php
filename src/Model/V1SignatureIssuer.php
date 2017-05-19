@@ -55,7 +55,7 @@ class V1SignatureIssuer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'common_name' => 'string',
+        'commonName' => 'string',
         'organization' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1SignatureIssuer implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'common_name' => 'commonName',
+        'commonName' => 'commonName',
         'organization' => 'organization'
     ];
 
@@ -79,7 +79,7 @@ class V1SignatureIssuer implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'common_name' => 'setCommonName',
+        'commonName' => 'setCommonName',
         'organization' => 'setOrganization'
     ];
 
@@ -89,7 +89,7 @@ class V1SignatureIssuer implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'common_name' => 'getCommonName',
+        'commonName' => 'getCommonName',
         'organization' => 'getOrganization'
     ];
 
@@ -124,7 +124,7 @@ class V1SignatureIssuer implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['common_name'] = isset($data['common_name']) ? $data['common_name'] : null;
+        $this->container['commonName'] = isset($data['commonName']) ? $data['commonName'] : null;
         $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1SignatureIssuer implements ArrayAccess
 
 
     /**
-     * Gets common_name
+     * Gets commonName
      * @return string
      */
     public function getCommonName()
     {
-        return $this->container['common_name'];
+        return $this->container['commonName'];
     }
 
     /**
-     * Sets common_name
-     * @param string $common_name Common name (e.g. openshift-signing-service).
+     * Sets commonName
+     * @param string $commonName Common name (e.g. openshift-signing-service).
      * @return $this
      */
-    public function setCommonName($common_name)
+    public function setCommonName($commonName)
     {
-        $this->container['common_name'] = $common_name;
+        $this->container['commonName'] = $commonName;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1VsphereVirtualDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -91,7 +91,7 @@ class V1VsphereVirtualDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_path"
+     * Test attribute "volumePath"
      */
     public function testPropertyVolumePath()
     {

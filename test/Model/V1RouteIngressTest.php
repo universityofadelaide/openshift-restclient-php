@@ -99,7 +99,7 @@ class V1RouteIngressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "router_canonical_hostname"
+     * Test attribute "routerCanonicalHostname"
      */
     public function testPropertyRouterCanonicalHostname()
     {
@@ -107,7 +107,7 @@ class V1RouteIngressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "router_name"
+     * Test attribute "routerName"
      */
     public function testPropertyRouterName()
     {
@@ -115,7 +115,7 @@ class V1RouteIngressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "wildcard_policy"
+     * Test attribute "wildcardPolicy"
      */
     public function testPropertyWildcardPolicy()
     {

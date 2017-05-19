@@ -83,9 +83,9 @@ class V1ContainerStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "container_id"
+     * Test attribute "containerID"
      */
-    public function testPropertyContainerId()
+    public function testPropertyContainerID()
     {
 
     }
@@ -99,15 +99,15 @@ class V1ContainerStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_id"
+     * Test attribute "imageID"
      */
-    public function testPropertyImageId()
+    public function testPropertyImageID()
     {
 
     }
 
     /**
-     * Test attribute "last_state"
+     * Test attribute "lastState"
      */
     public function testPropertyLastState()
     {
@@ -131,7 +131,7 @@ class V1ContainerStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "restart_count"
+     * Test attribute "restartCount"
      */
     public function testPropertyRestartCount()
     {

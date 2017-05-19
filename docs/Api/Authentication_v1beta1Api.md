@@ -20,7 +20,7 @@ create a TokenReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1beta1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1beta1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1beta1TokenReview(); // \UniversityOfAdelaide\OpenShift\Model\V1beta1TokenReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -67,7 +67,7 @@ get available resources
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1beta1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1beta1Api(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getAuthenticationV1beta1APIResources();

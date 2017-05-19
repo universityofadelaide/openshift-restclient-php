@@ -91,7 +91,7 @@ class V1ContainerImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "size_bytes"
+     * Test attribute "sizeBytes"
      */
     public function testPropertySizeBytes()
     {

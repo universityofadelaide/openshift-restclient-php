@@ -83,7 +83,7 @@ class V1beta1DeploymentRollbackTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -107,7 +107,7 @@ class V1beta1DeploymentRollbackTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "rollback_to"
+     * Test attribute "rollbackTo"
      */
     public function testPropertyRollbackTo()
     {
@@ -115,7 +115,7 @@ class V1beta1DeploymentRollbackTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "updated_annotations"
+     * Test attribute "updatedAnnotations"
      */
     public function testPropertyUpdatedAnnotations()
     {

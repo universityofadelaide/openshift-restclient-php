@@ -83,7 +83,7 @@ class V1beta1ReplicaSetConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_transition_time"
+     * Test attribute "lastTransitionTime"
      */
     public function testPropertyLastTransitionTime()
     {

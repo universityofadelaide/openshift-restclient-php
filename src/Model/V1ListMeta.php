@@ -55,8 +55,8 @@ class V1ListMeta implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_version' => 'string',
-        'self_link' => 'string'
+        'resourceVersion' => 'string',
+        'selfLink' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1ListMeta implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_version' => 'resourceVersion',
-        'self_link' => 'selfLink'
+        'resourceVersion' => 'resourceVersion',
+        'selfLink' => 'selfLink'
     ];
 
 
@@ -79,8 +79,8 @@ class V1ListMeta implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_version' => 'setResourceVersion',
-        'self_link' => 'setSelfLink'
+        'resourceVersion' => 'setResourceVersion',
+        'selfLink' => 'setSelfLink'
     ];
 
 
@@ -89,8 +89,8 @@ class V1ListMeta implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_version' => 'getResourceVersion',
-        'self_link' => 'getSelfLink'
+        'resourceVersion' => 'getResourceVersion',
+        'selfLink' => 'getSelfLink'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1ListMeta implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_version'] = isset($data['resource_version']) ? $data['resource_version'] : null;
-        $this->container['self_link'] = isset($data['self_link']) ? $data['self_link'] : null;
+        $this->container['resourceVersion'] = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->container['selfLink'] = isset($data['selfLink']) ? $data['selfLink'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1ListMeta implements ArrayAccess
 
 
     /**
-     * Gets resource_version
+     * Gets resourceVersion
      * @return string
      */
     public function getResourceVersion()
     {
-        return $this->container['resource_version'];
+        return $this->container['resourceVersion'];
     }
 
     /**
-     * Sets resource_version
-     * @param string $resource_version String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
+     * Sets resourceVersion
+     * @param string $resourceVersion String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
      * @return $this
      */
-    public function setResourceVersion($resource_version)
+    public function setResourceVersion($resourceVersion)
     {
-        $this->container['resource_version'] = $resource_version;
+        $this->container['resourceVersion'] = $resourceVersion;
 
         return $this;
     }
 
     /**
-     * Gets self_link
+     * Gets selfLink
      * @return string
      */
     public function getSelfLink()
     {
-        return $this->container['self_link'];
+        return $this->container['selfLink'];
     }
 
     /**
-     * Sets self_link
-     * @param string $self_link SelfLink is a URL representing this object. Populated by the system. Read-only.
+     * Sets selfLink
+     * @param string $selfLink SelfLink is a URL representing this object. Populated by the system. Read-only.
      * @return $this
      */
-    public function setSelfLink($self_link)
+    public function setSelfLink($selfLink)
     {
-        $this->container['self_link'] = $self_link;
+        $this->container['selfLink'] = $selfLink;
 
         return $this;
     }

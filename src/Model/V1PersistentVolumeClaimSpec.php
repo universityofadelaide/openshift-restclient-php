@@ -55,11 +55,11 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_modes' => 'string[]',
+        'accessModes' => 'string[]',
         'resources' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceRequirements',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
-        'storage_class_name' => 'string',
-        'volume_name' => 'string'
+        'storageClassName' => 'string',
+        'volumeName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_modes' => 'accessModes',
+        'accessModes' => 'accessModes',
         'resources' => 'resources',
         'selector' => 'selector',
-        'storage_class_name' => 'storageClassName',
-        'volume_name' => 'volumeName'
+        'storageClassName' => 'storageClassName',
+        'volumeName' => 'volumeName'
     ];
 
 
@@ -85,11 +85,11 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_modes' => 'setAccessModes',
+        'accessModes' => 'setAccessModes',
         'resources' => 'setResources',
         'selector' => 'setSelector',
-        'storage_class_name' => 'setStorageClassName',
-        'volume_name' => 'setVolumeName'
+        'storageClassName' => 'setStorageClassName',
+        'volumeName' => 'setVolumeName'
     ];
 
 
@@ -98,11 +98,11 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_modes' => 'getAccessModes',
+        'accessModes' => 'getAccessModes',
         'resources' => 'getResources',
         'selector' => 'getSelector',
-        'storage_class_name' => 'getStorageClassName',
-        'volume_name' => 'getVolumeName'
+        'storageClassName' => 'getStorageClassName',
+        'volumeName' => 'getVolumeName'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_modes'] = isset($data['access_modes']) ? $data['access_modes'] : null;
+        $this->container['accessModes'] = isset($data['accessModes']) ? $data['accessModes'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
-        $this->container['storage_class_name'] = isset($data['storage_class_name']) ? $data['storage_class_name'] : null;
-        $this->container['volume_name'] = isset($data['volume_name']) ? $data['volume_name'] : null;
+        $this->container['storageClassName'] = isset($data['storageClassName']) ? $data['storageClassName'] : null;
+        $this->container['volumeName'] = isset($data['volumeName']) ? $data['volumeName'] : null;
     }
 
     /**
@@ -169,22 +169,22 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
 
 
     /**
-     * Gets access_modes
+     * Gets accessModes
      * @return string[]
      */
     public function getAccessModes()
     {
-        return $this->container['access_modes'];
+        return $this->container['accessModes'];
     }
 
     /**
-     * Sets access_modes
-     * @param string[] $access_modes AccessModes contains the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
+     * Sets accessModes
+     * @param string[] $accessModes AccessModes contains the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
      * @return $this
      */
-    public function setAccessModes($access_modes)
+    public function setAccessModes($accessModes)
     {
-        $this->container['access_modes'] = $access_modes;
+        $this->container['accessModes'] = $accessModes;
 
         return $this;
     }
@@ -232,43 +232,43 @@ class V1PersistentVolumeClaimSpec implements ArrayAccess
     }
 
     /**
-     * Gets storage_class_name
+     * Gets storageClassName
      * @return string
      */
     public function getStorageClassName()
     {
-        return $this->container['storage_class_name'];
+        return $this->container['storageClassName'];
     }
 
     /**
-     * Sets storage_class_name
-     * @param string $storage_class_name Name of the StorageClass required by the claim. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#class-1
+     * Sets storageClassName
+     * @param string $storageClassName Name of the StorageClass required by the claim. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#class-1
      * @return $this
      */
-    public function setStorageClassName($storage_class_name)
+    public function setStorageClassName($storageClassName)
     {
-        $this->container['storage_class_name'] = $storage_class_name;
+        $this->container['storageClassName'] = $storageClassName;
 
         return $this;
     }
 
     /**
-     * Gets volume_name
+     * Gets volumeName
      * @return string
      */
     public function getVolumeName()
     {
-        return $this->container['volume_name'];
+        return $this->container['volumeName'];
     }
 
     /**
-     * Sets volume_name
-     * @param string $volume_name VolumeName is the binding reference to the PersistentVolume backing this claim.
+     * Sets volumeName
+     * @param string $volumeName VolumeName is the binding reference to the PersistentVolume backing this claim.
      * @return $this
      */
-    public function setVolumeName($volume_name)
+    public function setVolumeName($volumeName)
     {
-        $this->container['volume_name'] = $volume_name;
+        $this->container['volumeName'] = $volumeName;
 
         return $this;
     }

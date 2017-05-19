@@ -83,7 +83,7 @@ class VersionInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "build_date"
+     * Test attribute "buildDate"
      */
     public function testPropertyBuildDate()
     {
@@ -99,7 +99,7 @@ class VersionInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "git_commit"
+     * Test attribute "gitCommit"
      */
     public function testPropertyGitCommit()
     {
@@ -107,7 +107,7 @@ class VersionInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "git_tree_state"
+     * Test attribute "gitTreeState"
      */
     public function testPropertyGitTreeState()
     {
@@ -115,7 +115,7 @@ class VersionInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "git_version"
+     * Test attribute "gitVersion"
      */
     public function testPropertyGitVersion()
     {
@@ -123,7 +123,7 @@ class VersionInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "go_version"
+     * Test attribute "goVersion"
      */
     public function testPropertyGoVersion()
     {

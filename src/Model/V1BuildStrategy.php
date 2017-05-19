@@ -55,10 +55,10 @@ class V1BuildStrategy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1CustomBuildStrategy',
-        'docker_strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1DockerBuildStrategy',
-        'jenkins_pipeline_strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1JenkinsPipelineBuildStrategy',
-        'source_strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1SourceBuildStrategy',
+        'customStrategy' => '\UniversityOfAdelaide\OpenShift\Model\V1CustomBuildStrategy',
+        'dockerStrategy' => '\UniversityOfAdelaide\OpenShift\Model\V1DockerBuildStrategy',
+        'jenkinsPipelineStrategy' => '\UniversityOfAdelaide\OpenShift\Model\V1JenkinsPipelineBuildStrategy',
+        'sourceStrategy' => '\UniversityOfAdelaide\OpenShift\Model\V1SourceBuildStrategy',
         'type' => 'string'
     ];
 
@@ -72,10 +72,10 @@ class V1BuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_strategy' => 'customStrategy',
-        'docker_strategy' => 'dockerStrategy',
-        'jenkins_pipeline_strategy' => 'jenkinsPipelineStrategy',
-        'source_strategy' => 'sourceStrategy',
+        'customStrategy' => 'customStrategy',
+        'dockerStrategy' => 'dockerStrategy',
+        'jenkinsPipelineStrategy' => 'jenkinsPipelineStrategy',
+        'sourceStrategy' => 'sourceStrategy',
         'type' => 'type'
     ];
 
@@ -85,10 +85,10 @@ class V1BuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'custom_strategy' => 'setCustomStrategy',
-        'docker_strategy' => 'setDockerStrategy',
-        'jenkins_pipeline_strategy' => 'setJenkinsPipelineStrategy',
-        'source_strategy' => 'setSourceStrategy',
+        'customStrategy' => 'setCustomStrategy',
+        'dockerStrategy' => 'setDockerStrategy',
+        'jenkinsPipelineStrategy' => 'setJenkinsPipelineStrategy',
+        'sourceStrategy' => 'setSourceStrategy',
         'type' => 'setType'
     ];
 
@@ -98,10 +98,10 @@ class V1BuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'custom_strategy' => 'getCustomStrategy',
-        'docker_strategy' => 'getDockerStrategy',
-        'jenkins_pipeline_strategy' => 'getJenkinsPipelineStrategy',
-        'source_strategy' => 'getSourceStrategy',
+        'customStrategy' => 'getCustomStrategy',
+        'dockerStrategy' => 'getDockerStrategy',
+        'jenkinsPipelineStrategy' => 'getJenkinsPipelineStrategy',
+        'sourceStrategy' => 'getSourceStrategy',
         'type' => 'getType'
     ];
 
@@ -136,10 +136,10 @@ class V1BuildStrategy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['custom_strategy'] = isset($data['custom_strategy']) ? $data['custom_strategy'] : null;
-        $this->container['docker_strategy'] = isset($data['docker_strategy']) ? $data['docker_strategy'] : null;
-        $this->container['jenkins_pipeline_strategy'] = isset($data['jenkins_pipeline_strategy']) ? $data['jenkins_pipeline_strategy'] : null;
-        $this->container['source_strategy'] = isset($data['source_strategy']) ? $data['source_strategy'] : null;
+        $this->container['customStrategy'] = isset($data['customStrategy']) ? $data['customStrategy'] : null;
+        $this->container['dockerStrategy'] = isset($data['dockerStrategy']) ? $data['dockerStrategy'] : null;
+        $this->container['jenkinsPipelineStrategy'] = isset($data['jenkinsPipelineStrategy']) ? $data['jenkinsPipelineStrategy'] : null;
+        $this->container['sourceStrategy'] = isset($data['sourceStrategy']) ? $data['sourceStrategy'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -175,85 +175,85 @@ class V1BuildStrategy implements ArrayAccess
 
 
     /**
-     * Gets custom_strategy
+     * Gets customStrategy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1CustomBuildStrategy
      */
     public function getCustomStrategy()
     {
-        return $this->container['custom_strategy'];
+        return $this->container['customStrategy'];
     }
 
     /**
-     * Sets custom_strategy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1CustomBuildStrategy $custom_strategy customStrategy holds the parameters to the Custom build strategy
+     * Sets customStrategy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1CustomBuildStrategy $customStrategy customStrategy holds the parameters to the Custom build strategy
      * @return $this
      */
-    public function setCustomStrategy($custom_strategy)
+    public function setCustomStrategy($customStrategy)
     {
-        $this->container['custom_strategy'] = $custom_strategy;
+        $this->container['customStrategy'] = $customStrategy;
 
         return $this;
     }
 
     /**
-     * Gets docker_strategy
+     * Gets dockerStrategy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DockerBuildStrategy
      */
     public function getDockerStrategy()
     {
-        return $this->container['docker_strategy'];
+        return $this->container['dockerStrategy'];
     }
 
     /**
-     * Sets docker_strategy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DockerBuildStrategy $docker_strategy dockerStrategy holds the parameters to the Docker build strategy.
+     * Sets dockerStrategy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DockerBuildStrategy $dockerStrategy dockerStrategy holds the parameters to the Docker build strategy.
      * @return $this
      */
-    public function setDockerStrategy($docker_strategy)
+    public function setDockerStrategy($dockerStrategy)
     {
-        $this->container['docker_strategy'] = $docker_strategy;
+        $this->container['dockerStrategy'] = $dockerStrategy;
 
         return $this;
     }
 
     /**
-     * Gets jenkins_pipeline_strategy
+     * Gets jenkinsPipelineStrategy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1JenkinsPipelineBuildStrategy
      */
     public function getJenkinsPipelineStrategy()
     {
-        return $this->container['jenkins_pipeline_strategy'];
+        return $this->container['jenkinsPipelineStrategy'];
     }
 
     /**
-     * Sets jenkins_pipeline_strategy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1JenkinsPipelineBuildStrategy $jenkins_pipeline_strategy JenkinsPipelineStrategy holds the parameters to the Jenkins Pipeline build strategy. This strategy is in tech preview.
+     * Sets jenkinsPipelineStrategy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1JenkinsPipelineBuildStrategy $jenkinsPipelineStrategy JenkinsPipelineStrategy holds the parameters to the Jenkins Pipeline build strategy. This strategy is in tech preview.
      * @return $this
      */
-    public function setJenkinsPipelineStrategy($jenkins_pipeline_strategy)
+    public function setJenkinsPipelineStrategy($jenkinsPipelineStrategy)
     {
-        $this->container['jenkins_pipeline_strategy'] = $jenkins_pipeline_strategy;
+        $this->container['jenkinsPipelineStrategy'] = $jenkinsPipelineStrategy;
 
         return $this;
     }
 
     /**
-     * Gets source_strategy
+     * Gets sourceStrategy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SourceBuildStrategy
      */
     public function getSourceStrategy()
     {
-        return $this->container['source_strategy'];
+        return $this->container['sourceStrategy'];
     }
 
     /**
-     * Sets source_strategy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SourceBuildStrategy $source_strategy sourceStrategy holds the parameters to the Source build strategy.
+     * Sets sourceStrategy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SourceBuildStrategy $sourceStrategy sourceStrategy holds the parameters to the Source build strategy.
      * @return $this
      */
-    public function setSourceStrategy($source_strategy)
+    public function setSourceStrategy($sourceStrategy)
     {
-        $this->container['source_strategy'] = $source_strategy;
+        $this->container['sourceStrategy'] = $sourceStrategy;
 
         return $this;
     }

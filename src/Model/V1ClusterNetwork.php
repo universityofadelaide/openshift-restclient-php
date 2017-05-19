@@ -55,13 +55,13 @@ class V1ClusterNetwork implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'hostsubnetlength' => 'int',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'network' => 'string',
-        'plugin_name' => 'string',
-        'service_network' => 'string'
+        'pluginName' => 'string',
+        'serviceNetwork' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1ClusterNetwork implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'hostsubnetlength' => 'hostsubnetlength',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'network' => 'network',
-        'plugin_name' => 'pluginName',
-        'service_network' => 'serviceNetwork'
+        'pluginName' => 'pluginName',
+        'serviceNetwork' => 'serviceNetwork'
     ];
 
 
@@ -89,13 +89,13 @@ class V1ClusterNetwork implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'hostsubnetlength' => 'setHostsubnetlength',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'network' => 'setNetwork',
-        'plugin_name' => 'setPluginName',
-        'service_network' => 'setServiceNetwork'
+        'pluginName' => 'setPluginName',
+        'serviceNetwork' => 'setServiceNetwork'
     ];
 
 
@@ -104,13 +104,13 @@ class V1ClusterNetwork implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'hostsubnetlength' => 'getHostsubnetlength',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'network' => 'getNetwork',
-        'plugin_name' => 'getPluginName',
-        'service_network' => 'getServiceNetwork'
+        'pluginName' => 'getPluginName',
+        'serviceNetwork' => 'getServiceNetwork'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1ClusterNetwork implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['hostsubnetlength'] = isset($data['hostsubnetlength']) ? $data['hostsubnetlength'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['network'] = isset($data['network']) ? $data['network'] : null;
-        $this->container['plugin_name'] = isset($data['plugin_name']) ? $data['plugin_name'] : null;
-        $this->container['service_network'] = isset($data['service_network']) ? $data['service_network'] : null;
+        $this->container['pluginName'] = isset($data['pluginName']) ? $data['pluginName'] : null;
+        $this->container['serviceNetwork'] = isset($data['serviceNetwork']) ? $data['serviceNetwork'] : null;
     }
 
     /**
@@ -168,8 +168,8 @@ class V1ClusterNetwork implements ArrayAccess
         if ($this->container['network'] === null) {
             $invalid_properties[] = "'network' can't be null";
         }
-        if ($this->container['service_network'] === null) {
-            $invalid_properties[] = "'service_network' can't be null";
+        if ($this->container['serviceNetwork'] === null) {
+            $invalid_properties[] = "'serviceNetwork' can't be null";
         }
         return $invalid_properties;
     }
@@ -189,7 +189,7 @@ class V1ClusterNetwork implements ArrayAccess
         if ($this->container['network'] === null) {
             return false;
         }
-        if ($this->container['service_network'] === null) {
+        if ($this->container['serviceNetwork'] === null) {
             return false;
         }
         return true;
@@ -197,22 +197,22 @@ class V1ClusterNetwork implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -302,43 +302,43 @@ class V1ClusterNetwork implements ArrayAccess
     }
 
     /**
-     * Gets plugin_name
+     * Gets pluginName
      * @return string
      */
     public function getPluginName()
     {
-        return $this->container['plugin_name'];
+        return $this->container['pluginName'];
     }
 
     /**
-     * Sets plugin_name
-     * @param string $plugin_name PluginName is the name of the network plugin being used
+     * Sets pluginName
+     * @param string $pluginName PluginName is the name of the network plugin being used
      * @return $this
      */
-    public function setPluginName($plugin_name)
+    public function setPluginName($pluginName)
     {
-        $this->container['plugin_name'] = $plugin_name;
+        $this->container['pluginName'] = $pluginName;
 
         return $this;
     }
 
     /**
-     * Gets service_network
+     * Gets serviceNetwork
      * @return string
      */
     public function getServiceNetwork()
     {
-        return $this->container['service_network'];
+        return $this->container['serviceNetwork'];
     }
 
     /**
-     * Sets service_network
-     * @param string $service_network ServiceNetwork is the CIDR range that Service IP addresses are allocated from
+     * Sets serviceNetwork
+     * @param string $serviceNetwork ServiceNetwork is the CIDR range that Service IP addresses are allocated from
      * @return $this
      */
-    public function setServiceNetwork($service_network)
+    public function setServiceNetwork($serviceNetwork)
     {
-        $this->container['service_network'] = $service_network;
+        $this->container['serviceNetwork'] = $serviceNetwork;
 
         return $this;
     }

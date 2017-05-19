@@ -57,7 +57,7 @@ class V1ImageSource implements ArrayAccess
     protected static $swaggerTypes = [
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'paths' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[]',
-        'pull_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
+        'pullSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -72,7 +72,7 @@ class V1ImageSource implements ArrayAccess
     protected static $attributeMap = [
         'from' => 'from',
         'paths' => 'paths',
-        'pull_secret' => 'pullSecret'
+        'pullSecret' => 'pullSecret'
     ];
 
 
@@ -83,7 +83,7 @@ class V1ImageSource implements ArrayAccess
     protected static $setters = [
         'from' => 'setFrom',
         'paths' => 'setPaths',
-        'pull_secret' => 'setPullSecret'
+        'pullSecret' => 'setPullSecret'
     ];
 
 
@@ -94,7 +94,7 @@ class V1ImageSource implements ArrayAccess
     protected static $getters = [
         'from' => 'getFrom',
         'paths' => 'getPaths',
-        'pull_secret' => 'getPullSecret'
+        'pullSecret' => 'getPullSecret'
     ];
 
     public static function attributeMap()
@@ -130,7 +130,7 @@ class V1ImageSource implements ArrayAccess
     {
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['paths'] = isset($data['paths']) ? $data['paths'] : null;
-        $this->container['pull_secret'] = isset($data['pull_secret']) ? $data['pull_secret'] : null;
+        $this->container['pullSecret'] = isset($data['pullSecret']) ? $data['pullSecret'] : null;
     }
 
     /**
@@ -213,22 +213,22 @@ class V1ImageSource implements ArrayAccess
     }
 
     /**
-     * Gets pull_secret
+     * Gets pullSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getPullSecret()
     {
-        return $this->container['pull_secret'];
+        return $this->container['pullSecret'];
     }
 
     /**
-     * Sets pull_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pull_secret pullSecret is a reference to a secret to be used to pull the image from a registry If the image is pulled from the OpenShift registry, this field does not need to be set.
+     * Sets pullSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pullSecret pullSecret is a reference to a secret to be used to pull the image from a registry If the image is pulled from the OpenShift registry, this field does not need to be set.
      * @return $this
      */
-    public function setPullSecret($pull_secret)
+    public function setPullSecret($pullSecret)
     {
-        $this->container['pull_secret'] = $pull_secret;
+        $this->container['pullSecret'] = $pullSecret;
 
         return $this;
     }

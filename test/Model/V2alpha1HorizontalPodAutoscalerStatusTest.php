@@ -83,7 +83,7 @@ class V2alpha1HorizontalPodAutoscalerStatusTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test attribute "current_metrics"
+     * Test attribute "currentMetrics"
      */
     public function testPropertyCurrentMetrics()
     {
@@ -91,7 +91,7 @@ class V2alpha1HorizontalPodAutoscalerStatusTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test attribute "current_replicas"
+     * Test attribute "currentReplicas"
      */
     public function testPropertyCurrentReplicas()
     {
@@ -99,7 +99,7 @@ class V2alpha1HorizontalPodAutoscalerStatusTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test attribute "desired_replicas"
+     * Test attribute "desiredReplicas"
      */
     public function testPropertyDesiredReplicas()
     {
@@ -107,7 +107,7 @@ class V2alpha1HorizontalPodAutoscalerStatusTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test attribute "last_scale_time"
+     * Test attribute "lastScaleTime"
      */
     public function testPropertyLastScaleTime()
     {
@@ -115,7 +115,7 @@ class V2alpha1HorizontalPodAutoscalerStatusTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {

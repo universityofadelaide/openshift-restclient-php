@@ -83,7 +83,7 @@ class V1DownwardAPIVolumeFileTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "field_ref"
+     * Test attribute "fieldRef"
      */
     public function testPropertyFieldRef()
     {
@@ -107,7 +107,7 @@ class V1DownwardAPIVolumeFileTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_field_ref"
+     * Test attribute "resourceFieldRef"
      */
     public function testPropertyResourceFieldRef()
     {

@@ -55,9 +55,9 @@ class V1Policy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
-        'last_modified' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastModified' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'roles' => '\UniversityOfAdelaide\OpenShift\Model\V1NamedRole[]'
     ];
@@ -72,9 +72,9 @@ class V1Policy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
-        'last_modified' => 'lastModified',
+        'lastModified' => 'lastModified',
         'metadata' => 'metadata',
         'roles' => 'roles'
     ];
@@ -85,9 +85,9 @@ class V1Policy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
-        'last_modified' => 'setLastModified',
+        'lastModified' => 'setLastModified',
         'metadata' => 'setMetadata',
         'roles' => 'setRoles'
     ];
@@ -98,9 +98,9 @@ class V1Policy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
-        'last_modified' => 'getLastModified',
+        'lastModified' => 'getLastModified',
         'metadata' => 'getMetadata',
         'roles' => 'getRoles'
     ];
@@ -136,9 +136,9 @@ class V1Policy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['last_modified'] = isset($data['last_modified']) ? $data['last_modified'] : null;
+        $this->container['lastModified'] = isset($data['lastModified']) ? $data['lastModified'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
     }
@@ -152,8 +152,8 @@ class V1Policy implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['last_modified'] === null) {
-            $invalid_properties[] = "'last_modified' can't be null";
+        if ($this->container['lastModified'] === null) {
+            $invalid_properties[] = "'lastModified' can't be null";
         }
         if ($this->container['roles'] === null) {
             $invalid_properties[] = "'roles' can't be null";
@@ -170,7 +170,7 @@ class V1Policy implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['last_modified'] === null) {
+        if ($this->container['lastModified'] === null) {
             return false;
         }
         if ($this->container['roles'] === null) {
@@ -181,22 +181,22 @@ class V1Policy implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -223,22 +223,22 @@ class V1Policy implements ArrayAccess
     }
 
     /**
-     * Gets last_modified
+     * Gets lastModified
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastModified()
     {
-        return $this->container['last_modified'];
+        return $this->container['lastModified'];
     }
 
     /**
-     * Sets last_modified
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_modified LastModified is the last time that any part of the Policy was created, updated, or deleted
+     * Sets lastModified
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastModified LastModified is the last time that any part of the Policy was created, updated, or deleted
      * @return $this
      */
-    public function setLastModified($last_modified)
+    public function setLastModified($lastModified)
     {
-        $this->container['last_modified'] = $last_modified;
+        $this->container['lastModified'] = $lastModified;
 
         return $this;
     }

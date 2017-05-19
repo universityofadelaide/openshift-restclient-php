@@ -55,8 +55,8 @@ class V1BuildOutput implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_labels' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLabel[]',
-        'push_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'imageLabels' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLabel[]',
+        'pushSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
         'to' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
     ];
 
@@ -70,8 +70,8 @@ class V1BuildOutput implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_labels' => 'imageLabels',
-        'push_secret' => 'pushSecret',
+        'imageLabels' => 'imageLabels',
+        'pushSecret' => 'pushSecret',
         'to' => 'to'
     ];
 
@@ -81,8 +81,8 @@ class V1BuildOutput implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_labels' => 'setImageLabels',
-        'push_secret' => 'setPushSecret',
+        'imageLabels' => 'setImageLabels',
+        'pushSecret' => 'setPushSecret',
         'to' => 'setTo'
     ];
 
@@ -92,8 +92,8 @@ class V1BuildOutput implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_labels' => 'getImageLabels',
-        'push_secret' => 'getPushSecret',
+        'imageLabels' => 'getImageLabels',
+        'pushSecret' => 'getPushSecret',
         'to' => 'getTo'
     ];
 
@@ -128,8 +128,8 @@ class V1BuildOutput implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['image_labels'] = isset($data['image_labels']) ? $data['image_labels'] : null;
-        $this->container['push_secret'] = isset($data['push_secret']) ? $data['push_secret'] : null;
+        $this->container['imageLabels'] = isset($data['imageLabels']) ? $data['imageLabels'] : null;
+        $this->container['pushSecret'] = isset($data['pushSecret']) ? $data['pushSecret'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
     }
 
@@ -159,43 +159,43 @@ class V1BuildOutput implements ArrayAccess
 
 
     /**
-     * Gets image_labels
+     * Gets imageLabels
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageLabel[]
      */
     public function getImageLabels()
     {
-        return $this->container['image_labels'];
+        return $this->container['imageLabels'];
     }
 
     /**
-     * Sets image_labels
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLabel[] $image_labels imageLabels define a list of labels that are applied to the resulting image. If there are multiple labels with the same name then the last one in the list is used.
+     * Sets imageLabels
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLabel[] $imageLabels imageLabels define a list of labels that are applied to the resulting image. If there are multiple labels with the same name then the last one in the list is used.
      * @return $this
      */
-    public function setImageLabels($image_labels)
+    public function setImageLabels($imageLabels)
     {
-        $this->container['image_labels'] = $image_labels;
+        $this->container['imageLabels'] = $imageLabels;
 
         return $this;
     }
 
     /**
-     * Gets push_secret
+     * Gets pushSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getPushSecret()
     {
-        return $this->container['push_secret'];
+        return $this->container['pushSecret'];
     }
 
     /**
-     * Sets push_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $push_secret PushSecret is the name of a Secret that would be used for setting up the authentication for executing the Docker push to authentication enabled Docker Registry (or Docker Hub).
+     * Sets pushSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pushSecret PushSecret is the name of a Secret that would be used for setting up the authentication for executing the Docker push to authentication enabled Docker Registry (or Docker Hub).
      * @return $this
      */
-    public function setPushSecret($push_secret)
+    public function setPushSecret($pushSecret)
     {
-        $this->container['push_secret'] = $push_secret;
+        $this->container['pushSecret'] = $pushSecret;
 
         return $this;
     }

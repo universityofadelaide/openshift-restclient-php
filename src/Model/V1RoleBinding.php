@@ -55,13 +55,13 @@ class V1RoleBinding implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'group_names' => 'string[]',
+        'apiVersion' => 'string',
+        'groupNames' => 'string[]',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'role_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'roleRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'subjects' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference[]',
-        'user_names' => 'string[]'
+        'userNames' => 'string[]'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1RoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'group_names' => 'groupNames',
+        'apiVersion' => 'apiVersion',
+        'groupNames' => 'groupNames',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'role_ref' => 'roleRef',
+        'roleRef' => 'roleRef',
         'subjects' => 'subjects',
-        'user_names' => 'userNames'
+        'userNames' => 'userNames'
     ];
 
 
@@ -89,13 +89,13 @@ class V1RoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'group_names' => 'setGroupNames',
+        'apiVersion' => 'setApiVersion',
+        'groupNames' => 'setGroupNames',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'role_ref' => 'setRoleRef',
+        'roleRef' => 'setRoleRef',
         'subjects' => 'setSubjects',
-        'user_names' => 'setUserNames'
+        'userNames' => 'setUserNames'
     ];
 
 
@@ -104,13 +104,13 @@ class V1RoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'group_names' => 'getGroupNames',
+        'apiVersion' => 'getApiVersion',
+        'groupNames' => 'getGroupNames',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'role_ref' => 'getRoleRef',
+        'roleRef' => 'getRoleRef',
         'subjects' => 'getSubjects',
-        'user_names' => 'getUserNames'
+        'userNames' => 'getUserNames'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1RoleBinding implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['group_names'] = isset($data['group_names']) ? $data['group_names'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['groupNames'] = isset($data['groupNames']) ? $data['groupNames'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['role_ref'] = isset($data['role_ref']) ? $data['role_ref'] : null;
+        $this->container['roleRef'] = isset($data['roleRef']) ? $data['roleRef'] : null;
         $this->container['subjects'] = isset($data['subjects']) ? $data['subjects'] : null;
-        $this->container['user_names'] = isset($data['user_names']) ? $data['user_names'] : null;
+        $this->container['userNames'] = isset($data['userNames']) ? $data['userNames'] : null;
     }
 
     /**
@@ -162,17 +162,17 @@ class V1RoleBinding implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['group_names'] === null) {
-            $invalid_properties[] = "'group_names' can't be null";
+        if ($this->container['groupNames'] === null) {
+            $invalid_properties[] = "'groupNames' can't be null";
         }
-        if ($this->container['role_ref'] === null) {
-            $invalid_properties[] = "'role_ref' can't be null";
+        if ($this->container['roleRef'] === null) {
+            $invalid_properties[] = "'roleRef' can't be null";
         }
         if ($this->container['subjects'] === null) {
             $invalid_properties[] = "'subjects' can't be null";
         }
-        if ($this->container['user_names'] === null) {
-            $invalid_properties[] = "'user_names' can't be null";
+        if ($this->container['userNames'] === null) {
+            $invalid_properties[] = "'userNames' can't be null";
         }
         return $invalid_properties;
     }
@@ -186,16 +186,16 @@ class V1RoleBinding implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['group_names'] === null) {
+        if ($this->container['groupNames'] === null) {
             return false;
         }
-        if ($this->container['role_ref'] === null) {
+        if ($this->container['roleRef'] === null) {
             return false;
         }
         if ($this->container['subjects'] === null) {
             return false;
         }
-        if ($this->container['user_names'] === null) {
+        if ($this->container['userNames'] === null) {
             return false;
         }
         return true;
@@ -203,43 +203,43 @@ class V1RoleBinding implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets group_names
+     * Gets groupNames
      * @return string[]
      */
     public function getGroupNames()
     {
-        return $this->container['group_names'];
+        return $this->container['groupNames'];
     }
 
     /**
-     * Sets group_names
-     * @param string[] $group_names GroupNames holds all the groups directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details.
+     * Sets groupNames
+     * @param string[] $groupNames GroupNames holds all the groups directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details.
      * @return $this
      */
-    public function setGroupNames($group_names)
+    public function setGroupNames($groupNames)
     {
-        $this->container['group_names'] = $group_names;
+        $this->container['groupNames'] = $groupNames;
 
         return $this;
     }
@@ -287,22 +287,22 @@ class V1RoleBinding implements ArrayAccess
     }
 
     /**
-     * Gets role_ref
+     * Gets roleRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getRoleRef()
     {
-        return $this->container['role_ref'];
+        return $this->container['roleRef'];
     }
 
     /**
-     * Sets role_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $role_ref RoleRef can only reference the current namespace and the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error. Since Policy is a singleton, this is sufficient knowledge to locate a role.
+     * Sets roleRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $roleRef RoleRef can only reference the current namespace and the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error. Since Policy is a singleton, this is sufficient knowledge to locate a role.
      * @return $this
      */
-    public function setRoleRef($role_ref)
+    public function setRoleRef($roleRef)
     {
-        $this->container['role_ref'] = $role_ref;
+        $this->container['roleRef'] = $roleRef;
 
         return $this;
     }
@@ -329,22 +329,22 @@ class V1RoleBinding implements ArrayAccess
     }
 
     /**
-     * Gets user_names
+     * Gets userNames
      * @return string[]
      */
     public function getUserNames()
     {
-        return $this->container['user_names'];
+        return $this->container['userNames'];
     }
 
     /**
-     * Sets user_names
-     * @param string[] $user_names UserNames holds all the usernames directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details.
+     * Sets userNames
+     * @param string[] $userNames UserNames holds all the usernames directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details.
      * @return $this
      */
-    public function setUserNames($user_names)
+    public function setUserNames($userNames)
     {
-        $this->container['user_names'] = $user_names;
+        $this->container['userNames'] = $userNames;
 
         return $this;
     }

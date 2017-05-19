@@ -83,7 +83,7 @@ class V2alpha1CronJobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "concurrency_policy"
+     * Test attribute "concurrencyPolicy"
      */
     public function testPropertyConcurrencyPolicy()
     {
@@ -91,7 +91,7 @@ class V2alpha1CronJobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "failed_jobs_history_limit"
+     * Test attribute "failedJobsHistoryLimit"
      */
     public function testPropertyFailedJobsHistoryLimit()
     {
@@ -99,7 +99,7 @@ class V2alpha1CronJobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "job_template"
+     * Test attribute "jobTemplate"
      */
     public function testPropertyJobTemplate()
     {
@@ -115,7 +115,7 @@ class V2alpha1CronJobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "starting_deadline_seconds"
+     * Test attribute "startingDeadlineSeconds"
      */
     public function testPropertyStartingDeadlineSeconds()
     {
@@ -123,7 +123,7 @@ class V2alpha1CronJobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "successful_jobs_history_limit"
+     * Test attribute "successfulJobsHistoryLimit"
      */
     public function testPropertySuccessfulJobsHistoryLimit()
     {

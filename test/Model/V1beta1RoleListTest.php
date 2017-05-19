@@ -83,7 +83,7 @@ class V1beta1RoleListTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {

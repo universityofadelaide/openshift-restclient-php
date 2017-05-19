@@ -83,25 +83,25 @@ class V1NodeSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "external_id"
+     * Test attribute "externalID"
      */
-    public function testPropertyExternalId()
+    public function testPropertyExternalID()
     {
 
     }
 
     /**
-     * Test attribute "pod_cidr"
+     * Test attribute "podCIDR"
      */
-    public function testPropertyPodCidr()
+    public function testPropertyPodCIDR()
     {
 
     }
 
     /**
-     * Test attribute "provider_id"
+     * Test attribute "providerID"
      */
-    public function testPropertyProviderId()
+    public function testPropertyProviderID()
     {
 
     }

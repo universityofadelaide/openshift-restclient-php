@@ -83,7 +83,7 @@ class V1SecretTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -115,7 +115,7 @@ class V1SecretTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "string_data"
+     * Test attribute "stringData"
      */
     public function testPropertyStringData()
     {

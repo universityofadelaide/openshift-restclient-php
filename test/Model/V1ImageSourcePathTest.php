@@ -83,7 +83,7 @@ class V1ImageSourcePathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "destination_dir"
+     * Test attribute "destinationDir"
      */
     public function testPropertyDestinationDir()
     {
@@ -91,7 +91,7 @@ class V1ImageSourcePathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "source_path"
+     * Test attribute "sourcePath"
      */
     public function testPropertySourcePath()
     {

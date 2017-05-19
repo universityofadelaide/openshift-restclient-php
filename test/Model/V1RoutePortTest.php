@@ -83,7 +83,7 @@ class V1RoutePortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_port"
+     * Test attribute "targetPort"
      */
     public function testPropertyTargetPort()
     {

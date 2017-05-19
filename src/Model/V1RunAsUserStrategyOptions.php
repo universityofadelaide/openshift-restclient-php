@@ -57,8 +57,8 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'string',
         'uid' => 'int',
-        'uid_range_max' => 'int',
-        'uid_range_min' => 'int'
+        'uidRangeMax' => 'int',
+        'uidRangeMin' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -73,8 +73,8 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     protected static $attributeMap = [
         'type' => 'type',
         'uid' => 'uid',
-        'uid_range_max' => 'uidRangeMax',
-        'uid_range_min' => 'uidRangeMin'
+        'uidRangeMax' => 'uidRangeMax',
+        'uidRangeMin' => 'uidRangeMin'
     ];
 
 
@@ -85,8 +85,8 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     protected static $setters = [
         'type' => 'setType',
         'uid' => 'setUid',
-        'uid_range_max' => 'setUidRangeMax',
-        'uid_range_min' => 'setUidRangeMin'
+        'uidRangeMax' => 'setUidRangeMax',
+        'uidRangeMin' => 'setUidRangeMin'
     ];
 
 
@@ -97,8 +97,8 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     protected static $getters = [
         'type' => 'getType',
         'uid' => 'getUid',
-        'uid_range_max' => 'getUidRangeMax',
-        'uid_range_min' => 'getUidRangeMin'
+        'uidRangeMax' => 'getUidRangeMax',
+        'uidRangeMin' => 'getUidRangeMin'
     ];
 
     public static function attributeMap()
@@ -134,8 +134,8 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
-        $this->container['uid_range_max'] = isset($data['uid_range_max']) ? $data['uid_range_max'] : null;
-        $this->container['uid_range_min'] = isset($data['uid_range_min']) ? $data['uid_range_min'] : null;
+        $this->container['uidRangeMax'] = isset($data['uidRangeMax']) ? $data['uidRangeMax'] : null;
+        $this->container['uidRangeMin'] = isset($data['uidRangeMin']) ? $data['uidRangeMin'] : null;
     }
 
     /**
@@ -206,43 +206,43 @@ class V1RunAsUserStrategyOptions implements ArrayAccess
     }
 
     /**
-     * Gets uid_range_max
+     * Gets uidRangeMax
      * @return int
      */
     public function getUidRangeMax()
     {
-        return $this->container['uid_range_max'];
+        return $this->container['uidRangeMax'];
     }
 
     /**
-     * Sets uid_range_max
-     * @param int $uid_range_max UIDRangeMax defines the max value for a strategy that allocates by range.
+     * Sets uidRangeMax
+     * @param int $uidRangeMax UIDRangeMax defines the max value for a strategy that allocates by range.
      * @return $this
      */
-    public function setUidRangeMax($uid_range_max)
+    public function setUidRangeMax($uidRangeMax)
     {
-        $this->container['uid_range_max'] = $uid_range_max;
+        $this->container['uidRangeMax'] = $uidRangeMax;
 
         return $this;
     }
 
     /**
-     * Gets uid_range_min
+     * Gets uidRangeMin
      * @return int
      */
     public function getUidRangeMin()
     {
-        return $this->container['uid_range_min'];
+        return $this->container['uidRangeMin'];
     }
 
     /**
-     * Sets uid_range_min
-     * @param int $uid_range_min UIDRangeMin defines the min value for a strategy that allocates by range.
+     * Sets uidRangeMin
+     * @param int $uidRangeMin UIDRangeMin defines the min value for a strategy that allocates by range.
      * @return $this
      */
-    public function setUidRangeMin($uid_range_min)
+    public function setUidRangeMin($uidRangeMin)
     {
-        $this->container['uid_range_min'] = $uid_range_min;
+        $this->container['uidRangeMin'] = $uidRangeMin;
 
         return $this;
     }

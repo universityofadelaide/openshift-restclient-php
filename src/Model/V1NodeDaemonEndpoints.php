@@ -55,7 +55,7 @@ class V1NodeDaemonEndpoints implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'kubelet_endpoint' => '\UniversityOfAdelaide\OpenShift\Model\V1DaemonEndpoint'
+        'kubeletEndpoint' => '\UniversityOfAdelaide\OpenShift\Model\V1DaemonEndpoint'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1NodeDaemonEndpoints implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'kubelet_endpoint' => 'kubeletEndpoint'
+        'kubeletEndpoint' => 'kubeletEndpoint'
     ];
 
 
@@ -77,7 +77,7 @@ class V1NodeDaemonEndpoints implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'kubelet_endpoint' => 'setKubeletEndpoint'
+        'kubeletEndpoint' => 'setKubeletEndpoint'
     ];
 
 
@@ -86,7 +86,7 @@ class V1NodeDaemonEndpoints implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'kubelet_endpoint' => 'getKubeletEndpoint'
+        'kubeletEndpoint' => 'getKubeletEndpoint'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1NodeDaemonEndpoints implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['kubelet_endpoint'] = isset($data['kubelet_endpoint']) ? $data['kubelet_endpoint'] : null;
+        $this->container['kubeletEndpoint'] = isset($data['kubeletEndpoint']) ? $data['kubeletEndpoint'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1NodeDaemonEndpoints implements ArrayAccess
 
 
     /**
-     * Gets kubelet_endpoint
+     * Gets kubeletEndpoint
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DaemonEndpoint
      */
     public function getKubeletEndpoint()
     {
-        return $this->container['kubelet_endpoint'];
+        return $this->container['kubeletEndpoint'];
     }
 
     /**
-     * Sets kubelet_endpoint
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DaemonEndpoint $kubelet_endpoint Endpoint on which Kubelet is listening.
+     * Sets kubeletEndpoint
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DaemonEndpoint $kubeletEndpoint Endpoint on which Kubelet is listening.
      * @return $this
      */
-    public function setKubeletEndpoint($kubelet_endpoint)
+    public function setKubeletEndpoint($kubeletEndpoint)
     {
-        $this->container['kubelet_endpoint'] = $kubelet_endpoint;
+        $this->container['kubeletEndpoint'] = $kubeletEndpoint;
 
         return $this;
     }

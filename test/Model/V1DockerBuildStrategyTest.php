@@ -83,7 +83,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "build_args"
+     * Test attribute "buildArgs"
      */
     public function testPropertyBuildArgs()
     {
@@ -91,7 +91,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dockerfile_path"
+     * Test attribute "dockerfilePath"
      */
     public function testPropertyDockerfilePath()
     {
@@ -107,7 +107,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "force_pull"
+     * Test attribute "forcePull"
      */
     public function testPropertyForcePull()
     {
@@ -123,7 +123,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_optimization_policy"
+     * Test attribute "imageOptimizationPolicy"
      */
     public function testPropertyImageOptimizationPolicy()
     {
@@ -131,7 +131,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "no_cache"
+     * Test attribute "noCache"
      */
     public function testPropertyNoCache()
     {
@@ -139,7 +139,7 @@ class V1DockerBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pull_secret"
+     * Test attribute "pullSecret"
      */
     public function testPropertyPullSecret()
     {

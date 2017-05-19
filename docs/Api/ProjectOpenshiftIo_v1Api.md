@@ -29,7 +29,7 @@ create a Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Project(); // \UniversityOfAdelaide\OpenShift\Model\V1Project | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -76,7 +76,7 @@ create a ProjectRequest
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ProjectRequest(); // \UniversityOfAdelaide\OpenShift\Model\V1ProjectRequest | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -123,7 +123,7 @@ delete a Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -170,7 +170,7 @@ get available resources
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getProjectOpenshiftIoV1APIResources();
@@ -200,7 +200,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listProjectOpenshiftIoV1Project**
-> \UniversityOfAdelaide\OpenShift\Model\V1ProjectList listProjectOpenshiftIoV1Project($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ProjectList listProjectOpenshiftIoV1Project($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -211,16 +211,16 @@ list or watch objects of kind Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listProjectOpenshiftIoV1Project($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listProjectOpenshiftIoV1Project($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectOpenshiftIo_v1Api->listProjectOpenshiftIoV1Project: ', $e->getMessage(), PHP_EOL;
@@ -233,10 +233,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -255,7 +255,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listProjectOpenshiftIoV1ProjectRequest**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status listProjectOpenshiftIoV1ProjectRequest($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status listProjectOpenshiftIoV1ProjectRequest($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -266,16 +266,16 @@ list objects of kind ProjectRequest
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listProjectOpenshiftIoV1ProjectRequest($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listProjectOpenshiftIoV1ProjectRequest($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectOpenshiftIo_v1Api->listProjectOpenshiftIoV1ProjectRequest: ', $e->getMessage(), PHP_EOL;
@@ -288,10 +288,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -321,7 +321,7 @@ partially update the specified Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -370,7 +370,7 @@ read the specified Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -417,7 +417,7 @@ replace the specified Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Project(); // \UniversityOfAdelaide\OpenShift\Model\V1Project | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -455,7 +455,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchProjectOpenshiftIoV1Project**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchProjectOpenshiftIoV1Project($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchProjectOpenshiftIoV1Project($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -466,17 +466,17 @@ watch changes to an object of kind Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchProjectOpenshiftIoV1Project($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchProjectOpenshiftIoV1Project($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectOpenshiftIo_v1Api->watchProjectOpenshiftIoV1Project: ', $e->getMessage(), PHP_EOL;
@@ -489,11 +489,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the Project |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -512,7 +512,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchProjectOpenshiftIoV1ProjectList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchProjectOpenshiftIoV1ProjectList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchProjectOpenshiftIoV1ProjectList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -523,16 +523,16 @@ watch individual changes to a list of Project
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ProjectOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchProjectOpenshiftIoV1ProjectList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchProjectOpenshiftIoV1ProjectList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectOpenshiftIo_v1Api->watchProjectOpenshiftIoV1ProjectList: ', $e->getMessage(), PHP_EOL;
@@ -544,11 +544,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type

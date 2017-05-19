@@ -56,7 +56,7 @@ class V1beta1IngressTLS implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'hosts' => 'string[]',
-        'secret_name' => 'string'
+        'secretName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V1beta1IngressTLS implements ArrayAccess
      */
     protected static $attributeMap = [
         'hosts' => 'hosts',
-        'secret_name' => 'secretName'
+        'secretName' => 'secretName'
     ];
 
 
@@ -80,7 +80,7 @@ class V1beta1IngressTLS implements ArrayAccess
      */
     protected static $setters = [
         'hosts' => 'setHosts',
-        'secret_name' => 'setSecretName'
+        'secretName' => 'setSecretName'
     ];
 
 
@@ -90,7 +90,7 @@ class V1beta1IngressTLS implements ArrayAccess
      */
     protected static $getters = [
         'hosts' => 'getHosts',
-        'secret_name' => 'getSecretName'
+        'secretName' => 'getSecretName'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V1beta1IngressTLS implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['hosts'] = isset($data['hosts']) ? $data['hosts'] : null;
-        $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
+        $this->container['secretName'] = isset($data['secretName']) ? $data['secretName'] : null;
     }
 
     /**
@@ -175,22 +175,22 @@ class V1beta1IngressTLS implements ArrayAccess
     }
 
     /**
-     * Gets secret_name
+     * Gets secretName
      * @return string
      */
     public function getSecretName()
     {
-        return $this->container['secret_name'];
+        return $this->container['secretName'];
     }
 
     /**
-     * Sets secret_name
-     * @param string $secret_name SecretName is the name of the secret used to terminate SSL traffic on 443. Field is left optional to allow SSL routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \"Host\" header field used by an IngressRule, the SNI host is used for termination and value of the Host header is used for routing.
+     * Sets secretName
+     * @param string $secretName SecretName is the name of the secret used to terminate SSL traffic on 443. Field is left optional to allow SSL routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \"Host\" header field used by an IngressRule, the SNI host is used for termination and value of the Host header is used for routing.
      * @return $this
      */
-    public function setSecretName($secret_name)
+    public function setSecretName($secretName)
     {
-        $this->container['secret_name'] = $secret_name;
+        $this->container['secretName'] = $secretName;
 
         return $this;
     }

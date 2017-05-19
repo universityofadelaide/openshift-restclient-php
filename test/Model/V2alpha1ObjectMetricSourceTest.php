@@ -83,7 +83,7 @@ class V2alpha1ObjectMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "metric_name"
+     * Test attribute "metricName"
      */
     public function testPropertyMetricName()
     {
@@ -99,7 +99,7 @@ class V2alpha1ObjectMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_value"
+     * Test attribute "targetValue"
      */
     public function testPropertyTargetValue()
     {

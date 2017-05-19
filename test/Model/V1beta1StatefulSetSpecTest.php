@@ -99,7 +99,7 @@ class V1beta1StatefulSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_name"
+     * Test attribute "serviceName"
      */
     public function testPropertyServiceName()
     {
@@ -115,7 +115,7 @@ class V1beta1StatefulSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_claim_templates"
+     * Test attribute "volumeClaimTemplates"
      */
     public function testPropertyVolumeClaimTemplates()
     {

@@ -55,7 +55,7 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allowed_by' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'allowedBy' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'reason' => 'string',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec'
     ];
@@ -70,7 +70,7 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allowed_by' => 'allowedBy',
+        'allowedBy' => 'allowedBy',
         'reason' => 'reason',
         'template' => 'template'
     ];
@@ -81,7 +81,7 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allowed_by' => 'setAllowedBy',
+        'allowedBy' => 'setAllowedBy',
         'reason' => 'setReason',
         'template' => 'setTemplate'
     ];
@@ -92,7 +92,7 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allowed_by' => 'getAllowedBy',
+        'allowedBy' => 'getAllowedBy',
         'reason' => 'getReason',
         'template' => 'getTemplate'
     ];
@@ -128,7 +128,7 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allowed_by'] = isset($data['allowed_by']) ? $data['allowed_by'] : null;
+        $this->container['allowedBy'] = isset($data['allowedBy']) ? $data['allowedBy'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
     }
@@ -159,22 +159,22 @@ class V1PodSecurityPolicySubjectReviewStatus implements ArrayAccess
 
 
     /**
-     * Gets allowed_by
+     * Gets allowedBy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getAllowedBy()
     {
-        return $this->container['allowed_by'];
+        return $this->container['allowedBy'];
     }
 
     /**
-     * Sets allowed_by
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $allowed_by allowedBy is a reference to the rule that allows the PodTemplateSpec. A rule can be a SecurityContextConstraint or a PodSecurityPolicy A `nil`, indicates that it was denied.
+     * Sets allowedBy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $allowedBy allowedBy is a reference to the rule that allows the PodTemplateSpec. A rule can be a SecurityContextConstraint or a PodSecurityPolicy A `nil`, indicates that it was denied.
      * @return $this
      */
-    public function setAllowedBy($allowed_by)
+    public function setAllowedBy($allowedBy)
     {
-        $this->container['allowed_by'] = $allowed_by;
+        $this->container['allowedBy'] = $allowedBy;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1DockerStrategyOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "build_args"
+     * Test attribute "buildArgs"
      */
     public function testPropertyBuildArgs()
     {

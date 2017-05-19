@@ -91,7 +91,7 @@ class V1alpha1PodPresetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "env_from"
+     * Test attribute "envFrom"
      */
     public function testPropertyEnvFrom()
     {
@@ -107,7 +107,7 @@ class V1alpha1PodPresetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_mounts"
+     * Test attribute "volumeMounts"
      */
     public function testPropertyVolumeMounts()
     {

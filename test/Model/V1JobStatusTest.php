@@ -91,7 +91,7 @@ class V1JobStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "completion_time"
+     * Test attribute "completionTime"
      */
     public function testPropertyCompletionTime()
     {
@@ -115,7 +115,7 @@ class V1JobStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {

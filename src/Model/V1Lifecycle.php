@@ -55,8 +55,8 @@ class V1Lifecycle implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'post_start' => '\UniversityOfAdelaide\OpenShift\Model\V1Handler',
-        'pre_stop' => '\UniversityOfAdelaide\OpenShift\Model\V1Handler'
+        'postStart' => '\UniversityOfAdelaide\OpenShift\Model\V1Handler',
+        'preStop' => '\UniversityOfAdelaide\OpenShift\Model\V1Handler'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1Lifecycle implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'post_start' => 'postStart',
-        'pre_stop' => 'preStop'
+        'postStart' => 'postStart',
+        'preStop' => 'preStop'
     ];
 
 
@@ -79,8 +79,8 @@ class V1Lifecycle implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'post_start' => 'setPostStart',
-        'pre_stop' => 'setPreStop'
+        'postStart' => 'setPostStart',
+        'preStop' => 'setPreStop'
     ];
 
 
@@ -89,8 +89,8 @@ class V1Lifecycle implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'post_start' => 'getPostStart',
-        'pre_stop' => 'getPreStop'
+        'postStart' => 'getPostStart',
+        'preStop' => 'getPreStop'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1Lifecycle implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['post_start'] = isset($data['post_start']) ? $data['post_start'] : null;
-        $this->container['pre_stop'] = isset($data['pre_stop']) ? $data['pre_stop'] : null;
+        $this->container['postStart'] = isset($data['postStart']) ? $data['postStart'] : null;
+        $this->container['preStop'] = isset($data['preStop']) ? $data['preStop'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1Lifecycle implements ArrayAccess
 
 
     /**
-     * Gets post_start
+     * Gets postStart
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Handler
      */
     public function getPostStart()
     {
-        return $this->container['post_start'];
+        return $this->container['postStart'];
     }
 
     /**
-     * Sets post_start
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Handler $post_start PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: http://kubernetes.io/docs/user-guide/container-environment#hook-details
+     * Sets postStart
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Handler $postStart PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: http://kubernetes.io/docs/user-guide/container-environment#hook-details
      * @return $this
      */
-    public function setPostStart($post_start)
+    public function setPostStart($postStart)
     {
-        $this->container['post_start'] = $post_start;
+        $this->container['postStart'] = $postStart;
 
         return $this;
     }
 
     /**
-     * Gets pre_stop
+     * Gets preStop
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Handler
      */
     public function getPreStop()
     {
-        return $this->container['pre_stop'];
+        return $this->container['preStop'];
     }
 
     /**
-     * Sets pre_stop
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Handler $pre_stop PreStop is called immediately before a container is terminated. The container is terminated after the handler completes. The reason for termination is passed to the handler. Regardless of the outcome of the handler, the container is eventually terminated. Other management of the container blocks until the hook completes. More info: http://kubernetes.io/docs/user-guide/container-environment#hook-details
+     * Sets preStop
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Handler $preStop PreStop is called immediately before a container is terminated. The container is terminated after the handler completes. The reason for termination is passed to the handler. Regardless of the outcome of the handler, the container is eventually terminated. Other management of the container blocks until the hook completes. More info: http://kubernetes.io/docs/user-guide/container-environment#hook-details
      * @return $this
      */
-    public function setPreStop($pre_stop)
+    public function setPreStop($preStop)
     {
-        $this->container['pre_stop'] = $pre_stop;
+        $this->container['preStop'] = $preStop;
 
         return $this;
     }

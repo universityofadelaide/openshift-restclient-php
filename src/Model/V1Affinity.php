@@ -55,9 +55,9 @@ class V1Affinity implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'node_affinity' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeAffinity',
-        'pod_affinity' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinity',
-        'pod_anti_affinity' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAntiAffinity'
+        'nodeAffinity' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeAffinity',
+        'podAffinity' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinity',
+        'podAntiAffinity' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAntiAffinity'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1Affinity implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'node_affinity' => 'nodeAffinity',
-        'pod_affinity' => 'podAffinity',
-        'pod_anti_affinity' => 'podAntiAffinity'
+        'nodeAffinity' => 'nodeAffinity',
+        'podAffinity' => 'podAffinity',
+        'podAntiAffinity' => 'podAntiAffinity'
     ];
 
 
@@ -81,9 +81,9 @@ class V1Affinity implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'node_affinity' => 'setNodeAffinity',
-        'pod_affinity' => 'setPodAffinity',
-        'pod_anti_affinity' => 'setPodAntiAffinity'
+        'nodeAffinity' => 'setNodeAffinity',
+        'podAffinity' => 'setPodAffinity',
+        'podAntiAffinity' => 'setPodAntiAffinity'
     ];
 
 
@@ -92,9 +92,9 @@ class V1Affinity implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'node_affinity' => 'getNodeAffinity',
-        'pod_affinity' => 'getPodAffinity',
-        'pod_anti_affinity' => 'getPodAntiAffinity'
+        'nodeAffinity' => 'getNodeAffinity',
+        'podAffinity' => 'getPodAffinity',
+        'podAntiAffinity' => 'getPodAntiAffinity'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1Affinity implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['node_affinity'] = isset($data['node_affinity']) ? $data['node_affinity'] : null;
-        $this->container['pod_affinity'] = isset($data['pod_affinity']) ? $data['pod_affinity'] : null;
-        $this->container['pod_anti_affinity'] = isset($data['pod_anti_affinity']) ? $data['pod_anti_affinity'] : null;
+        $this->container['nodeAffinity'] = isset($data['nodeAffinity']) ? $data['nodeAffinity'] : null;
+        $this->container['podAffinity'] = isset($data['podAffinity']) ? $data['podAffinity'] : null;
+        $this->container['podAntiAffinity'] = isset($data['podAntiAffinity']) ? $data['podAntiAffinity'] : null;
     }
 
     /**
@@ -159,64 +159,64 @@ class V1Affinity implements ArrayAccess
 
 
     /**
-     * Gets node_affinity
+     * Gets nodeAffinity
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NodeAffinity
      */
     public function getNodeAffinity()
     {
-        return $this->container['node_affinity'];
+        return $this->container['nodeAffinity'];
     }
 
     /**
-     * Sets node_affinity
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeAffinity $node_affinity Describes node affinity scheduling rules for the pod.
+     * Sets nodeAffinity
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeAffinity $nodeAffinity Describes node affinity scheduling rules for the pod.
      * @return $this
      */
-    public function setNodeAffinity($node_affinity)
+    public function setNodeAffinity($nodeAffinity)
     {
-        $this->container['node_affinity'] = $node_affinity;
+        $this->container['nodeAffinity'] = $nodeAffinity;
 
         return $this;
     }
 
     /**
-     * Gets pod_affinity
+     * Gets podAffinity
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PodAffinity
      */
     public function getPodAffinity()
     {
-        return $this->container['pod_affinity'];
+        return $this->container['podAffinity'];
     }
 
     /**
-     * Sets pod_affinity
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinity $pod_affinity Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+     * Sets podAffinity
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinity $podAffinity Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
      * @return $this
      */
-    public function setPodAffinity($pod_affinity)
+    public function setPodAffinity($podAffinity)
     {
-        $this->container['pod_affinity'] = $pod_affinity;
+        $this->container['podAffinity'] = $podAffinity;
 
         return $this;
     }
 
     /**
-     * Gets pod_anti_affinity
+     * Gets podAntiAffinity
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PodAntiAffinity
      */
     public function getPodAntiAffinity()
     {
-        return $this->container['pod_anti_affinity'];
+        return $this->container['podAntiAffinity'];
     }
 
     /**
-     * Sets pod_anti_affinity
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAntiAffinity $pod_anti_affinity Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+     * Sets podAntiAffinity
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAntiAffinity $podAntiAffinity Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
      * @return $this
      */
-    public function setPodAntiAffinity($pod_anti_affinity)
+    public function setPodAntiAffinity($podAntiAffinity)
     {
-        $this->container['pod_anti_affinity'] = $pod_anti_affinity;
+        $this->container['podAntiAffinity'] = $podAntiAffinity;
 
         return $this;
     }

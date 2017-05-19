@@ -55,7 +55,7 @@ class V1NodeSelector implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'node_selector_terms' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorTerm[]'
+        'nodeSelectorTerms' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorTerm[]'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1NodeSelector implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'node_selector_terms' => 'nodeSelectorTerms'
+        'nodeSelectorTerms' => 'nodeSelectorTerms'
     ];
 
 
@@ -77,7 +77,7 @@ class V1NodeSelector implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'node_selector_terms' => 'setNodeSelectorTerms'
+        'nodeSelectorTerms' => 'setNodeSelectorTerms'
     ];
 
 
@@ -86,7 +86,7 @@ class V1NodeSelector implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'node_selector_terms' => 'getNodeSelectorTerms'
+        'nodeSelectorTerms' => 'getNodeSelectorTerms'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1NodeSelector implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['node_selector_terms'] = isset($data['node_selector_terms']) ? $data['node_selector_terms'] : null;
+        $this->container['nodeSelectorTerms'] = isset($data['nodeSelectorTerms']) ? $data['nodeSelectorTerms'] : null;
     }
 
     /**
@@ -132,8 +132,8 @@ class V1NodeSelector implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['node_selector_terms'] === null) {
-            $invalid_properties[] = "'node_selector_terms' can't be null";
+        if ($this->container['nodeSelectorTerms'] === null) {
+            $invalid_properties[] = "'nodeSelectorTerms' can't be null";
         }
         return $invalid_properties;
     }
@@ -147,7 +147,7 @@ class V1NodeSelector implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['node_selector_terms'] === null) {
+        if ($this->container['nodeSelectorTerms'] === null) {
             return false;
         }
         return true;
@@ -155,22 +155,22 @@ class V1NodeSelector implements ArrayAccess
 
 
     /**
-     * Gets node_selector_terms
+     * Gets nodeSelectorTerms
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorTerm[]
      */
     public function getNodeSelectorTerms()
     {
-        return $this->container['node_selector_terms'];
+        return $this->container['nodeSelectorTerms'];
     }
 
     /**
-     * Sets node_selector_terms
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorTerm[] $node_selector_terms Required. A list of node selector terms. The terms are ORed.
+     * Sets nodeSelectorTerms
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorTerm[] $nodeSelectorTerms Required. A list of node selector terms. The terms are ORed.
      * @return $this
      */
-    public function setNodeSelectorTerms($node_selector_terms)
+    public function setNodeSelectorTerms($nodeSelectorTerms)
     {
-        $this->container['node_selector_terms'] = $node_selector_terms;
+        $this->container['nodeSelectorTerms'] = $nodeSelectorTerms;
 
         return $this;
     }

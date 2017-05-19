@@ -83,7 +83,7 @@ class V1HostSubnetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,9 +99,9 @@ class V1HostSubnetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_ip"
+     * Test attribute "hostIP"
      */
-    public function testPropertyHostIp()
+    public function testPropertyHostIP()
     {
 
     }

@@ -56,15 +56,15 @@ class V1PodStatus implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1PodCondition[]',
-        'container_statuses' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]',
-        'host_ip' => 'string',
-        'init_container_statuses' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]',
+        'containerStatuses' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]',
+        'hostIP' => 'string',
+        'initContainerStatuses' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]',
         'message' => 'string',
         'phase' => 'string',
-        'pod_ip' => 'string',
-        'qos_class' => 'string',
+        'podIP' => 'string',
+        'qosClass' => 'string',
         'reason' => 'string',
-        'start_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
+        'startTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
     ];
 
     public static function swaggerTypes()
@@ -78,15 +78,15 @@ class V1PodStatus implements ArrayAccess
      */
     protected static $attributeMap = [
         'conditions' => 'conditions',
-        'container_statuses' => 'containerStatuses',
-        'host_ip' => 'hostIP',
-        'init_container_statuses' => 'initContainerStatuses',
+        'containerStatuses' => 'containerStatuses',
+        'hostIP' => 'hostIP',
+        'initContainerStatuses' => 'initContainerStatuses',
         'message' => 'message',
         'phase' => 'phase',
-        'pod_ip' => 'podIP',
-        'qos_class' => 'qosClass',
+        'podIP' => 'podIP',
+        'qosClass' => 'qosClass',
         'reason' => 'reason',
-        'start_time' => 'startTime'
+        'startTime' => 'startTime'
     ];
 
 
@@ -96,15 +96,15 @@ class V1PodStatus implements ArrayAccess
      */
     protected static $setters = [
         'conditions' => 'setConditions',
-        'container_statuses' => 'setContainerStatuses',
-        'host_ip' => 'setHostIp',
-        'init_container_statuses' => 'setInitContainerStatuses',
+        'containerStatuses' => 'setContainerStatuses',
+        'hostIP' => 'setHostIP',
+        'initContainerStatuses' => 'setInitContainerStatuses',
         'message' => 'setMessage',
         'phase' => 'setPhase',
-        'pod_ip' => 'setPodIp',
-        'qos_class' => 'setQosClass',
+        'podIP' => 'setPodIP',
+        'qosClass' => 'setQosClass',
         'reason' => 'setReason',
-        'start_time' => 'setStartTime'
+        'startTime' => 'setStartTime'
     ];
 
 
@@ -114,15 +114,15 @@ class V1PodStatus implements ArrayAccess
      */
     protected static $getters = [
         'conditions' => 'getConditions',
-        'container_statuses' => 'getContainerStatuses',
-        'host_ip' => 'getHostIp',
-        'init_container_statuses' => 'getInitContainerStatuses',
+        'containerStatuses' => 'getContainerStatuses',
+        'hostIP' => 'getHostIP',
+        'initContainerStatuses' => 'getInitContainerStatuses',
         'message' => 'getMessage',
         'phase' => 'getPhase',
-        'pod_ip' => 'getPodIp',
-        'qos_class' => 'getQosClass',
+        'podIP' => 'getPodIP',
+        'qosClass' => 'getQosClass',
         'reason' => 'getReason',
-        'start_time' => 'getStartTime'
+        'startTime' => 'getStartTime'
     ];
 
     public static function attributeMap()
@@ -157,15 +157,15 @@ class V1PodStatus implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
-        $this->container['container_statuses'] = isset($data['container_statuses']) ? $data['container_statuses'] : null;
-        $this->container['host_ip'] = isset($data['host_ip']) ? $data['host_ip'] : null;
-        $this->container['init_container_statuses'] = isset($data['init_container_statuses']) ? $data['init_container_statuses'] : null;
+        $this->container['containerStatuses'] = isset($data['containerStatuses']) ? $data['containerStatuses'] : null;
+        $this->container['hostIP'] = isset($data['hostIP']) ? $data['hostIP'] : null;
+        $this->container['initContainerStatuses'] = isset($data['initContainerStatuses']) ? $data['initContainerStatuses'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
-        $this->container['pod_ip'] = isset($data['pod_ip']) ? $data['pod_ip'] : null;
-        $this->container['qos_class'] = isset($data['qos_class']) ? $data['qos_class'] : null;
+        $this->container['podIP'] = isset($data['podIP']) ? $data['podIP'] : null;
+        $this->container['qosClass'] = isset($data['qosClass']) ? $data['qosClass'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
     }
 
     /**
@@ -215,64 +215,64 @@ class V1PodStatus implements ArrayAccess
     }
 
     /**
-     * Gets container_statuses
+     * Gets containerStatuses
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]
      */
     public function getContainerStatuses()
     {
-        return $this->container['container_statuses'];
+        return $this->container['containerStatuses'];
     }
 
     /**
-     * Sets container_statuses
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[] $container_statuses The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses
+     * Sets containerStatuses
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[] $containerStatuses The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses
      * @return $this
      */
-    public function setContainerStatuses($container_statuses)
+    public function setContainerStatuses($containerStatuses)
     {
-        $this->container['container_statuses'] = $container_statuses;
+        $this->container['containerStatuses'] = $containerStatuses;
 
         return $this;
     }
 
     /**
-     * Gets host_ip
+     * Gets hostIP
      * @return string
      */
-    public function getHostIp()
+    public function getHostIP()
     {
-        return $this->container['host_ip'];
+        return $this->container['hostIP'];
     }
 
     /**
-     * Sets host_ip
-     * @param string $host_ip IP address of the host to which the pod is assigned. Empty if not yet scheduled.
+     * Sets hostIP
+     * @param string $hostIP IP address of the host to which the pod is assigned. Empty if not yet scheduled.
      * @return $this
      */
-    public function setHostIp($host_ip)
+    public function setHostIP($hostIP)
     {
-        $this->container['host_ip'] = $host_ip;
+        $this->container['hostIP'] = $hostIP;
 
         return $this;
     }
 
     /**
-     * Gets init_container_statuses
+     * Gets initContainerStatuses
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[]
      */
     public function getInitContainerStatuses()
     {
-        return $this->container['init_container_statuses'];
+        return $this->container['initContainerStatuses'];
     }
 
     /**
-     * Sets init_container_statuses
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[] $init_container_statuses The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses
+     * Sets initContainerStatuses
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ContainerStatus[] $initContainerStatuses The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses
      * @return $this
      */
-    public function setInitContainerStatuses($init_container_statuses)
+    public function setInitContainerStatuses($initContainerStatuses)
     {
-        $this->container['init_container_statuses'] = $init_container_statuses;
+        $this->container['initContainerStatuses'] = $initContainerStatuses;
 
         return $this;
     }
@@ -320,43 +320,43 @@ class V1PodStatus implements ArrayAccess
     }
 
     /**
-     * Gets pod_ip
+     * Gets podIP
      * @return string
      */
-    public function getPodIp()
+    public function getPodIP()
     {
-        return $this->container['pod_ip'];
+        return $this->container['podIP'];
     }
 
     /**
-     * Sets pod_ip
-     * @param string $pod_ip IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
+     * Sets podIP
+     * @param string $podIP IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
      * @return $this
      */
-    public function setPodIp($pod_ip)
+    public function setPodIP($podIP)
     {
-        $this->container['pod_ip'] = $pod_ip;
+        $this->container['podIP'] = $podIP;
 
         return $this;
     }
 
     /**
-     * Gets qos_class
+     * Gets qosClass
      * @return string
      */
     public function getQosClass()
     {
-        return $this->container['qos_class'];
+        return $this->container['qosClass'];
     }
 
     /**
-     * Sets qos_class
-     * @param string $qos_class The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://github.com/kubernetes/kubernetes/blob/master/docs/design/resource-qos.md
+     * Sets qosClass
+     * @param string $qosClass The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://github.com/kubernetes/kubernetes/blob/master/docs/design/resource-qos.md
      * @return $this
      */
-    public function setQosClass($qos_class)
+    public function setQosClass($qosClass)
     {
-        $this->container['qos_class'] = $qos_class;
+        $this->container['qosClass'] = $qosClass;
 
         return $this;
     }
@@ -383,22 +383,22 @@ class V1PodStatus implements ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $start_time RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
+     * Sets startTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startTime RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }

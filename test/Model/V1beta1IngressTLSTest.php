@@ -91,7 +91,7 @@ class V1beta1IngressTLSTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_name"
+     * Test attribute "secretName"
      */
     public function testPropertySecretName()
     {

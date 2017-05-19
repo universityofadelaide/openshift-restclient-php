@@ -83,7 +83,7 @@ class V1beta1RollingUpdateDeploymentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_surge"
+     * Test attribute "maxSurge"
      */
     public function testPropertyMaxSurge()
     {
@@ -91,7 +91,7 @@ class V1beta1RollingUpdateDeploymentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_unavailable"
+     * Test attribute "maxUnavailable"
      */
     public function testPropertyMaxUnavailable()
     {

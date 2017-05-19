@@ -83,7 +83,7 @@ class V1beta1CertificateSigningRequestConditionTest extends \PHPUnit_Framework_T
     }
 
     /**
-     * Test attribute "last_update_time"
+     * Test attribute "lastUpdateTime"
      */
     public function testPropertyLastUpdateTime()
     {

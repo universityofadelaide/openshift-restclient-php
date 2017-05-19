@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last_transition_time** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | RFC 3339 date and time when this condition last transitioned | [optional] 
+**lastTransitionTime** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | RFC 3339 date and time when this condition last transitioned | [optional] 
 **message** | **string** | Human readable message indicating details about last transition. | [optional] 
 **reason** | **string** | (brief) reason for the condition&#39;s last transition, and is usually a machine and human readable constant | [optional] 
 **status** | **string** | Status is the status of the condition. Can be True, False, Unknown. | 

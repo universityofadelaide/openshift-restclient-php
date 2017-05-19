@@ -55,11 +55,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_cpu_utilization_percentage' => 'int',
-        'current_replicas' => 'int',
-        'desired_replicas' => 'int',
-        'last_scale_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'observed_generation' => 'int'
+        'currentCPUUtilizationPercentage' => 'int',
+        'currentReplicas' => 'int',
+        'desiredReplicas' => 'int',
+        'lastScaleTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'observedGeneration' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_cpu_utilization_percentage' => 'currentCPUUtilizationPercentage',
-        'current_replicas' => 'currentReplicas',
-        'desired_replicas' => 'desiredReplicas',
-        'last_scale_time' => 'lastScaleTime',
-        'observed_generation' => 'observedGeneration'
+        'currentCPUUtilizationPercentage' => 'currentCPUUtilizationPercentage',
+        'currentReplicas' => 'currentReplicas',
+        'desiredReplicas' => 'desiredReplicas',
+        'lastScaleTime' => 'lastScaleTime',
+        'observedGeneration' => 'observedGeneration'
     ];
 
 
@@ -85,11 +85,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_cpu_utilization_percentage' => 'setCurrentCpuUtilizationPercentage',
-        'current_replicas' => 'setCurrentReplicas',
-        'desired_replicas' => 'setDesiredReplicas',
-        'last_scale_time' => 'setLastScaleTime',
-        'observed_generation' => 'setObservedGeneration'
+        'currentCPUUtilizationPercentage' => 'setCurrentCPUUtilizationPercentage',
+        'currentReplicas' => 'setCurrentReplicas',
+        'desiredReplicas' => 'setDesiredReplicas',
+        'lastScaleTime' => 'setLastScaleTime',
+        'observedGeneration' => 'setObservedGeneration'
     ];
 
 
@@ -98,11 +98,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_cpu_utilization_percentage' => 'getCurrentCpuUtilizationPercentage',
-        'current_replicas' => 'getCurrentReplicas',
-        'desired_replicas' => 'getDesiredReplicas',
-        'last_scale_time' => 'getLastScaleTime',
-        'observed_generation' => 'getObservedGeneration'
+        'currentCPUUtilizationPercentage' => 'getCurrentCPUUtilizationPercentage',
+        'currentReplicas' => 'getCurrentReplicas',
+        'desiredReplicas' => 'getDesiredReplicas',
+        'lastScaleTime' => 'getLastScaleTime',
+        'observedGeneration' => 'getObservedGeneration'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_cpu_utilization_percentage'] = isset($data['current_cpu_utilization_percentage']) ? $data['current_cpu_utilization_percentage'] : null;
-        $this->container['current_replicas'] = isset($data['current_replicas']) ? $data['current_replicas'] : null;
-        $this->container['desired_replicas'] = isset($data['desired_replicas']) ? $data['desired_replicas'] : null;
-        $this->container['last_scale_time'] = isset($data['last_scale_time']) ? $data['last_scale_time'] : null;
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
+        $this->container['currentCPUUtilizationPercentage'] = isset($data['currentCPUUtilizationPercentage']) ? $data['currentCPUUtilizationPercentage'] : null;
+        $this->container['currentReplicas'] = isset($data['currentReplicas']) ? $data['currentReplicas'] : null;
+        $this->container['desiredReplicas'] = isset($data['desiredReplicas']) ? $data['desiredReplicas'] : null;
+        $this->container['lastScaleTime'] = isset($data['lastScaleTime']) ? $data['lastScaleTime'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
     }
 
     /**
@@ -152,11 +152,11 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_replicas'] === null) {
-            $invalid_properties[] = "'current_replicas' can't be null";
+        if ($this->container['currentReplicas'] === null) {
+            $invalid_properties[] = "'currentReplicas' can't be null";
         }
-        if ($this->container['desired_replicas'] === null) {
-            $invalid_properties[] = "'desired_replicas' can't be null";
+        if ($this->container['desiredReplicas'] === null) {
+            $invalid_properties[] = "'desiredReplicas' can't be null";
         }
         return $invalid_properties;
     }
@@ -170,10 +170,10 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_replicas'] === null) {
+        if ($this->container['currentReplicas'] === null) {
             return false;
         }
-        if ($this->container['desired_replicas'] === null) {
+        if ($this->container['desiredReplicas'] === null) {
             return false;
         }
         return true;
@@ -181,106 +181,106 @@ class V1HorizontalPodAutoscalerStatus implements ArrayAccess
 
 
     /**
-     * Gets current_cpu_utilization_percentage
+     * Gets currentCPUUtilizationPercentage
      * @return int
      */
-    public function getCurrentCpuUtilizationPercentage()
+    public function getCurrentCPUUtilizationPercentage()
     {
-        return $this->container['current_cpu_utilization_percentage'];
+        return $this->container['currentCPUUtilizationPercentage'];
     }
 
     /**
-     * Sets current_cpu_utilization_percentage
-     * @param int $current_cpu_utilization_percentage current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.
+     * Sets currentCPUUtilizationPercentage
+     * @param int $currentCPUUtilizationPercentage current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.
      * @return $this
      */
-    public function setCurrentCpuUtilizationPercentage($current_cpu_utilization_percentage)
+    public function setCurrentCPUUtilizationPercentage($currentCPUUtilizationPercentage)
     {
-        $this->container['current_cpu_utilization_percentage'] = $current_cpu_utilization_percentage;
+        $this->container['currentCPUUtilizationPercentage'] = $currentCPUUtilizationPercentage;
 
         return $this;
     }
 
     /**
-     * Gets current_replicas
+     * Gets currentReplicas
      * @return int
      */
     public function getCurrentReplicas()
     {
-        return $this->container['current_replicas'];
+        return $this->container['currentReplicas'];
     }
 
     /**
-     * Sets current_replicas
-     * @param int $current_replicas current number of replicas of pods managed by this autoscaler.
+     * Sets currentReplicas
+     * @param int $currentReplicas current number of replicas of pods managed by this autoscaler.
      * @return $this
      */
-    public function setCurrentReplicas($current_replicas)
+    public function setCurrentReplicas($currentReplicas)
     {
-        $this->container['current_replicas'] = $current_replicas;
+        $this->container['currentReplicas'] = $currentReplicas;
 
         return $this;
     }
 
     /**
-     * Gets desired_replicas
+     * Gets desiredReplicas
      * @return int
      */
     public function getDesiredReplicas()
     {
-        return $this->container['desired_replicas'];
+        return $this->container['desiredReplicas'];
     }
 
     /**
-     * Sets desired_replicas
-     * @param int $desired_replicas desired number of replicas of pods managed by this autoscaler.
+     * Sets desiredReplicas
+     * @param int $desiredReplicas desired number of replicas of pods managed by this autoscaler.
      * @return $this
      */
-    public function setDesiredReplicas($desired_replicas)
+    public function setDesiredReplicas($desiredReplicas)
     {
-        $this->container['desired_replicas'] = $desired_replicas;
+        $this->container['desiredReplicas'] = $desiredReplicas;
 
         return $this;
     }
 
     /**
-     * Gets last_scale_time
+     * Gets lastScaleTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastScaleTime()
     {
-        return $this->container['last_scale_time'];
+        return $this->container['lastScaleTime'];
     }
 
     /**
-     * Sets last_scale_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_scale_time last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.
+     * Sets lastScaleTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastScaleTime last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.
      * @return $this
      */
-    public function setLastScaleTime($last_scale_time)
+    public function setLastScaleTime($lastScaleTime)
     {
-        $this->container['last_scale_time'] = $last_scale_time;
+        $this->container['lastScaleTime'] = $lastScaleTime;
 
         return $this;
     }
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation most recent generation observed by this autoscaler.
+     * Sets observedGeneration
+     * @param int $observedGeneration most recent generation observed by this autoscaler.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }

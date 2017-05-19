@@ -83,7 +83,7 @@ class V1LabelSelectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "match_expressions"
+     * Test attribute "matchExpressions"
      */
     public function testPropertyMatchExpressions()
     {
@@ -91,7 +91,7 @@ class V1LabelSelectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "match_labels"
+     * Test attribute "matchLabels"
      */
     public function testPropertyMatchLabels()
     {

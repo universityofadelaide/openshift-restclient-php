@@ -115,7 +115,7 @@ class V1NodeStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "daemon_endpoints"
+     * Test attribute "daemonEndpoints"
      */
     public function testPropertyDaemonEndpoints()
     {
@@ -131,7 +131,7 @@ class V1NodeStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_info"
+     * Test attribute "nodeInfo"
      */
     public function testPropertyNodeInfo()
     {
@@ -147,7 +147,7 @@ class V1NodeStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volumes_attached"
+     * Test attribute "volumesAttached"
      */
     public function testPropertyVolumesAttached()
     {
@@ -155,7 +155,7 @@ class V1NodeStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volumes_in_use"
+     * Test attribute "volumesInUse"
      */
     public function testPropertyVolumesInUse()
     {

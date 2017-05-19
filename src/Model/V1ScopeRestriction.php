@@ -55,7 +55,7 @@ class V1ScopeRestriction implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_role' => '\UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleScopeRestriction',
+        'clusterRole' => '\UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleScopeRestriction',
         'literals' => 'string[]'
     ];
 
@@ -69,7 +69,7 @@ class V1ScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_role' => 'clusterRole',
+        'clusterRole' => 'clusterRole',
         'literals' => 'literals'
     ];
 
@@ -79,7 +79,7 @@ class V1ScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_role' => 'setClusterRole',
+        'clusterRole' => 'setClusterRole',
         'literals' => 'setLiterals'
     ];
 
@@ -89,7 +89,7 @@ class V1ScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_role' => 'getClusterRole',
+        'clusterRole' => 'getClusterRole',
         'literals' => 'getLiterals'
     ];
 
@@ -124,7 +124,7 @@ class V1ScopeRestriction implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cluster_role'] = isset($data['cluster_role']) ? $data['cluster_role'] : null;
+        $this->container['clusterRole'] = isset($data['clusterRole']) ? $data['clusterRole'] : null;
         $this->container['literals'] = isset($data['literals']) ? $data['literals'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1ScopeRestriction implements ArrayAccess
 
 
     /**
-     * Gets cluster_role
+     * Gets clusterRole
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleScopeRestriction
      */
     public function getClusterRole()
     {
-        return $this->container['cluster_role'];
+        return $this->container['clusterRole'];
     }
 
     /**
-     * Sets cluster_role
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleScopeRestriction $cluster_role ClusterRole describes a set of restrictions for cluster role scoping.
+     * Sets clusterRole
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleScopeRestriction $clusterRole ClusterRole describes a set of restrictions for cluster role scoping.
      * @return $this
      */
-    public function setClusterRole($cluster_role)
+    public function setClusterRole($clusterRole)
     {
-        $this->container['cluster_role'] = $cluster_role;
+        $this->container['clusterRole'] = $clusterRole;
 
         return $this;
     }

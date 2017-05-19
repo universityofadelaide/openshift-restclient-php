@@ -55,12 +55,12 @@ class V1PolicyBinding implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
-        'last_modified' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastModified' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'policy_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'role_bindings' => '\UniversityOfAdelaide\OpenShift\Model\V1NamedRoleBinding[]'
+        'policyRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'roleBindings' => '\UniversityOfAdelaide\OpenShift\Model\V1NamedRoleBinding[]'
     ];
 
     public static function swaggerTypes()
@@ -73,12 +73,12 @@ class V1PolicyBinding implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
-        'last_modified' => 'lastModified',
+        'lastModified' => 'lastModified',
         'metadata' => 'metadata',
-        'policy_ref' => 'policyRef',
-        'role_bindings' => 'roleBindings'
+        'policyRef' => 'policyRef',
+        'roleBindings' => 'roleBindings'
     ];
 
 
@@ -87,12 +87,12 @@ class V1PolicyBinding implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
-        'last_modified' => 'setLastModified',
+        'lastModified' => 'setLastModified',
         'metadata' => 'setMetadata',
-        'policy_ref' => 'setPolicyRef',
-        'role_bindings' => 'setRoleBindings'
+        'policyRef' => 'setPolicyRef',
+        'roleBindings' => 'setRoleBindings'
     ];
 
 
@@ -101,12 +101,12 @@ class V1PolicyBinding implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
-        'last_modified' => 'getLastModified',
+        'lastModified' => 'getLastModified',
         'metadata' => 'getMetadata',
-        'policy_ref' => 'getPolicyRef',
-        'role_bindings' => 'getRoleBindings'
+        'policyRef' => 'getPolicyRef',
+        'roleBindings' => 'getRoleBindings'
     ];
 
     public static function attributeMap()
@@ -140,12 +140,12 @@ class V1PolicyBinding implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['last_modified'] = isset($data['last_modified']) ? $data['last_modified'] : null;
+        $this->container['lastModified'] = isset($data['lastModified']) ? $data['lastModified'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['policy_ref'] = isset($data['policy_ref']) ? $data['policy_ref'] : null;
-        $this->container['role_bindings'] = isset($data['role_bindings']) ? $data['role_bindings'] : null;
+        $this->container['policyRef'] = isset($data['policyRef']) ? $data['policyRef'] : null;
+        $this->container['roleBindings'] = isset($data['roleBindings']) ? $data['roleBindings'] : null;
     }
 
     /**
@@ -157,14 +157,14 @@ class V1PolicyBinding implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['last_modified'] === null) {
-            $invalid_properties[] = "'last_modified' can't be null";
+        if ($this->container['lastModified'] === null) {
+            $invalid_properties[] = "'lastModified' can't be null";
         }
-        if ($this->container['policy_ref'] === null) {
-            $invalid_properties[] = "'policy_ref' can't be null";
+        if ($this->container['policyRef'] === null) {
+            $invalid_properties[] = "'policyRef' can't be null";
         }
-        if ($this->container['role_bindings'] === null) {
-            $invalid_properties[] = "'role_bindings' can't be null";
+        if ($this->container['roleBindings'] === null) {
+            $invalid_properties[] = "'roleBindings' can't be null";
         }
         return $invalid_properties;
     }
@@ -178,13 +178,13 @@ class V1PolicyBinding implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['last_modified'] === null) {
+        if ($this->container['lastModified'] === null) {
             return false;
         }
-        if ($this->container['policy_ref'] === null) {
+        if ($this->container['policyRef'] === null) {
             return false;
         }
-        if ($this->container['role_bindings'] === null) {
+        if ($this->container['roleBindings'] === null) {
             return false;
         }
         return true;
@@ -192,22 +192,22 @@ class V1PolicyBinding implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -234,22 +234,22 @@ class V1PolicyBinding implements ArrayAccess
     }
 
     /**
-     * Gets last_modified
+     * Gets lastModified
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastModified()
     {
-        return $this->container['last_modified'];
+        return $this->container['lastModified'];
     }
 
     /**
-     * Sets last_modified
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_modified LastModified is the last time that any part of the PolicyBinding was created, updated, or deleted
+     * Sets lastModified
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastModified LastModified is the last time that any part of the PolicyBinding was created, updated, or deleted
      * @return $this
      */
-    public function setLastModified($last_modified)
+    public function setLastModified($lastModified)
     {
-        $this->container['last_modified'] = $last_modified;
+        $this->container['lastModified'] = $lastModified;
 
         return $this;
     }
@@ -276,43 +276,43 @@ class V1PolicyBinding implements ArrayAccess
     }
 
     /**
-     * Gets policy_ref
+     * Gets policyRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getPolicyRef()
     {
-        return $this->container['policy_ref'];
+        return $this->container['policyRef'];
     }
 
     /**
-     * Sets policy_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $policy_ref PolicyRef is a reference to the Policy that contains all the Roles that this PolicyBinding's RoleBindings may reference
+     * Sets policyRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $policyRef PolicyRef is a reference to the Policy that contains all the Roles that this PolicyBinding's RoleBindings may reference
      * @return $this
      */
-    public function setPolicyRef($policy_ref)
+    public function setPolicyRef($policyRef)
     {
-        $this->container['policy_ref'] = $policy_ref;
+        $this->container['policyRef'] = $policyRef;
 
         return $this;
     }
 
     /**
-     * Gets role_bindings
+     * Gets roleBindings
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NamedRoleBinding[]
      */
     public function getRoleBindings()
     {
-        return $this->container['role_bindings'];
+        return $this->container['roleBindings'];
     }
 
     /**
-     * Sets role_bindings
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NamedRoleBinding[] $role_bindings RoleBindings holds all the RoleBindings held by this PolicyBinding, mapped by RoleBinding.Name
+     * Sets roleBindings
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NamedRoleBinding[] $roleBindings RoleBindings holds all the RoleBindings held by this PolicyBinding, mapped by RoleBinding.Name
      * @return $this
      */
-    public function setRoleBindings($role_bindings)
+    public function setRoleBindings($roleBindings)
     {
-        $this->container['role_bindings'] = $role_bindings;
+        $this->container['roleBindings'] = $roleBindings;
 
         return $this;
     }

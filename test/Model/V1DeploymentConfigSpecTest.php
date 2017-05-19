@@ -83,7 +83,7 @@ class V1DeploymentConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_ready_seconds"
+     * Test attribute "minReadySeconds"
      */
     public function testPropertyMinReadySeconds()
     {
@@ -107,7 +107,7 @@ class V1DeploymentConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "revision_history_limit"
+     * Test attribute "revisionHistoryLimit"
      */
     public function testPropertyRevisionHistoryLimit()
     {

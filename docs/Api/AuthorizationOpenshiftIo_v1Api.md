@@ -113,7 +113,7 @@ create a ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -160,7 +160,7 @@ create a ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -207,7 +207,7 @@ create a ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -254,7 +254,7 @@ create a ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -301,7 +301,7 @@ create a LocalResourceAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -348,7 +348,7 @@ create a LocalSubjectAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -395,7 +395,7 @@ create a LocalResourceAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -444,7 +444,7 @@ create a LocalSubjectAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -493,7 +493,7 @@ create a Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Policy(); // \UniversityOfAdelaide\OpenShift\Model\V1Policy | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -542,7 +542,7 @@ create a PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -591,7 +591,7 @@ create a ResourceAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -640,7 +640,7 @@ create a Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Role(); // \UniversityOfAdelaide\OpenShift\Model\V1Role | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -689,7 +689,7 @@ create a RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -738,7 +738,7 @@ create a RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -787,7 +787,7 @@ create a SelfSubjectRulesReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -836,7 +836,7 @@ create a SubjectAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -885,7 +885,7 @@ create a SubjectRulesReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -934,7 +934,7 @@ create a PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -981,7 +981,7 @@ create a Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Policy(); // \UniversityOfAdelaide\OpenShift\Model\V1Policy | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1028,7 +1028,7 @@ create a ResourceAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1075,7 +1075,7 @@ create a RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1122,7 +1122,7 @@ create a RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1169,7 +1169,7 @@ create a Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Role(); // \UniversityOfAdelaide\OpenShift\Model\V1Role | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1216,7 +1216,7 @@ create a SelfSubjectRulesReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1263,7 +1263,7 @@ create a SubjectAccessReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1310,7 +1310,7 @@ create a SubjectRulesReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -1346,7 +1346,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1ClusterPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterPolicy($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterPolicy($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1357,16 +1357,16 @@ delete a ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterPolicy($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterPolicy($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1ClusterPolicy: ', $e->getMessage(), PHP_EOL;
@@ -1381,9 +1381,9 @@ Name | Type | Description  | Notes
  **name** | **string**| name of the ClusterPolicy |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1401,7 +1401,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1412,16 +1412,16 @@ delete a ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1ClusterPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -1436,9 +1436,9 @@ Name | Type | Description  | Notes
  **name** | **string**| name of the ClusterPolicyBinding |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1456,7 +1456,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1ClusterRole**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterRole($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterRole($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1467,16 +1467,16 @@ delete a ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterRole($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterRole($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1ClusterRole: ', $e->getMessage(), PHP_EOL;
@@ -1491,9 +1491,9 @@ Name | Type | Description  | Notes
  **name** | **string**| name of the ClusterRole |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1511,7 +1511,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1ClusterRoleBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterRoleBinding($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1ClusterRoleBinding($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1522,16 +1522,16 @@ delete a ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterRoleBinding($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1ClusterRoleBinding($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1ClusterRoleBinding: ', $e->getMessage(), PHP_EOL;
@@ -1546,9 +1546,9 @@ Name | Type | Description  | Notes
  **name** | **string**| name of the ClusterRoleBinding |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1566,7 +1566,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1577,16 +1577,16 @@ delete collection of ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicy: ', $e->getMessage(), PHP_EOL;
@@ -1599,10 +1599,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1621,7 +1621,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1632,16 +1632,16 @@ delete collection of ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1CollectionClusterPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -1654,10 +1654,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1676,7 +1676,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1687,17 +1687,17 @@ delete collection of Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicy: ', $e->getMessage(), PHP_EOL;
@@ -1711,10 +1711,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1733,7 +1733,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1744,17 +1744,17 @@ delete collection of PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1CollectionNamespacedPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -1768,10 +1768,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1790,7 +1790,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1801,17 +1801,17 @@ delete collection of RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1CollectionNamespacedRoleBindingRestriction: ', $e->getMessage(), PHP_EOL;
@@ -1825,10 +1825,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1847,7 +1847,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1NamespacedPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1858,17 +1858,17 @@ delete a Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1NamespacedPolicy: ', $e->getMessage(), PHP_EOL;
@@ -1884,9 +1884,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1904,7 +1904,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1915,17 +1915,17 @@ delete a PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1NamespacedPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -1941,9 +1941,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -1961,7 +1961,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1NamespacedRole**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRole($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRole($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -1972,17 +1972,17 @@ delete a Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRole($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRole($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1NamespacedRole: ', $e->getMessage(), PHP_EOL;
@@ -1998,9 +1998,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -2018,7 +2018,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -2029,17 +2029,17 @@ delete a RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1NamespacedRoleBinding: ', $e->getMessage(), PHP_EOL;
@@ -2055,9 +2055,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -2075,7 +2075,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -2086,17 +2086,17 @@ delete a RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->deleteAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction: ', $e->getMessage(), PHP_EOL;
@@ -2112,9 +2112,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -2143,7 +2143,7 @@ get available resources
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getAuthorizationOpenshiftIoV1APIResources();
@@ -2173,7 +2173,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1ClusterPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyList listAuthorizationOpenshiftIoV1ClusterPolicy($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyList listAuthorizationOpenshiftIoV1ClusterPolicy($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2184,16 +2184,16 @@ list or watch objects of kind ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterPolicy($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterPolicy($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1ClusterPolicy: ', $e->getMessage(), PHP_EOL;
@@ -2206,10 +2206,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2228,7 +2228,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1ClusterPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBindingList listAuthorizationOpenshiftIoV1ClusterPolicyBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBindingList listAuthorizationOpenshiftIoV1ClusterPolicyBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2239,16 +2239,16 @@ list or watch objects of kind ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterPolicyBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterPolicyBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1ClusterPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -2261,10 +2261,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2283,7 +2283,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1ClusterRole**
-> \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleList listAuthorizationOpenshiftIoV1ClusterRole($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleList listAuthorizationOpenshiftIoV1ClusterRole($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2294,16 +2294,16 @@ list objects of kind ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterRole($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterRole($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1ClusterRole: ', $e->getMessage(), PHP_EOL;
@@ -2316,10 +2316,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2338,7 +2338,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1ClusterRoleBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBindingList listAuthorizationOpenshiftIoV1ClusterRoleBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBindingList listAuthorizationOpenshiftIoV1ClusterRoleBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2349,16 +2349,16 @@ list objects of kind ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterRoleBinding($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1ClusterRoleBinding($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1ClusterRoleBinding: ', $e->getMessage(), PHP_EOL;
@@ -2371,10 +2371,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2393,7 +2393,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1NamespacedPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1PolicyList listAuthorizationOpenshiftIoV1NamespacedPolicy($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1PolicyList listAuthorizationOpenshiftIoV1NamespacedPolicy($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2404,17 +2404,17 @@ list or watch objects of kind Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedPolicy($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedPolicy($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1NamespacedPolicy: ', $e->getMessage(), PHP_EOL;
@@ -2428,10 +2428,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2450,7 +2450,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1NamespacedPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1PolicyBindingList listAuthorizationOpenshiftIoV1NamespacedPolicyBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1PolicyBindingList listAuthorizationOpenshiftIoV1NamespacedPolicyBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2461,17 +2461,17 @@ list or watch objects of kind PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedPolicyBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedPolicyBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1NamespacedPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -2485,10 +2485,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2507,7 +2507,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1NamespacedRole**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleList listAuthorizationOpenshiftIoV1NamespacedRole($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleList listAuthorizationOpenshiftIoV1NamespacedRole($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2518,17 +2518,17 @@ list objects of kind Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRole($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRole($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1NamespacedRole: ', $e->getMessage(), PHP_EOL;
@@ -2542,10 +2542,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2564,7 +2564,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1NamespacedRoleBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingList listAuthorizationOpenshiftIoV1NamespacedRoleBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingList listAuthorizationOpenshiftIoV1NamespacedRoleBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2575,17 +2575,17 @@ list objects of kind RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRoleBinding($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRoleBinding($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1NamespacedRoleBinding: ', $e->getMessage(), PHP_EOL;
@@ -2599,10 +2599,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2621,7 +2621,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestrictionList listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestrictionList listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2632,17 +2632,17 @@ list or watch objects of kind RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction: ', $e->getMessage(), PHP_EOL;
@@ -2656,10 +2656,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2678,7 +2678,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1PolicyBindingList listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1PolicyBindingList listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2689,16 +2689,16 @@ list or watch objects of kind PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1PolicyBindingForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2711,10 +2711,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2733,7 +2733,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1PolicyForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1PolicyList listAuthorizationOpenshiftIoV1PolicyForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1PolicyList listAuthorizationOpenshiftIoV1PolicyForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2744,16 +2744,16 @@ list or watch objects of kind Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1PolicyForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1PolicyForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1PolicyForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2766,10 +2766,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2788,7 +2788,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingList listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingList listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2799,16 +2799,16 @@ list objects of kind RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1RoleBindingForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2821,10 +2821,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2843,7 +2843,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestrictionList listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestrictionList listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2854,16 +2854,16 @@ list or watch objects of kind RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1RoleBindingRestrictionForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2876,10 +2876,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2898,7 +2898,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAuthorizationOpenshiftIoV1RoleForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1RoleList listAuthorizationOpenshiftIoV1RoleForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1RoleList listAuthorizationOpenshiftIoV1RoleForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2909,16 +2909,16 @@ list objects of kind Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listAuthorizationOpenshiftIoV1RoleForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->listAuthorizationOpenshiftIoV1RoleForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2931,10 +2931,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2964,7 +2964,7 @@ partially update the specified ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3013,7 +3013,7 @@ partially update the specified ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3062,7 +3062,7 @@ partially update the specified ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3111,7 +3111,7 @@ partially update the specified ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3160,7 +3160,7 @@ partially update the specified Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -3211,7 +3211,7 @@ partially update the specified PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -3262,7 +3262,7 @@ partially update the specified Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -3313,7 +3313,7 @@ partially update the specified RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -3364,7 +3364,7 @@ partially update the specified RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -3415,7 +3415,7 @@ read the specified ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 $exact = true; // bool | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
@@ -3466,7 +3466,7 @@ read the specified ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 $exact = true; // bool | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
@@ -3517,7 +3517,7 @@ read the specified ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -3564,7 +3564,7 @@ read the specified ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -3611,7 +3611,7 @@ read the specified Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3664,7 +3664,7 @@ read the specified PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3717,7 +3717,7 @@ read the specified Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3766,7 +3766,7 @@ read the specified RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3815,7 +3815,7 @@ read the specified RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3868,7 +3868,7 @@ replace the specified ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3917,7 +3917,7 @@ replace the specified ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -3966,7 +3966,7 @@ replace the specified ClusterRole
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4015,7 +4015,7 @@ replace the specified ClusterRoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4064,7 +4064,7 @@ replace the specified Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Policy(); // \UniversityOfAdelaide\OpenShift\Model\V1Policy | 
@@ -4115,7 +4115,7 @@ replace the specified PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding | 
@@ -4166,7 +4166,7 @@ replace the specified Role
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Role(); // \UniversityOfAdelaide\OpenShift\Model\V1Role | 
@@ -4217,7 +4217,7 @@ replace the specified RoleBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding | 
@@ -4268,7 +4268,7 @@ replace the specified RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction | 
@@ -4308,7 +4308,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1ClusterPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicy($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicy($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4319,17 +4319,17 @@ watch changes to an object of kind ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicy($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicy($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1ClusterPolicy: ', $e->getMessage(), PHP_EOL;
@@ -4342,11 +4342,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the ClusterPolicy |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4365,7 +4365,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1ClusterPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4376,17 +4376,17 @@ watch changes to an object of kind ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyBinding($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1ClusterPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -4399,11 +4399,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the ClusterPolicyBinding |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4422,7 +4422,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4433,16 +4433,16 @@ watch individual changes to a list of ClusterPolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1ClusterPolicyBindingList: ', $e->getMessage(), PHP_EOL;
@@ -4454,11 +4454,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4477,7 +4477,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1ClusterPolicyList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1ClusterPolicyList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4488,16 +4488,16 @@ watch individual changes to a list of ClusterPolicy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1ClusterPolicyList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1ClusterPolicyList: ', $e->getMessage(), PHP_EOL;
@@ -4509,11 +4509,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4532,7 +4532,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedPolicy**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4543,18 +4543,18 @@ watch changes to an object of kind Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicy($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedPolicy: ', $e->getMessage(), PHP_EOL;
@@ -4568,11 +4568,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the Policy |
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4591,7 +4591,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4602,18 +4602,18 @@ watch changes to an object of kind PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedPolicyBinding: ', $e->getMessage(), PHP_EOL;
@@ -4627,11 +4627,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the PolicyBinding |
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4650,7 +4650,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4661,17 +4661,17 @@ watch individual changes to a list of PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedPolicyBindingList: ', $e->getMessage(), PHP_EOL;
@@ -4684,11 +4684,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4707,7 +4707,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedPolicyList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedPolicyList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4718,17 +4718,17 @@ watch individual changes to a list of Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedPolicyList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedPolicyList: ', $e->getMessage(), PHP_EOL;
@@ -4741,11 +4741,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4764,7 +4764,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4775,18 +4775,18 @@ watch changes to an object of kind RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestriction: ', $e->getMessage(), PHP_EOL;
@@ -4800,11 +4800,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the RoleBindingRestriction |
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4823,7 +4823,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4834,17 +4834,17 @@ watch individual changes to a list of RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1NamespacedRoleBindingRestrictionList: ', $e->getMessage(), PHP_EOL;
@@ -4857,11 +4857,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4880,7 +4880,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4891,16 +4891,16 @@ watch individual changes to a list of PolicyBinding
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1PolicyBindingListForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -4912,11 +4912,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4935,7 +4935,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -4946,16 +4946,16 @@ watch individual changes to a list of Policy
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1PolicyListForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -4967,11 +4967,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4990,7 +4990,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -5001,16 +5001,16 @@ watch individual changes to a list of RoleBindingRestriction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\AuthorizationOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthorizationOpenshiftIo_v1Api->watchAuthorizationOpenshiftIoV1RoleBindingRestrictionListForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -5022,11 +5022,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type

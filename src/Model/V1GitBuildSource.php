@@ -55,9 +55,9 @@ class V1GitBuildSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'http_proxy' => 'string',
-        'https_proxy' => 'string',
-        'no_proxy' => 'string',
+        'httpProxy' => 'string',
+        'httpsProxy' => 'string',
+        'noProxy' => 'string',
         'ref' => 'string',
         'uri' => 'string'
     ];
@@ -72,9 +72,9 @@ class V1GitBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'http_proxy' => 'httpProxy',
-        'https_proxy' => 'httpsProxy',
-        'no_proxy' => 'noProxy',
+        'httpProxy' => 'httpProxy',
+        'httpsProxy' => 'httpsProxy',
+        'noProxy' => 'noProxy',
         'ref' => 'ref',
         'uri' => 'uri'
     ];
@@ -85,9 +85,9 @@ class V1GitBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'http_proxy' => 'setHttpProxy',
-        'https_proxy' => 'setHttpsProxy',
-        'no_proxy' => 'setNoProxy',
+        'httpProxy' => 'setHttpProxy',
+        'httpsProxy' => 'setHttpsProxy',
+        'noProxy' => 'setNoProxy',
         'ref' => 'setRef',
         'uri' => 'setUri'
     ];
@@ -98,9 +98,9 @@ class V1GitBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'http_proxy' => 'getHttpProxy',
-        'https_proxy' => 'getHttpsProxy',
-        'no_proxy' => 'getNoProxy',
+        'httpProxy' => 'getHttpProxy',
+        'httpsProxy' => 'getHttpsProxy',
+        'noProxy' => 'getNoProxy',
         'ref' => 'getRef',
         'uri' => 'getUri'
     ];
@@ -136,9 +136,9 @@ class V1GitBuildSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['http_proxy'] = isset($data['http_proxy']) ? $data['http_proxy'] : null;
-        $this->container['https_proxy'] = isset($data['https_proxy']) ? $data['https_proxy'] : null;
-        $this->container['no_proxy'] = isset($data['no_proxy']) ? $data['no_proxy'] : null;
+        $this->container['httpProxy'] = isset($data['httpProxy']) ? $data['httpProxy'] : null;
+        $this->container['httpsProxy'] = isset($data['httpsProxy']) ? $data['httpsProxy'] : null;
+        $this->container['noProxy'] = isset($data['noProxy']) ? $data['noProxy'] : null;
         $this->container['ref'] = isset($data['ref']) ? $data['ref'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
@@ -175,64 +175,64 @@ class V1GitBuildSource implements ArrayAccess
 
 
     /**
-     * Gets http_proxy
+     * Gets httpProxy
      * @return string
      */
     public function getHttpProxy()
     {
-        return $this->container['http_proxy'];
+        return $this->container['httpProxy'];
     }
 
     /**
-     * Sets http_proxy
-     * @param string $http_proxy httpProxy is a proxy used to reach the git repository over http
+     * Sets httpProxy
+     * @param string $httpProxy httpProxy is a proxy used to reach the git repository over http
      * @return $this
      */
-    public function setHttpProxy($http_proxy)
+    public function setHttpProxy($httpProxy)
     {
-        $this->container['http_proxy'] = $http_proxy;
+        $this->container['httpProxy'] = $httpProxy;
 
         return $this;
     }
 
     /**
-     * Gets https_proxy
+     * Gets httpsProxy
      * @return string
      */
     public function getHttpsProxy()
     {
-        return $this->container['https_proxy'];
+        return $this->container['httpsProxy'];
     }
 
     /**
-     * Sets https_proxy
-     * @param string $https_proxy httpsProxy is a proxy used to reach the git repository over https
+     * Sets httpsProxy
+     * @param string $httpsProxy httpsProxy is a proxy used to reach the git repository over https
      * @return $this
      */
-    public function setHttpsProxy($https_proxy)
+    public function setHttpsProxy($httpsProxy)
     {
-        $this->container['https_proxy'] = $https_proxy;
+        $this->container['httpsProxy'] = $httpsProxy;
 
         return $this;
     }
 
     /**
-     * Gets no_proxy
+     * Gets noProxy
      * @return string
      */
     public function getNoProxy()
     {
-        return $this->container['no_proxy'];
+        return $this->container['noProxy'];
     }
 
     /**
-     * Sets no_proxy
-     * @param string $no_proxy noProxy is the list of domains for which the proxy should not be used
+     * Sets noProxy
+     * @param string $noProxy noProxy is the list of domains for which the proxy should not be used
      * @return $this
      */
-    public function setNoProxy($no_proxy)
+    public function setNoProxy($noProxy)
     {
-        $this->container['no_proxy'] = $no_proxy;
+        $this->container['noProxy'] = $noProxy;
 
         return $this;
     }

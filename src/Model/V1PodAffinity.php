@@ -55,8 +55,8 @@ class V1PodAffinity implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'preferred_during_scheduling_ignored_during_execution' => '\UniversityOfAdelaide\OpenShift\Model\V1WeightedPodAffinityTerm[]',
-        'required_during_scheduling_ignored_during_execution' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm[]'
+        'preferredDuringSchedulingIgnoredDuringExecution' => '\UniversityOfAdelaide\OpenShift\Model\V1WeightedPodAffinityTerm[]',
+        'requiredDuringSchedulingIgnoredDuringExecution' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm[]'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1PodAffinity implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'preferred_during_scheduling_ignored_during_execution' => 'preferredDuringSchedulingIgnoredDuringExecution',
-        'required_during_scheduling_ignored_during_execution' => 'requiredDuringSchedulingIgnoredDuringExecution'
+        'preferredDuringSchedulingIgnoredDuringExecution' => 'preferredDuringSchedulingIgnoredDuringExecution',
+        'requiredDuringSchedulingIgnoredDuringExecution' => 'requiredDuringSchedulingIgnoredDuringExecution'
     ];
 
 
@@ -79,8 +79,8 @@ class V1PodAffinity implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'preferred_during_scheduling_ignored_during_execution' => 'setPreferredDuringSchedulingIgnoredDuringExecution',
-        'required_during_scheduling_ignored_during_execution' => 'setRequiredDuringSchedulingIgnoredDuringExecution'
+        'preferredDuringSchedulingIgnoredDuringExecution' => 'setPreferredDuringSchedulingIgnoredDuringExecution',
+        'requiredDuringSchedulingIgnoredDuringExecution' => 'setRequiredDuringSchedulingIgnoredDuringExecution'
     ];
 
 
@@ -89,8 +89,8 @@ class V1PodAffinity implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'preferred_during_scheduling_ignored_during_execution' => 'getPreferredDuringSchedulingIgnoredDuringExecution',
-        'required_during_scheduling_ignored_during_execution' => 'getRequiredDuringSchedulingIgnoredDuringExecution'
+        'preferredDuringSchedulingIgnoredDuringExecution' => 'getPreferredDuringSchedulingIgnoredDuringExecution',
+        'requiredDuringSchedulingIgnoredDuringExecution' => 'getRequiredDuringSchedulingIgnoredDuringExecution'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1PodAffinity implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['preferred_during_scheduling_ignored_during_execution'] = isset($data['preferred_during_scheduling_ignored_during_execution']) ? $data['preferred_during_scheduling_ignored_during_execution'] : null;
-        $this->container['required_during_scheduling_ignored_during_execution'] = isset($data['required_during_scheduling_ignored_during_execution']) ? $data['required_during_scheduling_ignored_during_execution'] : null;
+        $this->container['preferredDuringSchedulingIgnoredDuringExecution'] = isset($data['preferredDuringSchedulingIgnoredDuringExecution']) ? $data['preferredDuringSchedulingIgnoredDuringExecution'] : null;
+        $this->container['requiredDuringSchedulingIgnoredDuringExecution'] = isset($data['requiredDuringSchedulingIgnoredDuringExecution']) ? $data['requiredDuringSchedulingIgnoredDuringExecution'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1PodAffinity implements ArrayAccess
 
 
     /**
-     * Gets preferred_during_scheduling_ignored_during_execution
+     * Gets preferredDuringSchedulingIgnoredDuringExecution
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WeightedPodAffinityTerm[]
      */
     public function getPreferredDuringSchedulingIgnoredDuringExecution()
     {
-        return $this->container['preferred_during_scheduling_ignored_during_execution'];
+        return $this->container['preferredDuringSchedulingIgnoredDuringExecution'];
     }
 
     /**
-     * Sets preferred_during_scheduling_ignored_during_execution
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1WeightedPodAffinityTerm[] $preferred_during_scheduling_ignored_during_execution The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+     * Sets preferredDuringSchedulingIgnoredDuringExecution
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1WeightedPodAffinityTerm[] $preferredDuringSchedulingIgnoredDuringExecution The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
      * @return $this
      */
-    public function setPreferredDuringSchedulingIgnoredDuringExecution($preferred_during_scheduling_ignored_during_execution)
+    public function setPreferredDuringSchedulingIgnoredDuringExecution($preferredDuringSchedulingIgnoredDuringExecution)
     {
-        $this->container['preferred_during_scheduling_ignored_during_execution'] = $preferred_during_scheduling_ignored_during_execution;
+        $this->container['preferredDuringSchedulingIgnoredDuringExecution'] = $preferredDuringSchedulingIgnoredDuringExecution;
 
         return $this;
     }
 
     /**
-     * Gets required_during_scheduling_ignored_during_execution
+     * Gets requiredDuringSchedulingIgnoredDuringExecution
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm[]
      */
     public function getRequiredDuringSchedulingIgnoredDuringExecution()
     {
-        return $this->container['required_during_scheduling_ignored_during_execution'];
+        return $this->container['requiredDuringSchedulingIgnoredDuringExecution'];
     }
 
     /**
-     * Sets required_during_scheduling_ignored_during_execution
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm[] $required_during_scheduling_ignored_during_execution NOT YET IMPLEMENTED. TODO: Uncomment field once it is implemented. If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system will try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied. RequiredDuringSchedulingRequiredDuringExecution []PodAffinityTerm  `json:\"requiredDuringSchedulingRequiredDuringExecution,omitempty\"` If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+     * Sets requiredDuringSchedulingIgnoredDuringExecution
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm[] $requiredDuringSchedulingIgnoredDuringExecution NOT YET IMPLEMENTED. TODO: Uncomment field once it is implemented. If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system will try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied. RequiredDuringSchedulingRequiredDuringExecution []PodAffinityTerm  `json:\"requiredDuringSchedulingRequiredDuringExecution,omitempty\"` If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
      * @return $this
      */
-    public function setRequiredDuringSchedulingIgnoredDuringExecution($required_during_scheduling_ignored_during_execution)
+    public function setRequiredDuringSchedulingIgnoredDuringExecution($requiredDuringSchedulingIgnoredDuringExecution)
     {
-        $this->container['required_during_scheduling_ignored_during_execution'] = $required_during_scheduling_ignored_during_execution;
+        $this->container['requiredDuringSchedulingIgnoredDuringExecution'] = $requiredDuringSchedulingIgnoredDuringExecution;
 
         return $this;
     }

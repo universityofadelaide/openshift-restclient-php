@@ -55,7 +55,7 @@ class V1beta1DeploymentStrategy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'rolling_update' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RollingUpdateDeployment',
+        'rollingUpdate' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RollingUpdateDeployment',
         'type' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1beta1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rolling_update' => 'rollingUpdate',
+        'rollingUpdate' => 'rollingUpdate',
         'type' => 'type'
     ];
 
@@ -79,7 +79,7 @@ class V1beta1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rolling_update' => 'setRollingUpdate',
+        'rollingUpdate' => 'setRollingUpdate',
         'type' => 'setType'
     ];
 
@@ -89,7 +89,7 @@ class V1beta1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rolling_update' => 'getRollingUpdate',
+        'rollingUpdate' => 'getRollingUpdate',
         'type' => 'getType'
     ];
 
@@ -124,7 +124,7 @@ class V1beta1DeploymentStrategy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rolling_update'] = isset($data['rolling_update']) ? $data['rolling_update'] : null;
+        $this->container['rollingUpdate'] = isset($data['rollingUpdate']) ? $data['rollingUpdate'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1beta1DeploymentStrategy implements ArrayAccess
 
 
     /**
-     * Gets rolling_update
+     * Gets rollingUpdate
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1RollingUpdateDeployment
      */
     public function getRollingUpdate()
     {
-        return $this->container['rolling_update'];
+        return $this->container['rollingUpdate'];
     }
 
     /**
-     * Sets rolling_update
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RollingUpdateDeployment $rolling_update Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
+     * Sets rollingUpdate
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RollingUpdateDeployment $rollingUpdate Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
      * @return $this
      */
-    public function setRollingUpdate($rolling_update)
+    public function setRollingUpdate($rollingUpdate)
     {
-        $this->container['rolling_update'] = $rolling_update;
+        $this->container['rollingUpdate'] = $rollingUpdate;
 
         return $this;
     }

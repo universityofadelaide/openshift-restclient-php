@@ -83,7 +83,7 @@ class V1JobConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_probe_time"
+     * Test attribute "lastProbeTime"
      */
     public function testPropertyLastProbeTime()
     {
@@ -91,7 +91,7 @@ class V1JobConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_transition_time"
+     * Test attribute "lastTransitionTime"
      */
     public function testPropertyLastTransitionTime()
     {

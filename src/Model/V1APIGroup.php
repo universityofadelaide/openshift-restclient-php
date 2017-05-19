@@ -55,11 +55,11 @@ class V1APIGroup implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
         'name' => 'string',
-        'preferred_version' => '\UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery',
-        'server_address_by_client_cid_rs' => '\UniversityOfAdelaide\OpenShift\Model\V1ServerAddressByClientCIDR[]',
+        'preferredVersion' => '\UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery',
+        'serverAddressByClientCIDRs' => '\UniversityOfAdelaide\OpenShift\Model\V1ServerAddressByClientCIDR[]',
         'versions' => '\UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery[]'
     ];
 
@@ -73,11 +73,11 @@ class V1APIGroup implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
         'name' => 'name',
-        'preferred_version' => 'preferredVersion',
-        'server_address_by_client_cid_rs' => 'serverAddressByClientCIDRs',
+        'preferredVersion' => 'preferredVersion',
+        'serverAddressByClientCIDRs' => 'serverAddressByClientCIDRs',
         'versions' => 'versions'
     ];
 
@@ -87,11 +87,11 @@ class V1APIGroup implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
         'name' => 'setName',
-        'preferred_version' => 'setPreferredVersion',
-        'server_address_by_client_cid_rs' => 'setServerAddressByClientCidRs',
+        'preferredVersion' => 'setPreferredVersion',
+        'serverAddressByClientCIDRs' => 'setServerAddressByClientCIDRs',
         'versions' => 'setVersions'
     ];
 
@@ -101,11 +101,11 @@ class V1APIGroup implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
         'name' => 'getName',
-        'preferred_version' => 'getPreferredVersion',
-        'server_address_by_client_cid_rs' => 'getServerAddressByClientCidRs',
+        'preferredVersion' => 'getPreferredVersion',
+        'serverAddressByClientCIDRs' => 'getServerAddressByClientCIDRs',
         'versions' => 'getVersions'
     ];
 
@@ -140,11 +140,11 @@ class V1APIGroup implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['preferred_version'] = isset($data['preferred_version']) ? $data['preferred_version'] : null;
-        $this->container['server_address_by_client_cid_rs'] = isset($data['server_address_by_client_cid_rs']) ? $data['server_address_by_client_cid_rs'] : null;
+        $this->container['preferredVersion'] = isset($data['preferredVersion']) ? $data['preferredVersion'] : null;
+        $this->container['serverAddressByClientCIDRs'] = isset($data['serverAddressByClientCIDRs']) ? $data['serverAddressByClientCIDRs'] : null;
         $this->container['versions'] = isset($data['versions']) ? $data['versions'] : null;
     }
 
@@ -160,8 +160,8 @@ class V1APIGroup implements ArrayAccess
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
         }
-        if ($this->container['server_address_by_client_cid_rs'] === null) {
-            $invalid_properties[] = "'server_address_by_client_cid_rs' can't be null";
+        if ($this->container['serverAddressByClientCIDRs'] === null) {
+            $invalid_properties[] = "'serverAddressByClientCIDRs' can't be null";
         }
         if ($this->container['versions'] === null) {
             $invalid_properties[] = "'versions' can't be null";
@@ -181,7 +181,7 @@ class V1APIGroup implements ArrayAccess
         if ($this->container['name'] === null) {
             return false;
         }
-        if ($this->container['server_address_by_client_cid_rs'] === null) {
+        if ($this->container['serverAddressByClientCIDRs'] === null) {
             return false;
         }
         if ($this->container['versions'] === null) {
@@ -192,22 +192,22 @@ class V1APIGroup implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -255,43 +255,43 @@ class V1APIGroup implements ArrayAccess
     }
 
     /**
-     * Gets preferred_version
+     * Gets preferredVersion
      * @return \UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery
      */
     public function getPreferredVersion()
     {
-        return $this->container['preferred_version'];
+        return $this->container['preferredVersion'];
     }
 
     /**
-     * Sets preferred_version
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery $preferred_version preferredVersion is the version preferred by the API server, which probably is the storage version.
+     * Sets preferredVersion
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1GroupVersionForDiscovery $preferredVersion preferredVersion is the version preferred by the API server, which probably is the storage version.
      * @return $this
      */
-    public function setPreferredVersion($preferred_version)
+    public function setPreferredVersion($preferredVersion)
     {
-        $this->container['preferred_version'] = $preferred_version;
+        $this->container['preferredVersion'] = $preferredVersion;
 
         return $this;
     }
 
     /**
-     * Gets server_address_by_client_cid_rs
+     * Gets serverAddressByClientCIDRs
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ServerAddressByClientCIDR[]
      */
-    public function getServerAddressByClientCidRs()
+    public function getServerAddressByClientCIDRs()
     {
-        return $this->container['server_address_by_client_cid_rs'];
+        return $this->container['serverAddressByClientCIDRs'];
     }
 
     /**
-     * Sets server_address_by_client_cid_rs
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ServerAddressByClientCIDR[] $server_address_by_client_cid_rs a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.
+     * Sets serverAddressByClientCIDRs
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ServerAddressByClientCIDR[] $serverAddressByClientCIDRs a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.
      * @return $this
      */
-    public function setServerAddressByClientCidRs($server_address_by_client_cid_rs)
+    public function setServerAddressByClientCIDRs($serverAddressByClientCIDRs)
     {
-        $this->container['server_address_by_client_cid_rs'] = $server_address_by_client_cid_rs;
+        $this->container['serverAddressByClientCIDRs'] = $serverAddressByClientCIDRs;
 
         return $this;
     }

@@ -55,7 +55,7 @@ class V1BuildStatusOutputTo implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_digest' => 'string'
+        'imageDigest' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1BuildStatusOutputTo implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_digest' => 'imageDigest'
+        'imageDigest' => 'imageDigest'
     ];
 
 
@@ -77,7 +77,7 @@ class V1BuildStatusOutputTo implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_digest' => 'setImageDigest'
+        'imageDigest' => 'setImageDigest'
     ];
 
 
@@ -86,7 +86,7 @@ class V1BuildStatusOutputTo implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_digest' => 'getImageDigest'
+        'imageDigest' => 'getImageDigest'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1BuildStatusOutputTo implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['image_digest'] = isset($data['image_digest']) ? $data['image_digest'] : null;
+        $this->container['imageDigest'] = isset($data['imageDigest']) ? $data['imageDigest'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1BuildStatusOutputTo implements ArrayAccess
 
 
     /**
-     * Gets image_digest
+     * Gets imageDigest
      * @return string
      */
     public function getImageDigest()
     {
-        return $this->container['image_digest'];
+        return $this->container['imageDigest'];
     }
 
     /**
-     * Sets image_digest
-     * @param string $image_digest imageDigest is the digest of the built Docker image. The digest uniquely identifies the image in the registry to which it was pushed.  Please note that this field may not always be set even if the push completes successfully - e.g. when the registry returns no digest or returns it in a format that the builder doesn't understand.
+     * Sets imageDigest
+     * @param string $imageDigest imageDigest is the digest of the built Docker image. The digest uniquely identifies the image in the registry to which it was pushed.  Please note that this field may not always be set even if the push completes successfully - e.g. when the registry returns no digest or returns it in a format that the builder doesn't understand.
      * @return $this
      */
-    public function setImageDigest($image_digest)
+    public function setImageDigest($imageDigest)
     {
-        $this->container['image_digest'] = $image_digest;
+        $this->container['imageDigest'] = $imageDigest;
 
         return $this;
     }

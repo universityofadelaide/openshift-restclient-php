@@ -83,7 +83,7 @@ class V1WeightedPodAffinityTermTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_affinity_term"
+     * Test attribute "podAffinityTerm"
      */
     public function testPropertyPodAffinityTerm()
     {

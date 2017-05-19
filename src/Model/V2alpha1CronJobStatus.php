@@ -56,7 +56,7 @@ class V2alpha1CronJobStatus implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'active' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference[]',
-        'last_schedule_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
+        'lastScheduleTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V2alpha1CronJobStatus implements ArrayAccess
      */
     protected static $attributeMap = [
         'active' => 'active',
-        'last_schedule_time' => 'lastScheduleTime'
+        'lastScheduleTime' => 'lastScheduleTime'
     ];
 
 
@@ -80,7 +80,7 @@ class V2alpha1CronJobStatus implements ArrayAccess
      */
     protected static $setters = [
         'active' => 'setActive',
-        'last_schedule_time' => 'setLastScheduleTime'
+        'lastScheduleTime' => 'setLastScheduleTime'
     ];
 
 
@@ -90,7 +90,7 @@ class V2alpha1CronJobStatus implements ArrayAccess
      */
     protected static $getters = [
         'active' => 'getActive',
-        'last_schedule_time' => 'getLastScheduleTime'
+        'lastScheduleTime' => 'getLastScheduleTime'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V2alpha1CronJobStatus implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['last_schedule_time'] = isset($data['last_schedule_time']) ? $data['last_schedule_time'] : null;
+        $this->container['lastScheduleTime'] = isset($data['lastScheduleTime']) ? $data['lastScheduleTime'] : null;
     }
 
     /**
@@ -175,22 +175,22 @@ class V2alpha1CronJobStatus implements ArrayAccess
     }
 
     /**
-     * Gets last_schedule_time
+     * Gets lastScheduleTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastScheduleTime()
     {
-        return $this->container['last_schedule_time'];
+        return $this->container['lastScheduleTime'];
     }
 
     /**
-     * Sets last_schedule_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_schedule_time LastScheduleTime keeps information of when was the last time the job was successfully scheduled.
+     * Sets lastScheduleTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastScheduleTime LastScheduleTime keeps information of when was the last time the job was successfully scheduled.
      * @return $this
      */
-    public function setLastScheduleTime($last_schedule_time)
+    public function setLastScheduleTime($lastScheduleTime)
     {
-        $this->container['last_schedule_time'] = $last_schedule_time;
+        $this->container['lastScheduleTime'] = $lastScheduleTime;
 
         return $this;
     }

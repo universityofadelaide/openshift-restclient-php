@@ -83,7 +83,7 @@ class V1ConfigMapVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "default_mode"
+     * Test attribute "defaultMode"
      */
     public function testPropertyDefaultMode()
     {

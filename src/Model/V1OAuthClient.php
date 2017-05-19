@@ -55,14 +55,14 @@ class V1OAuthClient implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'additional_secrets' => 'string[]',
-        'api_version' => 'string',
-        'grant_method' => 'string',
+        'additionalSecrets' => 'string[]',
+        'apiVersion' => 'string',
+        'grantMethod' => 'string',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'redirect_ur_is' => 'string[]',
-        'respond_with_challenges' => 'bool',
-        'scope_restrictions' => '\UniversityOfAdelaide\OpenShift\Model\V1ScopeRestriction[]',
+        'redirectURIs' => 'string[]',
+        'respondWithChallenges' => 'bool',
+        'scopeRestrictions' => '\UniversityOfAdelaide\OpenShift\Model\V1ScopeRestriction[]',
         'secret' => 'string'
     ];
 
@@ -76,14 +76,14 @@ class V1OAuthClient implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_secrets' => 'additionalSecrets',
-        'api_version' => 'apiVersion',
-        'grant_method' => 'grantMethod',
+        'additionalSecrets' => 'additionalSecrets',
+        'apiVersion' => 'apiVersion',
+        'grantMethod' => 'grantMethod',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'redirect_ur_is' => 'redirectURIs',
-        'respond_with_challenges' => 'respondWithChallenges',
-        'scope_restrictions' => 'scopeRestrictions',
+        'redirectURIs' => 'redirectURIs',
+        'respondWithChallenges' => 'respondWithChallenges',
+        'scopeRestrictions' => 'scopeRestrictions',
         'secret' => 'secret'
     ];
 
@@ -93,14 +93,14 @@ class V1OAuthClient implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'additional_secrets' => 'setAdditionalSecrets',
-        'api_version' => 'setApiVersion',
-        'grant_method' => 'setGrantMethod',
+        'additionalSecrets' => 'setAdditionalSecrets',
+        'apiVersion' => 'setApiVersion',
+        'grantMethod' => 'setGrantMethod',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'redirect_ur_is' => 'setRedirectUrIs',
-        'respond_with_challenges' => 'setRespondWithChallenges',
-        'scope_restrictions' => 'setScopeRestrictions',
+        'redirectURIs' => 'setRedirectURIs',
+        'respondWithChallenges' => 'setRespondWithChallenges',
+        'scopeRestrictions' => 'setScopeRestrictions',
         'secret' => 'setSecret'
     ];
 
@@ -110,14 +110,14 @@ class V1OAuthClient implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'additional_secrets' => 'getAdditionalSecrets',
-        'api_version' => 'getApiVersion',
-        'grant_method' => 'getGrantMethod',
+        'additionalSecrets' => 'getAdditionalSecrets',
+        'apiVersion' => 'getApiVersion',
+        'grantMethod' => 'getGrantMethod',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'redirect_ur_is' => 'getRedirectUrIs',
-        'respond_with_challenges' => 'getRespondWithChallenges',
-        'scope_restrictions' => 'getScopeRestrictions',
+        'redirectURIs' => 'getRedirectURIs',
+        'respondWithChallenges' => 'getRespondWithChallenges',
+        'scopeRestrictions' => 'getScopeRestrictions',
         'secret' => 'getSecret'
     ];
 
@@ -152,14 +152,14 @@ class V1OAuthClient implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_secrets'] = isset($data['additional_secrets']) ? $data['additional_secrets'] : null;
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['grant_method'] = isset($data['grant_method']) ? $data['grant_method'] : null;
+        $this->container['additionalSecrets'] = isset($data['additionalSecrets']) ? $data['additionalSecrets'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['grantMethod'] = isset($data['grantMethod']) ? $data['grantMethod'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['redirect_ur_is'] = isset($data['redirect_ur_is']) ? $data['redirect_ur_is'] : null;
-        $this->container['respond_with_challenges'] = isset($data['respond_with_challenges']) ? $data['respond_with_challenges'] : null;
-        $this->container['scope_restrictions'] = isset($data['scope_restrictions']) ? $data['scope_restrictions'] : null;
+        $this->container['redirectURIs'] = isset($data['redirectURIs']) ? $data['redirectURIs'] : null;
+        $this->container['respondWithChallenges'] = isset($data['respondWithChallenges']) ? $data['respondWithChallenges'] : null;
+        $this->container['scopeRestrictions'] = isset($data['scopeRestrictions']) ? $data['scopeRestrictions'] : null;
         $this->container['secret'] = isset($data['secret']) ? $data['secret'] : null;
     }
 
@@ -189,64 +189,64 @@ class V1OAuthClient implements ArrayAccess
 
 
     /**
-     * Gets additional_secrets
+     * Gets additionalSecrets
      * @return string[]
      */
     public function getAdditionalSecrets()
     {
-        return $this->container['additional_secrets'];
+        return $this->container['additionalSecrets'];
     }
 
     /**
-     * Sets additional_secrets
-     * @param string[] $additional_secrets AdditionalSecrets holds other secrets that may be used to identify the client.  This is useful for rotation and for service account token validation
+     * Sets additionalSecrets
+     * @param string[] $additionalSecrets AdditionalSecrets holds other secrets that may be used to identify the client.  This is useful for rotation and for service account token validation
      * @return $this
      */
-    public function setAdditionalSecrets($additional_secrets)
+    public function setAdditionalSecrets($additionalSecrets)
     {
-        $this->container['additional_secrets'] = $additional_secrets;
+        $this->container['additionalSecrets'] = $additionalSecrets;
 
         return $this;
     }
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets grant_method
+     * Gets grantMethod
      * @return string
      */
     public function getGrantMethod()
     {
-        return $this->container['grant_method'];
+        return $this->container['grantMethod'];
     }
 
     /**
-     * Sets grant_method
-     * @param string $grant_method GrantMethod determines how to handle grants for this client. If no method is provided, the cluster default grant handling method will be used. Valid grant handling methods are:  - auto:   always approves grant requests, useful for trusted clients  - prompt: prompts the end user for approval of grant requests, useful for third-party clients  - deny:   always denies grant requests, useful for black-listed clients
+     * Sets grantMethod
+     * @param string $grantMethod GrantMethod determines how to handle grants for this client. If no method is provided, the cluster default grant handling method will be used. Valid grant handling methods are:  - auto:   always approves grant requests, useful for trusted clients  - prompt: prompts the end user for approval of grant requests, useful for third-party clients  - deny:   always denies grant requests, useful for black-listed clients
      * @return $this
      */
-    public function setGrantMethod($grant_method)
+    public function setGrantMethod($grantMethod)
     {
-        $this->container['grant_method'] = $grant_method;
+        $this->container['grantMethod'] = $grantMethod;
 
         return $this;
     }
@@ -294,64 +294,64 @@ class V1OAuthClient implements ArrayAccess
     }
 
     /**
-     * Gets redirect_ur_is
+     * Gets redirectURIs
      * @return string[]
      */
-    public function getRedirectUrIs()
+    public function getRedirectURIs()
     {
-        return $this->container['redirect_ur_is'];
+        return $this->container['redirectURIs'];
     }
 
     /**
-     * Sets redirect_ur_is
-     * @param string[] $redirect_ur_is RedirectURIs is the valid redirection URIs associated with a client
+     * Sets redirectURIs
+     * @param string[] $redirectURIs RedirectURIs is the valid redirection URIs associated with a client
      * @return $this
      */
-    public function setRedirectUrIs($redirect_ur_is)
+    public function setRedirectURIs($redirectURIs)
     {
-        $this->container['redirect_ur_is'] = $redirect_ur_is;
+        $this->container['redirectURIs'] = $redirectURIs;
 
         return $this;
     }
 
     /**
-     * Gets respond_with_challenges
+     * Gets respondWithChallenges
      * @return bool
      */
     public function getRespondWithChallenges()
     {
-        return $this->container['respond_with_challenges'];
+        return $this->container['respondWithChallenges'];
     }
 
     /**
-     * Sets respond_with_challenges
-     * @param bool $respond_with_challenges RespondWithChallenges indicates whether the client wants authentication needed responses made in the form of challenges instead of redirects
+     * Sets respondWithChallenges
+     * @param bool $respondWithChallenges RespondWithChallenges indicates whether the client wants authentication needed responses made in the form of challenges instead of redirects
      * @return $this
      */
-    public function setRespondWithChallenges($respond_with_challenges)
+    public function setRespondWithChallenges($respondWithChallenges)
     {
-        $this->container['respond_with_challenges'] = $respond_with_challenges;
+        $this->container['respondWithChallenges'] = $respondWithChallenges;
 
         return $this;
     }
 
     /**
-     * Gets scope_restrictions
+     * Gets scopeRestrictions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ScopeRestriction[]
      */
     public function getScopeRestrictions()
     {
-        return $this->container['scope_restrictions'];
+        return $this->container['scopeRestrictions'];
     }
 
     /**
-     * Sets scope_restrictions
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ScopeRestriction[] $scope_restrictions ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied.
+     * Sets scopeRestrictions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ScopeRestriction[] $scopeRestrictions ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied.
      * @return $this
      */
-    public function setScopeRestrictions($scope_restrictions)
+    public function setScopeRestrictions($scopeRestrictions)
     {
-        $this->container['scope_restrictions'] = $scope_restrictions;
+        $this->container['scopeRestrictions'] = $scopeRestrictions;
 
         return $this;
     }

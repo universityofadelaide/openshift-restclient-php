@@ -107,7 +107,7 @@ class V1RecreateDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "timeout_seconds"
+     * Test attribute "timeoutSeconds"
      */
     public function testPropertyTimeoutSeconds()
     {

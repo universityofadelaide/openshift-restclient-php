@@ -83,7 +83,7 @@ class V1ProjectRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1ProjectRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_name"
+     * Test attribute "displayName"
      */
     public function testPropertyDisplayName()
     {

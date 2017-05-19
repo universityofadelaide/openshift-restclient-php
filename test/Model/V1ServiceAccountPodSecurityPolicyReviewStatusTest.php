@@ -83,7 +83,7 @@ class V1ServiceAccountPodSecurityPolicyReviewStatusTest extends \PHPUnit_Framewo
     }
 
     /**
-     * Test attribute "allowed_by"
+     * Test attribute "allowedBy"
      */
     public function testPropertyAllowedBy()
     {

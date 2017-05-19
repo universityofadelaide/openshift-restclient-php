@@ -107,7 +107,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "env_from"
+     * Test attribute "envFrom"
      */
     public function testPropertyEnvFrom()
     {
@@ -123,7 +123,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_pull_policy"
+     * Test attribute "imagePullPolicy"
      */
     public function testPropertyImagePullPolicy()
     {
@@ -139,7 +139,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "liveness_probe"
+     * Test attribute "livenessProbe"
      */
     public function testPropertyLivenessProbe()
     {
@@ -163,7 +163,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "readiness_probe"
+     * Test attribute "readinessProbe"
      */
     public function testPropertyReadinessProbe()
     {
@@ -179,7 +179,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "security_context"
+     * Test attribute "securityContext"
      */
     public function testPropertySecurityContext()
     {
@@ -195,7 +195,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "stdin_once"
+     * Test attribute "stdinOnce"
      */
     public function testPropertyStdinOnce()
     {
@@ -203,7 +203,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "termination_message_path"
+     * Test attribute "terminationMessagePath"
      */
     public function testPropertyTerminationMessagePath()
     {
@@ -211,7 +211,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "termination_message_policy"
+     * Test attribute "terminationMessagePolicy"
      */
     public function testPropertyTerminationMessagePolicy()
     {
@@ -227,7 +227,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_mounts"
+     * Test attribute "volumeMounts"
      */
     public function testPropertyVolumeMounts()
     {
@@ -235,7 +235,7 @@ class V1ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "working_dir"
+     * Test attribute "workingDir"
      */
     public function testPropertyWorkingDir()
     {

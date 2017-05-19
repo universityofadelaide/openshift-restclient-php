@@ -83,7 +83,7 @@ class V1ClusterNetworkTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -123,7 +123,7 @@ class V1ClusterNetworkTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "plugin_name"
+     * Test attribute "pluginName"
      */
     public function testPropertyPluginName()
     {
@@ -131,7 +131,7 @@ class V1ClusterNetworkTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_network"
+     * Test attribute "serviceNetwork"
      */
     public function testPropertyServiceNetwork()
     {

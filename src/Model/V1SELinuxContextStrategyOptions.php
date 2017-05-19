@@ -55,7 +55,7 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'se_linux_options' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions',
+        'seLinuxOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions',
         'type' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'se_linux_options' => 'seLinuxOptions',
+        'seLinuxOptions' => 'seLinuxOptions',
         'type' => 'type'
     ];
 
@@ -79,7 +79,7 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'se_linux_options' => 'setSeLinuxOptions',
+        'seLinuxOptions' => 'setSeLinuxOptions',
         'type' => 'setType'
     ];
 
@@ -89,7 +89,7 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'se_linux_options' => 'getSeLinuxOptions',
+        'seLinuxOptions' => 'getSeLinuxOptions',
         'type' => 'getType'
     ];
 
@@ -124,7 +124,7 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['se_linux_options'] = isset($data['se_linux_options']) ? $data['se_linux_options'] : null;
+        $this->container['seLinuxOptions'] = isset($data['seLinuxOptions']) ? $data['seLinuxOptions'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1SELinuxContextStrategyOptions implements ArrayAccess
 
 
     /**
-     * Gets se_linux_options
+     * Gets seLinuxOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions
      */
     public function getSeLinuxOptions()
     {
-        return $this->container['se_linux_options'];
+        return $this->container['seLinuxOptions'];
     }
 
     /**
-     * Sets se_linux_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $se_linux_options seLinuxOptions required to run as; required for MustRunAs
+     * Sets seLinuxOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $seLinuxOptions seLinuxOptions required to run as; required for MustRunAs
      * @return $this
      */
-    public function setSeLinuxOptions($se_linux_options)
+    public function setSeLinuxOptions($seLinuxOptions)
     {
-        $this->container['se_linux_options'] = $se_linux_options;
+        $this->container['seLinuxOptions'] = $seLinuxOptions;
 
         return $this;
     }

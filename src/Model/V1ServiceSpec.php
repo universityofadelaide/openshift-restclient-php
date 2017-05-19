@@ -55,15 +55,15 @@ class V1ServiceSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_ip' => 'string',
-        'deprecated_public_i_ps' => 'string[]',
-        'external_i_ps' => 'string[]',
-        'external_name' => 'string',
-        'load_balancer_ip' => 'string',
-        'load_balancer_source_ranges' => 'string[]',
+        'clusterIP' => 'string',
+        'deprecatedPublicIPs' => 'string[]',
+        'externalIPs' => 'string[]',
+        'externalName' => 'string',
+        'loadBalancerIP' => 'string',
+        'loadBalancerSourceRanges' => 'string[]',
         'ports' => '\UniversityOfAdelaide\OpenShift\Model\V1ServicePort[]',
         'selector' => 'map[string,string]',
-        'session_affinity' => 'string',
+        'sessionAffinity' => 'string',
         'type' => 'string'
     ];
 
@@ -77,15 +77,15 @@ class V1ServiceSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_ip' => 'clusterIP',
-        'deprecated_public_i_ps' => 'deprecatedPublicIPs',
-        'external_i_ps' => 'externalIPs',
-        'external_name' => 'externalName',
-        'load_balancer_ip' => 'loadBalancerIP',
-        'load_balancer_source_ranges' => 'loadBalancerSourceRanges',
+        'clusterIP' => 'clusterIP',
+        'deprecatedPublicIPs' => 'deprecatedPublicIPs',
+        'externalIPs' => 'externalIPs',
+        'externalName' => 'externalName',
+        'loadBalancerIP' => 'loadBalancerIP',
+        'loadBalancerSourceRanges' => 'loadBalancerSourceRanges',
         'ports' => 'ports',
         'selector' => 'selector',
-        'session_affinity' => 'sessionAffinity',
+        'sessionAffinity' => 'sessionAffinity',
         'type' => 'type'
     ];
 
@@ -95,15 +95,15 @@ class V1ServiceSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_ip' => 'setClusterIp',
-        'deprecated_public_i_ps' => 'setDeprecatedPublicIPs',
-        'external_i_ps' => 'setExternalIPs',
-        'external_name' => 'setExternalName',
-        'load_balancer_ip' => 'setLoadBalancerIp',
-        'load_balancer_source_ranges' => 'setLoadBalancerSourceRanges',
+        'clusterIP' => 'setClusterIP',
+        'deprecatedPublicIPs' => 'setDeprecatedPublicIPs',
+        'externalIPs' => 'setExternalIPs',
+        'externalName' => 'setExternalName',
+        'loadBalancerIP' => 'setLoadBalancerIP',
+        'loadBalancerSourceRanges' => 'setLoadBalancerSourceRanges',
         'ports' => 'setPorts',
         'selector' => 'setSelector',
-        'session_affinity' => 'setSessionAffinity',
+        'sessionAffinity' => 'setSessionAffinity',
         'type' => 'setType'
     ];
 
@@ -113,15 +113,15 @@ class V1ServiceSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_ip' => 'getClusterIp',
-        'deprecated_public_i_ps' => 'getDeprecatedPublicIPs',
-        'external_i_ps' => 'getExternalIPs',
-        'external_name' => 'getExternalName',
-        'load_balancer_ip' => 'getLoadBalancerIp',
-        'load_balancer_source_ranges' => 'getLoadBalancerSourceRanges',
+        'clusterIP' => 'getClusterIP',
+        'deprecatedPublicIPs' => 'getDeprecatedPublicIPs',
+        'externalIPs' => 'getExternalIPs',
+        'externalName' => 'getExternalName',
+        'loadBalancerIP' => 'getLoadBalancerIP',
+        'loadBalancerSourceRanges' => 'getLoadBalancerSourceRanges',
         'ports' => 'getPorts',
         'selector' => 'getSelector',
-        'session_affinity' => 'getSessionAffinity',
+        'sessionAffinity' => 'getSessionAffinity',
         'type' => 'getType'
     ];
 
@@ -156,15 +156,15 @@ class V1ServiceSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cluster_ip'] = isset($data['cluster_ip']) ? $data['cluster_ip'] : null;
-        $this->container['deprecated_public_i_ps'] = isset($data['deprecated_public_i_ps']) ? $data['deprecated_public_i_ps'] : null;
-        $this->container['external_i_ps'] = isset($data['external_i_ps']) ? $data['external_i_ps'] : null;
-        $this->container['external_name'] = isset($data['external_name']) ? $data['external_name'] : null;
-        $this->container['load_balancer_ip'] = isset($data['load_balancer_ip']) ? $data['load_balancer_ip'] : null;
-        $this->container['load_balancer_source_ranges'] = isset($data['load_balancer_source_ranges']) ? $data['load_balancer_source_ranges'] : null;
+        $this->container['clusterIP'] = isset($data['clusterIP']) ? $data['clusterIP'] : null;
+        $this->container['deprecatedPublicIPs'] = isset($data['deprecatedPublicIPs']) ? $data['deprecatedPublicIPs'] : null;
+        $this->container['externalIPs'] = isset($data['externalIPs']) ? $data['externalIPs'] : null;
+        $this->container['externalName'] = isset($data['externalName']) ? $data['externalName'] : null;
+        $this->container['loadBalancerIP'] = isset($data['loadBalancerIP']) ? $data['loadBalancerIP'] : null;
+        $this->container['loadBalancerSourceRanges'] = isset($data['loadBalancerSourceRanges']) ? $data['loadBalancerSourceRanges'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
-        $this->container['session_affinity'] = isset($data['session_affinity']) ? $data['session_affinity'] : null;
+        $this->container['sessionAffinity'] = isset($data['sessionAffinity']) ? $data['sessionAffinity'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -194,127 +194,127 @@ class V1ServiceSpec implements ArrayAccess
 
 
     /**
-     * Gets cluster_ip
+     * Gets clusterIP
      * @return string
      */
-    public function getClusterIp()
+    public function getClusterIP()
     {
-        return $this->container['cluster_ip'];
+        return $this->container['clusterIP'];
     }
 
     /**
-     * Sets cluster_ip
-     * @param string $cluster_ip clusterIP is the IP address of the service and is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are \"None\", empty string (\"\"), or a valid IP address. \"None\" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
+     * Sets clusterIP
+     * @param string $clusterIP clusterIP is the IP address of the service and is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are \"None\", empty string (\"\"), or a valid IP address. \"None\" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
      * @return $this
      */
-    public function setClusterIp($cluster_ip)
+    public function setClusterIP($clusterIP)
     {
-        $this->container['cluster_ip'] = $cluster_ip;
+        $this->container['clusterIP'] = $clusterIP;
 
         return $this;
     }
 
     /**
-     * Gets deprecated_public_i_ps
+     * Gets deprecatedPublicIPs
      * @return string[]
      */
     public function getDeprecatedPublicIPs()
     {
-        return $this->container['deprecated_public_i_ps'];
+        return $this->container['deprecatedPublicIPs'];
     }
 
     /**
-     * Sets deprecated_public_i_ps
-     * @param string[] $deprecated_public_i_ps deprecatedPublicIPs is deprecated and replaced by the externalIPs field with almost the exact same semantics.  This field is retained in the v1 API for compatibility until at least 8/20/2016.  It will be removed from any new API revisions.  If both deprecatedPublicIPs *and* externalIPs are set, deprecatedPublicIPs is used.
+     * Sets deprecatedPublicIPs
+     * @param string[] $deprecatedPublicIPs deprecatedPublicIPs is deprecated and replaced by the externalIPs field with almost the exact same semantics.  This field is retained in the v1 API for compatibility until at least 8/20/2016.  It will be removed from any new API revisions.  If both deprecatedPublicIPs *and* externalIPs are set, deprecatedPublicIPs is used.
      * @return $this
      */
-    public function setDeprecatedPublicIPs($deprecated_public_i_ps)
+    public function setDeprecatedPublicIPs($deprecatedPublicIPs)
     {
-        $this->container['deprecated_public_i_ps'] = $deprecated_public_i_ps;
+        $this->container['deprecatedPublicIPs'] = $deprecatedPublicIPs;
 
         return $this;
     }
 
     /**
-     * Gets external_i_ps
+     * Gets externalIPs
      * @return string[]
      */
     public function getExternalIPs()
     {
-        return $this->container['external_i_ps'];
+        return $this->container['externalIPs'];
     }
 
     /**
-     * Sets external_i_ps
-     * @param string[] $external_i_ps externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.  A previous form of this functionality exists as the deprecatedPublicIPs field.  When using this field, callers should also clear the deprecatedPublicIPs field.
+     * Sets externalIPs
+     * @param string[] $externalIPs externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.  A previous form of this functionality exists as the deprecatedPublicIPs field.  When using this field, callers should also clear the deprecatedPublicIPs field.
      * @return $this
      */
-    public function setExternalIPs($external_i_ps)
+    public function setExternalIPs($externalIPs)
     {
-        $this->container['external_i_ps'] = $external_i_ps;
+        $this->container['externalIPs'] = $externalIPs;
 
         return $this;
     }
 
     /**
-     * Gets external_name
+     * Gets externalName
      * @return string
      */
     public function getExternalName()
     {
-        return $this->container['external_name'];
+        return $this->container['externalName'];
     }
 
     /**
-     * Sets external_name
-     * @param string $external_name externalName is the external reference that kubedns or equivalent will return as a CNAME record for this service. No proxying will be involved. Must be a valid DNS name and requires Type to be ExternalName.
+     * Sets externalName
+     * @param string $externalName externalName is the external reference that kubedns or equivalent will return as a CNAME record for this service. No proxying will be involved. Must be a valid DNS name and requires Type to be ExternalName.
      * @return $this
      */
-    public function setExternalName($external_name)
+    public function setExternalName($externalName)
     {
-        $this->container['external_name'] = $external_name;
+        $this->container['externalName'] = $externalName;
 
         return $this;
     }
 
     /**
-     * Gets load_balancer_ip
+     * Gets loadBalancerIP
      * @return string
      */
-    public function getLoadBalancerIp()
+    public function getLoadBalancerIP()
     {
-        return $this->container['load_balancer_ip'];
+        return $this->container['loadBalancerIP'];
     }
 
     /**
-     * Sets load_balancer_ip
-     * @param string $load_balancer_ip Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
+     * Sets loadBalancerIP
+     * @param string $loadBalancerIP Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
      * @return $this
      */
-    public function setLoadBalancerIp($load_balancer_ip)
+    public function setLoadBalancerIP($loadBalancerIP)
     {
-        $this->container['load_balancer_ip'] = $load_balancer_ip;
+        $this->container['loadBalancerIP'] = $loadBalancerIP;
 
         return $this;
     }
 
     /**
-     * Gets load_balancer_source_ranges
+     * Gets loadBalancerSourceRanges
      * @return string[]
      */
     public function getLoadBalancerSourceRanges()
     {
-        return $this->container['load_balancer_source_ranges'];
+        return $this->container['loadBalancerSourceRanges'];
     }
 
     /**
-     * Sets load_balancer_source_ranges
-     * @param string[] $load_balancer_source_ranges If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: http://kubernetes.io/docs/user-guide/services-firewalls
+     * Sets loadBalancerSourceRanges
+     * @param string[] $loadBalancerSourceRanges If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: http://kubernetes.io/docs/user-guide/services-firewalls
      * @return $this
      */
-    public function setLoadBalancerSourceRanges($load_balancer_source_ranges)
+    public function setLoadBalancerSourceRanges($loadBalancerSourceRanges)
     {
-        $this->container['load_balancer_source_ranges'] = $load_balancer_source_ranges;
+        $this->container['loadBalancerSourceRanges'] = $loadBalancerSourceRanges;
 
         return $this;
     }
@@ -362,22 +362,22 @@ class V1ServiceSpec implements ArrayAccess
     }
 
     /**
-     * Gets session_affinity
+     * Gets sessionAffinity
      * @return string
      */
     public function getSessionAffinity()
     {
-        return $this->container['session_affinity'];
+        return $this->container['sessionAffinity'];
     }
 
     /**
-     * Sets session_affinity
-     * @param string $session_affinity Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
+     * Sets sessionAffinity
+     * @param string $sessionAffinity Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
      * @return $this
      */
-    public function setSessionAffinity($session_affinity)
+    public function setSessionAffinity($sessionAffinity)
     {
-        $this->container['session_affinity'] = $session_affinity;
+        $this->container['sessionAffinity'] = $sessionAffinity;
 
         return $this;
     }

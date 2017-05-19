@@ -55,8 +55,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
-        'pd_id' => 'string'
+        'fsType' => 'string',
+        'pdID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
-        'pd_id' => 'pdID'
+        'fsType' => 'fsType',
+        'pdID' => 'pdID'
     ];
 
 
@@ -79,8 +79,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
-        'pd_id' => 'setPdId'
+        'fsType' => 'setFsType',
+        'pdID' => 'setPdID'
     ];
 
 
@@ -89,8 +89,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
-        'pd_id' => 'getPdId'
+        'fsType' => 'getFsType',
+        'pdID' => 'getPdID'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
-        $this->container['pd_id'] = isset($data['pd_id']) ? $data['pd_id'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->container['pdID'] = isset($data['pdID']) ? $data['pdID'] : null;
     }
 
     /**
@@ -137,8 +137,8 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['pd_id'] === null) {
-            $invalid_properties[] = "'pd_id' can't be null";
+        if ($this->container['pdID'] === null) {
+            $invalid_properties[] = "'pdID' can't be null";
         }
         return $invalid_properties;
     }
@@ -152,7 +152,7 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['pd_id'] === null) {
+        if ($this->container['pdID'] === null) {
             return false;
         }
         return true;
@@ -160,43 +160,43 @@ class V1PhotonPersistentDiskVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
 
     /**
-     * Gets pd_id
+     * Gets pdID
      * @return string
      */
-    public function getPdId()
+    public function getPdID()
     {
-        return $this->container['pd_id'];
+        return $this->container['pdID'];
     }
 
     /**
-     * Sets pd_id
-     * @param string $pd_id ID that identifies Photon Controller persistent disk
+     * Sets pdID
+     * @param string $pdID ID that identifies Photon Controller persistent disk
      * @return $this
      */
-    public function setPdId($pd_id)
+    public function setPdID($pdID)
     {
-        $this->container['pd_id'] = $pd_id;
+        $this->container['pdID'] = $pdID;
 
         return $this;
     }

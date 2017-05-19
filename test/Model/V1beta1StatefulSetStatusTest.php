@@ -83,7 +83,7 @@ class V1beta1StatefulSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {

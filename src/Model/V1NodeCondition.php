@@ -55,8 +55,8 @@ class V1NodeCondition implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'last_heartbeat_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'last_transition_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastHeartbeatTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastTransitionTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'reason' => 'string',
         'status' => 'string',
@@ -73,8 +73,8 @@ class V1NodeCondition implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_heartbeat_time' => 'lastHeartbeatTime',
-        'last_transition_time' => 'lastTransitionTime',
+        'lastHeartbeatTime' => 'lastHeartbeatTime',
+        'lastTransitionTime' => 'lastTransitionTime',
         'message' => 'message',
         'reason' => 'reason',
         'status' => 'status',
@@ -87,8 +87,8 @@ class V1NodeCondition implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'last_heartbeat_time' => 'setLastHeartbeatTime',
-        'last_transition_time' => 'setLastTransitionTime',
+        'lastHeartbeatTime' => 'setLastHeartbeatTime',
+        'lastTransitionTime' => 'setLastTransitionTime',
         'message' => 'setMessage',
         'reason' => 'setReason',
         'status' => 'setStatus',
@@ -101,8 +101,8 @@ class V1NodeCondition implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'last_heartbeat_time' => 'getLastHeartbeatTime',
-        'last_transition_time' => 'getLastTransitionTime',
+        'lastHeartbeatTime' => 'getLastHeartbeatTime',
+        'lastTransitionTime' => 'getLastTransitionTime',
         'message' => 'getMessage',
         'reason' => 'getReason',
         'status' => 'getStatus',
@@ -140,8 +140,8 @@ class V1NodeCondition implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['last_heartbeat_time'] = isset($data['last_heartbeat_time']) ? $data['last_heartbeat_time'] : null;
-        $this->container['last_transition_time'] = isset($data['last_transition_time']) ? $data['last_transition_time'] : null;
+        $this->container['lastHeartbeatTime'] = isset($data['lastHeartbeatTime']) ? $data['lastHeartbeatTime'] : null;
+        $this->container['lastTransitionTime'] = isset($data['lastTransitionTime']) ? $data['lastTransitionTime'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -186,43 +186,43 @@ class V1NodeCondition implements ArrayAccess
 
 
     /**
-     * Gets last_heartbeat_time
+     * Gets lastHeartbeatTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastHeartbeatTime()
     {
-        return $this->container['last_heartbeat_time'];
+        return $this->container['lastHeartbeatTime'];
     }
 
     /**
-     * Sets last_heartbeat_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_heartbeat_time Last time we got an update on a given condition.
+     * Sets lastHeartbeatTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastHeartbeatTime Last time we got an update on a given condition.
      * @return $this
      */
-    public function setLastHeartbeatTime($last_heartbeat_time)
+    public function setLastHeartbeatTime($lastHeartbeatTime)
     {
-        $this->container['last_heartbeat_time'] = $last_heartbeat_time;
+        $this->container['lastHeartbeatTime'] = $lastHeartbeatTime;
 
         return $this;
     }
 
     /**
-     * Gets last_transition_time
+     * Gets lastTransitionTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastTransitionTime()
     {
-        return $this->container['last_transition_time'];
+        return $this->container['lastTransitionTime'];
     }
 
     /**
-     * Sets last_transition_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_transition_time Last time the condition transit from one status to another.
+     * Sets lastTransitionTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastTransitionTime Last time the condition transit from one status to another.
      * @return $this
      */
-    public function setLastTransitionTime($last_transition_time)
+    public function setLastTransitionTime($lastTransitionTime)
     {
-        $this->container['last_transition_time'] = $last_transition_time;
+        $this->container['lastTransitionTime'] = $lastTransitionTime;
 
         return $this;
     }

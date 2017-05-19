@@ -55,7 +55,7 @@ class V1RouteIngressCondition implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'last_transition_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastTransitionTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'reason' => 'string',
         'status' => 'string',
@@ -72,7 +72,7 @@ class V1RouteIngressCondition implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_transition_time' => 'lastTransitionTime',
+        'lastTransitionTime' => 'lastTransitionTime',
         'message' => 'message',
         'reason' => 'reason',
         'status' => 'status',
@@ -85,7 +85,7 @@ class V1RouteIngressCondition implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'last_transition_time' => 'setLastTransitionTime',
+        'lastTransitionTime' => 'setLastTransitionTime',
         'message' => 'setMessage',
         'reason' => 'setReason',
         'status' => 'setStatus',
@@ -98,7 +98,7 @@ class V1RouteIngressCondition implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'last_transition_time' => 'getLastTransitionTime',
+        'lastTransitionTime' => 'getLastTransitionTime',
         'message' => 'getMessage',
         'reason' => 'getReason',
         'status' => 'getStatus',
@@ -136,7 +136,7 @@ class V1RouteIngressCondition implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['last_transition_time'] = isset($data['last_transition_time']) ? $data['last_transition_time'] : null;
+        $this->container['lastTransitionTime'] = isset($data['lastTransitionTime']) ? $data['lastTransitionTime'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -181,22 +181,22 @@ class V1RouteIngressCondition implements ArrayAccess
 
 
     /**
-     * Gets last_transition_time
+     * Gets lastTransitionTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastTransitionTime()
     {
-        return $this->container['last_transition_time'];
+        return $this->container['lastTransitionTime'];
     }
 
     /**
-     * Sets last_transition_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_transition_time RFC 3339 date and time when this condition last transitioned
+     * Sets lastTransitionTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastTransitionTime RFC 3339 date and time when this condition last transitioned
      * @return $this
      */
-    public function setLastTransitionTime($last_transition_time)
+    public function setLastTransitionTime($lastTransitionTime)
     {
-        $this->container['last_transition_time'] = $last_transition_time;
+        $this->container['lastTransitionTime'] = $lastTransitionTime;
 
         return $this;
     }

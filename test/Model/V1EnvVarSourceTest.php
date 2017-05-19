@@ -83,7 +83,7 @@ class V1EnvVarSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "config_map_key_ref"
+     * Test attribute "configMapKeyRef"
      */
     public function testPropertyConfigMapKeyRef()
     {
@@ -91,7 +91,7 @@ class V1EnvVarSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "field_ref"
+     * Test attribute "fieldRef"
      */
     public function testPropertyFieldRef()
     {
@@ -99,7 +99,7 @@ class V1EnvVarSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_field_ref"
+     * Test attribute "resourceFieldRef"
      */
     public function testPropertyResourceFieldRef()
     {
@@ -107,7 +107,7 @@ class V1EnvVarSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_key_ref"
+     * Test attribute "secretKeyRef"
      */
     public function testPropertySecretKeyRef()
     {

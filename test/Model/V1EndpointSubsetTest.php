@@ -91,7 +91,7 @@ class V1EndpointSubsetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "not_ready_addresses"
+     * Test attribute "notReadyAddresses"
      */
     public function testPropertyNotReadyAddresses()
     {

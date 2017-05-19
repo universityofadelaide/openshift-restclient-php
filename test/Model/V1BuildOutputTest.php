@@ -83,7 +83,7 @@ class V1BuildOutputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_labels"
+     * Test attribute "imageLabels"
      */
     public function testPropertyImageLabels()
     {
@@ -91,7 +91,7 @@ class V1BuildOutputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "push_secret"
+     * Test attribute "pushSecret"
      */
     public function testPropertyPushSecret()
     {

@@ -57,7 +57,7 @@ class V1Taint implements ArrayAccess
     protected static $swaggerTypes = [
         'effect' => 'string',
         'key' => 'string',
-        'time_added' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'timeAdded' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'value' => 'string'
     ];
 
@@ -73,7 +73,7 @@ class V1Taint implements ArrayAccess
     protected static $attributeMap = [
         'effect' => 'effect',
         'key' => 'key',
-        'time_added' => 'timeAdded',
+        'timeAdded' => 'timeAdded',
         'value' => 'value'
     ];
 
@@ -85,7 +85,7 @@ class V1Taint implements ArrayAccess
     protected static $setters = [
         'effect' => 'setEffect',
         'key' => 'setKey',
-        'time_added' => 'setTimeAdded',
+        'timeAdded' => 'setTimeAdded',
         'value' => 'setValue'
     ];
 
@@ -97,7 +97,7 @@ class V1Taint implements ArrayAccess
     protected static $getters = [
         'effect' => 'getEffect',
         'key' => 'getKey',
-        'time_added' => 'getTimeAdded',
+        'timeAdded' => 'getTimeAdded',
         'value' => 'getValue'
     ];
 
@@ -134,7 +134,7 @@ class V1Taint implements ArrayAccess
     {
         $this->container['effect'] = isset($data['effect']) ? $data['effect'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['time_added'] = isset($data['time_added']) ? $data['time_added'] : null;
+        $this->container['timeAdded'] = isset($data['timeAdded']) ? $data['timeAdded'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -218,22 +218,22 @@ class V1Taint implements ArrayAccess
     }
 
     /**
-     * Gets time_added
+     * Gets timeAdded
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getTimeAdded()
     {
-        return $this->container['time_added'];
+        return $this->container['timeAdded'];
     }
 
     /**
-     * Sets time_added
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $time_added TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.
+     * Sets timeAdded
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $timeAdded TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.
      * @return $this
      */
-    public function setTimeAdded($time_added)
+    public function setTimeAdded($timeAdded)
     {
-        $this->container['time_added'] = $time_added;
+        $this->container['timeAdded'] = $timeAdded;
 
         return $this;
     }

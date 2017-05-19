@@ -83,7 +83,7 @@ class V1NodeConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_heartbeat_time"
+     * Test attribute "lastHeartbeatTime"
      */
     public function testPropertyLastHeartbeatTime()
     {
@@ -91,7 +91,7 @@ class V1NodeConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_transition_time"
+     * Test attribute "lastTransitionTime"
      */
     public function testPropertyLastTransitionTime()
     {

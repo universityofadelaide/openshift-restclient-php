@@ -83,7 +83,7 @@ class V1BuildRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1BuildRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_strategy_options"
+     * Test attribute "dockerStrategyOptions"
      */
     public function testPropertyDockerStrategyOptions()
     {
@@ -131,7 +131,7 @@ class V1BuildRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_version"
+     * Test attribute "lastVersion"
      */
     public function testPropertyLastVersion()
     {
@@ -155,7 +155,7 @@ class V1BuildRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "triggered_by"
+     * Test attribute "triggeredBy"
      */
     public function testPropertyTriggeredBy()
     {
@@ -163,7 +163,7 @@ class V1BuildRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "triggered_by_image"
+     * Test attribute "triggeredByImage"
      */
     public function testPropertyTriggeredByImage()
     {

@@ -83,7 +83,7 @@ class V1EgressNetworkPolicyPeerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "cidr_selector"
+     * Test attribute "cidrSelector"
      */
     public function testPropertyCidrSelector()
     {
@@ -91,7 +91,7 @@ class V1EgressNetworkPolicyPeerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dns_name"
+     * Test attribute "dnsName"
      */
     public function testPropertyDnsName()
     {

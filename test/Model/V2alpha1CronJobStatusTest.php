@@ -91,7 +91,7 @@ class V2alpha1CronJobStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_schedule_time"
+     * Test attribute "lastScheduleTime"
      */
     public function testPropertyLastScheduleTime()
     {

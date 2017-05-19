@@ -56,8 +56,8 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'target_average_utilization' => 'int',
-        'target_average_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
+        'targetAverageUtilization' => 'int',
+        'targetAverageValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
     ];
 
     public static function swaggerTypes()
@@ -71,8 +71,8 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'target_average_utilization' => 'targetAverageUtilization',
-        'target_average_value' => 'targetAverageValue'
+        'targetAverageUtilization' => 'targetAverageUtilization',
+        'targetAverageValue' => 'targetAverageValue'
     ];
 
 
@@ -82,8 +82,8 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'target_average_utilization' => 'setTargetAverageUtilization',
-        'target_average_value' => 'setTargetAverageValue'
+        'targetAverageUtilization' => 'setTargetAverageUtilization',
+        'targetAverageValue' => 'setTargetAverageValue'
     ];
 
 
@@ -93,8 +93,8 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'target_average_utilization' => 'getTargetAverageUtilization',
-        'target_average_value' => 'getTargetAverageValue'
+        'targetAverageUtilization' => 'getTargetAverageUtilization',
+        'targetAverageValue' => 'getTargetAverageValue'
     ];
 
     public static function attributeMap()
@@ -129,8 +129,8 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['target_average_utilization'] = isset($data['target_average_utilization']) ? $data['target_average_utilization'] : null;
-        $this->container['target_average_value'] = isset($data['target_average_value']) ? $data['target_average_value'] : null;
+        $this->container['targetAverageUtilization'] = isset($data['targetAverageUtilization']) ? $data['targetAverageUtilization'] : null;
+        $this->container['targetAverageValue'] = isset($data['targetAverageValue']) ? $data['targetAverageValue'] : null;
     }
 
     /**
@@ -186,43 +186,43 @@ class V2alpha1ResourceMetricSource implements ArrayAccess
     }
 
     /**
-     * Gets target_average_utilization
+     * Gets targetAverageUtilization
      * @return int
      */
     public function getTargetAverageUtilization()
     {
-        return $this->container['target_average_utilization'];
+        return $this->container['targetAverageUtilization'];
     }
 
     /**
-     * Sets target_average_utilization
-     * @param int $target_average_utilization targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
+     * Sets targetAverageUtilization
+     * @param int $targetAverageUtilization targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
      * @return $this
      */
-    public function setTargetAverageUtilization($target_average_utilization)
+    public function setTargetAverageUtilization($targetAverageUtilization)
     {
-        $this->container['target_average_utilization'] = $target_average_utilization;
+        $this->container['targetAverageUtilization'] = $targetAverageUtilization;
 
         return $this;
     }
 
     /**
-     * Gets target_average_value
+     * Gets targetAverageValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getTargetAverageValue()
     {
-        return $this->container['target_average_value'];
+        return $this->container['targetAverageValue'];
     }
 
     /**
-     * Sets target_average_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $target_average_value targetAverageValue is the the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type.
+     * Sets targetAverageValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $targetAverageValue targetAverageValue is the the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type.
      * @return $this
      */
-    public function setTargetAverageValue($target_average_value)
+    public function setTargetAverageValue($targetAverageValue)
     {
-        $this->container['target_average_value'] = $target_average_value;
+        $this->container['targetAverageValue'] = $targetAverageValue;
 
         return $this;
     }

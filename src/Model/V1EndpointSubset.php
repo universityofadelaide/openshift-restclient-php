@@ -56,7 +56,7 @@ class V1EndpointSubset implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'addresses' => '\UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[]',
-        'not_ready_addresses' => '\UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[]',
+        'notReadyAddresses' => '\UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[]',
         'ports' => '\UniversityOfAdelaide\OpenShift\Model\V1EndpointPort[]'
     ];
 
@@ -71,7 +71,7 @@ class V1EndpointSubset implements ArrayAccess
      */
     protected static $attributeMap = [
         'addresses' => 'addresses',
-        'not_ready_addresses' => 'notReadyAddresses',
+        'notReadyAddresses' => 'notReadyAddresses',
         'ports' => 'ports'
     ];
 
@@ -82,7 +82,7 @@ class V1EndpointSubset implements ArrayAccess
      */
     protected static $setters = [
         'addresses' => 'setAddresses',
-        'not_ready_addresses' => 'setNotReadyAddresses',
+        'notReadyAddresses' => 'setNotReadyAddresses',
         'ports' => 'setPorts'
     ];
 
@@ -93,7 +93,7 @@ class V1EndpointSubset implements ArrayAccess
      */
     protected static $getters = [
         'addresses' => 'getAddresses',
-        'not_ready_addresses' => 'getNotReadyAddresses',
+        'notReadyAddresses' => 'getNotReadyAddresses',
         'ports' => 'getPorts'
     ];
 
@@ -129,7 +129,7 @@ class V1EndpointSubset implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
-        $this->container['not_ready_addresses'] = isset($data['not_ready_addresses']) ? $data['not_ready_addresses'] : null;
+        $this->container['notReadyAddresses'] = isset($data['notReadyAddresses']) ? $data['notReadyAddresses'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
     }
 
@@ -180,22 +180,22 @@ class V1EndpointSubset implements ArrayAccess
     }
 
     /**
-     * Gets not_ready_addresses
+     * Gets notReadyAddresses
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[]
      */
     public function getNotReadyAddresses()
     {
-        return $this->container['not_ready_addresses'];
+        return $this->container['notReadyAddresses'];
     }
 
     /**
-     * Sets not_ready_addresses
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[] $not_ready_addresses IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
+     * Sets notReadyAddresses
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EndpointAddress[] $notReadyAddresses IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
      * @return $this
      */
-    public function setNotReadyAddresses($not_ready_addresses)
+    public function setNotReadyAddresses($notReadyAddresses)
     {
-        $this->container['not_ready_addresses'] = $not_ready_addresses;
+        $this->container['notReadyAddresses'] = $notReadyAddresses;
 
         return $this;
     }

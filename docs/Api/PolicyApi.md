@@ -19,7 +19,7 @@ get information of a group
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\PolicyApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\PolicyApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getPolicyAPIGroup();

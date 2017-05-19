@@ -55,7 +55,7 @@ class V1WebHookTrigger implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_env' => 'bool',
+        'allowEnv' => 'bool',
         'secret' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1WebHookTrigger implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_env' => 'allowEnv',
+        'allowEnv' => 'allowEnv',
         'secret' => 'secret'
     ];
 
@@ -79,7 +79,7 @@ class V1WebHookTrigger implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_env' => 'setAllowEnv',
+        'allowEnv' => 'setAllowEnv',
         'secret' => 'setSecret'
     ];
 
@@ -89,7 +89,7 @@ class V1WebHookTrigger implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_env' => 'getAllowEnv',
+        'allowEnv' => 'getAllowEnv',
         'secret' => 'getSecret'
     ];
 
@@ -124,7 +124,7 @@ class V1WebHookTrigger implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_env'] = isset($data['allow_env']) ? $data['allow_env'] : null;
+        $this->container['allowEnv'] = isset($data['allowEnv']) ? $data['allowEnv'] : null;
         $this->container['secret'] = isset($data['secret']) ? $data['secret'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1WebHookTrigger implements ArrayAccess
 
 
     /**
-     * Gets allow_env
+     * Gets allowEnv
      * @return bool
      */
     public function getAllowEnv()
     {
-        return $this->container['allow_env'];
+        return $this->container['allowEnv'];
     }
 
     /**
-     * Sets allow_env
-     * @param bool $allow_env allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook.
+     * Sets allowEnv
+     * @param bool $allowEnv allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook.
      * @return $this
      */
-    public function setAllowEnv($allow_env)
+    public function setAllowEnv($allowEnv)
     {
-        $this->container['allow_env'] = $allow_env;
+        $this->container['allowEnv'] = $allowEnv;
 
         return $this;
     }

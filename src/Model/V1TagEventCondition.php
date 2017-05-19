@@ -56,7 +56,7 @@ class V1TagEventCondition implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'generation' => 'int',
-        'last_transition_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastTransitionTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'reason' => 'string',
         'status' => 'string',
@@ -74,7 +74,7 @@ class V1TagEventCondition implements ArrayAccess
      */
     protected static $attributeMap = [
         'generation' => 'generation',
-        'last_transition_time' => 'lastTransitionTime',
+        'lastTransitionTime' => 'lastTransitionTime',
         'message' => 'message',
         'reason' => 'reason',
         'status' => 'status',
@@ -88,7 +88,7 @@ class V1TagEventCondition implements ArrayAccess
      */
     protected static $setters = [
         'generation' => 'setGeneration',
-        'last_transition_time' => 'setLastTransitionTime',
+        'lastTransitionTime' => 'setLastTransitionTime',
         'message' => 'setMessage',
         'reason' => 'setReason',
         'status' => 'setStatus',
@@ -102,7 +102,7 @@ class V1TagEventCondition implements ArrayAccess
      */
     protected static $getters = [
         'generation' => 'getGeneration',
-        'last_transition_time' => 'getLastTransitionTime',
+        'lastTransitionTime' => 'getLastTransitionTime',
         'message' => 'getMessage',
         'reason' => 'getReason',
         'status' => 'getStatus',
@@ -141,7 +141,7 @@ class V1TagEventCondition implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
-        $this->container['last_transition_time'] = isset($data['last_transition_time']) ? $data['last_transition_time'] : null;
+        $this->container['lastTransitionTime'] = isset($data['lastTransitionTime']) ? $data['lastTransitionTime'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -213,22 +213,22 @@ class V1TagEventCondition implements ArrayAccess
     }
 
     /**
-     * Gets last_transition_time
+     * Gets lastTransitionTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastTransitionTime()
     {
-        return $this->container['last_transition_time'];
+        return $this->container['lastTransitionTime'];
     }
 
     /**
-     * Sets last_transition_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_transition_time LastTransitionTIme is the time the condition transitioned from one status to another.
+     * Sets lastTransitionTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastTransitionTime LastTransitionTIme is the time the condition transitioned from one status to another.
      * @return $this
      */
-    public function setLastTransitionTime($last_transition_time)
+    public function setLastTransitionTime($lastTransitionTime)
     {
-        $this->container['last_transition_time'] = $last_transition_time;
+        $this->container['lastTransitionTime'] = $lastTransitionTime;
 
         return $this;
     }

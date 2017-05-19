@@ -55,19 +55,19 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allowed_capabilities' => 'string[]',
-        'default_add_capabilities' => 'string[]',
-        'fs_group' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1FSGroupStrategyOptions',
-        'host_ipc' => 'bool',
-        'host_network' => 'bool',
-        'host_pid' => 'bool',
-        'host_ports' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1HostPortRange[]',
+        'allowedCapabilities' => 'string[]',
+        'defaultAddCapabilities' => 'string[]',
+        'fsGroup' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1FSGroupStrategyOptions',
+        'hostIPC' => 'bool',
+        'hostNetwork' => 'bool',
+        'hostPID' => 'bool',
+        'hostPorts' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1HostPortRange[]',
         'privileged' => 'bool',
-        'read_only_root_filesystem' => 'bool',
-        'required_drop_capabilities' => 'string[]',
-        'run_as_user' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RunAsUserStrategyOptions',
-        'se_linux' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SELinuxStrategyOptions',
-        'supplemental_groups' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SupplementalGroupsStrategyOptions',
+        'readOnlyRootFilesystem' => 'bool',
+        'requiredDropCapabilities' => 'string[]',
+        'runAsUser' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RunAsUserStrategyOptions',
+        'seLinux' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SELinuxStrategyOptions',
+        'supplementalGroups' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SupplementalGroupsStrategyOptions',
         'volumes' => 'string[]'
     ];
 
@@ -81,19 +81,19 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allowed_capabilities' => 'allowedCapabilities',
-        'default_add_capabilities' => 'defaultAddCapabilities',
-        'fs_group' => 'fsGroup',
-        'host_ipc' => 'hostIPC',
-        'host_network' => 'hostNetwork',
-        'host_pid' => 'hostPID',
-        'host_ports' => 'hostPorts',
+        'allowedCapabilities' => 'allowedCapabilities',
+        'defaultAddCapabilities' => 'defaultAddCapabilities',
+        'fsGroup' => 'fsGroup',
+        'hostIPC' => 'hostIPC',
+        'hostNetwork' => 'hostNetwork',
+        'hostPID' => 'hostPID',
+        'hostPorts' => 'hostPorts',
         'privileged' => 'privileged',
-        'read_only_root_filesystem' => 'readOnlyRootFilesystem',
-        'required_drop_capabilities' => 'requiredDropCapabilities',
-        'run_as_user' => 'runAsUser',
-        'se_linux' => 'seLinux',
-        'supplemental_groups' => 'supplementalGroups',
+        'readOnlyRootFilesystem' => 'readOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'requiredDropCapabilities',
+        'runAsUser' => 'runAsUser',
+        'seLinux' => 'seLinux',
+        'supplementalGroups' => 'supplementalGroups',
         'volumes' => 'volumes'
     ];
 
@@ -103,19 +103,19 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allowed_capabilities' => 'setAllowedCapabilities',
-        'default_add_capabilities' => 'setDefaultAddCapabilities',
-        'fs_group' => 'setFsGroup',
-        'host_ipc' => 'setHostIpc',
-        'host_network' => 'setHostNetwork',
-        'host_pid' => 'setHostPid',
-        'host_ports' => 'setHostPorts',
+        'allowedCapabilities' => 'setAllowedCapabilities',
+        'defaultAddCapabilities' => 'setDefaultAddCapabilities',
+        'fsGroup' => 'setFsGroup',
+        'hostIPC' => 'setHostIPC',
+        'hostNetwork' => 'setHostNetwork',
+        'hostPID' => 'setHostPID',
+        'hostPorts' => 'setHostPorts',
         'privileged' => 'setPrivileged',
-        'read_only_root_filesystem' => 'setReadOnlyRootFilesystem',
-        'required_drop_capabilities' => 'setRequiredDropCapabilities',
-        'run_as_user' => 'setRunAsUser',
-        'se_linux' => 'setSeLinux',
-        'supplemental_groups' => 'setSupplementalGroups',
+        'readOnlyRootFilesystem' => 'setReadOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'setRequiredDropCapabilities',
+        'runAsUser' => 'setRunAsUser',
+        'seLinux' => 'setSeLinux',
+        'supplementalGroups' => 'setSupplementalGroups',
         'volumes' => 'setVolumes'
     ];
 
@@ -125,19 +125,19 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allowed_capabilities' => 'getAllowedCapabilities',
-        'default_add_capabilities' => 'getDefaultAddCapabilities',
-        'fs_group' => 'getFsGroup',
-        'host_ipc' => 'getHostIpc',
-        'host_network' => 'getHostNetwork',
-        'host_pid' => 'getHostPid',
-        'host_ports' => 'getHostPorts',
+        'allowedCapabilities' => 'getAllowedCapabilities',
+        'defaultAddCapabilities' => 'getDefaultAddCapabilities',
+        'fsGroup' => 'getFsGroup',
+        'hostIPC' => 'getHostIPC',
+        'hostNetwork' => 'getHostNetwork',
+        'hostPID' => 'getHostPID',
+        'hostPorts' => 'getHostPorts',
         'privileged' => 'getPrivileged',
-        'read_only_root_filesystem' => 'getReadOnlyRootFilesystem',
-        'required_drop_capabilities' => 'getRequiredDropCapabilities',
-        'run_as_user' => 'getRunAsUser',
-        'se_linux' => 'getSeLinux',
-        'supplemental_groups' => 'getSupplementalGroups',
+        'readOnlyRootFilesystem' => 'getReadOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'getRequiredDropCapabilities',
+        'runAsUser' => 'getRunAsUser',
+        'seLinux' => 'getSeLinux',
+        'supplementalGroups' => 'getSupplementalGroups',
         'volumes' => 'getVolumes'
     ];
 
@@ -172,19 +172,19 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allowed_capabilities'] = isset($data['allowed_capabilities']) ? $data['allowed_capabilities'] : null;
-        $this->container['default_add_capabilities'] = isset($data['default_add_capabilities']) ? $data['default_add_capabilities'] : null;
-        $this->container['fs_group'] = isset($data['fs_group']) ? $data['fs_group'] : null;
-        $this->container['host_ipc'] = isset($data['host_ipc']) ? $data['host_ipc'] : null;
-        $this->container['host_network'] = isset($data['host_network']) ? $data['host_network'] : null;
-        $this->container['host_pid'] = isset($data['host_pid']) ? $data['host_pid'] : null;
-        $this->container['host_ports'] = isset($data['host_ports']) ? $data['host_ports'] : null;
+        $this->container['allowedCapabilities'] = isset($data['allowedCapabilities']) ? $data['allowedCapabilities'] : null;
+        $this->container['defaultAddCapabilities'] = isset($data['defaultAddCapabilities']) ? $data['defaultAddCapabilities'] : null;
+        $this->container['fsGroup'] = isset($data['fsGroup']) ? $data['fsGroup'] : null;
+        $this->container['hostIPC'] = isset($data['hostIPC']) ? $data['hostIPC'] : null;
+        $this->container['hostNetwork'] = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
+        $this->container['hostPID'] = isset($data['hostPID']) ? $data['hostPID'] : null;
+        $this->container['hostPorts'] = isset($data['hostPorts']) ? $data['hostPorts'] : null;
         $this->container['privileged'] = isset($data['privileged']) ? $data['privileged'] : null;
-        $this->container['read_only_root_filesystem'] = isset($data['read_only_root_filesystem']) ? $data['read_only_root_filesystem'] : null;
-        $this->container['required_drop_capabilities'] = isset($data['required_drop_capabilities']) ? $data['required_drop_capabilities'] : null;
-        $this->container['run_as_user'] = isset($data['run_as_user']) ? $data['run_as_user'] : null;
-        $this->container['se_linux'] = isset($data['se_linux']) ? $data['se_linux'] : null;
-        $this->container['supplemental_groups'] = isset($data['supplemental_groups']) ? $data['supplemental_groups'] : null;
+        $this->container['readOnlyRootFilesystem'] = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
+        $this->container['requiredDropCapabilities'] = isset($data['requiredDropCapabilities']) ? $data['requiredDropCapabilities'] : null;
+        $this->container['runAsUser'] = isset($data['runAsUser']) ? $data['runAsUser'] : null;
+        $this->container['seLinux'] = isset($data['seLinux']) ? $data['seLinux'] : null;
+        $this->container['supplementalGroups'] = isset($data['supplementalGroups']) ? $data['supplementalGroups'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
 
@@ -197,17 +197,17 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['fs_group'] === null) {
-            $invalid_properties[] = "'fs_group' can't be null";
+        if ($this->container['fsGroup'] === null) {
+            $invalid_properties[] = "'fsGroup' can't be null";
         }
-        if ($this->container['run_as_user'] === null) {
-            $invalid_properties[] = "'run_as_user' can't be null";
+        if ($this->container['runAsUser'] === null) {
+            $invalid_properties[] = "'runAsUser' can't be null";
         }
-        if ($this->container['se_linux'] === null) {
-            $invalid_properties[] = "'se_linux' can't be null";
+        if ($this->container['seLinux'] === null) {
+            $invalid_properties[] = "'seLinux' can't be null";
         }
-        if ($this->container['supplemental_groups'] === null) {
-            $invalid_properties[] = "'supplemental_groups' can't be null";
+        if ($this->container['supplementalGroups'] === null) {
+            $invalid_properties[] = "'supplementalGroups' can't be null";
         }
         return $invalid_properties;
     }
@@ -221,16 +221,16 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['fs_group'] === null) {
+        if ($this->container['fsGroup'] === null) {
             return false;
         }
-        if ($this->container['run_as_user'] === null) {
+        if ($this->container['runAsUser'] === null) {
             return false;
         }
-        if ($this->container['se_linux'] === null) {
+        if ($this->container['seLinux'] === null) {
             return false;
         }
-        if ($this->container['supplemental_groups'] === null) {
+        if ($this->container['supplementalGroups'] === null) {
             return false;
         }
         return true;
@@ -238,148 +238,148 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
 
 
     /**
-     * Gets allowed_capabilities
+     * Gets allowedCapabilities
      * @return string[]
      */
     public function getAllowedCapabilities()
     {
-        return $this->container['allowed_capabilities'];
+        return $this->container['allowedCapabilities'];
     }
 
     /**
-     * Sets allowed_capabilities
-     * @param string[] $allowed_capabilities AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.
+     * Sets allowedCapabilities
+     * @param string[] $allowedCapabilities AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.
      * @return $this
      */
-    public function setAllowedCapabilities($allowed_capabilities)
+    public function setAllowedCapabilities($allowedCapabilities)
     {
-        $this->container['allowed_capabilities'] = $allowed_capabilities;
+        $this->container['allowedCapabilities'] = $allowedCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets default_add_capabilities
+     * Gets defaultAddCapabilities
      * @return string[]
      */
     public function getDefaultAddCapabilities()
     {
-        return $this->container['default_add_capabilities'];
+        return $this->container['defaultAddCapabilities'];
     }
 
     /**
-     * Sets default_add_capabilities
-     * @param string[] $default_add_capabilities DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities.
+     * Sets defaultAddCapabilities
+     * @param string[] $defaultAddCapabilities DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities.
      * @return $this
      */
-    public function setDefaultAddCapabilities($default_add_capabilities)
+    public function setDefaultAddCapabilities($defaultAddCapabilities)
     {
-        $this->container['default_add_capabilities'] = $default_add_capabilities;
+        $this->container['defaultAddCapabilities'] = $defaultAddCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets fs_group
+     * Gets fsGroup
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1FSGroupStrategyOptions
      */
     public function getFsGroup()
     {
-        return $this->container['fs_group'];
+        return $this->container['fsGroup'];
     }
 
     /**
-     * Sets fs_group
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1FSGroupStrategyOptions $fs_group FSGroup is the strategy that will dictate what fs group is used by the SecurityContext.
+     * Sets fsGroup
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1FSGroupStrategyOptions $fsGroup FSGroup is the strategy that will dictate what fs group is used by the SecurityContext.
      * @return $this
      */
-    public function setFsGroup($fs_group)
+    public function setFsGroup($fsGroup)
     {
-        $this->container['fs_group'] = $fs_group;
+        $this->container['fsGroup'] = $fsGroup;
 
         return $this;
     }
 
     /**
-     * Gets host_ipc
+     * Gets hostIPC
      * @return bool
      */
-    public function getHostIpc()
+    public function getHostIPC()
     {
-        return $this->container['host_ipc'];
+        return $this->container['hostIPC'];
     }
 
     /**
-     * Sets host_ipc
-     * @param bool $host_ipc hostIPC determines if the policy allows the use of HostIPC in the pod spec.
+     * Sets hostIPC
+     * @param bool $hostIPC hostIPC determines if the policy allows the use of HostIPC in the pod spec.
      * @return $this
      */
-    public function setHostIpc($host_ipc)
+    public function setHostIPC($hostIPC)
     {
-        $this->container['host_ipc'] = $host_ipc;
+        $this->container['hostIPC'] = $hostIPC;
 
         return $this;
     }
 
     /**
-     * Gets host_network
+     * Gets hostNetwork
      * @return bool
      */
     public function getHostNetwork()
     {
-        return $this->container['host_network'];
+        return $this->container['hostNetwork'];
     }
 
     /**
-     * Sets host_network
-     * @param bool $host_network hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
+     * Sets hostNetwork
+     * @param bool $hostNetwork hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
      * @return $this
      */
-    public function setHostNetwork($host_network)
+    public function setHostNetwork($hostNetwork)
     {
-        $this->container['host_network'] = $host_network;
+        $this->container['hostNetwork'] = $hostNetwork;
 
         return $this;
     }
 
     /**
-     * Gets host_pid
+     * Gets hostPID
      * @return bool
      */
-    public function getHostPid()
+    public function getHostPID()
     {
-        return $this->container['host_pid'];
+        return $this->container['hostPID'];
     }
 
     /**
-     * Sets host_pid
-     * @param bool $host_pid hostPID determines if the policy allows the use of HostPID in the pod spec.
+     * Sets hostPID
+     * @param bool $hostPID hostPID determines if the policy allows the use of HostPID in the pod spec.
      * @return $this
      */
-    public function setHostPid($host_pid)
+    public function setHostPID($hostPID)
     {
-        $this->container['host_pid'] = $host_pid;
+        $this->container['hostPID'] = $hostPID;
 
         return $this;
     }
 
     /**
-     * Gets host_ports
+     * Gets hostPorts
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1HostPortRange[]
      */
     public function getHostPorts()
     {
-        return $this->container['host_ports'];
+        return $this->container['hostPorts'];
     }
 
     /**
-     * Sets host_ports
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1HostPortRange[] $host_ports hostPorts determines which host port ranges are allowed to be exposed.
+     * Sets hostPorts
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1HostPortRange[] $hostPorts hostPorts determines which host port ranges are allowed to be exposed.
      * @return $this
      */
-    public function setHostPorts($host_ports)
+    public function setHostPorts($hostPorts)
     {
-        $this->container['host_ports'] = $host_ports;
+        $this->container['hostPorts'] = $hostPorts;
 
         return $this;
     }
@@ -406,106 +406,106 @@ class V1beta1PodSecurityPolicySpec implements ArrayAccess
     }
 
     /**
-     * Gets read_only_root_filesystem
+     * Gets readOnlyRootFilesystem
      * @return bool
      */
     public function getReadOnlyRootFilesystem()
     {
-        return $this->container['read_only_root_filesystem'];
+        return $this->container['readOnlyRootFilesystem'];
     }
 
     /**
-     * Sets read_only_root_filesystem
-     * @param bool $read_only_root_filesystem ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
+     * Sets readOnlyRootFilesystem
+     * @param bool $readOnlyRootFilesystem ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
      * @return $this
      */
-    public function setReadOnlyRootFilesystem($read_only_root_filesystem)
+    public function setReadOnlyRootFilesystem($readOnlyRootFilesystem)
     {
-        $this->container['read_only_root_filesystem'] = $read_only_root_filesystem;
+        $this->container['readOnlyRootFilesystem'] = $readOnlyRootFilesystem;
 
         return $this;
     }
 
     /**
-     * Gets required_drop_capabilities
+     * Gets requiredDropCapabilities
      * @return string[]
      */
     public function getRequiredDropCapabilities()
     {
-        return $this->container['required_drop_capabilities'];
+        return $this->container['requiredDropCapabilities'];
     }
 
     /**
-     * Sets required_drop_capabilities
-     * @param string[] $required_drop_capabilities RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
+     * Sets requiredDropCapabilities
+     * @param string[] $requiredDropCapabilities RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
      * @return $this
      */
-    public function setRequiredDropCapabilities($required_drop_capabilities)
+    public function setRequiredDropCapabilities($requiredDropCapabilities)
     {
-        $this->container['required_drop_capabilities'] = $required_drop_capabilities;
+        $this->container['requiredDropCapabilities'] = $requiredDropCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets run_as_user
+     * Gets runAsUser
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1RunAsUserStrategyOptions
      */
     public function getRunAsUser()
     {
-        return $this->container['run_as_user'];
+        return $this->container['runAsUser'];
     }
 
     /**
-     * Sets run_as_user
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RunAsUserStrategyOptions $run_as_user runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
+     * Sets runAsUser
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RunAsUserStrategyOptions $runAsUser runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * @return $this
      */
-    public function setRunAsUser($run_as_user)
+    public function setRunAsUser($runAsUser)
     {
-        $this->container['run_as_user'] = $run_as_user;
+        $this->container['runAsUser'] = $runAsUser;
 
         return $this;
     }
 
     /**
-     * Gets se_linux
+     * Gets seLinux
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1SELinuxStrategyOptions
      */
     public function getSeLinux()
     {
-        return $this->container['se_linux'];
+        return $this->container['seLinux'];
     }
 
     /**
-     * Sets se_linux
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SELinuxStrategyOptions $se_linux seLinux is the strategy that will dictate the allowable labels that may be set.
+     * Sets seLinux
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SELinuxStrategyOptions $seLinux seLinux is the strategy that will dictate the allowable labels that may be set.
      * @return $this
      */
-    public function setSeLinux($se_linux)
+    public function setSeLinux($seLinux)
     {
-        $this->container['se_linux'] = $se_linux;
+        $this->container['seLinux'] = $seLinux;
 
         return $this;
     }
 
     /**
-     * Gets supplemental_groups
+     * Gets supplementalGroups
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1SupplementalGroupsStrategyOptions
      */
     public function getSupplementalGroups()
     {
-        return $this->container['supplemental_groups'];
+        return $this->container['supplementalGroups'];
     }
 
     /**
-     * Sets supplemental_groups
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SupplementalGroupsStrategyOptions $supplemental_groups SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
+     * Sets supplementalGroups
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SupplementalGroupsStrategyOptions $supplementalGroups SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
      * @return $this
      */
-    public function setSupplementalGroups($supplemental_groups)
+    public function setSupplementalGroups($supplementalGroups)
     {
-        $this->container['supplemental_groups'] = $supplemental_groups;
+        $this->container['supplementalGroups'] = $supplementalGroups;
 
         return $this;
     }

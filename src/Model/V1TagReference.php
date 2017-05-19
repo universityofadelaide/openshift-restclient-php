@@ -58,10 +58,10 @@ class V1TagReference implements ArrayAccess
         'annotations' => 'map[string,string]',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'generation' => 'int',
-        'import_policy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy',
+        'importPolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy',
         'name' => 'string',
         'reference' => 'bool',
-        'reference_policy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy'
+        'referencePolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy'
     ];
 
     public static function swaggerTypes()
@@ -77,10 +77,10 @@ class V1TagReference implements ArrayAccess
         'annotations' => 'annotations',
         'from' => 'from',
         'generation' => 'generation',
-        'import_policy' => 'importPolicy',
+        'importPolicy' => 'importPolicy',
         'name' => 'name',
         'reference' => 'reference',
-        'reference_policy' => 'referencePolicy'
+        'referencePolicy' => 'referencePolicy'
     ];
 
 
@@ -92,10 +92,10 @@ class V1TagReference implements ArrayAccess
         'annotations' => 'setAnnotations',
         'from' => 'setFrom',
         'generation' => 'setGeneration',
-        'import_policy' => 'setImportPolicy',
+        'importPolicy' => 'setImportPolicy',
         'name' => 'setName',
         'reference' => 'setReference',
-        'reference_policy' => 'setReferencePolicy'
+        'referencePolicy' => 'setReferencePolicy'
     ];
 
 
@@ -107,10 +107,10 @@ class V1TagReference implements ArrayAccess
         'annotations' => 'getAnnotations',
         'from' => 'getFrom',
         'generation' => 'getGeneration',
-        'import_policy' => 'getImportPolicy',
+        'importPolicy' => 'getImportPolicy',
         'name' => 'getName',
         'reference' => 'getReference',
-        'reference_policy' => 'getReferencePolicy'
+        'referencePolicy' => 'getReferencePolicy'
     ];
 
     public static function attributeMap()
@@ -147,10 +147,10 @@ class V1TagReference implements ArrayAccess
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
-        $this->container['import_policy'] = isset($data['import_policy']) ? $data['import_policy'] : null;
+        $this->container['importPolicy'] = isset($data['importPolicy']) ? $data['importPolicy'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
-        $this->container['reference_policy'] = isset($data['reference_policy']) ? $data['reference_policy'] : null;
+        $this->container['referencePolicy'] = isset($data['referencePolicy']) ? $data['referencePolicy'] : null;
     }
 
     /**
@@ -260,22 +260,22 @@ class V1TagReference implements ArrayAccess
     }
 
     /**
-     * Gets import_policy
+     * Gets importPolicy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy
      */
     public function getImportPolicy()
     {
-        return $this->container['import_policy'];
+        return $this->container['importPolicy'];
     }
 
     /**
-     * Sets import_policy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy $import_policy Import is information that controls how images may be imported by the server.
+     * Sets importPolicy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy $importPolicy Import is information that controls how images may be imported by the server.
      * @return $this
      */
-    public function setImportPolicy($import_policy)
+    public function setImportPolicy($importPolicy)
     {
-        $this->container['import_policy'] = $import_policy;
+        $this->container['importPolicy'] = $importPolicy;
 
         return $this;
     }
@@ -323,22 +323,22 @@ class V1TagReference implements ArrayAccess
     }
 
     /**
-     * Gets reference_policy
+     * Gets referencePolicy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy
      */
     public function getReferencePolicy()
     {
-        return $this->container['reference_policy'];
+        return $this->container['referencePolicy'];
     }
 
     /**
-     * Sets reference_policy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy $reference_policy ReferencePolicy defines how other components should consume the image
+     * Sets referencePolicy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy $referencePolicy ReferencePolicy defines how other components should consume the image
      * @return $this
      */
-    public function setReferencePolicy($reference_policy)
+    public function setReferencePolicy($referencePolicy)
     {
-        $this->container['reference_policy'] = $reference_policy;
+        $this->container['referencePolicy'] = $referencePolicy;
 
         return $this;
     }

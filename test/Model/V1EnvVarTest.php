@@ -99,7 +99,7 @@ class V1EnvVarTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "value_from"
+     * Test attribute "valueFrom"
      */
     public function testPropertyValueFrom()
     {

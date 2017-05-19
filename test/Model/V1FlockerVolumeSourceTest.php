@@ -83,7 +83,7 @@ class V1FlockerVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dataset_name"
+     * Test attribute "datasetName"
      */
     public function testPropertyDatasetName()
     {
@@ -91,9 +91,9 @@ class V1FlockerVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dataset_uuid"
+     * Test attribute "datasetUUID"
      */
-    public function testPropertyDatasetUuid()
+    public function testPropertyDatasetUUID()
     {
 
     }

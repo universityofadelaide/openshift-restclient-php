@@ -55,26 +55,26 @@ class V1SecurityContextConstraints implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_host_dir_volume_plugin' => 'bool',
-        'allow_host_ipc' => 'bool',
-        'allow_host_network' => 'bool',
-        'allow_host_pid' => 'bool',
-        'allow_host_ports' => 'bool',
-        'allow_privileged_container' => 'bool',
-        'allowed_capabilities' => 'string[]',
-        'api_version' => 'string',
-        'default_add_capabilities' => 'string[]',
-        'fs_group' => '\UniversityOfAdelaide\OpenShift\Model\V1FSGroupStrategyOptions',
+        'allowHostDirVolumePlugin' => 'bool',
+        'allowHostIPC' => 'bool',
+        'allowHostNetwork' => 'bool',
+        'allowHostPID' => 'bool',
+        'allowHostPorts' => 'bool',
+        'allowPrivilegedContainer' => 'bool',
+        'allowedCapabilities' => 'string[]',
+        'apiVersion' => 'string',
+        'defaultAddCapabilities' => 'string[]',
+        'fsGroup' => '\UniversityOfAdelaide\OpenShift\Model\V1FSGroupStrategyOptions',
         'groups' => 'string[]',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'priority' => 'int',
-        'read_only_root_filesystem' => 'bool',
-        'required_drop_capabilities' => 'string[]',
-        'run_as_user' => '\UniversityOfAdelaide\OpenShift\Model\V1RunAsUserStrategyOptions',
-        'se_linux_context' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxContextStrategyOptions',
-        'seccomp_profiles' => 'string[]',
-        'supplemental_groups' => '\UniversityOfAdelaide\OpenShift\Model\V1SupplementalGroupsStrategyOptions',
+        'readOnlyRootFilesystem' => 'bool',
+        'requiredDropCapabilities' => 'string[]',
+        'runAsUser' => '\UniversityOfAdelaide\OpenShift\Model\V1RunAsUserStrategyOptions',
+        'seLinuxContext' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxContextStrategyOptions',
+        'seccompProfiles' => 'string[]',
+        'supplementalGroups' => '\UniversityOfAdelaide\OpenShift\Model\V1SupplementalGroupsStrategyOptions',
         'users' => 'string[]',
         'volumes' => 'string[]'
     ];
@@ -89,26 +89,26 @@ class V1SecurityContextConstraints implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_host_dir_volume_plugin' => 'allowHostDirVolumePlugin',
-        'allow_host_ipc' => 'allowHostIPC',
-        'allow_host_network' => 'allowHostNetwork',
-        'allow_host_pid' => 'allowHostPID',
-        'allow_host_ports' => 'allowHostPorts',
-        'allow_privileged_container' => 'allowPrivilegedContainer',
-        'allowed_capabilities' => 'allowedCapabilities',
-        'api_version' => 'apiVersion',
-        'default_add_capabilities' => 'defaultAddCapabilities',
-        'fs_group' => 'fsGroup',
+        'allowHostDirVolumePlugin' => 'allowHostDirVolumePlugin',
+        'allowHostIPC' => 'allowHostIPC',
+        'allowHostNetwork' => 'allowHostNetwork',
+        'allowHostPID' => 'allowHostPID',
+        'allowHostPorts' => 'allowHostPorts',
+        'allowPrivilegedContainer' => 'allowPrivilegedContainer',
+        'allowedCapabilities' => 'allowedCapabilities',
+        'apiVersion' => 'apiVersion',
+        'defaultAddCapabilities' => 'defaultAddCapabilities',
+        'fsGroup' => 'fsGroup',
         'groups' => 'groups',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'priority' => 'priority',
-        'read_only_root_filesystem' => 'readOnlyRootFilesystem',
-        'required_drop_capabilities' => 'requiredDropCapabilities',
-        'run_as_user' => 'runAsUser',
-        'se_linux_context' => 'seLinuxContext',
-        'seccomp_profiles' => 'seccompProfiles',
-        'supplemental_groups' => 'supplementalGroups',
+        'readOnlyRootFilesystem' => 'readOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'requiredDropCapabilities',
+        'runAsUser' => 'runAsUser',
+        'seLinuxContext' => 'seLinuxContext',
+        'seccompProfiles' => 'seccompProfiles',
+        'supplementalGroups' => 'supplementalGroups',
         'users' => 'users',
         'volumes' => 'volumes'
     ];
@@ -119,26 +119,26 @@ class V1SecurityContextConstraints implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_host_dir_volume_plugin' => 'setAllowHostDirVolumePlugin',
-        'allow_host_ipc' => 'setAllowHostIpc',
-        'allow_host_network' => 'setAllowHostNetwork',
-        'allow_host_pid' => 'setAllowHostPid',
-        'allow_host_ports' => 'setAllowHostPorts',
-        'allow_privileged_container' => 'setAllowPrivilegedContainer',
-        'allowed_capabilities' => 'setAllowedCapabilities',
-        'api_version' => 'setApiVersion',
-        'default_add_capabilities' => 'setDefaultAddCapabilities',
-        'fs_group' => 'setFsGroup',
+        'allowHostDirVolumePlugin' => 'setAllowHostDirVolumePlugin',
+        'allowHostIPC' => 'setAllowHostIPC',
+        'allowHostNetwork' => 'setAllowHostNetwork',
+        'allowHostPID' => 'setAllowHostPID',
+        'allowHostPorts' => 'setAllowHostPorts',
+        'allowPrivilegedContainer' => 'setAllowPrivilegedContainer',
+        'allowedCapabilities' => 'setAllowedCapabilities',
+        'apiVersion' => 'setApiVersion',
+        'defaultAddCapabilities' => 'setDefaultAddCapabilities',
+        'fsGroup' => 'setFsGroup',
         'groups' => 'setGroups',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'priority' => 'setPriority',
-        'read_only_root_filesystem' => 'setReadOnlyRootFilesystem',
-        'required_drop_capabilities' => 'setRequiredDropCapabilities',
-        'run_as_user' => 'setRunAsUser',
-        'se_linux_context' => 'setSeLinuxContext',
-        'seccomp_profiles' => 'setSeccompProfiles',
-        'supplemental_groups' => 'setSupplementalGroups',
+        'readOnlyRootFilesystem' => 'setReadOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'setRequiredDropCapabilities',
+        'runAsUser' => 'setRunAsUser',
+        'seLinuxContext' => 'setSeLinuxContext',
+        'seccompProfiles' => 'setSeccompProfiles',
+        'supplementalGroups' => 'setSupplementalGroups',
         'users' => 'setUsers',
         'volumes' => 'setVolumes'
     ];
@@ -149,26 +149,26 @@ class V1SecurityContextConstraints implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_host_dir_volume_plugin' => 'getAllowHostDirVolumePlugin',
-        'allow_host_ipc' => 'getAllowHostIpc',
-        'allow_host_network' => 'getAllowHostNetwork',
-        'allow_host_pid' => 'getAllowHostPid',
-        'allow_host_ports' => 'getAllowHostPorts',
-        'allow_privileged_container' => 'getAllowPrivilegedContainer',
-        'allowed_capabilities' => 'getAllowedCapabilities',
-        'api_version' => 'getApiVersion',
-        'default_add_capabilities' => 'getDefaultAddCapabilities',
-        'fs_group' => 'getFsGroup',
+        'allowHostDirVolumePlugin' => 'getAllowHostDirVolumePlugin',
+        'allowHostIPC' => 'getAllowHostIPC',
+        'allowHostNetwork' => 'getAllowHostNetwork',
+        'allowHostPID' => 'getAllowHostPID',
+        'allowHostPorts' => 'getAllowHostPorts',
+        'allowPrivilegedContainer' => 'getAllowPrivilegedContainer',
+        'allowedCapabilities' => 'getAllowedCapabilities',
+        'apiVersion' => 'getApiVersion',
+        'defaultAddCapabilities' => 'getDefaultAddCapabilities',
+        'fsGroup' => 'getFsGroup',
         'groups' => 'getGroups',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'priority' => 'getPriority',
-        'read_only_root_filesystem' => 'getReadOnlyRootFilesystem',
-        'required_drop_capabilities' => 'getRequiredDropCapabilities',
-        'run_as_user' => 'getRunAsUser',
-        'se_linux_context' => 'getSeLinuxContext',
-        'seccomp_profiles' => 'getSeccompProfiles',
-        'supplemental_groups' => 'getSupplementalGroups',
+        'readOnlyRootFilesystem' => 'getReadOnlyRootFilesystem',
+        'requiredDropCapabilities' => 'getRequiredDropCapabilities',
+        'runAsUser' => 'getRunAsUser',
+        'seLinuxContext' => 'getSeLinuxContext',
+        'seccompProfiles' => 'getSeccompProfiles',
+        'supplementalGroups' => 'getSupplementalGroups',
         'users' => 'getUsers',
         'volumes' => 'getVolumes'
     ];
@@ -204,26 +204,26 @@ class V1SecurityContextConstraints implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_host_dir_volume_plugin'] = isset($data['allow_host_dir_volume_plugin']) ? $data['allow_host_dir_volume_plugin'] : null;
-        $this->container['allow_host_ipc'] = isset($data['allow_host_ipc']) ? $data['allow_host_ipc'] : null;
-        $this->container['allow_host_network'] = isset($data['allow_host_network']) ? $data['allow_host_network'] : null;
-        $this->container['allow_host_pid'] = isset($data['allow_host_pid']) ? $data['allow_host_pid'] : null;
-        $this->container['allow_host_ports'] = isset($data['allow_host_ports']) ? $data['allow_host_ports'] : null;
-        $this->container['allow_privileged_container'] = isset($data['allow_privileged_container']) ? $data['allow_privileged_container'] : null;
-        $this->container['allowed_capabilities'] = isset($data['allowed_capabilities']) ? $data['allowed_capabilities'] : null;
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['default_add_capabilities'] = isset($data['default_add_capabilities']) ? $data['default_add_capabilities'] : null;
-        $this->container['fs_group'] = isset($data['fs_group']) ? $data['fs_group'] : null;
+        $this->container['allowHostDirVolumePlugin'] = isset($data['allowHostDirVolumePlugin']) ? $data['allowHostDirVolumePlugin'] : null;
+        $this->container['allowHostIPC'] = isset($data['allowHostIPC']) ? $data['allowHostIPC'] : null;
+        $this->container['allowHostNetwork'] = isset($data['allowHostNetwork']) ? $data['allowHostNetwork'] : null;
+        $this->container['allowHostPID'] = isset($data['allowHostPID']) ? $data['allowHostPID'] : null;
+        $this->container['allowHostPorts'] = isset($data['allowHostPorts']) ? $data['allowHostPorts'] : null;
+        $this->container['allowPrivilegedContainer'] = isset($data['allowPrivilegedContainer']) ? $data['allowPrivilegedContainer'] : null;
+        $this->container['allowedCapabilities'] = isset($data['allowedCapabilities']) ? $data['allowedCapabilities'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['defaultAddCapabilities'] = isset($data['defaultAddCapabilities']) ? $data['defaultAddCapabilities'] : null;
+        $this->container['fsGroup'] = isset($data['fsGroup']) ? $data['fsGroup'] : null;
         $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
-        $this->container['read_only_root_filesystem'] = isset($data['read_only_root_filesystem']) ? $data['read_only_root_filesystem'] : null;
-        $this->container['required_drop_capabilities'] = isset($data['required_drop_capabilities']) ? $data['required_drop_capabilities'] : null;
-        $this->container['run_as_user'] = isset($data['run_as_user']) ? $data['run_as_user'] : null;
-        $this->container['se_linux_context'] = isset($data['se_linux_context']) ? $data['se_linux_context'] : null;
-        $this->container['seccomp_profiles'] = isset($data['seccomp_profiles']) ? $data['seccomp_profiles'] : null;
-        $this->container['supplemental_groups'] = isset($data['supplemental_groups']) ? $data['supplemental_groups'] : null;
+        $this->container['readOnlyRootFilesystem'] = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
+        $this->container['requiredDropCapabilities'] = isset($data['requiredDropCapabilities']) ? $data['requiredDropCapabilities'] : null;
+        $this->container['runAsUser'] = isset($data['runAsUser']) ? $data['runAsUser'] : null;
+        $this->container['seLinuxContext'] = isset($data['seLinuxContext']) ? $data['seLinuxContext'] : null;
+        $this->container['seccompProfiles'] = isset($data['seccompProfiles']) ? $data['seccompProfiles'] : null;
+        $this->container['supplementalGroups'] = isset($data['supplementalGroups']) ? $data['supplementalGroups'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
@@ -237,38 +237,38 @@ class V1SecurityContextConstraints implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['allow_host_dir_volume_plugin'] === null) {
-            $invalid_properties[] = "'allow_host_dir_volume_plugin' can't be null";
+        if ($this->container['allowHostDirVolumePlugin'] === null) {
+            $invalid_properties[] = "'allowHostDirVolumePlugin' can't be null";
         }
-        if ($this->container['allow_host_ipc'] === null) {
-            $invalid_properties[] = "'allow_host_ipc' can't be null";
+        if ($this->container['allowHostIPC'] === null) {
+            $invalid_properties[] = "'allowHostIPC' can't be null";
         }
-        if ($this->container['allow_host_network'] === null) {
-            $invalid_properties[] = "'allow_host_network' can't be null";
+        if ($this->container['allowHostNetwork'] === null) {
+            $invalid_properties[] = "'allowHostNetwork' can't be null";
         }
-        if ($this->container['allow_host_pid'] === null) {
-            $invalid_properties[] = "'allow_host_pid' can't be null";
+        if ($this->container['allowHostPID'] === null) {
+            $invalid_properties[] = "'allowHostPID' can't be null";
         }
-        if ($this->container['allow_host_ports'] === null) {
-            $invalid_properties[] = "'allow_host_ports' can't be null";
+        if ($this->container['allowHostPorts'] === null) {
+            $invalid_properties[] = "'allowHostPorts' can't be null";
         }
-        if ($this->container['allow_privileged_container'] === null) {
-            $invalid_properties[] = "'allow_privileged_container' can't be null";
+        if ($this->container['allowPrivilegedContainer'] === null) {
+            $invalid_properties[] = "'allowPrivilegedContainer' can't be null";
         }
-        if ($this->container['allowed_capabilities'] === null) {
-            $invalid_properties[] = "'allowed_capabilities' can't be null";
+        if ($this->container['allowedCapabilities'] === null) {
+            $invalid_properties[] = "'allowedCapabilities' can't be null";
         }
-        if ($this->container['default_add_capabilities'] === null) {
-            $invalid_properties[] = "'default_add_capabilities' can't be null";
+        if ($this->container['defaultAddCapabilities'] === null) {
+            $invalid_properties[] = "'defaultAddCapabilities' can't be null";
         }
         if ($this->container['priority'] === null) {
             $invalid_properties[] = "'priority' can't be null";
         }
-        if ($this->container['read_only_root_filesystem'] === null) {
-            $invalid_properties[] = "'read_only_root_filesystem' can't be null";
+        if ($this->container['readOnlyRootFilesystem'] === null) {
+            $invalid_properties[] = "'readOnlyRootFilesystem' can't be null";
         }
-        if ($this->container['required_drop_capabilities'] === null) {
-            $invalid_properties[] = "'required_drop_capabilities' can't be null";
+        if ($this->container['requiredDropCapabilities'] === null) {
+            $invalid_properties[] = "'requiredDropCapabilities' can't be null";
         }
         if ($this->container['volumes'] === null) {
             $invalid_properties[] = "'volumes' can't be null";
@@ -285,37 +285,37 @@ class V1SecurityContextConstraints implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['allow_host_dir_volume_plugin'] === null) {
+        if ($this->container['allowHostDirVolumePlugin'] === null) {
             return false;
         }
-        if ($this->container['allow_host_ipc'] === null) {
+        if ($this->container['allowHostIPC'] === null) {
             return false;
         }
-        if ($this->container['allow_host_network'] === null) {
+        if ($this->container['allowHostNetwork'] === null) {
             return false;
         }
-        if ($this->container['allow_host_pid'] === null) {
+        if ($this->container['allowHostPID'] === null) {
             return false;
         }
-        if ($this->container['allow_host_ports'] === null) {
+        if ($this->container['allowHostPorts'] === null) {
             return false;
         }
-        if ($this->container['allow_privileged_container'] === null) {
+        if ($this->container['allowPrivilegedContainer'] === null) {
             return false;
         }
-        if ($this->container['allowed_capabilities'] === null) {
+        if ($this->container['allowedCapabilities'] === null) {
             return false;
         }
-        if ($this->container['default_add_capabilities'] === null) {
+        if ($this->container['defaultAddCapabilities'] === null) {
             return false;
         }
         if ($this->container['priority'] === null) {
             return false;
         }
-        if ($this->container['read_only_root_filesystem'] === null) {
+        if ($this->container['readOnlyRootFilesystem'] === null) {
             return false;
         }
-        if ($this->container['required_drop_capabilities'] === null) {
+        if ($this->container['requiredDropCapabilities'] === null) {
             return false;
         }
         if ($this->container['volumes'] === null) {
@@ -326,211 +326,211 @@ class V1SecurityContextConstraints implements ArrayAccess
 
 
     /**
-     * Gets allow_host_dir_volume_plugin
+     * Gets allowHostDirVolumePlugin
      * @return bool
      */
     public function getAllowHostDirVolumePlugin()
     {
-        return $this->container['allow_host_dir_volume_plugin'];
+        return $this->container['allowHostDirVolumePlugin'];
     }
 
     /**
-     * Sets allow_host_dir_volume_plugin
-     * @param bool $allow_host_dir_volume_plugin AllowHostDirVolumePlugin determines if the policy allow containers to use the HostDir volume plugin
+     * Sets allowHostDirVolumePlugin
+     * @param bool $allowHostDirVolumePlugin AllowHostDirVolumePlugin determines if the policy allow containers to use the HostDir volume plugin
      * @return $this
      */
-    public function setAllowHostDirVolumePlugin($allow_host_dir_volume_plugin)
+    public function setAllowHostDirVolumePlugin($allowHostDirVolumePlugin)
     {
-        $this->container['allow_host_dir_volume_plugin'] = $allow_host_dir_volume_plugin;
+        $this->container['allowHostDirVolumePlugin'] = $allowHostDirVolumePlugin;
 
         return $this;
     }
 
     /**
-     * Gets allow_host_ipc
+     * Gets allowHostIPC
      * @return bool
      */
-    public function getAllowHostIpc()
+    public function getAllowHostIPC()
     {
-        return $this->container['allow_host_ipc'];
+        return $this->container['allowHostIPC'];
     }
 
     /**
-     * Sets allow_host_ipc
-     * @param bool $allow_host_ipc AllowHostIPC determines if the policy allows host ipc in the containers.
+     * Sets allowHostIPC
+     * @param bool $allowHostIPC AllowHostIPC determines if the policy allows host ipc in the containers.
      * @return $this
      */
-    public function setAllowHostIpc($allow_host_ipc)
+    public function setAllowHostIPC($allowHostIPC)
     {
-        $this->container['allow_host_ipc'] = $allow_host_ipc;
+        $this->container['allowHostIPC'] = $allowHostIPC;
 
         return $this;
     }
 
     /**
-     * Gets allow_host_network
+     * Gets allowHostNetwork
      * @return bool
      */
     public function getAllowHostNetwork()
     {
-        return $this->container['allow_host_network'];
+        return $this->container['allowHostNetwork'];
     }
 
     /**
-     * Sets allow_host_network
-     * @param bool $allow_host_network AllowHostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
+     * Sets allowHostNetwork
+     * @param bool $allowHostNetwork AllowHostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
      * @return $this
      */
-    public function setAllowHostNetwork($allow_host_network)
+    public function setAllowHostNetwork($allowHostNetwork)
     {
-        $this->container['allow_host_network'] = $allow_host_network;
+        $this->container['allowHostNetwork'] = $allowHostNetwork;
 
         return $this;
     }
 
     /**
-     * Gets allow_host_pid
+     * Gets allowHostPID
      * @return bool
      */
-    public function getAllowHostPid()
+    public function getAllowHostPID()
     {
-        return $this->container['allow_host_pid'];
+        return $this->container['allowHostPID'];
     }
 
     /**
-     * Sets allow_host_pid
-     * @param bool $allow_host_pid AllowHostPID determines if the policy allows host pid in the containers.
+     * Sets allowHostPID
+     * @param bool $allowHostPID AllowHostPID determines if the policy allows host pid in the containers.
      * @return $this
      */
-    public function setAllowHostPid($allow_host_pid)
+    public function setAllowHostPID($allowHostPID)
     {
-        $this->container['allow_host_pid'] = $allow_host_pid;
+        $this->container['allowHostPID'] = $allowHostPID;
 
         return $this;
     }
 
     /**
-     * Gets allow_host_ports
+     * Gets allowHostPorts
      * @return bool
      */
     public function getAllowHostPorts()
     {
-        return $this->container['allow_host_ports'];
+        return $this->container['allowHostPorts'];
     }
 
     /**
-     * Sets allow_host_ports
-     * @param bool $allow_host_ports AllowHostPorts determines if the policy allows host ports in the containers.
+     * Sets allowHostPorts
+     * @param bool $allowHostPorts AllowHostPorts determines if the policy allows host ports in the containers.
      * @return $this
      */
-    public function setAllowHostPorts($allow_host_ports)
+    public function setAllowHostPorts($allowHostPorts)
     {
-        $this->container['allow_host_ports'] = $allow_host_ports;
+        $this->container['allowHostPorts'] = $allowHostPorts;
 
         return $this;
     }
 
     /**
-     * Gets allow_privileged_container
+     * Gets allowPrivilegedContainer
      * @return bool
      */
     public function getAllowPrivilegedContainer()
     {
-        return $this->container['allow_privileged_container'];
+        return $this->container['allowPrivilegedContainer'];
     }
 
     /**
-     * Sets allow_privileged_container
-     * @param bool $allow_privileged_container AllowPrivilegedContainer determines if a container can request to be run as privileged.
+     * Sets allowPrivilegedContainer
+     * @param bool $allowPrivilegedContainer AllowPrivilegedContainer determines if a container can request to be run as privileged.
      * @return $this
      */
-    public function setAllowPrivilegedContainer($allow_privileged_container)
+    public function setAllowPrivilegedContainer($allowPrivilegedContainer)
     {
-        $this->container['allow_privileged_container'] = $allow_privileged_container;
+        $this->container['allowPrivilegedContainer'] = $allowPrivilegedContainer;
 
         return $this;
     }
 
     /**
-     * Gets allowed_capabilities
+     * Gets allowedCapabilities
      * @return string[]
      */
     public function getAllowedCapabilities()
     {
-        return $this->container['allowed_capabilities'];
+        return $this->container['allowedCapabilities'];
     }
 
     /**
-     * Sets allowed_capabilities
-     * @param string[] $allowed_capabilities AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field maybe added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities. To allow all capabilities you may use '*'.
+     * Sets allowedCapabilities
+     * @param string[] $allowedCapabilities AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field maybe added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities. To allow all capabilities you may use '*'.
      * @return $this
      */
-    public function setAllowedCapabilities($allowed_capabilities)
+    public function setAllowedCapabilities($allowedCapabilities)
     {
-        $this->container['allowed_capabilities'] = $allowed_capabilities;
+        $this->container['allowedCapabilities'] = $allowedCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets default_add_capabilities
+     * Gets defaultAddCapabilities
      * @return string[]
      */
     public function getDefaultAddCapabilities()
     {
-        return $this->container['default_add_capabilities'];
+        return $this->container['defaultAddCapabilities'];
     }
 
     /**
-     * Sets default_add_capabilities
-     * @param string[] $default_add_capabilities DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities.
+     * Sets defaultAddCapabilities
+     * @param string[] $defaultAddCapabilities DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities.
      * @return $this
      */
-    public function setDefaultAddCapabilities($default_add_capabilities)
+    public function setDefaultAddCapabilities($defaultAddCapabilities)
     {
-        $this->container['default_add_capabilities'] = $default_add_capabilities;
+        $this->container['defaultAddCapabilities'] = $defaultAddCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets fs_group
+     * Gets fsGroup
      * @return \UniversityOfAdelaide\OpenShift\Model\V1FSGroupStrategyOptions
      */
     public function getFsGroup()
     {
-        return $this->container['fs_group'];
+        return $this->container['fsGroup'];
     }
 
     /**
-     * Sets fs_group
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1FSGroupStrategyOptions $fs_group FSGroup is the strategy that will dictate what fs group is used by the SecurityContext.
+     * Sets fsGroup
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1FSGroupStrategyOptions $fsGroup FSGroup is the strategy that will dictate what fs group is used by the SecurityContext.
      * @return $this
      */
-    public function setFsGroup($fs_group)
+    public function setFsGroup($fsGroup)
     {
-        $this->container['fs_group'] = $fs_group;
+        $this->container['fsGroup'] = $fsGroup;
 
         return $this;
     }
@@ -620,127 +620,127 @@ class V1SecurityContextConstraints implements ArrayAccess
     }
 
     /**
-     * Gets read_only_root_filesystem
+     * Gets readOnlyRootFilesystem
      * @return bool
      */
     public function getReadOnlyRootFilesystem()
     {
-        return $this->container['read_only_root_filesystem'];
+        return $this->container['readOnlyRootFilesystem'];
     }
 
     /**
-     * Sets read_only_root_filesystem
-     * @param bool $read_only_root_filesystem ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the SCC should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
+     * Sets readOnlyRootFilesystem
+     * @param bool $readOnlyRootFilesystem ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the SCC should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
      * @return $this
      */
-    public function setReadOnlyRootFilesystem($read_only_root_filesystem)
+    public function setReadOnlyRootFilesystem($readOnlyRootFilesystem)
     {
-        $this->container['read_only_root_filesystem'] = $read_only_root_filesystem;
+        $this->container['readOnlyRootFilesystem'] = $readOnlyRootFilesystem;
 
         return $this;
     }
 
     /**
-     * Gets required_drop_capabilities
+     * Gets requiredDropCapabilities
      * @return string[]
      */
     public function getRequiredDropCapabilities()
     {
-        return $this->container['required_drop_capabilities'];
+        return $this->container['requiredDropCapabilities'];
     }
 
     /**
-     * Sets required_drop_capabilities
-     * @param string[] $required_drop_capabilities RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
+     * Sets requiredDropCapabilities
+     * @param string[] $requiredDropCapabilities RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
      * @return $this
      */
-    public function setRequiredDropCapabilities($required_drop_capabilities)
+    public function setRequiredDropCapabilities($requiredDropCapabilities)
     {
-        $this->container['required_drop_capabilities'] = $required_drop_capabilities;
+        $this->container['requiredDropCapabilities'] = $requiredDropCapabilities;
 
         return $this;
     }
 
     /**
-     * Gets run_as_user
+     * Gets runAsUser
      * @return \UniversityOfAdelaide\OpenShift\Model\V1RunAsUserStrategyOptions
      */
     public function getRunAsUser()
     {
-        return $this->container['run_as_user'];
+        return $this->container['runAsUser'];
     }
 
     /**
-     * Sets run_as_user
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1RunAsUserStrategyOptions $run_as_user RunAsUser is the strategy that will dictate what RunAsUser is used in the SecurityContext.
+     * Sets runAsUser
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1RunAsUserStrategyOptions $runAsUser RunAsUser is the strategy that will dictate what RunAsUser is used in the SecurityContext.
      * @return $this
      */
-    public function setRunAsUser($run_as_user)
+    public function setRunAsUser($runAsUser)
     {
-        $this->container['run_as_user'] = $run_as_user;
+        $this->container['runAsUser'] = $runAsUser;
 
         return $this;
     }
 
     /**
-     * Gets se_linux_context
+     * Gets seLinuxContext
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SELinuxContextStrategyOptions
      */
     public function getSeLinuxContext()
     {
-        return $this->container['se_linux_context'];
+        return $this->container['seLinuxContext'];
     }
 
     /**
-     * Sets se_linux_context
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxContextStrategyOptions $se_linux_context SELinuxContext is the strategy that will dictate what labels will be set in the SecurityContext.
+     * Sets seLinuxContext
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxContextStrategyOptions $seLinuxContext SELinuxContext is the strategy that will dictate what labels will be set in the SecurityContext.
      * @return $this
      */
-    public function setSeLinuxContext($se_linux_context)
+    public function setSeLinuxContext($seLinuxContext)
     {
-        $this->container['se_linux_context'] = $se_linux_context;
+        $this->container['seLinuxContext'] = $seLinuxContext;
 
         return $this;
     }
 
     /**
-     * Gets seccomp_profiles
+     * Gets seccompProfiles
      * @return string[]
      */
     public function getSeccompProfiles()
     {
-        return $this->container['seccomp_profiles'];
+        return $this->container['seccompProfiles'];
     }
 
     /**
-     * Sets seccomp_profiles
-     * @param string[] $seccomp_profiles SeccompProfiles lists the allowed profiles that may be set for the pod or container's seccomp annotations.  An unset (nil) or empty value means that no profiles may be specifid by the pod or container. The wildcard '*' may be used to allow all profiles.  When used to generate a value for a pod the first non-wildcard profile will be used as the default.
+     * Sets seccompProfiles
+     * @param string[] $seccompProfiles SeccompProfiles lists the allowed profiles that may be set for the pod or container's seccomp annotations.  An unset (nil) or empty value means that no profiles may be specifid by the pod or container. The wildcard '*' may be used to allow all profiles.  When used to generate a value for a pod the first non-wildcard profile will be used as the default.
      * @return $this
      */
-    public function setSeccompProfiles($seccomp_profiles)
+    public function setSeccompProfiles($seccompProfiles)
     {
-        $this->container['seccomp_profiles'] = $seccomp_profiles;
+        $this->container['seccompProfiles'] = $seccompProfiles;
 
         return $this;
     }
 
     /**
-     * Gets supplemental_groups
+     * Gets supplementalGroups
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SupplementalGroupsStrategyOptions
      */
     public function getSupplementalGroups()
     {
-        return $this->container['supplemental_groups'];
+        return $this->container['supplementalGroups'];
     }
 
     /**
-     * Sets supplemental_groups
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SupplementalGroupsStrategyOptions $supplemental_groups SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
+     * Sets supplementalGroups
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SupplementalGroupsStrategyOptions $supplementalGroups SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
      * @return $this
      */
-    public function setSupplementalGroups($supplemental_groups)
+    public function setSupplementalGroups($supplementalGroups)
     {
-        $this->container['supplemental_groups'] = $supplemental_groups;
+        $this->container['supplementalGroups'] = $supplementalGroups;
 
         return $this;
     }

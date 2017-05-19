@@ -55,17 +55,17 @@ class V1OAuthAccessToken implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'authorize_token' => 'string',
-        'client_name' => 'string',
-        'expires_in' => 'int',
+        'apiVersion' => 'string',
+        'authorizeToken' => 'string',
+        'clientName' => 'string',
+        'expiresIn' => 'int',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'redirect_uri' => 'string',
-        'refresh_token' => 'string',
+        'redirectURI' => 'string',
+        'refreshToken' => 'string',
         'scopes' => 'string[]',
-        'user_name' => 'string',
-        'user_uid' => 'string'
+        'userName' => 'string',
+        'userUID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -78,17 +78,17 @@ class V1OAuthAccessToken implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'authorize_token' => 'authorizeToken',
-        'client_name' => 'clientName',
-        'expires_in' => 'expiresIn',
+        'apiVersion' => 'apiVersion',
+        'authorizeToken' => 'authorizeToken',
+        'clientName' => 'clientName',
+        'expiresIn' => 'expiresIn',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'redirect_uri' => 'redirectURI',
-        'refresh_token' => 'refreshToken',
+        'redirectURI' => 'redirectURI',
+        'refreshToken' => 'refreshToken',
         'scopes' => 'scopes',
-        'user_name' => 'userName',
-        'user_uid' => 'userUID'
+        'userName' => 'userName',
+        'userUID' => 'userUID'
     ];
 
 
@@ -97,17 +97,17 @@ class V1OAuthAccessToken implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'authorize_token' => 'setAuthorizeToken',
-        'client_name' => 'setClientName',
-        'expires_in' => 'setExpiresIn',
+        'apiVersion' => 'setApiVersion',
+        'authorizeToken' => 'setAuthorizeToken',
+        'clientName' => 'setClientName',
+        'expiresIn' => 'setExpiresIn',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'redirect_uri' => 'setRedirectUri',
-        'refresh_token' => 'setRefreshToken',
+        'redirectURI' => 'setRedirectURI',
+        'refreshToken' => 'setRefreshToken',
         'scopes' => 'setScopes',
-        'user_name' => 'setUserName',
-        'user_uid' => 'setUserUid'
+        'userName' => 'setUserName',
+        'userUID' => 'setUserUID'
     ];
 
 
@@ -116,17 +116,17 @@ class V1OAuthAccessToken implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'authorize_token' => 'getAuthorizeToken',
-        'client_name' => 'getClientName',
-        'expires_in' => 'getExpiresIn',
+        'apiVersion' => 'getApiVersion',
+        'authorizeToken' => 'getAuthorizeToken',
+        'clientName' => 'getClientName',
+        'expiresIn' => 'getExpiresIn',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'redirect_uri' => 'getRedirectUri',
-        'refresh_token' => 'getRefreshToken',
+        'redirectURI' => 'getRedirectURI',
+        'refreshToken' => 'getRefreshToken',
         'scopes' => 'getScopes',
-        'user_name' => 'getUserName',
-        'user_uid' => 'getUserUid'
+        'userName' => 'getUserName',
+        'userUID' => 'getUserUID'
     ];
 
     public static function attributeMap()
@@ -160,17 +160,17 @@ class V1OAuthAccessToken implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['authorize_token'] = isset($data['authorize_token']) ? $data['authorize_token'] : null;
-        $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
-        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['authorizeToken'] = isset($data['authorizeToken']) ? $data['authorizeToken'] : null;
+        $this->container['clientName'] = isset($data['clientName']) ? $data['clientName'] : null;
+        $this->container['expiresIn'] = isset($data['expiresIn']) ? $data['expiresIn'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['redirect_uri'] = isset($data['redirect_uri']) ? $data['redirect_uri'] : null;
-        $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
+        $this->container['redirectURI'] = isset($data['redirectURI']) ? $data['redirectURI'] : null;
+        $this->container['refreshToken'] = isset($data['refreshToken']) ? $data['refreshToken'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
-        $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
-        $this->container['user_uid'] = isset($data['user_uid']) ? $data['user_uid'] : null;
+        $this->container['userName'] = isset($data['userName']) ? $data['userName'] : null;
+        $this->container['userUID'] = isset($data['userUID']) ? $data['userUID'] : null;
     }
 
     /**
@@ -199,85 +199,85 @@ class V1OAuthAccessToken implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets authorize_token
+     * Gets authorizeToken
      * @return string
      */
     public function getAuthorizeToken()
     {
-        return $this->container['authorize_token'];
+        return $this->container['authorizeToken'];
     }
 
     /**
-     * Sets authorize_token
-     * @param string $authorize_token AuthorizeToken contains the token that authorized this token
+     * Sets authorizeToken
+     * @param string $authorizeToken AuthorizeToken contains the token that authorized this token
      * @return $this
      */
-    public function setAuthorizeToken($authorize_token)
+    public function setAuthorizeToken($authorizeToken)
     {
-        $this->container['authorize_token'] = $authorize_token;
+        $this->container['authorizeToken'] = $authorizeToken;
 
         return $this;
     }
 
     /**
-     * Gets client_name
+     * Gets clientName
      * @return string
      */
     public function getClientName()
     {
-        return $this->container['client_name'];
+        return $this->container['clientName'];
     }
 
     /**
-     * Sets client_name
-     * @param string $client_name ClientName references the client that created this token.
+     * Sets clientName
+     * @param string $clientName ClientName references the client that created this token.
      * @return $this
      */
-    public function setClientName($client_name)
+    public function setClientName($clientName)
     {
-        $this->container['client_name'] = $client_name;
+        $this->container['clientName'] = $clientName;
 
         return $this;
     }
 
     /**
-     * Gets expires_in
+     * Gets expiresIn
      * @return int
      */
     public function getExpiresIn()
     {
-        return $this->container['expires_in'];
+        return $this->container['expiresIn'];
     }
 
     /**
-     * Sets expires_in
-     * @param int $expires_in ExpiresIn is the seconds from CreationTime before this token expires.
+     * Sets expiresIn
+     * @param int $expiresIn ExpiresIn is the seconds from CreationTime before this token expires.
      * @return $this
      */
-    public function setExpiresIn($expires_in)
+    public function setExpiresIn($expiresIn)
     {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['expiresIn'] = $expiresIn;
 
         return $this;
     }
@@ -325,43 +325,43 @@ class V1OAuthAccessToken implements ArrayAccess
     }
 
     /**
-     * Gets redirect_uri
+     * Gets redirectURI
      * @return string
      */
-    public function getRedirectUri()
+    public function getRedirectURI()
     {
-        return $this->container['redirect_uri'];
+        return $this->container['redirectURI'];
     }
 
     /**
-     * Sets redirect_uri
-     * @param string $redirect_uri RedirectURI is the redirection associated with the token.
+     * Sets redirectURI
+     * @param string $redirectURI RedirectURI is the redirection associated with the token.
      * @return $this
      */
-    public function setRedirectUri($redirect_uri)
+    public function setRedirectURI($redirectURI)
     {
-        $this->container['redirect_uri'] = $redirect_uri;
+        $this->container['redirectURI'] = $redirectURI;
 
         return $this;
     }
 
     /**
-     * Gets refresh_token
+     * Gets refreshToken
      * @return string
      */
     public function getRefreshToken()
     {
-        return $this->container['refresh_token'];
+        return $this->container['refreshToken'];
     }
 
     /**
-     * Sets refresh_token
-     * @param string $refresh_token RefreshToken is the value by which this token can be renewed. Can be blank.
+     * Sets refreshToken
+     * @param string $refreshToken RefreshToken is the value by which this token can be renewed. Can be blank.
      * @return $this
      */
-    public function setRefreshToken($refresh_token)
+    public function setRefreshToken($refreshToken)
     {
-        $this->container['refresh_token'] = $refresh_token;
+        $this->container['refreshToken'] = $refreshToken;
 
         return $this;
     }
@@ -388,43 +388,43 @@ class V1OAuthAccessToken implements ArrayAccess
     }
 
     /**
-     * Gets user_name
+     * Gets userName
      * @return string
      */
     public function getUserName()
     {
-        return $this->container['user_name'];
+        return $this->container['userName'];
     }
 
     /**
-     * Sets user_name
-     * @param string $user_name UserName is the user name associated with this token
+     * Sets userName
+     * @param string $userName UserName is the user name associated with this token
      * @return $this
      */
-    public function setUserName($user_name)
+    public function setUserName($userName)
     {
-        $this->container['user_name'] = $user_name;
+        $this->container['userName'] = $userName;
 
         return $this;
     }
 
     /**
-     * Gets user_uid
+     * Gets userUID
      * @return string
      */
-    public function getUserUid()
+    public function getUserUID()
     {
-        return $this->container['user_uid'];
+        return $this->container['userUID'];
     }
 
     /**
-     * Sets user_uid
-     * @param string $user_uid UserUID is the unique UID associated with this token
+     * Sets userUID
+     * @param string $userUID UserUID is the unique UID associated with this token
      * @return $this
      */
-    public function setUserUid($user_uid)
+    public function setUserUID($userUID)
     {
-        $this->container['user_uid'] = $user_uid;
+        $this->container['userUID'] = $userUID;
 
         return $this;
     }

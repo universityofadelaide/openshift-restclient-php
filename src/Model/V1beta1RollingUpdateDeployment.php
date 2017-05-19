@@ -55,8 +55,8 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'max_surge' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
-        'max_unavailable' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
+        'maxSurge' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
+        'maxUnavailable' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'max_surge' => 'maxSurge',
-        'max_unavailable' => 'maxUnavailable'
+        'maxSurge' => 'maxSurge',
+        'maxUnavailable' => 'maxUnavailable'
     ];
 
 
@@ -79,8 +79,8 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'max_surge' => 'setMaxSurge',
-        'max_unavailable' => 'setMaxUnavailable'
+        'maxSurge' => 'setMaxSurge',
+        'maxUnavailable' => 'setMaxUnavailable'
     ];
 
 
@@ -89,8 +89,8 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'max_surge' => 'getMaxSurge',
-        'max_unavailable' => 'getMaxUnavailable'
+        'maxSurge' => 'getMaxSurge',
+        'maxUnavailable' => 'getMaxUnavailable'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['max_surge'] = isset($data['max_surge']) ? $data['max_surge'] : null;
-        $this->container['max_unavailable'] = isset($data['max_unavailable']) ? $data['max_unavailable'] : null;
+        $this->container['maxSurge'] = isset($data['maxSurge']) ? $data['maxSurge'] : null;
+        $this->container['maxUnavailable'] = isset($data['maxUnavailable']) ? $data['maxUnavailable'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1beta1RollingUpdateDeployment implements ArrayAccess
 
 
     /**
-     * Gets max_surge
+     * Gets maxSurge
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getMaxSurge()
     {
-        return $this->container['max_surge'];
+        return $this->container['maxSurge'];
     }
 
     /**
-     * Sets max_surge
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $max_surge The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. By default, a value of 1 is used. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods.
+     * Sets maxSurge
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $maxSurge The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. By default, a value of 1 is used. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods.
      * @return $this
      */
-    public function setMaxSurge($max_surge)
+    public function setMaxSurge($maxSurge)
     {
-        $this->container['max_surge'] = $max_surge;
+        $this->container['maxSurge'] = $maxSurge;
 
         return $this;
     }
 
     /**
-     * Gets max_unavailable
+     * Gets maxUnavailable
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getMaxUnavailable()
     {
-        return $this->container['max_unavailable'];
+        return $this->container['maxUnavailable'];
     }
 
     /**
-     * Sets max_unavailable
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $max_unavailable The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. By default, a fixed value of 1 is used. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
+     * Sets maxUnavailable
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $maxUnavailable The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. By default, a fixed value of 1 is used. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
      * @return $this
      */
-    public function setMaxUnavailable($max_unavailable)
+    public function setMaxUnavailable($maxUnavailable)
     {
-        $this->container['max_unavailable'] = $max_unavailable;
+        $this->container['maxUnavailable'] = $maxUnavailable;
 
         return $this;
     }

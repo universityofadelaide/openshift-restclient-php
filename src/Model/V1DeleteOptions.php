@@ -55,12 +55,12 @@ class V1DeleteOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'grace_period_seconds' => 'int',
+        'apiVersion' => 'string',
+        'gracePeriodSeconds' => 'int',
         'kind' => 'string',
-        'orphan_dependents' => 'bool',
+        'orphanDependents' => 'bool',
         'preconditions' => '\UniversityOfAdelaide\OpenShift\Model\V1Preconditions',
-        'propagation_policy' => 'string'
+        'propagationPolicy' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -73,12 +73,12 @@ class V1DeleteOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'grace_period_seconds' => 'gracePeriodSeconds',
+        'apiVersion' => 'apiVersion',
+        'gracePeriodSeconds' => 'gracePeriodSeconds',
         'kind' => 'kind',
-        'orphan_dependents' => 'orphanDependents',
+        'orphanDependents' => 'orphanDependents',
         'preconditions' => 'preconditions',
-        'propagation_policy' => 'propagationPolicy'
+        'propagationPolicy' => 'propagationPolicy'
     ];
 
 
@@ -87,12 +87,12 @@ class V1DeleteOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'grace_period_seconds' => 'setGracePeriodSeconds',
+        'apiVersion' => 'setApiVersion',
+        'gracePeriodSeconds' => 'setGracePeriodSeconds',
         'kind' => 'setKind',
-        'orphan_dependents' => 'setOrphanDependents',
+        'orphanDependents' => 'setOrphanDependents',
         'preconditions' => 'setPreconditions',
-        'propagation_policy' => 'setPropagationPolicy'
+        'propagationPolicy' => 'setPropagationPolicy'
     ];
 
 
@@ -101,12 +101,12 @@ class V1DeleteOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'grace_period_seconds' => 'getGracePeriodSeconds',
+        'apiVersion' => 'getApiVersion',
+        'gracePeriodSeconds' => 'getGracePeriodSeconds',
         'kind' => 'getKind',
-        'orphan_dependents' => 'getOrphanDependents',
+        'orphanDependents' => 'getOrphanDependents',
         'preconditions' => 'getPreconditions',
-        'propagation_policy' => 'getPropagationPolicy'
+        'propagationPolicy' => 'getPropagationPolicy'
     ];
 
     public static function attributeMap()
@@ -140,12 +140,12 @@ class V1DeleteOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['grace_period_seconds'] = isset($data['grace_period_seconds']) ? $data['grace_period_seconds'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['gracePeriodSeconds'] = isset($data['gracePeriodSeconds']) ? $data['gracePeriodSeconds'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['orphan_dependents'] = isset($data['orphan_dependents']) ? $data['orphan_dependents'] : null;
+        $this->container['orphanDependents'] = isset($data['orphanDependents']) ? $data['orphanDependents'] : null;
         $this->container['preconditions'] = isset($data['preconditions']) ? $data['preconditions'] : null;
-        $this->container['propagation_policy'] = isset($data['propagation_policy']) ? $data['propagation_policy'] : null;
+        $this->container['propagationPolicy'] = isset($data['propagationPolicy']) ? $data['propagationPolicy'] : null;
     }
 
     /**
@@ -174,43 +174,43 @@ class V1DeleteOptions implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets grace_period_seconds
+     * Gets gracePeriodSeconds
      * @return int
      */
     public function getGracePeriodSeconds()
     {
-        return $this->container['grace_period_seconds'];
+        return $this->container['gracePeriodSeconds'];
     }
 
     /**
-     * Sets grace_period_seconds
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * Sets gracePeriodSeconds
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
      * @return $this
      */
-    public function setGracePeriodSeconds($grace_period_seconds)
+    public function setGracePeriodSeconds($gracePeriodSeconds)
     {
-        $this->container['grace_period_seconds'] = $grace_period_seconds;
+        $this->container['gracePeriodSeconds'] = $gracePeriodSeconds;
 
         return $this;
     }
@@ -237,22 +237,22 @@ class V1DeleteOptions implements ArrayAccess
     }
 
     /**
-     * Gets orphan_dependents
+     * Gets orphanDependents
      * @return bool
      */
     public function getOrphanDependents()
     {
-        return $this->container['orphan_dependents'];
+        return $this->container['orphanDependents'];
     }
 
     /**
-     * Sets orphan_dependents
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * Sets orphanDependents
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
      * @return $this
      */
-    public function setOrphanDependents($orphan_dependents)
+    public function setOrphanDependents($orphanDependents)
     {
-        $this->container['orphan_dependents'] = $orphan_dependents;
+        $this->container['orphanDependents'] = $orphanDependents;
 
         return $this;
     }
@@ -279,22 +279,22 @@ class V1DeleteOptions implements ArrayAccess
     }
 
     /**
-     * Gets propagation_policy
+     * Gets propagationPolicy
      * @return string
      */
     public function getPropagationPolicy()
     {
-        return $this->container['propagation_policy'];
+        return $this->container['propagationPolicy'];
     }
 
     /**
-     * Sets propagation_policy
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+     * Sets propagationPolicy
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
      * @return $this
      */
-    public function setPropagationPolicy($propagation_policy)
+    public function setPropagationPolicy($propagationPolicy)
     {
-        $this->container['propagation_policy'] = $propagation_policy;
+        $this->container['propagationPolicy'] = $propagationPolicy;
 
         return $this;
     }

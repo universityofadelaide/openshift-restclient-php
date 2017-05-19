@@ -83,7 +83,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_host_dir_volume_plugin"
+     * Test attribute "allowHostDirVolumePlugin"
      */
     public function testPropertyAllowHostDirVolumePlugin()
     {
@@ -91,15 +91,15 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_host_ipc"
+     * Test attribute "allowHostIPC"
      */
-    public function testPropertyAllowHostIpc()
+    public function testPropertyAllowHostIPC()
     {
 
     }
 
     /**
-     * Test attribute "allow_host_network"
+     * Test attribute "allowHostNetwork"
      */
     public function testPropertyAllowHostNetwork()
     {
@@ -107,15 +107,15 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_host_pid"
+     * Test attribute "allowHostPID"
      */
-    public function testPropertyAllowHostPid()
+    public function testPropertyAllowHostPID()
     {
 
     }
 
     /**
-     * Test attribute "allow_host_ports"
+     * Test attribute "allowHostPorts"
      */
     public function testPropertyAllowHostPorts()
     {
@@ -123,7 +123,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_privileged_container"
+     * Test attribute "allowPrivilegedContainer"
      */
     public function testPropertyAllowPrivilegedContainer()
     {
@@ -131,7 +131,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allowed_capabilities"
+     * Test attribute "allowedCapabilities"
      */
     public function testPropertyAllowedCapabilities()
     {
@@ -139,7 +139,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -147,7 +147,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "default_add_capabilities"
+     * Test attribute "defaultAddCapabilities"
      */
     public function testPropertyDefaultAddCapabilities()
     {
@@ -155,7 +155,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_group"
+     * Test attribute "fsGroup"
      */
     public function testPropertyFsGroup()
     {
@@ -195,7 +195,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only_root_filesystem"
+     * Test attribute "readOnlyRootFilesystem"
      */
     public function testPropertyReadOnlyRootFilesystem()
     {
@@ -203,7 +203,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "required_drop_capabilities"
+     * Test attribute "requiredDropCapabilities"
      */
     public function testPropertyRequiredDropCapabilities()
     {
@@ -211,7 +211,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_user"
+     * Test attribute "runAsUser"
      */
     public function testPropertyRunAsUser()
     {
@@ -219,7 +219,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "se_linux_context"
+     * Test attribute "seLinuxContext"
      */
     public function testPropertySeLinuxContext()
     {
@@ -227,7 +227,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "seccomp_profiles"
+     * Test attribute "seccompProfiles"
      */
     public function testPropertySeccompProfiles()
     {
@@ -235,7 +235,7 @@ class V1SecurityContextConstraintsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "supplemental_groups"
+     * Test attribute "supplementalGroups"
      */
     public function testPropertySupplementalGroups()
     {

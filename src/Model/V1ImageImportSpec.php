@@ -56,9 +56,9 @@ class V1ImageImportSpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'import_policy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy',
-        'include_manifest' => 'bool',
-        'reference_policy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy',
+        'importPolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy',
+        'includeManifest' => 'bool',
+        'referencePolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy',
         'to' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
@@ -73,9 +73,9 @@ class V1ImageImportSpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'from' => 'from',
-        'import_policy' => 'importPolicy',
-        'include_manifest' => 'includeManifest',
-        'reference_policy' => 'referencePolicy',
+        'importPolicy' => 'importPolicy',
+        'includeManifest' => 'includeManifest',
+        'referencePolicy' => 'referencePolicy',
         'to' => 'to'
     ];
 
@@ -86,9 +86,9 @@ class V1ImageImportSpec implements ArrayAccess
      */
     protected static $setters = [
         'from' => 'setFrom',
-        'import_policy' => 'setImportPolicy',
-        'include_manifest' => 'setIncludeManifest',
-        'reference_policy' => 'setReferencePolicy',
+        'importPolicy' => 'setImportPolicy',
+        'includeManifest' => 'setIncludeManifest',
+        'referencePolicy' => 'setReferencePolicy',
         'to' => 'setTo'
     ];
 
@@ -99,9 +99,9 @@ class V1ImageImportSpec implements ArrayAccess
      */
     protected static $getters = [
         'from' => 'getFrom',
-        'import_policy' => 'getImportPolicy',
-        'include_manifest' => 'getIncludeManifest',
-        'reference_policy' => 'getReferencePolicy',
+        'importPolicy' => 'getImportPolicy',
+        'includeManifest' => 'getIncludeManifest',
+        'referencePolicy' => 'getReferencePolicy',
         'to' => 'getTo'
     ];
 
@@ -137,9 +137,9 @@ class V1ImageImportSpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['import_policy'] = isset($data['import_policy']) ? $data['import_policy'] : null;
-        $this->container['include_manifest'] = isset($data['include_manifest']) ? $data['include_manifest'] : null;
-        $this->container['reference_policy'] = isset($data['reference_policy']) ? $data['reference_policy'] : null;
+        $this->container['importPolicy'] = isset($data['importPolicy']) ? $data['importPolicy'] : null;
+        $this->container['includeManifest'] = isset($data['includeManifest']) ? $data['includeManifest'] : null;
+        $this->container['referencePolicy'] = isset($data['referencePolicy']) ? $data['referencePolicy'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
     }
 
@@ -196,64 +196,64 @@ class V1ImageImportSpec implements ArrayAccess
     }
 
     /**
-     * Gets import_policy
+     * Gets importPolicy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy
      */
     public function getImportPolicy()
     {
-        return $this->container['import_policy'];
+        return $this->container['importPolicy'];
     }
 
     /**
-     * Sets import_policy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy $import_policy ImportPolicy is the policy controlling how the image is imported
+     * Sets importPolicy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImportPolicy $importPolicy ImportPolicy is the policy controlling how the image is imported
      * @return $this
      */
-    public function setImportPolicy($import_policy)
+    public function setImportPolicy($importPolicy)
     {
-        $this->container['import_policy'] = $import_policy;
+        $this->container['importPolicy'] = $importPolicy;
 
         return $this;
     }
 
     /**
-     * Gets include_manifest
+     * Gets includeManifest
      * @return bool
      */
     public function getIncludeManifest()
     {
-        return $this->container['include_manifest'];
+        return $this->container['includeManifest'];
     }
 
     /**
-     * Sets include_manifest
-     * @param bool $include_manifest IncludeManifest determines if the manifest for each image is returned in the response
+     * Sets includeManifest
+     * @param bool $includeManifest IncludeManifest determines if the manifest for each image is returned in the response
      * @return $this
      */
-    public function setIncludeManifest($include_manifest)
+    public function setIncludeManifest($includeManifest)
     {
-        $this->container['include_manifest'] = $include_manifest;
+        $this->container['includeManifest'] = $includeManifest;
 
         return $this;
     }
 
     /**
-     * Gets reference_policy
+     * Gets referencePolicy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy
      */
     public function getReferencePolicy()
     {
-        return $this->container['reference_policy'];
+        return $this->container['referencePolicy'];
     }
 
     /**
-     * Sets reference_policy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy $reference_policy ReferencePolicy defines how other components should consume the image
+     * Sets referencePolicy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReferencePolicy $referencePolicy ReferencePolicy defines how other components should consume the image
      * @return $this
      */
-    public function setReferencePolicy($reference_policy)
+    public function setReferencePolicy($referencePolicy)
     {
-        $this->container['reference_policy'] = $reference_policy;
+        $this->container['referencePolicy'] = $referencePolicy;
 
         return $this;
     }

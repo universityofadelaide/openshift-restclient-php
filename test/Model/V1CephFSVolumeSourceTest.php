@@ -99,7 +99,7 @@ class V1CephFSVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -107,7 +107,7 @@ class V1CephFSVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_file"
+     * Test attribute "secretFile"
      */
     public function testPropertySecretFile()
     {
@@ -115,7 +115,7 @@ class V1CephFSVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_ref"
+     * Test attribute "secretRef"
      */
     public function testPropertySecretRef()
     {

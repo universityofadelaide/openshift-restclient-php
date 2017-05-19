@@ -83,7 +83,7 @@ class V2alpha1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "max_replicas"
+     * Test attribute "maxReplicas"
      */
     public function testPropertyMaxReplicas()
     {
@@ -99,7 +99,7 @@ class V2alpha1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "min_replicas"
+     * Test attribute "minReplicas"
      */
     public function testPropertyMinReplicas()
     {
@@ -107,7 +107,7 @@ class V2alpha1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "scale_target_ref"
+     * Test attribute "scaleTargetRef"
      */
     public function testPropertyScaleTargetRef()
     {

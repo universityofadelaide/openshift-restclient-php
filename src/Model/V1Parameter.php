@@ -56,7 +56,7 @@ class V1Parameter implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
-        'display_name' => 'string',
+        'displayName' => 'string',
         'from' => 'string',
         'generate' => 'string',
         'name' => 'string',
@@ -75,7 +75,7 @@ class V1Parameter implements ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'display_name' => 'displayName',
+        'displayName' => 'displayName',
         'from' => 'from',
         'generate' => 'generate',
         'name' => 'name',
@@ -90,7 +90,7 @@ class V1Parameter implements ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
+        'displayName' => 'setDisplayName',
         'from' => 'setFrom',
         'generate' => 'setGenerate',
         'name' => 'setName',
@@ -105,7 +105,7 @@ class V1Parameter implements ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
+        'displayName' => 'getDisplayName',
         'from' => 'getFrom',
         'generate' => 'getGenerate',
         'name' => 'getName',
@@ -145,7 +145,7 @@ class V1Parameter implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['generate'] = isset($data['generate']) ? $data['generate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -206,22 +206,22 @@ class V1Parameter implements ArrayAccess
     }
 
     /**
-     * Gets display_name
+     * Gets displayName
      * @return string
      */
     public function getDisplayName()
     {
-        return $this->container['display_name'];
+        return $this->container['displayName'];
     }
 
     /**
-     * Sets display_name
-     * @param string $display_name Optional: The name that will show in UI instead of parameter 'Name'
+     * Sets displayName
+     * @param string $displayName Optional: The name that will show in UI instead of parameter 'Name'
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setDisplayName($displayName)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['displayName'] = $displayName;
 
         return $this;
     }

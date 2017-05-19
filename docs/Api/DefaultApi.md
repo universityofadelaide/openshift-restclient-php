@@ -22,7 +22,7 @@ create a Template
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Template(); // \UniversityOfAdelaide\OpenShift\Model\V1Template | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -71,7 +71,7 @@ create a Template
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Template(); // \UniversityOfAdelaide\OpenShift\Model\V1Template | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -120,7 +120,7 @@ create a Template
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Template(); // \UniversityOfAdelaide\OpenShift\Model\V1Template | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -167,7 +167,7 @@ create a Template
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Template(); // \UniversityOfAdelaide\OpenShift\Model\V1Template | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 

@@ -56,7 +56,7 @@ class V1QuobyteVolumeSource implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'group' => 'string',
-        'read_only' => 'bool',
+        'readOnly' => 'bool',
         'registry' => 'string',
         'user' => 'string',
         'volume' => 'string'
@@ -73,7 +73,7 @@ class V1QuobyteVolumeSource implements ArrayAccess
      */
     protected static $attributeMap = [
         'group' => 'group',
-        'read_only' => 'readOnly',
+        'readOnly' => 'readOnly',
         'registry' => 'registry',
         'user' => 'user',
         'volume' => 'volume'
@@ -86,7 +86,7 @@ class V1QuobyteVolumeSource implements ArrayAccess
      */
     protected static $setters = [
         'group' => 'setGroup',
-        'read_only' => 'setReadOnly',
+        'readOnly' => 'setReadOnly',
         'registry' => 'setRegistry',
         'user' => 'setUser',
         'volume' => 'setVolume'
@@ -99,7 +99,7 @@ class V1QuobyteVolumeSource implements ArrayAccess
      */
     protected static $getters = [
         'group' => 'getGroup',
-        'read_only' => 'getReadOnly',
+        'readOnly' => 'getReadOnly',
         'registry' => 'getRegistry',
         'user' => 'getUser',
         'volume' => 'getVolume'
@@ -137,7 +137,7 @@ class V1QuobyteVolumeSource implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
@@ -202,22 +202,22 @@ class V1QuobyteVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

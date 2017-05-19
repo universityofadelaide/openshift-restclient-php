@@ -83,7 +83,7 @@ class V1beta1CPUTargetUtilizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_percentage"
+     * Test attribute "targetPercentage"
      */
     public function testPropertyTargetPercentage()
     {

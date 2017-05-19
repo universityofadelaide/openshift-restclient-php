@@ -55,7 +55,7 @@ class V1BuildLog implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1BuildLog implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind'
     ];
 
@@ -79,7 +79,7 @@ class V1BuildLog implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind'
     ];
 
@@ -89,7 +89,7 @@ class V1BuildLog implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind'
     ];
 
@@ -124,7 +124,7 @@ class V1BuildLog implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1BuildLog implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }

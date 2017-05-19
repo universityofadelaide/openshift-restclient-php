@@ -83,7 +83,7 @@ class V1SignatureIssuerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "common_name"
+     * Test attribute "commonName"
      */
     public function testPropertyCommonName()
     {

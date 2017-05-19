@@ -83,7 +83,7 @@ class V1beta1RoleRefTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_group"
+     * Test attribute "apiGroup"
      */
     public function testPropertyApiGroup()
     {

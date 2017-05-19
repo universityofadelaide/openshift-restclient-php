@@ -57,9 +57,9 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     protected static $swaggerTypes = [
         'replicas' => 'int',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
-        'service_name' => 'string',
+        'serviceName' => 'string',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec',
-        'volume_claim_templates' => '\UniversityOfAdelaide\OpenShift\Model\V1PersistentVolumeClaim[]'
+        'volumeClaimTemplates' => '\UniversityOfAdelaide\OpenShift\Model\V1PersistentVolumeClaim[]'
     ];
 
     public static function swaggerTypes()
@@ -74,9 +74,9 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     protected static $attributeMap = [
         'replicas' => 'replicas',
         'selector' => 'selector',
-        'service_name' => 'serviceName',
+        'serviceName' => 'serviceName',
         'template' => 'template',
-        'volume_claim_templates' => 'volumeClaimTemplates'
+        'volumeClaimTemplates' => 'volumeClaimTemplates'
     ];
 
 
@@ -87,9 +87,9 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     protected static $setters = [
         'replicas' => 'setReplicas',
         'selector' => 'setSelector',
-        'service_name' => 'setServiceName',
+        'serviceName' => 'setServiceName',
         'template' => 'setTemplate',
-        'volume_claim_templates' => 'setVolumeClaimTemplates'
+        'volumeClaimTemplates' => 'setVolumeClaimTemplates'
     ];
 
 
@@ -100,9 +100,9 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     protected static $getters = [
         'replicas' => 'getReplicas',
         'selector' => 'getSelector',
-        'service_name' => 'getServiceName',
+        'serviceName' => 'getServiceName',
         'template' => 'getTemplate',
-        'volume_claim_templates' => 'getVolumeClaimTemplates'
+        'volumeClaimTemplates' => 'getVolumeClaimTemplates'
     ];
 
     public static function attributeMap()
@@ -138,9 +138,9 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     {
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['serviceName'] = isset($data['serviceName']) ? $data['serviceName'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['volume_claim_templates'] = isset($data['volume_claim_templates']) ? $data['volume_claim_templates'] : null;
+        $this->container['volumeClaimTemplates'] = isset($data['volumeClaimTemplates']) ? $data['volumeClaimTemplates'] : null;
     }
 
     /**
@@ -152,8 +152,8 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['service_name'] === null) {
-            $invalid_properties[] = "'service_name' can't be null";
+        if ($this->container['serviceName'] === null) {
+            $invalid_properties[] = "'serviceName' can't be null";
         }
         if ($this->container['template'] === null) {
             $invalid_properties[] = "'template' can't be null";
@@ -170,7 +170,7 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['service_name'] === null) {
+        if ($this->container['serviceName'] === null) {
             return false;
         }
         if ($this->container['template'] === null) {
@@ -223,22 +223,22 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     }
 
     /**
-     * Gets service_name
+     * Gets serviceName
      * @return string
      */
     public function getServiceName()
     {
-        return $this->container['service_name'];
+        return $this->container['serviceName'];
     }
 
     /**
-     * Sets service_name
-     * @param string $service_name ServiceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \"pod-specific-string\" is managed by the StatefulSet controller.
+     * Sets serviceName
+     * @param string $serviceName ServiceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \"pod-specific-string\" is managed by the StatefulSet controller.
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setServiceName($serviceName)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['serviceName'] = $serviceName;
 
         return $this;
     }
@@ -265,22 +265,22 @@ class V1beta1StatefulSetSpec implements ArrayAccess
     }
 
     /**
-     * Gets volume_claim_templates
+     * Gets volumeClaimTemplates
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PersistentVolumeClaim[]
      */
     public function getVolumeClaimTemplates()
     {
-        return $this->container['volume_claim_templates'];
+        return $this->container['volumeClaimTemplates'];
     }
 
     /**
-     * Sets volume_claim_templates
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PersistentVolumeClaim[] $volume_claim_templates VolumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
+     * Sets volumeClaimTemplates
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PersistentVolumeClaim[] $volumeClaimTemplates VolumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
      * @return $this
      */
-    public function setVolumeClaimTemplates($volume_claim_templates)
+    public function setVolumeClaimTemplates($volumeClaimTemplates)
     {
-        $this->container['volume_claim_templates'] = $volume_claim_templates;
+        $this->container['volumeClaimTemplates'] = $volumeClaimTemplates;
 
         return $this;
     }

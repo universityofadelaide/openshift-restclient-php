@@ -83,7 +83,7 @@ class V1BuildConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_version"
+     * Test attribute "lastVersion"
      */
     public function testPropertyLastVersion()
     {

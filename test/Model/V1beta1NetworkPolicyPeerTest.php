@@ -83,7 +83,7 @@ class V1beta1NetworkPolicyPeerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "namespace_selector"
+     * Test attribute "namespaceSelector"
      */
     public function testPropertyNamespaceSelector()
     {
@@ -91,7 +91,7 @@ class V1beta1NetworkPolicyPeerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_selector"
+     * Test attribute "podSelector"
      */
     public function testPropertyPodSelector()
     {

@@ -55,12 +55,12 @@ class V2alpha1CronJobSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'concurrency_policy' => 'string',
-        'failed_jobs_history_limit' => 'int',
-        'job_template' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1JobTemplateSpec',
+        'concurrencyPolicy' => 'string',
+        'failedJobsHistoryLimit' => 'int',
+        'jobTemplate' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1JobTemplateSpec',
         'schedule' => 'string',
-        'starting_deadline_seconds' => 'int',
-        'successful_jobs_history_limit' => 'int',
+        'startingDeadlineSeconds' => 'int',
+        'successfulJobsHistoryLimit' => 'int',
         'suspend' => 'bool'
     ];
 
@@ -74,12 +74,12 @@ class V2alpha1CronJobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'concurrency_policy' => 'concurrencyPolicy',
-        'failed_jobs_history_limit' => 'failedJobsHistoryLimit',
-        'job_template' => 'jobTemplate',
+        'concurrencyPolicy' => 'concurrencyPolicy',
+        'failedJobsHistoryLimit' => 'failedJobsHistoryLimit',
+        'jobTemplate' => 'jobTemplate',
         'schedule' => 'schedule',
-        'starting_deadline_seconds' => 'startingDeadlineSeconds',
-        'successful_jobs_history_limit' => 'successfulJobsHistoryLimit',
+        'startingDeadlineSeconds' => 'startingDeadlineSeconds',
+        'successfulJobsHistoryLimit' => 'successfulJobsHistoryLimit',
         'suspend' => 'suspend'
     ];
 
@@ -89,12 +89,12 @@ class V2alpha1CronJobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'concurrency_policy' => 'setConcurrencyPolicy',
-        'failed_jobs_history_limit' => 'setFailedJobsHistoryLimit',
-        'job_template' => 'setJobTemplate',
+        'concurrencyPolicy' => 'setConcurrencyPolicy',
+        'failedJobsHistoryLimit' => 'setFailedJobsHistoryLimit',
+        'jobTemplate' => 'setJobTemplate',
         'schedule' => 'setSchedule',
-        'starting_deadline_seconds' => 'setStartingDeadlineSeconds',
-        'successful_jobs_history_limit' => 'setSuccessfulJobsHistoryLimit',
+        'startingDeadlineSeconds' => 'setStartingDeadlineSeconds',
+        'successfulJobsHistoryLimit' => 'setSuccessfulJobsHistoryLimit',
         'suspend' => 'setSuspend'
     ];
 
@@ -104,12 +104,12 @@ class V2alpha1CronJobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'concurrency_policy' => 'getConcurrencyPolicy',
-        'failed_jobs_history_limit' => 'getFailedJobsHistoryLimit',
-        'job_template' => 'getJobTemplate',
+        'concurrencyPolicy' => 'getConcurrencyPolicy',
+        'failedJobsHistoryLimit' => 'getFailedJobsHistoryLimit',
+        'jobTemplate' => 'getJobTemplate',
         'schedule' => 'getSchedule',
-        'starting_deadline_seconds' => 'getStartingDeadlineSeconds',
-        'successful_jobs_history_limit' => 'getSuccessfulJobsHistoryLimit',
+        'startingDeadlineSeconds' => 'getStartingDeadlineSeconds',
+        'successfulJobsHistoryLimit' => 'getSuccessfulJobsHistoryLimit',
         'suspend' => 'getSuspend'
     ];
 
@@ -144,12 +144,12 @@ class V2alpha1CronJobSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['concurrency_policy'] = isset($data['concurrency_policy']) ? $data['concurrency_policy'] : null;
-        $this->container['failed_jobs_history_limit'] = isset($data['failed_jobs_history_limit']) ? $data['failed_jobs_history_limit'] : null;
-        $this->container['job_template'] = isset($data['job_template']) ? $data['job_template'] : null;
+        $this->container['concurrencyPolicy'] = isset($data['concurrencyPolicy']) ? $data['concurrencyPolicy'] : null;
+        $this->container['failedJobsHistoryLimit'] = isset($data['failedJobsHistoryLimit']) ? $data['failedJobsHistoryLimit'] : null;
+        $this->container['jobTemplate'] = isset($data['jobTemplate']) ? $data['jobTemplate'] : null;
         $this->container['schedule'] = isset($data['schedule']) ? $data['schedule'] : null;
-        $this->container['starting_deadline_seconds'] = isset($data['starting_deadline_seconds']) ? $data['starting_deadline_seconds'] : null;
-        $this->container['successful_jobs_history_limit'] = isset($data['successful_jobs_history_limit']) ? $data['successful_jobs_history_limit'] : null;
+        $this->container['startingDeadlineSeconds'] = isset($data['startingDeadlineSeconds']) ? $data['startingDeadlineSeconds'] : null;
+        $this->container['successfulJobsHistoryLimit'] = isset($data['successfulJobsHistoryLimit']) ? $data['successfulJobsHistoryLimit'] : null;
         $this->container['suspend'] = isset($data['suspend']) ? $data['suspend'] : null;
     }
 
@@ -162,8 +162,8 @@ class V2alpha1CronJobSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['job_template'] === null) {
-            $invalid_properties[] = "'job_template' can't be null";
+        if ($this->container['jobTemplate'] === null) {
+            $invalid_properties[] = "'jobTemplate' can't be null";
         }
         if ($this->container['schedule'] === null) {
             $invalid_properties[] = "'schedule' can't be null";
@@ -180,7 +180,7 @@ class V2alpha1CronJobSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['job_template'] === null) {
+        if ($this->container['jobTemplate'] === null) {
             return false;
         }
         if ($this->container['schedule'] === null) {
@@ -191,64 +191,64 @@ class V2alpha1CronJobSpec implements ArrayAccess
 
 
     /**
-     * Gets concurrency_policy
+     * Gets concurrencyPolicy
      * @return string
      */
     public function getConcurrencyPolicy()
     {
-        return $this->container['concurrency_policy'];
+        return $this->container['concurrencyPolicy'];
     }
 
     /**
-     * Sets concurrency_policy
-     * @param string $concurrency_policy ConcurrencyPolicy specifies how to treat concurrent executions of a Job.
+     * Sets concurrencyPolicy
+     * @param string $concurrencyPolicy ConcurrencyPolicy specifies how to treat concurrent executions of a Job.
      * @return $this
      */
-    public function setConcurrencyPolicy($concurrency_policy)
+    public function setConcurrencyPolicy($concurrencyPolicy)
     {
-        $this->container['concurrency_policy'] = $concurrency_policy;
+        $this->container['concurrencyPolicy'] = $concurrencyPolicy;
 
         return $this;
     }
 
     /**
-     * Gets failed_jobs_history_limit
+     * Gets failedJobsHistoryLimit
      * @return int
      */
     public function getFailedJobsHistoryLimit()
     {
-        return $this->container['failed_jobs_history_limit'];
+        return $this->container['failedJobsHistoryLimit'];
     }
 
     /**
-     * Sets failed_jobs_history_limit
-     * @param int $failed_jobs_history_limit The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
+     * Sets failedJobsHistoryLimit
+     * @param int $failedJobsHistoryLimit The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
      * @return $this
      */
-    public function setFailedJobsHistoryLimit($failed_jobs_history_limit)
+    public function setFailedJobsHistoryLimit($failedJobsHistoryLimit)
     {
-        $this->container['failed_jobs_history_limit'] = $failed_jobs_history_limit;
+        $this->container['failedJobsHistoryLimit'] = $failedJobsHistoryLimit;
 
         return $this;
     }
 
     /**
-     * Gets job_template
+     * Gets jobTemplate
      * @return \UniversityOfAdelaide\OpenShift\Model\V2alpha1JobTemplateSpec
      */
     public function getJobTemplate()
     {
-        return $this->container['job_template'];
+        return $this->container['jobTemplate'];
     }
 
     /**
-     * Sets job_template
-     * @param \UniversityOfAdelaide\OpenShift\Model\V2alpha1JobTemplateSpec $job_template JobTemplate is the object that describes the job that will be created when executing a CronJob.
+     * Sets jobTemplate
+     * @param \UniversityOfAdelaide\OpenShift\Model\V2alpha1JobTemplateSpec $jobTemplate JobTemplate is the object that describes the job that will be created when executing a CronJob.
      * @return $this
      */
-    public function setJobTemplate($job_template)
+    public function setJobTemplate($jobTemplate)
     {
-        $this->container['job_template'] = $job_template;
+        $this->container['jobTemplate'] = $jobTemplate;
 
         return $this;
     }
@@ -275,43 +275,43 @@ class V2alpha1CronJobSpec implements ArrayAccess
     }
 
     /**
-     * Gets starting_deadline_seconds
+     * Gets startingDeadlineSeconds
      * @return int
      */
     public function getStartingDeadlineSeconds()
     {
-        return $this->container['starting_deadline_seconds'];
+        return $this->container['startingDeadlineSeconds'];
     }
 
     /**
-     * Sets starting_deadline_seconds
-     * @param int $starting_deadline_seconds Optional deadline in seconds for starting the job if it misses scheduled time for any reason.  Missed jobs executions will be counted as failed ones.
+     * Sets startingDeadlineSeconds
+     * @param int $startingDeadlineSeconds Optional deadline in seconds for starting the job if it misses scheduled time for any reason.  Missed jobs executions will be counted as failed ones.
      * @return $this
      */
-    public function setStartingDeadlineSeconds($starting_deadline_seconds)
+    public function setStartingDeadlineSeconds($startingDeadlineSeconds)
     {
-        $this->container['starting_deadline_seconds'] = $starting_deadline_seconds;
+        $this->container['startingDeadlineSeconds'] = $startingDeadlineSeconds;
 
         return $this;
     }
 
     /**
-     * Gets successful_jobs_history_limit
+     * Gets successfulJobsHistoryLimit
      * @return int
      */
     public function getSuccessfulJobsHistoryLimit()
     {
-        return $this->container['successful_jobs_history_limit'];
+        return $this->container['successfulJobsHistoryLimit'];
     }
 
     /**
-     * Sets successful_jobs_history_limit
-     * @param int $successful_jobs_history_limit The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
+     * Sets successfulJobsHistoryLimit
+     * @param int $successfulJobsHistoryLimit The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
      * @return $this
      */
-    public function setSuccessfulJobsHistoryLimit($successful_jobs_history_limit)
+    public function setSuccessfulJobsHistoryLimit($successfulJobsHistoryLimit)
     {
-        $this->container['successful_jobs_history_limit'] = $successful_jobs_history_limit;
+        $this->container['successfulJobsHistoryLimit'] = $successfulJobsHistoryLimit;
 
         return $this;
     }

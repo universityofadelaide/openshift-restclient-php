@@ -55,9 +55,9 @@ class V1AzureFileVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'read_only' => 'bool',
-        'secret_name' => 'string',
-        'share_name' => 'string'
+        'readOnly' => 'bool',
+        'secretName' => 'string',
+        'shareName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1AzureFileVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'read_only' => 'readOnly',
-        'secret_name' => 'secretName',
-        'share_name' => 'shareName'
+        'readOnly' => 'readOnly',
+        'secretName' => 'secretName',
+        'shareName' => 'shareName'
     ];
 
 
@@ -81,9 +81,9 @@ class V1AzureFileVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'read_only' => 'setReadOnly',
-        'secret_name' => 'setSecretName',
-        'share_name' => 'setShareName'
+        'readOnly' => 'setReadOnly',
+        'secretName' => 'setSecretName',
+        'shareName' => 'setShareName'
     ];
 
 
@@ -92,9 +92,9 @@ class V1AzureFileVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'read_only' => 'getReadOnly',
-        'secret_name' => 'getSecretName',
-        'share_name' => 'getShareName'
+        'readOnly' => 'getReadOnly',
+        'secretName' => 'getSecretName',
+        'shareName' => 'getShareName'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1AzureFileVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
-        $this->container['share_name'] = isset($data['share_name']) ? $data['share_name'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretName'] = isset($data['secretName']) ? $data['secretName'] : null;
+        $this->container['shareName'] = isset($data['shareName']) ? $data['shareName'] : null;
     }
 
     /**
@@ -142,11 +142,11 @@ class V1AzureFileVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['secret_name'] === null) {
-            $invalid_properties[] = "'secret_name' can't be null";
+        if ($this->container['secretName'] === null) {
+            $invalid_properties[] = "'secretName' can't be null";
         }
-        if ($this->container['share_name'] === null) {
-            $invalid_properties[] = "'share_name' can't be null";
+        if ($this->container['shareName'] === null) {
+            $invalid_properties[] = "'shareName' can't be null";
         }
         return $invalid_properties;
     }
@@ -160,10 +160,10 @@ class V1AzureFileVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['secret_name'] === null) {
+        if ($this->container['secretName'] === null) {
             return false;
         }
-        if ($this->container['share_name'] === null) {
+        if ($this->container['shareName'] === null) {
             return false;
         }
         return true;
@@ -171,64 +171,64 @@ class V1AzureFileVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+     * Sets readOnly
+     * @param bool $readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_name
+     * Gets secretName
      * @return string
      */
     public function getSecretName()
     {
-        return $this->container['secret_name'];
+        return $this->container['secretName'];
     }
 
     /**
-     * Sets secret_name
-     * @param string $secret_name the name of secret that contains Azure Storage Account Name and Key
+     * Sets secretName
+     * @param string $secretName the name of secret that contains Azure Storage Account Name and Key
      * @return $this
      */
-    public function setSecretName($secret_name)
+    public function setSecretName($secretName)
     {
-        $this->container['secret_name'] = $secret_name;
+        $this->container['secretName'] = $secretName;
 
         return $this;
     }
 
     /**
-     * Gets share_name
+     * Gets shareName
      * @return string
      */
     public function getShareName()
     {
-        return $this->container['share_name'];
+        return $this->container['shareName'];
     }
 
     /**
-     * Sets share_name
-     * @param string $share_name Share Name
+     * Sets shareName
+     * @param string $shareName Share Name
      * @return $this
      */
-    public function setShareName($share_name)
+    public function setShareName($shareName)
     {
-        $this->container['share_name'] = $share_name;
+        $this->container['shareName'] = $shareName;
 
         return $this;
     }

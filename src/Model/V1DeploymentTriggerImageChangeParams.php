@@ -56,9 +56,9 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'automatic' => 'bool',
-        'container_names' => 'string[]',
+        'containerNames' => 'string[]',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'last_triggered_image' => 'string'
+        'lastTriggeredImage' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -72,9 +72,9 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
      */
     protected static $attributeMap = [
         'automatic' => 'automatic',
-        'container_names' => 'containerNames',
+        'containerNames' => 'containerNames',
         'from' => 'from',
-        'last_triggered_image' => 'lastTriggeredImage'
+        'lastTriggeredImage' => 'lastTriggeredImage'
     ];
 
 
@@ -84,9 +84,9 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
      */
     protected static $setters = [
         'automatic' => 'setAutomatic',
-        'container_names' => 'setContainerNames',
+        'containerNames' => 'setContainerNames',
         'from' => 'setFrom',
-        'last_triggered_image' => 'setLastTriggeredImage'
+        'lastTriggeredImage' => 'setLastTriggeredImage'
     ];
 
 
@@ -96,9 +96,9 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
      */
     protected static $getters = [
         'automatic' => 'getAutomatic',
-        'container_names' => 'getContainerNames',
+        'containerNames' => 'getContainerNames',
         'from' => 'getFrom',
-        'last_triggered_image' => 'getLastTriggeredImage'
+        'lastTriggeredImage' => 'getLastTriggeredImage'
     ];
 
     public static function attributeMap()
@@ -133,9 +133,9 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['automatic'] = isset($data['automatic']) ? $data['automatic'] : null;
-        $this->container['container_names'] = isset($data['container_names']) ? $data['container_names'] : null;
+        $this->container['containerNames'] = isset($data['containerNames']) ? $data['containerNames'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['last_triggered_image'] = isset($data['last_triggered_image']) ? $data['last_triggered_image'] : null;
+        $this->container['lastTriggeredImage'] = isset($data['lastTriggeredImage']) ? $data['lastTriggeredImage'] : null;
     }
 
     /**
@@ -191,22 +191,22 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
     }
 
     /**
-     * Gets container_names
+     * Gets containerNames
      * @return string[]
      */
     public function getContainerNames()
     {
-        return $this->container['container_names'];
+        return $this->container['containerNames'];
     }
 
     /**
-     * Sets container_names
-     * @param string[] $container_names ContainerNames is used to restrict tag updates to the specified set of container names in a pod.
+     * Sets containerNames
+     * @param string[] $containerNames ContainerNames is used to restrict tag updates to the specified set of container names in a pod. If multiple triggers point to the same containers, the resulting behavior is undefined. Future API versions will make this a validation error. If ContainerNames does not point to a valid container, the trigger will be ignored. Future API versions will make this a validation error.
      * @return $this
      */
-    public function setContainerNames($container_names)
+    public function setContainerNames($containerNames)
     {
-        $this->container['container_names'] = $container_names;
+        $this->container['containerNames'] = $containerNames;
 
         return $this;
     }
@@ -233,22 +233,22 @@ class V1DeploymentTriggerImageChangeParams implements ArrayAccess
     }
 
     /**
-     * Gets last_triggered_image
+     * Gets lastTriggeredImage
      * @return string
      */
     public function getLastTriggeredImage()
     {
-        return $this->container['last_triggered_image'];
+        return $this->container['lastTriggeredImage'];
     }
 
     /**
-     * Sets last_triggered_image
-     * @param string $last_triggered_image LastTriggeredImage is the last image to be triggered.
+     * Sets lastTriggeredImage
+     * @param string $lastTriggeredImage LastTriggeredImage is the last image to be triggered.
      * @return $this
      */
-    public function setLastTriggeredImage($last_triggered_image)
+    public function setLastTriggeredImage($lastTriggeredImage)
     {
-        $this->container['last_triggered_image'] = $last_triggered_image;
+        $this->container['lastTriggeredImage'] = $lastTriggeredImage;
 
         return $this;
     }

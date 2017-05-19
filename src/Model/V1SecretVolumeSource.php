@@ -55,10 +55,10 @@ class V1SecretVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'default_mode' => 'int',
+        'defaultMode' => 'int',
         'items' => '\UniversityOfAdelaide\OpenShift\Model\V1KeyToPath[]',
         'optional' => 'bool',
-        'secret_name' => 'string'
+        'secretName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1SecretVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'default_mode' => 'defaultMode',
+        'defaultMode' => 'defaultMode',
         'items' => 'items',
         'optional' => 'optional',
-        'secret_name' => 'secretName'
+        'secretName' => 'secretName'
     ];
 
 
@@ -83,10 +83,10 @@ class V1SecretVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'default_mode' => 'setDefaultMode',
+        'defaultMode' => 'setDefaultMode',
         'items' => 'setItems',
         'optional' => 'setOptional',
-        'secret_name' => 'setSecretName'
+        'secretName' => 'setSecretName'
     ];
 
 
@@ -95,10 +95,10 @@ class V1SecretVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'default_mode' => 'getDefaultMode',
+        'defaultMode' => 'getDefaultMode',
         'items' => 'getItems',
         'optional' => 'getOptional',
-        'secret_name' => 'getSecretName'
+        'secretName' => 'getSecretName'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1SecretVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['default_mode'] = isset($data['default_mode']) ? $data['default_mode'] : null;
+        $this->container['defaultMode'] = isset($data['defaultMode']) ? $data['defaultMode'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['optional'] = isset($data['optional']) ? $data['optional'] : null;
-        $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
+        $this->container['secretName'] = isset($data['secretName']) ? $data['secretName'] : null;
     }
 
     /**
@@ -164,22 +164,22 @@ class V1SecretVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets default_mode
+     * Gets defaultMode
      * @return int
      */
     public function getDefaultMode()
     {
-        return $this->container['default_mode'];
+        return $this->container['defaultMode'];
     }
 
     /**
-     * Sets default_mode
-     * @param int $default_mode Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+     * Sets defaultMode
+     * @param int $defaultMode Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
      * @return $this
      */
-    public function setDefaultMode($default_mode)
+    public function setDefaultMode($defaultMode)
     {
-        $this->container['default_mode'] = $default_mode;
+        $this->container['defaultMode'] = $defaultMode;
 
         return $this;
     }
@@ -227,22 +227,22 @@ class V1SecretVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets secret_name
+     * Gets secretName
      * @return string
      */
     public function getSecretName()
     {
-        return $this->container['secret_name'];
+        return $this->container['secretName'];
     }
 
     /**
-     * Sets secret_name
-     * @param string $secret_name Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+     * Sets secretName
+     * @param string $secretName Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
      * @return $this
      */
-    public function setSecretName($secret_name)
+    public function setSecretName($secretName)
     {
-        $this->container['secret_name'] = $secret_name;
+        $this->container['secretName'] = $secretName;
 
         return $this;
     }

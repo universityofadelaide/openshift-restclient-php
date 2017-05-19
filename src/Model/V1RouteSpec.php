@@ -55,13 +55,13 @@ class V1RouteSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alternate_backends' => '\UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference[]',
+        'alternateBackends' => '\UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference[]',
         'host' => 'string',
         'path' => 'string',
         'port' => '\UniversityOfAdelaide\OpenShift\Model\V1RoutePort',
         'tls' => '\UniversityOfAdelaide\OpenShift\Model\V1TLSConfig',
         'to' => '\UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference',
-        'wildcard_policy' => 'string'
+        'wildcardPolicy' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1RouteSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'alternate_backends' => 'alternateBackends',
+        'alternateBackends' => 'alternateBackends',
         'host' => 'host',
         'path' => 'path',
         'port' => 'port',
         'tls' => 'tls',
         'to' => 'to',
-        'wildcard_policy' => 'wildcardPolicy'
+        'wildcardPolicy' => 'wildcardPolicy'
     ];
 
 
@@ -89,13 +89,13 @@ class V1RouteSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'alternate_backends' => 'setAlternateBackends',
+        'alternateBackends' => 'setAlternateBackends',
         'host' => 'setHost',
         'path' => 'setPath',
         'port' => 'setPort',
         'tls' => 'setTls',
         'to' => 'setTo',
-        'wildcard_policy' => 'setWildcardPolicy'
+        'wildcardPolicy' => 'setWildcardPolicy'
     ];
 
 
@@ -104,13 +104,13 @@ class V1RouteSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'alternate_backends' => 'getAlternateBackends',
+        'alternateBackends' => 'getAlternateBackends',
         'host' => 'getHost',
         'path' => 'getPath',
         'port' => 'getPort',
         'tls' => 'getTls',
         'to' => 'getTo',
-        'wildcard_policy' => 'getWildcardPolicy'
+        'wildcardPolicy' => 'getWildcardPolicy'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1RouteSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['alternate_backends'] = isset($data['alternate_backends']) ? $data['alternate_backends'] : null;
+        $this->container['alternateBackends'] = isset($data['alternateBackends']) ? $data['alternateBackends'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['tls'] = isset($data['tls']) ? $data['tls'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
-        $this->container['wildcard_policy'] = isset($data['wildcard_policy']) ? $data['wildcard_policy'] : null;
+        $this->container['wildcardPolicy'] = isset($data['wildcardPolicy']) ? $data['wildcardPolicy'] : null;
     }
 
     /**
@@ -191,22 +191,22 @@ class V1RouteSpec implements ArrayAccess
 
 
     /**
-     * Gets alternate_backends
+     * Gets alternateBackends
      * @return \UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference[]
      */
     public function getAlternateBackends()
     {
-        return $this->container['alternate_backends'];
+        return $this->container['alternateBackends'];
     }
 
     /**
-     * Sets alternate_backends
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference[] $alternate_backends alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored.
+     * Sets alternateBackends
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1RouteTargetReference[] $alternateBackends alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored.
      * @return $this
      */
-    public function setAlternateBackends($alternate_backends)
+    public function setAlternateBackends($alternateBackends)
     {
-        $this->container['alternate_backends'] = $alternate_backends;
+        $this->container['alternateBackends'] = $alternateBackends;
 
         return $this;
     }
@@ -317,22 +317,22 @@ class V1RouteSpec implements ArrayAccess
     }
 
     /**
-     * Gets wildcard_policy
+     * Gets wildcardPolicy
      * @return string
      */
     public function getWildcardPolicy()
     {
-        return $this->container['wildcard_policy'];
+        return $this->container['wildcardPolicy'];
     }
 
     /**
-     * Sets wildcard_policy
-     * @param string $wildcard_policy Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed.
+     * Sets wildcardPolicy
+     * @param string $wildcardPolicy Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed.
      * @return $this
      */
-    public function setWildcardPolicy($wildcard_policy)
+    public function setWildcardPolicy($wildcardPolicy)
     {
-        $this->container['wildcard_policy'] = $wildcard_policy;
+        $this->container['wildcardPolicy'] = $wildcardPolicy;
 
         return $this;
     }

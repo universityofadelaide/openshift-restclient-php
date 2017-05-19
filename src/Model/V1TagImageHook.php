@@ -55,7 +55,7 @@ class V1TagImageHook implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'container_name' => 'string',
+        'containerName' => 'string',
         'to' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
     ];
 
@@ -69,7 +69,7 @@ class V1TagImageHook implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_name' => 'containerName',
+        'containerName' => 'containerName',
         'to' => 'to'
     ];
 
@@ -79,7 +79,7 @@ class V1TagImageHook implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'container_name' => 'setContainerName',
+        'containerName' => 'setContainerName',
         'to' => 'setTo'
     ];
 
@@ -89,7 +89,7 @@ class V1TagImageHook implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'container_name' => 'getContainerName',
+        'containerName' => 'getContainerName',
         'to' => 'getTo'
     ];
 
@@ -124,7 +124,7 @@ class V1TagImageHook implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
+        $this->container['containerName'] = isset($data['containerName']) ? $data['containerName'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
     }
 
@@ -137,8 +137,8 @@ class V1TagImageHook implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalid_properties[] = "'container_name' can't be null";
+        if ($this->container['containerName'] === null) {
+            $invalid_properties[] = "'containerName' can't be null";
         }
         if ($this->container['to'] === null) {
             $invalid_properties[] = "'to' can't be null";
@@ -155,7 +155,7 @@ class V1TagImageHook implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['container_name'] === null) {
+        if ($this->container['containerName'] === null) {
             return false;
         }
         if ($this->container['to'] === null) {
@@ -166,22 +166,22 @@ class V1TagImageHook implements ArrayAccess
 
 
     /**
-     * Gets container_name
+     * Gets containerName
      * @return string
      */
     public function getContainerName()
     {
-        return $this->container['container_name'];
+        return $this->container['containerName'];
     }
 
     /**
-     * Sets container_name
-     * @param string $container_name ContainerName is the name of a container in the deployment config whose image value will be used as the source of the tag. If there is only a single container this value will be defaulted to the name of that container.
+     * Sets containerName
+     * @param string $containerName ContainerName is the name of a container in the deployment config whose image value will be used as the source of the tag. If there is only a single container this value will be defaulted to the name of that container.
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setContainerName($containerName)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['containerName'] = $containerName;
 
         return $this;
     }

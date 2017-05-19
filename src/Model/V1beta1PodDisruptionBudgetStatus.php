@@ -55,12 +55,12 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_healthy' => 'int',
-        'desired_healthy' => 'int',
-        'disrupted_pods' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\V1Time]',
-        'disruptions_allowed' => 'int',
-        'expected_pods' => 'int',
-        'observed_generation' => 'int'
+        'currentHealthy' => 'int',
+        'desiredHealthy' => 'int',
+        'disruptedPods' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\V1Time]',
+        'disruptionsAllowed' => 'int',
+        'expectedPods' => 'int',
+        'observedGeneration' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -73,12 +73,12 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_healthy' => 'currentHealthy',
-        'desired_healthy' => 'desiredHealthy',
-        'disrupted_pods' => 'disruptedPods',
-        'disruptions_allowed' => 'disruptionsAllowed',
-        'expected_pods' => 'expectedPods',
-        'observed_generation' => 'observedGeneration'
+        'currentHealthy' => 'currentHealthy',
+        'desiredHealthy' => 'desiredHealthy',
+        'disruptedPods' => 'disruptedPods',
+        'disruptionsAllowed' => 'disruptionsAllowed',
+        'expectedPods' => 'expectedPods',
+        'observedGeneration' => 'observedGeneration'
     ];
 
 
@@ -87,12 +87,12 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_healthy' => 'setCurrentHealthy',
-        'desired_healthy' => 'setDesiredHealthy',
-        'disrupted_pods' => 'setDisruptedPods',
-        'disruptions_allowed' => 'setDisruptionsAllowed',
-        'expected_pods' => 'setExpectedPods',
-        'observed_generation' => 'setObservedGeneration'
+        'currentHealthy' => 'setCurrentHealthy',
+        'desiredHealthy' => 'setDesiredHealthy',
+        'disruptedPods' => 'setDisruptedPods',
+        'disruptionsAllowed' => 'setDisruptionsAllowed',
+        'expectedPods' => 'setExpectedPods',
+        'observedGeneration' => 'setObservedGeneration'
     ];
 
 
@@ -101,12 +101,12 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_healthy' => 'getCurrentHealthy',
-        'desired_healthy' => 'getDesiredHealthy',
-        'disrupted_pods' => 'getDisruptedPods',
-        'disruptions_allowed' => 'getDisruptionsAllowed',
-        'expected_pods' => 'getExpectedPods',
-        'observed_generation' => 'getObservedGeneration'
+        'currentHealthy' => 'getCurrentHealthy',
+        'desiredHealthy' => 'getDesiredHealthy',
+        'disruptedPods' => 'getDisruptedPods',
+        'disruptionsAllowed' => 'getDisruptionsAllowed',
+        'expectedPods' => 'getExpectedPods',
+        'observedGeneration' => 'getObservedGeneration'
     ];
 
     public static function attributeMap()
@@ -140,12 +140,12 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_healthy'] = isset($data['current_healthy']) ? $data['current_healthy'] : null;
-        $this->container['desired_healthy'] = isset($data['desired_healthy']) ? $data['desired_healthy'] : null;
-        $this->container['disrupted_pods'] = isset($data['disrupted_pods']) ? $data['disrupted_pods'] : null;
-        $this->container['disruptions_allowed'] = isset($data['disruptions_allowed']) ? $data['disruptions_allowed'] : null;
-        $this->container['expected_pods'] = isset($data['expected_pods']) ? $data['expected_pods'] : null;
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
+        $this->container['currentHealthy'] = isset($data['currentHealthy']) ? $data['currentHealthy'] : null;
+        $this->container['desiredHealthy'] = isset($data['desiredHealthy']) ? $data['desiredHealthy'] : null;
+        $this->container['disruptedPods'] = isset($data['disruptedPods']) ? $data['disruptedPods'] : null;
+        $this->container['disruptionsAllowed'] = isset($data['disruptionsAllowed']) ? $data['disruptionsAllowed'] : null;
+        $this->container['expectedPods'] = isset($data['expectedPods']) ? $data['expectedPods'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
     }
 
     /**
@@ -157,20 +157,20 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_healthy'] === null) {
-            $invalid_properties[] = "'current_healthy' can't be null";
+        if ($this->container['currentHealthy'] === null) {
+            $invalid_properties[] = "'currentHealthy' can't be null";
         }
-        if ($this->container['desired_healthy'] === null) {
-            $invalid_properties[] = "'desired_healthy' can't be null";
+        if ($this->container['desiredHealthy'] === null) {
+            $invalid_properties[] = "'desiredHealthy' can't be null";
         }
-        if ($this->container['disrupted_pods'] === null) {
-            $invalid_properties[] = "'disrupted_pods' can't be null";
+        if ($this->container['disruptedPods'] === null) {
+            $invalid_properties[] = "'disruptedPods' can't be null";
         }
-        if ($this->container['disruptions_allowed'] === null) {
-            $invalid_properties[] = "'disruptions_allowed' can't be null";
+        if ($this->container['disruptionsAllowed'] === null) {
+            $invalid_properties[] = "'disruptionsAllowed' can't be null";
         }
-        if ($this->container['expected_pods'] === null) {
-            $invalid_properties[] = "'expected_pods' can't be null";
+        if ($this->container['expectedPods'] === null) {
+            $invalid_properties[] = "'expectedPods' can't be null";
         }
         return $invalid_properties;
     }
@@ -184,19 +184,19 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_healthy'] === null) {
+        if ($this->container['currentHealthy'] === null) {
             return false;
         }
-        if ($this->container['desired_healthy'] === null) {
+        if ($this->container['desiredHealthy'] === null) {
             return false;
         }
-        if ($this->container['disrupted_pods'] === null) {
+        if ($this->container['disruptedPods'] === null) {
             return false;
         }
-        if ($this->container['disruptions_allowed'] === null) {
+        if ($this->container['disruptionsAllowed'] === null) {
             return false;
         }
-        if ($this->container['expected_pods'] === null) {
+        if ($this->container['expectedPods'] === null) {
             return false;
         }
         return true;
@@ -204,127 +204,127 @@ class V1beta1PodDisruptionBudgetStatus implements ArrayAccess
 
 
     /**
-     * Gets current_healthy
+     * Gets currentHealthy
      * @return int
      */
     public function getCurrentHealthy()
     {
-        return $this->container['current_healthy'];
+        return $this->container['currentHealthy'];
     }
 
     /**
-     * Sets current_healthy
-     * @param int $current_healthy current number of healthy pods
+     * Sets currentHealthy
+     * @param int $currentHealthy current number of healthy pods
      * @return $this
      */
-    public function setCurrentHealthy($current_healthy)
+    public function setCurrentHealthy($currentHealthy)
     {
-        $this->container['current_healthy'] = $current_healthy;
+        $this->container['currentHealthy'] = $currentHealthy;
 
         return $this;
     }
 
     /**
-     * Gets desired_healthy
+     * Gets desiredHealthy
      * @return int
      */
     public function getDesiredHealthy()
     {
-        return $this->container['desired_healthy'];
+        return $this->container['desiredHealthy'];
     }
 
     /**
-     * Sets desired_healthy
-     * @param int $desired_healthy minimum desired number of healthy pods
+     * Sets desiredHealthy
+     * @param int $desiredHealthy minimum desired number of healthy pods
      * @return $this
      */
-    public function setDesiredHealthy($desired_healthy)
+    public function setDesiredHealthy($desiredHealthy)
     {
-        $this->container['desired_healthy'] = $desired_healthy;
+        $this->container['desiredHealthy'] = $desiredHealthy;
 
         return $this;
     }
 
     /**
-     * Gets disrupted_pods
+     * Gets disruptedPods
      * @return map[string,\UniversityOfAdelaide\OpenShift\Model\V1Time]
      */
     public function getDisruptedPods()
     {
-        return $this->container['disrupted_pods'];
+        return $this->container['disruptedPods'];
     }
 
     /**
-     * Sets disrupted_pods
-     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\V1Time] $disrupted_pods DisruptedPods contains information about pods whose eviction was processed by the API server eviction subresource handler but has not yet been observed by the PodDisruptionBudget controller. A pod will be in this map from the time when the API server processed the eviction request to the time when the pod is seen by PDB controller as having been marked for deletion (or after a timeout). The key in the map is the name of the pod and the value is the time when the API server processed the eviction request. If the deletion didn't occur and a pod is still there it will be removed from the list automatically by PodDisruptionBudget controller after some time. If everything goes smooth this map should be empty for the most of the time. Large number of entries in the map may indicate problems with pod deletions.
+     * Sets disruptedPods
+     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\V1Time] $disruptedPods DisruptedPods contains information about pods whose eviction was processed by the API server eviction subresource handler but has not yet been observed by the PodDisruptionBudget controller. A pod will be in this map from the time when the API server processed the eviction request to the time when the pod is seen by PDB controller as having been marked for deletion (or after a timeout). The key in the map is the name of the pod and the value is the time when the API server processed the eviction request. If the deletion didn't occur and a pod is still there it will be removed from the list automatically by PodDisruptionBudget controller after some time. If everything goes smooth this map should be empty for the most of the time. Large number of entries in the map may indicate problems with pod deletions.
      * @return $this
      */
-    public function setDisruptedPods($disrupted_pods)
+    public function setDisruptedPods($disruptedPods)
     {
-        $this->container['disrupted_pods'] = $disrupted_pods;
+        $this->container['disruptedPods'] = $disruptedPods;
 
         return $this;
     }
 
     /**
-     * Gets disruptions_allowed
+     * Gets disruptionsAllowed
      * @return int
      */
     public function getDisruptionsAllowed()
     {
-        return $this->container['disruptions_allowed'];
+        return $this->container['disruptionsAllowed'];
     }
 
     /**
-     * Sets disruptions_allowed
-     * @param int $disruptions_allowed Number of pod disruptions that are currently allowed.
+     * Sets disruptionsAllowed
+     * @param int $disruptionsAllowed Number of pod disruptions that are currently allowed.
      * @return $this
      */
-    public function setDisruptionsAllowed($disruptions_allowed)
+    public function setDisruptionsAllowed($disruptionsAllowed)
     {
-        $this->container['disruptions_allowed'] = $disruptions_allowed;
+        $this->container['disruptionsAllowed'] = $disruptionsAllowed;
 
         return $this;
     }
 
     /**
-     * Gets expected_pods
+     * Gets expectedPods
      * @return int
      */
     public function getExpectedPods()
     {
-        return $this->container['expected_pods'];
+        return $this->container['expectedPods'];
     }
 
     /**
-     * Sets expected_pods
-     * @param int $expected_pods total number of pods counted by this disruption budget
+     * Sets expectedPods
+     * @param int $expectedPods total number of pods counted by this disruption budget
      * @return $this
      */
-    public function setExpectedPods($expected_pods)
+    public function setExpectedPods($expectedPods)
     {
-        $this->container['expected_pods'] = $expected_pods;
+        $this->container['expectedPods'] = $expectedPods;
 
         return $this;
     }
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status informatio is valid only if observedGeneration equals to PDB's object generation.
+     * Sets observedGeneration
+     * @param int $observedGeneration Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status informatio is valid only if observedGeneration equals to PDB's object generation.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }

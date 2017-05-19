@@ -55,7 +55,7 @@ class V1beta1Subject implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_group' => 'string',
+        'apiGroup' => 'string',
         'kind' => 'string',
         'name' => 'string',
         'namespace' => 'string'
@@ -71,7 +71,7 @@ class V1beta1Subject implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_group' => 'apiGroup',
+        'apiGroup' => 'apiGroup',
         'kind' => 'kind',
         'name' => 'name',
         'namespace' => 'namespace'
@@ -83,7 +83,7 @@ class V1beta1Subject implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_group' => 'setApiGroup',
+        'apiGroup' => 'setApiGroup',
         'kind' => 'setKind',
         'name' => 'setName',
         'namespace' => 'setNamespace'
@@ -95,7 +95,7 @@ class V1beta1Subject implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_group' => 'getApiGroup',
+        'apiGroup' => 'getApiGroup',
         'kind' => 'getKind',
         'name' => 'getName',
         'namespace' => 'getNamespace'
@@ -132,7 +132,7 @@ class V1beta1Subject implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_group'] = isset($data['api_group']) ? $data['api_group'] : null;
+        $this->container['apiGroup'] = isset($data['apiGroup']) ? $data['apiGroup'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
@@ -176,22 +176,22 @@ class V1beta1Subject implements ArrayAccess
 
 
     /**
-     * Gets api_group
+     * Gets apiGroup
      * @return string
      */
     public function getApiGroup()
     {
-        return $this->container['api_group'];
+        return $this->container['apiGroup'];
     }
 
     /**
-     * Sets api_group
-     * @param string $api_group APIGroup holds the API group of the referenced subject. Defaults to \"\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io\" for User and Group subjects.
+     * Sets apiGroup
+     * @param string $apiGroup APIGroup holds the API group of the referenced subject. Defaults to \"\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io\" for User and Group subjects.
      * @return $this
      */
-    public function setApiGroup($api_group)
+    public function setApiGroup($apiGroup)
     {
-        $this->container['api_group'] = $api_group;
+        $this->container['apiGroup'] = $apiGroup;
 
         return $this;
     }

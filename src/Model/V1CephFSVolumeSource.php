@@ -57,9 +57,9 @@ class V1CephFSVolumeSource implements ArrayAccess
     protected static $swaggerTypes = [
         'monitors' => 'string[]',
         'path' => 'string',
-        'read_only' => 'bool',
-        'secret_file' => 'string',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'readOnly' => 'bool',
+        'secretFile' => 'string',
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
         'user' => 'string'
     ];
 
@@ -75,9 +75,9 @@ class V1CephFSVolumeSource implements ArrayAccess
     protected static $attributeMap = [
         'monitors' => 'monitors',
         'path' => 'path',
-        'read_only' => 'readOnly',
-        'secret_file' => 'secretFile',
-        'secret_ref' => 'secretRef',
+        'readOnly' => 'readOnly',
+        'secretFile' => 'secretFile',
+        'secretRef' => 'secretRef',
         'user' => 'user'
     ];
 
@@ -89,9 +89,9 @@ class V1CephFSVolumeSource implements ArrayAccess
     protected static $setters = [
         'monitors' => 'setMonitors',
         'path' => 'setPath',
-        'read_only' => 'setReadOnly',
-        'secret_file' => 'setSecretFile',
-        'secret_ref' => 'setSecretRef',
+        'readOnly' => 'setReadOnly',
+        'secretFile' => 'setSecretFile',
+        'secretRef' => 'setSecretRef',
         'user' => 'setUser'
     ];
 
@@ -103,9 +103,9 @@ class V1CephFSVolumeSource implements ArrayAccess
     protected static $getters = [
         'monitors' => 'getMonitors',
         'path' => 'getPath',
-        'read_only' => 'getReadOnly',
-        'secret_file' => 'getSecretFile',
-        'secret_ref' => 'getSecretRef',
+        'readOnly' => 'getReadOnly',
+        'secretFile' => 'getSecretFile',
+        'secretRef' => 'getSecretRef',
         'user' => 'getUser'
     ];
 
@@ -142,9 +142,9 @@ class V1CephFSVolumeSource implements ArrayAccess
     {
         $this->container['monitors'] = isset($data['monitors']) ? $data['monitors'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_file'] = isset($data['secret_file']) ? $data['secret_file'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretFile'] = isset($data['secretFile']) ? $data['secretFile'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -222,64 +222,64 @@ class V1CephFSVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+     * Sets readOnly
+     * @param bool $readOnly Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_file
+     * Gets secretFile
      * @return string
      */
     public function getSecretFile()
     {
-        return $this->container['secret_file'];
+        return $this->container['secretFile'];
     }
 
     /**
-     * Sets secret_file
-     * @param string $secret_file Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+     * Sets secretFile
+     * @param string $secretFile Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
      * @return $this
      */
-    public function setSecretFile($secret_file)
+    public function setSecretFile($secretFile)
     {
-        $this->container['secret_file'] = $secret_file;
+        $this->container['secretFile'] = $secretFile;
 
         return $this;
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_ref Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretRef Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1DeploymentTriggerPolicyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_change_params"
+     * Test attribute "imageChangeParams"
      */
     public function testPropertyImageChangeParams()
     {

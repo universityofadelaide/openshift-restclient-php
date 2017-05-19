@@ -55,11 +55,11 @@ class V1ReplicationControllerStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_replicas' => 'int',
+        'availableReplicas' => 'int',
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1ReplicationControllerCondition[]',
-        'fully_labeled_replicas' => 'int',
-        'observed_generation' => 'int',
-        'ready_replicas' => 'int',
+        'fullyLabeledReplicas' => 'int',
+        'observedGeneration' => 'int',
+        'readyReplicas' => 'int',
         'replicas' => 'int'
     ];
 
@@ -73,11 +73,11 @@ class V1ReplicationControllerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_replicas' => 'availableReplicas',
+        'availableReplicas' => 'availableReplicas',
         'conditions' => 'conditions',
-        'fully_labeled_replicas' => 'fullyLabeledReplicas',
-        'observed_generation' => 'observedGeneration',
-        'ready_replicas' => 'readyReplicas',
+        'fullyLabeledReplicas' => 'fullyLabeledReplicas',
+        'observedGeneration' => 'observedGeneration',
+        'readyReplicas' => 'readyReplicas',
         'replicas' => 'replicas'
     ];
 
@@ -87,11 +87,11 @@ class V1ReplicationControllerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_replicas' => 'setAvailableReplicas',
+        'availableReplicas' => 'setAvailableReplicas',
         'conditions' => 'setConditions',
-        'fully_labeled_replicas' => 'setFullyLabeledReplicas',
-        'observed_generation' => 'setObservedGeneration',
-        'ready_replicas' => 'setReadyReplicas',
+        'fullyLabeledReplicas' => 'setFullyLabeledReplicas',
+        'observedGeneration' => 'setObservedGeneration',
+        'readyReplicas' => 'setReadyReplicas',
         'replicas' => 'setReplicas'
     ];
 
@@ -101,11 +101,11 @@ class V1ReplicationControllerStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_replicas' => 'getAvailableReplicas',
+        'availableReplicas' => 'getAvailableReplicas',
         'conditions' => 'getConditions',
-        'fully_labeled_replicas' => 'getFullyLabeledReplicas',
-        'observed_generation' => 'getObservedGeneration',
-        'ready_replicas' => 'getReadyReplicas',
+        'fullyLabeledReplicas' => 'getFullyLabeledReplicas',
+        'observedGeneration' => 'getObservedGeneration',
+        'readyReplicas' => 'getReadyReplicas',
         'replicas' => 'getReplicas'
     ];
 
@@ -140,11 +140,11 @@ class V1ReplicationControllerStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_replicas'] = isset($data['available_replicas']) ? $data['available_replicas'] : null;
+        $this->container['availableReplicas'] = isset($data['availableReplicas']) ? $data['availableReplicas'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
-        $this->container['fully_labeled_replicas'] = isset($data['fully_labeled_replicas']) ? $data['fully_labeled_replicas'] : null;
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
-        $this->container['ready_replicas'] = isset($data['ready_replicas']) ? $data['ready_replicas'] : null;
+        $this->container['fullyLabeledReplicas'] = isset($data['fullyLabeledReplicas']) ? $data['fullyLabeledReplicas'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->container['readyReplicas'] = isset($data['readyReplicas']) ? $data['readyReplicas'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
     }
 
@@ -180,22 +180,22 @@ class V1ReplicationControllerStatus implements ArrayAccess
 
 
     /**
-     * Gets available_replicas
+     * Gets availableReplicas
      * @return int
      */
     public function getAvailableReplicas()
     {
-        return $this->container['available_replicas'];
+        return $this->container['availableReplicas'];
     }
 
     /**
-     * Sets available_replicas
-     * @param int $available_replicas The number of available replicas (ready for at least minReadySeconds) for this replication controller.
+     * Sets availableReplicas
+     * @param int $availableReplicas The number of available replicas (ready for at least minReadySeconds) for this replication controller.
      * @return $this
      */
-    public function setAvailableReplicas($available_replicas)
+    public function setAvailableReplicas($availableReplicas)
     {
-        $this->container['available_replicas'] = $available_replicas;
+        $this->container['availableReplicas'] = $availableReplicas;
 
         return $this;
     }
@@ -222,64 +222,64 @@ class V1ReplicationControllerStatus implements ArrayAccess
     }
 
     /**
-     * Gets fully_labeled_replicas
+     * Gets fullyLabeledReplicas
      * @return int
      */
     public function getFullyLabeledReplicas()
     {
-        return $this->container['fully_labeled_replicas'];
+        return $this->container['fullyLabeledReplicas'];
     }
 
     /**
-     * Sets fully_labeled_replicas
-     * @param int $fully_labeled_replicas The number of pods that have labels matching the labels of the pod template of the replication controller.
+     * Sets fullyLabeledReplicas
+     * @param int $fullyLabeledReplicas The number of pods that have labels matching the labels of the pod template of the replication controller.
      * @return $this
      */
-    public function setFullyLabeledReplicas($fully_labeled_replicas)
+    public function setFullyLabeledReplicas($fullyLabeledReplicas)
     {
-        $this->container['fully_labeled_replicas'] = $fully_labeled_replicas;
+        $this->container['fullyLabeledReplicas'] = $fullyLabeledReplicas;
 
         return $this;
     }
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation ObservedGeneration reflects the generation of the most recently observed replication controller.
+     * Sets observedGeneration
+     * @param int $observedGeneration ObservedGeneration reflects the generation of the most recently observed replication controller.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }
 
     /**
-     * Gets ready_replicas
+     * Gets readyReplicas
      * @return int
      */
     public function getReadyReplicas()
     {
-        return $this->container['ready_replicas'];
+        return $this->container['readyReplicas'];
     }
 
     /**
-     * Sets ready_replicas
-     * @param int $ready_replicas The number of ready replicas for this replication controller.
+     * Sets readyReplicas
+     * @param int $readyReplicas The number of ready replicas for this replication controller.
      * @return $this
      */
-    public function setReadyReplicas($ready_replicas)
+    public function setReadyReplicas($readyReplicas)
     {
-        $this->container['ready_replicas'] = $ready_replicas;
+        $this->container['readyReplicas'] = $readyReplicas;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1PersistentVolumeClaimSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "access_modes"
+     * Test attribute "accessModes"
      */
     public function testPropertyAccessModes()
     {
@@ -107,7 +107,7 @@ class V1PersistentVolumeClaimSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "storage_class_name"
+     * Test attribute "storageClassName"
      */
     public function testPropertyStorageClassName()
     {
@@ -115,7 +115,7 @@ class V1PersistentVolumeClaimSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_name"
+     * Test attribute "volumeName"
      */
     public function testPropertyVolumeName()
     {

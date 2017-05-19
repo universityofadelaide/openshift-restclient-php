@@ -55,10 +55,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'max_replicas' => 'int',
-        'min_replicas' => 'int',
-        'scale_target_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1CrossVersionObjectReference',
-        'target_cpu_utilization_percentage' => 'int'
+        'maxReplicas' => 'int',
+        'minReplicas' => 'int',
+        'scaleTargetRef' => '\UniversityOfAdelaide\OpenShift\Model\V1CrossVersionObjectReference',
+        'targetCPUUtilizationPercentage' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'max_replicas' => 'maxReplicas',
-        'min_replicas' => 'minReplicas',
-        'scale_target_ref' => 'scaleTargetRef',
-        'target_cpu_utilization_percentage' => 'targetCPUUtilizationPercentage'
+        'maxReplicas' => 'maxReplicas',
+        'minReplicas' => 'minReplicas',
+        'scaleTargetRef' => 'scaleTargetRef',
+        'targetCPUUtilizationPercentage' => 'targetCPUUtilizationPercentage'
     ];
 
 
@@ -83,10 +83,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'max_replicas' => 'setMaxReplicas',
-        'min_replicas' => 'setMinReplicas',
-        'scale_target_ref' => 'setScaleTargetRef',
-        'target_cpu_utilization_percentage' => 'setTargetCpuUtilizationPercentage'
+        'maxReplicas' => 'setMaxReplicas',
+        'minReplicas' => 'setMinReplicas',
+        'scaleTargetRef' => 'setScaleTargetRef',
+        'targetCPUUtilizationPercentage' => 'setTargetCPUUtilizationPercentage'
     ];
 
 
@@ -95,10 +95,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'max_replicas' => 'getMaxReplicas',
-        'min_replicas' => 'getMinReplicas',
-        'scale_target_ref' => 'getScaleTargetRef',
-        'target_cpu_utilization_percentage' => 'getTargetCpuUtilizationPercentage'
+        'maxReplicas' => 'getMaxReplicas',
+        'minReplicas' => 'getMinReplicas',
+        'scaleTargetRef' => 'getScaleTargetRef',
+        'targetCPUUtilizationPercentage' => 'getTargetCPUUtilizationPercentage'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['max_replicas'] = isset($data['max_replicas']) ? $data['max_replicas'] : null;
-        $this->container['min_replicas'] = isset($data['min_replicas']) ? $data['min_replicas'] : null;
-        $this->container['scale_target_ref'] = isset($data['scale_target_ref']) ? $data['scale_target_ref'] : null;
-        $this->container['target_cpu_utilization_percentage'] = isset($data['target_cpu_utilization_percentage']) ? $data['target_cpu_utilization_percentage'] : null;
+        $this->container['maxReplicas'] = isset($data['maxReplicas']) ? $data['maxReplicas'] : null;
+        $this->container['minReplicas'] = isset($data['minReplicas']) ? $data['minReplicas'] : null;
+        $this->container['scaleTargetRef'] = isset($data['scaleTargetRef']) ? $data['scaleTargetRef'] : null;
+        $this->container['targetCPUUtilizationPercentage'] = isset($data['targetCPUUtilizationPercentage']) ? $data['targetCPUUtilizationPercentage'] : null;
     }
 
     /**
@@ -147,11 +147,11 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['max_replicas'] === null) {
-            $invalid_properties[] = "'max_replicas' can't be null";
+        if ($this->container['maxReplicas'] === null) {
+            $invalid_properties[] = "'maxReplicas' can't be null";
         }
-        if ($this->container['scale_target_ref'] === null) {
-            $invalid_properties[] = "'scale_target_ref' can't be null";
+        if ($this->container['scaleTargetRef'] === null) {
+            $invalid_properties[] = "'scaleTargetRef' can't be null";
         }
         return $invalid_properties;
     }
@@ -165,10 +165,10 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['max_replicas'] === null) {
+        if ($this->container['maxReplicas'] === null) {
             return false;
         }
-        if ($this->container['scale_target_ref'] === null) {
+        if ($this->container['scaleTargetRef'] === null) {
             return false;
         }
         return true;
@@ -176,85 +176,85 @@ class V1HorizontalPodAutoscalerSpec implements ArrayAccess
 
 
     /**
-     * Gets max_replicas
+     * Gets maxReplicas
      * @return int
      */
     public function getMaxReplicas()
     {
-        return $this->container['max_replicas'];
+        return $this->container['maxReplicas'];
     }
 
     /**
-     * Sets max_replicas
-     * @param int $max_replicas upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * Sets maxReplicas
+     * @param int $maxReplicas upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * @return $this
      */
-    public function setMaxReplicas($max_replicas)
+    public function setMaxReplicas($maxReplicas)
     {
-        $this->container['max_replicas'] = $max_replicas;
+        $this->container['maxReplicas'] = $maxReplicas;
 
         return $this;
     }
 
     /**
-     * Gets min_replicas
+     * Gets minReplicas
      * @return int
      */
     public function getMinReplicas()
     {
-        return $this->container['min_replicas'];
+        return $this->container['minReplicas'];
     }
 
     /**
-     * Sets min_replicas
-     * @param int $min_replicas lower limit for the number of pods that can be set by the autoscaler, default 1.
+     * Sets minReplicas
+     * @param int $minReplicas lower limit for the number of pods that can be set by the autoscaler, default 1.
      * @return $this
      */
-    public function setMinReplicas($min_replicas)
+    public function setMinReplicas($minReplicas)
     {
-        $this->container['min_replicas'] = $min_replicas;
+        $this->container['minReplicas'] = $minReplicas;
 
         return $this;
     }
 
     /**
-     * Gets scale_target_ref
+     * Gets scaleTargetRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1CrossVersionObjectReference
      */
     public function getScaleTargetRef()
     {
-        return $this->container['scale_target_ref'];
+        return $this->container['scaleTargetRef'];
     }
 
     /**
-     * Sets scale_target_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1CrossVersionObjectReference $scale_target_ref reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource.
+     * Sets scaleTargetRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1CrossVersionObjectReference $scaleTargetRef reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource.
      * @return $this
      */
-    public function setScaleTargetRef($scale_target_ref)
+    public function setScaleTargetRef($scaleTargetRef)
     {
-        $this->container['scale_target_ref'] = $scale_target_ref;
+        $this->container['scaleTargetRef'] = $scaleTargetRef;
 
         return $this;
     }
 
     /**
-     * Gets target_cpu_utilization_percentage
+     * Gets targetCPUUtilizationPercentage
      * @return int
      */
-    public function getTargetCpuUtilizationPercentage()
+    public function getTargetCPUUtilizationPercentage()
     {
-        return $this->container['target_cpu_utilization_percentage'];
+        return $this->container['targetCPUUtilizationPercentage'];
     }
 
     /**
-     * Sets target_cpu_utilization_percentage
-     * @param int $target_cpu_utilization_percentage target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
+     * Sets targetCPUUtilizationPercentage
+     * @param int $targetCPUUtilizationPercentage target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
      * @return $this
      */
-    public function setTargetCpuUtilizationPercentage($target_cpu_utilization_percentage)
+    public function setTargetCPUUtilizationPercentage($targetCPUUtilizationPercentage)
     {
-        $this->container['target_cpu_utilization_percentage'] = $target_cpu_utilization_percentage;
+        $this->container['targetCPUUtilizationPercentage'] = $targetCPUUtilizationPercentage;
 
         return $this;
     }

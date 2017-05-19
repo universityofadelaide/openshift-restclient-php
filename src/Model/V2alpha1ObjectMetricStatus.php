@@ -55,8 +55,8 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
-        'metric_name' => 'string',
+        'currentValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
+        'metricName' => 'string',
         'target' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference'
     ];
 
@@ -70,8 +70,8 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_value' => 'currentValue',
-        'metric_name' => 'metricName',
+        'currentValue' => 'currentValue',
+        'metricName' => 'metricName',
         'target' => 'target'
     ];
 
@@ -81,8 +81,8 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_value' => 'setCurrentValue',
-        'metric_name' => 'setMetricName',
+        'currentValue' => 'setCurrentValue',
+        'metricName' => 'setMetricName',
         'target' => 'setTarget'
     ];
 
@@ -92,8 +92,8 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_value' => 'getCurrentValue',
-        'metric_name' => 'getMetricName',
+        'currentValue' => 'getCurrentValue',
+        'metricName' => 'getMetricName',
         'target' => 'getTarget'
     ];
 
@@ -128,8 +128,8 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_value'] = isset($data['current_value']) ? $data['current_value'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
+        $this->container['currentValue'] = isset($data['currentValue']) ? $data['currentValue'] : null;
+        $this->container['metricName'] = isset($data['metricName']) ? $data['metricName'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
@@ -142,11 +142,11 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_value'] === null) {
-            $invalid_properties[] = "'current_value' can't be null";
+        if ($this->container['currentValue'] === null) {
+            $invalid_properties[] = "'currentValue' can't be null";
         }
-        if ($this->container['metric_name'] === null) {
-            $invalid_properties[] = "'metric_name' can't be null";
+        if ($this->container['metricName'] === null) {
+            $invalid_properties[] = "'metricName' can't be null";
         }
         if ($this->container['target'] === null) {
             $invalid_properties[] = "'target' can't be null";
@@ -163,10 +163,10 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_value'] === null) {
+        if ($this->container['currentValue'] === null) {
             return false;
         }
-        if ($this->container['metric_name'] === null) {
+        if ($this->container['metricName'] === null) {
             return false;
         }
         if ($this->container['target'] === null) {
@@ -177,43 +177,43 @@ class V2alpha1ObjectMetricStatus implements ArrayAccess
 
 
     /**
-     * Gets current_value
+     * Gets currentValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getCurrentValue()
     {
-        return $this->container['current_value'];
+        return $this->container['currentValue'];
     }
 
     /**
-     * Sets current_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $current_value currentValue is the current value of the metric (as a quantity).
+     * Sets currentValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $currentValue currentValue is the current value of the metric (as a quantity).
      * @return $this
      */
-    public function setCurrentValue($current_value)
+    public function setCurrentValue($currentValue)
     {
-        $this->container['current_value'] = $current_value;
+        $this->container['currentValue'] = $currentValue;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets metricName
      * @return string
      */
     public function getMetricName()
     {
-        return $this->container['metric_name'];
+        return $this->container['metricName'];
     }
 
     /**
-     * Sets metric_name
-     * @param string $metric_name metricName is the name of the metric in question.
+     * Sets metricName
+     * @param string $metricName metricName is the name of the metric in question.
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setMetricName($metricName)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['metricName'] = $metricName;
 
         return $this;
     }

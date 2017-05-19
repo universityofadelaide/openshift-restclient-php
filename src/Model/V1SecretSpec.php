@@ -55,8 +55,8 @@ class V1SecretSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'mount_path' => 'string',
-        'secret_source' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
+        'mountPath' => 'string',
+        'secretSource' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1SecretSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'mount_path' => 'mountPath',
-        'secret_source' => 'secretSource'
+        'mountPath' => 'mountPath',
+        'secretSource' => 'secretSource'
     ];
 
 
@@ -79,8 +79,8 @@ class V1SecretSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'mount_path' => 'setMountPath',
-        'secret_source' => 'setSecretSource'
+        'mountPath' => 'setMountPath',
+        'secretSource' => 'setSecretSource'
     ];
 
 
@@ -89,8 +89,8 @@ class V1SecretSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'mount_path' => 'getMountPath',
-        'secret_source' => 'getSecretSource'
+        'mountPath' => 'getMountPath',
+        'secretSource' => 'getSecretSource'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1SecretSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;
-        $this->container['secret_source'] = isset($data['secret_source']) ? $data['secret_source'] : null;
+        $this->container['mountPath'] = isset($data['mountPath']) ? $data['mountPath'] : null;
+        $this->container['secretSource'] = isset($data['secretSource']) ? $data['secretSource'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V1SecretSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['mount_path'] === null) {
-            $invalid_properties[] = "'mount_path' can't be null";
+        if ($this->container['mountPath'] === null) {
+            $invalid_properties[] = "'mountPath' can't be null";
         }
-        if ($this->container['secret_source'] === null) {
-            $invalid_properties[] = "'secret_source' can't be null";
+        if ($this->container['secretSource'] === null) {
+            $invalid_properties[] = "'secretSource' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V1SecretSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['mount_path'] === null) {
+        if ($this->container['mountPath'] === null) {
             return false;
         }
-        if ($this->container['secret_source'] === null) {
+        if ($this->container['secretSource'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V1SecretSpec implements ArrayAccess
 
 
     /**
-     * Gets mount_path
+     * Gets mountPath
      * @return string
      */
     public function getMountPath()
     {
-        return $this->container['mount_path'];
+        return $this->container['mountPath'];
     }
 
     /**
-     * Sets mount_path
-     * @param string $mount_path mountPath is the path at which to mount the secret
+     * Sets mountPath
+     * @param string $mountPath mountPath is the path at which to mount the secret
      * @return $this
      */
-    public function setMountPath($mount_path)
+    public function setMountPath($mountPath)
     {
-        $this->container['mount_path'] = $mount_path;
+        $this->container['mountPath'] = $mountPath;
 
         return $this;
     }
 
     /**
-     * Gets secret_source
+     * Gets secretSource
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretSource()
     {
-        return $this->container['secret_source'];
+        return $this->container['secretSource'];
     }
 
     /**
-     * Sets secret_source
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_source secretSource is a reference to the secret
+     * Sets secretSource
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretSource secretSource is a reference to the secret
      * @return $this
      */
-    public function setSecretSource($secret_source)
+    public function setSecretSource($secretSource)
     {
-        $this->container['secret_source'] = $secret_source;
+        $this->container['secretSource'] = $secretSource;
 
         return $this;
     }

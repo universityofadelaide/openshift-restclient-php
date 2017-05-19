@@ -55,7 +55,7 @@ class V1DeploymentCause implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_trigger' => '\UniversityOfAdelaide\OpenShift\Model\V1DeploymentCauseImageTrigger',
+        'imageTrigger' => '\UniversityOfAdelaide\OpenShift\Model\V1DeploymentCauseImageTrigger',
         'type' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1DeploymentCause implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_trigger' => 'imageTrigger',
+        'imageTrigger' => 'imageTrigger',
         'type' => 'type'
     ];
 
@@ -79,7 +79,7 @@ class V1DeploymentCause implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_trigger' => 'setImageTrigger',
+        'imageTrigger' => 'setImageTrigger',
         'type' => 'setType'
     ];
 
@@ -89,7 +89,7 @@ class V1DeploymentCause implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_trigger' => 'getImageTrigger',
+        'imageTrigger' => 'getImageTrigger',
         'type' => 'getType'
     ];
 
@@ -124,7 +124,7 @@ class V1DeploymentCause implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['image_trigger'] = isset($data['image_trigger']) ? $data['image_trigger'] : null;
+        $this->container['imageTrigger'] = isset($data['imageTrigger']) ? $data['imageTrigger'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1DeploymentCause implements ArrayAccess
 
 
     /**
-     * Gets image_trigger
+     * Gets imageTrigger
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DeploymentCauseImageTrigger
      */
     public function getImageTrigger()
     {
-        return $this->container['image_trigger'];
+        return $this->container['imageTrigger'];
     }
 
     /**
-     * Sets image_trigger
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeploymentCauseImageTrigger $image_trigger ImageTrigger contains the image trigger details, if this trigger was fired based on an image change
+     * Sets imageTrigger
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeploymentCauseImageTrigger $imageTrigger ImageTrigger contains the image trigger details, if this trigger was fired based on an image change
      * @return $this
      */
-    public function setImageTrigger($image_trigger)
+    public function setImageTrigger($imageTrigger)
     {
-        $this->container['image_trigger'] = $image_trigger;
+        $this->container['imageTrigger'] = $imageTrigger;
 
         return $this;
     }

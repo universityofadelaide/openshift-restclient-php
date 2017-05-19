@@ -55,16 +55,16 @@ class V1ImageSignature implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1SignatureCondition[]',
         'content' => 'string',
         'created' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'image_identity' => 'string',
-        'issued_by' => '\UniversityOfAdelaide\OpenShift\Model\V1SignatureIssuer',
-        'issued_to' => '\UniversityOfAdelaide\OpenShift\Model\V1SignatureSubject',
+        'imageIdentity' => 'string',
+        'issuedBy' => '\UniversityOfAdelaide\OpenShift\Model\V1SignatureIssuer',
+        'issuedTo' => '\UniversityOfAdelaide\OpenShift\Model\V1SignatureSubject',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'signed_claims' => 'map[string,string]',
+        'signedClaims' => 'map[string,string]',
         'type' => 'string'
     ];
 
@@ -78,16 +78,16 @@ class V1ImageSignature implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'conditions' => 'conditions',
         'content' => 'content',
         'created' => 'created',
-        'image_identity' => 'imageIdentity',
-        'issued_by' => 'issuedBy',
-        'issued_to' => 'issuedTo',
+        'imageIdentity' => 'imageIdentity',
+        'issuedBy' => 'issuedBy',
+        'issuedTo' => 'issuedTo',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'signed_claims' => 'signedClaims',
+        'signedClaims' => 'signedClaims',
         'type' => 'type'
     ];
 
@@ -97,16 +97,16 @@ class V1ImageSignature implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'conditions' => 'setConditions',
         'content' => 'setContent',
         'created' => 'setCreated',
-        'image_identity' => 'setImageIdentity',
-        'issued_by' => 'setIssuedBy',
-        'issued_to' => 'setIssuedTo',
+        'imageIdentity' => 'setImageIdentity',
+        'issuedBy' => 'setIssuedBy',
+        'issuedTo' => 'setIssuedTo',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'signed_claims' => 'setSignedClaims',
+        'signedClaims' => 'setSignedClaims',
         'type' => 'setType'
     ];
 
@@ -116,16 +116,16 @@ class V1ImageSignature implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'conditions' => 'getConditions',
         'content' => 'getContent',
         'created' => 'getCreated',
-        'image_identity' => 'getImageIdentity',
-        'issued_by' => 'getIssuedBy',
-        'issued_to' => 'getIssuedTo',
+        'imageIdentity' => 'getImageIdentity',
+        'issuedBy' => 'getIssuedBy',
+        'issuedTo' => 'getIssuedTo',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'signed_claims' => 'getSignedClaims',
+        'signedClaims' => 'getSignedClaims',
         'type' => 'getType'
     ];
 
@@ -160,16 +160,16 @@ class V1ImageSignature implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['image_identity'] = isset($data['image_identity']) ? $data['image_identity'] : null;
-        $this->container['issued_by'] = isset($data['issued_by']) ? $data['issued_by'] : null;
-        $this->container['issued_to'] = isset($data['issued_to']) ? $data['issued_to'] : null;
+        $this->container['imageIdentity'] = isset($data['imageIdentity']) ? $data['imageIdentity'] : null;
+        $this->container['issuedBy'] = isset($data['issuedBy']) ? $data['issuedBy'] : null;
+        $this->container['issuedTo'] = isset($data['issuedTo']) ? $data['issuedTo'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['signed_claims'] = isset($data['signed_claims']) ? $data['signed_claims'] : null;
+        $this->container['signedClaims'] = isset($data['signedClaims']) ? $data['signedClaims'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -211,22 +211,22 @@ class V1ImageSignature implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -295,64 +295,64 @@ class V1ImageSignature implements ArrayAccess
     }
 
     /**
-     * Gets image_identity
+     * Gets imageIdentity
      * @return string
      */
     public function getImageIdentity()
     {
-        return $this->container['image_identity'];
+        return $this->container['imageIdentity'];
     }
 
     /**
-     * Sets image_identity
-     * @param string $image_identity A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\").
+     * Sets imageIdentity
+     * @param string $imageIdentity A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\").
      * @return $this
      */
-    public function setImageIdentity($image_identity)
+    public function setImageIdentity($imageIdentity)
     {
-        $this->container['image_identity'] = $image_identity;
+        $this->container['imageIdentity'] = $imageIdentity;
 
         return $this;
     }
 
     /**
-     * Gets issued_by
+     * Gets issuedBy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SignatureIssuer
      */
     public function getIssuedBy()
     {
-        return $this->container['issued_by'];
+        return $this->container['issuedBy'];
     }
 
     /**
-     * Sets issued_by
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SignatureIssuer $issued_by If specified, it holds information about an issuer of signing certificate or key (a person or entity who signed the signing certificate or key).
+     * Sets issuedBy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SignatureIssuer $issuedBy If specified, it holds information about an issuer of signing certificate or key (a person or entity who signed the signing certificate or key).
      * @return $this
      */
-    public function setIssuedBy($issued_by)
+    public function setIssuedBy($issuedBy)
     {
-        $this->container['issued_by'] = $issued_by;
+        $this->container['issuedBy'] = $issuedBy;
 
         return $this;
     }
 
     /**
-     * Gets issued_to
+     * Gets issuedTo
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SignatureSubject
      */
     public function getIssuedTo()
     {
-        return $this->container['issued_to'];
+        return $this->container['issuedTo'];
     }
 
     /**
-     * Sets issued_to
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SignatureSubject $issued_to If specified, it holds information about a subject of signing certificate or key (a person or entity who signed the image).
+     * Sets issuedTo
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SignatureSubject $issuedTo If specified, it holds information about a subject of signing certificate or key (a person or entity who signed the image).
      * @return $this
      */
-    public function setIssuedTo($issued_to)
+    public function setIssuedTo($issuedTo)
     {
-        $this->container['issued_to'] = $issued_to;
+        $this->container['issuedTo'] = $issuedTo;
 
         return $this;
     }
@@ -400,22 +400,22 @@ class V1ImageSignature implements ArrayAccess
     }
 
     /**
-     * Gets signed_claims
+     * Gets signedClaims
      * @return map[string,string]
      */
     public function getSignedClaims()
     {
-        return $this->container['signed_claims'];
+        return $this->container['signedClaims'];
     }
 
     /**
-     * Sets signed_claims
-     * @param map[string,string] $signed_claims Contains claims from the signature.
+     * Sets signedClaims
+     * @param map[string,string] $signedClaims Contains claims from the signature.
      * @return $this
      */
-    public function setSignedClaims($signed_claims)
+    public function setSignedClaims($signedClaims)
     {
-        $this->container['signed_claims'] = $signed_claims;
+        $this->container['signedClaims'] = $signedClaims;
 
         return $this;
     }

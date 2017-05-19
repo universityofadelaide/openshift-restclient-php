@@ -83,7 +83,7 @@ class V1ClusterRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1ClusterRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "group_names"
+     * Test attribute "groupNames"
      */
     public function testPropertyGroupNames()
     {
@@ -115,7 +115,7 @@ class V1ClusterRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "role_ref"
+     * Test attribute "roleRef"
      */
     public function testPropertyRoleRef()
     {
@@ -131,7 +131,7 @@ class V1ClusterRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_names"
+     * Test attribute "userNames"
      */
     public function testPropertyUserNames()
     {

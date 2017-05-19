@@ -56,10 +56,10 @@ class V1FlexVolumeSource implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'driver' => 'string',
-        'fs_type' => 'string',
+        'fsType' => 'string',
         'options' => 'map[string,string]',
-        'read_only' => 'bool',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
+        'readOnly' => 'bool',
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -73,10 +73,10 @@ class V1FlexVolumeSource implements ArrayAccess
      */
     protected static $attributeMap = [
         'driver' => 'driver',
-        'fs_type' => 'fsType',
+        'fsType' => 'fsType',
         'options' => 'options',
-        'read_only' => 'readOnly',
-        'secret_ref' => 'secretRef'
+        'readOnly' => 'readOnly',
+        'secretRef' => 'secretRef'
     ];
 
 
@@ -86,10 +86,10 @@ class V1FlexVolumeSource implements ArrayAccess
      */
     protected static $setters = [
         'driver' => 'setDriver',
-        'fs_type' => 'setFsType',
+        'fsType' => 'setFsType',
         'options' => 'setOptions',
-        'read_only' => 'setReadOnly',
-        'secret_ref' => 'setSecretRef'
+        'readOnly' => 'setReadOnly',
+        'secretRef' => 'setSecretRef'
     ];
 
 
@@ -99,10 +99,10 @@ class V1FlexVolumeSource implements ArrayAccess
      */
     protected static $getters = [
         'driver' => 'getDriver',
-        'fs_type' => 'getFsType',
+        'fsType' => 'getFsType',
         'options' => 'getOptions',
-        'read_only' => 'getReadOnly',
-        'secret_ref' => 'getSecretRef'
+        'readOnly' => 'getReadOnly',
+        'secretRef' => 'getSecretRef'
     ];
 
     public static function attributeMap()
@@ -137,10 +137,10 @@ class V1FlexVolumeSource implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['driver'] = isset($data['driver']) ? $data['driver'] : null;
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
     }
 
     /**
@@ -196,22 +196,22 @@ class V1FlexVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -238,43 +238,43 @@ class V1FlexVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+     * Sets readOnly
+     * @param bool $readOnly Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_ref Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretRef Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }

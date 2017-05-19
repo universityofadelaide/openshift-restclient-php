@@ -91,7 +91,7 @@ class V1TagEventConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_transition_time"
+     * Test attribute "lastTransitionTime"
      */
     public function testPropertyLastTransitionTime()
     {

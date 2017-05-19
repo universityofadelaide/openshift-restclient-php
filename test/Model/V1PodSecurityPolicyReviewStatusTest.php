@@ -83,7 +83,7 @@ class V1PodSecurityPolicyReviewStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allowed_service_accounts"
+     * Test attribute "allowedServiceAccounts"
      */
     public function testPropertyAllowedServiceAccounts()
     {

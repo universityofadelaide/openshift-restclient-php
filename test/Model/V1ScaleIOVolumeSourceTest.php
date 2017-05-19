@@ -83,7 +83,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -99,7 +99,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "protection_domain"
+     * Test attribute "protectionDomain"
      */
     public function testPropertyProtectionDomain()
     {
@@ -107,7 +107,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -115,7 +115,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_ref"
+     * Test attribute "secretRef"
      */
     public function testPropertySecretRef()
     {
@@ -123,7 +123,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ssl_enabled"
+     * Test attribute "sslEnabled"
      */
     public function testPropertySslEnabled()
     {
@@ -131,7 +131,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "storage_mode"
+     * Test attribute "storageMode"
      */
     public function testPropertyStorageMode()
     {
@@ -139,7 +139,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "storage_pool"
+     * Test attribute "storagePool"
      */
     public function testPropertyStoragePool()
     {
@@ -155,7 +155,7 @@ class V1ScaleIOVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_name"
+     * Test attribute "volumeName"
      */
     public function testPropertyVolumeName()
     {

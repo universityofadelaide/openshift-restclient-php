@@ -83,7 +83,7 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "authorize_token"
+     * Test attribute "authorizeToken"
      */
     public function testPropertyAuthorizeToken()
     {
@@ -99,7 +99,7 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "client_name"
+     * Test attribute "clientName"
      */
     public function testPropertyClientName()
     {
@@ -107,7 +107,7 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "expires_in"
+     * Test attribute "expiresIn"
      */
     public function testPropertyExpiresIn()
     {
@@ -131,15 +131,15 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "redirect_uri"
+     * Test attribute "redirectURI"
      */
-    public function testPropertyRedirectUri()
+    public function testPropertyRedirectURI()
     {
 
     }
 
     /**
-     * Test attribute "refresh_token"
+     * Test attribute "refreshToken"
      */
     public function testPropertyRefreshToken()
     {
@@ -155,7 +155,7 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_name"
+     * Test attribute "userName"
      */
     public function testPropertyUserName()
     {
@@ -163,9 +163,9 @@ class V1OAuthAccessTokenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_uid"
+     * Test attribute "userUID"
      */
-    public function testPropertyUserUid()
+    public function testPropertyUserUID()
     {
 
     }

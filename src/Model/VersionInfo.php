@@ -55,12 +55,12 @@ class VersionInfo implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'build_date' => 'string',
+        'buildDate' => 'string',
         'compiler' => 'string',
-        'git_commit' => 'string',
-        'git_tree_state' => 'string',
-        'git_version' => 'string',
-        'go_version' => 'string',
+        'gitCommit' => 'string',
+        'gitTreeState' => 'string',
+        'gitVersion' => 'string',
+        'goVersion' => 'string',
         'major' => 'string',
         'minor' => 'string',
         'platform' => 'string'
@@ -76,12 +76,12 @@ class VersionInfo implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'build_date' => 'buildDate',
+        'buildDate' => 'buildDate',
         'compiler' => 'compiler',
-        'git_commit' => 'gitCommit',
-        'git_tree_state' => 'gitTreeState',
-        'git_version' => 'gitVersion',
-        'go_version' => 'goVersion',
+        'gitCommit' => 'gitCommit',
+        'gitTreeState' => 'gitTreeState',
+        'gitVersion' => 'gitVersion',
+        'goVersion' => 'goVersion',
         'major' => 'major',
         'minor' => 'minor',
         'platform' => 'platform'
@@ -93,12 +93,12 @@ class VersionInfo implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'build_date' => 'setBuildDate',
+        'buildDate' => 'setBuildDate',
         'compiler' => 'setCompiler',
-        'git_commit' => 'setGitCommit',
-        'git_tree_state' => 'setGitTreeState',
-        'git_version' => 'setGitVersion',
-        'go_version' => 'setGoVersion',
+        'gitCommit' => 'setGitCommit',
+        'gitTreeState' => 'setGitTreeState',
+        'gitVersion' => 'setGitVersion',
+        'goVersion' => 'setGoVersion',
         'major' => 'setMajor',
         'minor' => 'setMinor',
         'platform' => 'setPlatform'
@@ -110,12 +110,12 @@ class VersionInfo implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'build_date' => 'getBuildDate',
+        'buildDate' => 'getBuildDate',
         'compiler' => 'getCompiler',
-        'git_commit' => 'getGitCommit',
-        'git_tree_state' => 'getGitTreeState',
-        'git_version' => 'getGitVersion',
-        'go_version' => 'getGoVersion',
+        'gitCommit' => 'getGitCommit',
+        'gitTreeState' => 'getGitTreeState',
+        'gitVersion' => 'getGitVersion',
+        'goVersion' => 'getGoVersion',
         'major' => 'getMajor',
         'minor' => 'getMinor',
         'platform' => 'getPlatform'
@@ -152,12 +152,12 @@ class VersionInfo implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['build_date'] = isset($data['build_date']) ? $data['build_date'] : null;
+        $this->container['buildDate'] = isset($data['buildDate']) ? $data['buildDate'] : null;
         $this->container['compiler'] = isset($data['compiler']) ? $data['compiler'] : null;
-        $this->container['git_commit'] = isset($data['git_commit']) ? $data['git_commit'] : null;
-        $this->container['git_tree_state'] = isset($data['git_tree_state']) ? $data['git_tree_state'] : null;
-        $this->container['git_version'] = isset($data['git_version']) ? $data['git_version'] : null;
-        $this->container['go_version'] = isset($data['go_version']) ? $data['go_version'] : null;
+        $this->container['gitCommit'] = isset($data['gitCommit']) ? $data['gitCommit'] : null;
+        $this->container['gitTreeState'] = isset($data['gitTreeState']) ? $data['gitTreeState'] : null;
+        $this->container['gitVersion'] = isset($data['gitVersion']) ? $data['gitVersion'] : null;
+        $this->container['goVersion'] = isset($data['goVersion']) ? $data['goVersion'] : null;
         $this->container['major'] = isset($data['major']) ? $data['major'] : null;
         $this->container['minor'] = isset($data['minor']) ? $data['minor'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
@@ -172,23 +172,23 @@ class VersionInfo implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['build_date'] === null) {
-            $invalid_properties[] = "'build_date' can't be null";
+        if ($this->container['buildDate'] === null) {
+            $invalid_properties[] = "'buildDate' can't be null";
         }
         if ($this->container['compiler'] === null) {
             $invalid_properties[] = "'compiler' can't be null";
         }
-        if ($this->container['git_commit'] === null) {
-            $invalid_properties[] = "'git_commit' can't be null";
+        if ($this->container['gitCommit'] === null) {
+            $invalid_properties[] = "'gitCommit' can't be null";
         }
-        if ($this->container['git_tree_state'] === null) {
-            $invalid_properties[] = "'git_tree_state' can't be null";
+        if ($this->container['gitTreeState'] === null) {
+            $invalid_properties[] = "'gitTreeState' can't be null";
         }
-        if ($this->container['git_version'] === null) {
-            $invalid_properties[] = "'git_version' can't be null";
+        if ($this->container['gitVersion'] === null) {
+            $invalid_properties[] = "'gitVersion' can't be null";
         }
-        if ($this->container['go_version'] === null) {
-            $invalid_properties[] = "'go_version' can't be null";
+        if ($this->container['goVersion'] === null) {
+            $invalid_properties[] = "'goVersion' can't be null";
         }
         if ($this->container['major'] === null) {
             $invalid_properties[] = "'major' can't be null";
@@ -211,22 +211,22 @@ class VersionInfo implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['build_date'] === null) {
+        if ($this->container['buildDate'] === null) {
             return false;
         }
         if ($this->container['compiler'] === null) {
             return false;
         }
-        if ($this->container['git_commit'] === null) {
+        if ($this->container['gitCommit'] === null) {
             return false;
         }
-        if ($this->container['git_tree_state'] === null) {
+        if ($this->container['gitTreeState'] === null) {
             return false;
         }
-        if ($this->container['git_version'] === null) {
+        if ($this->container['gitVersion'] === null) {
             return false;
         }
-        if ($this->container['go_version'] === null) {
+        if ($this->container['goVersion'] === null) {
             return false;
         }
         if ($this->container['major'] === null) {
@@ -243,22 +243,22 @@ class VersionInfo implements ArrayAccess
 
 
     /**
-     * Gets build_date
+     * Gets buildDate
      * @return string
      */
     public function getBuildDate()
     {
-        return $this->container['build_date'];
+        return $this->container['buildDate'];
     }
 
     /**
-     * Sets build_date
-     * @param string $build_date
+     * Sets buildDate
+     * @param string $buildDate
      * @return $this
      */
-    public function setBuildDate($build_date)
+    public function setBuildDate($buildDate)
     {
-        $this->container['build_date'] = $build_date;
+        $this->container['buildDate'] = $buildDate;
 
         return $this;
     }
@@ -285,85 +285,85 @@ class VersionInfo implements ArrayAccess
     }
 
     /**
-     * Gets git_commit
+     * Gets gitCommit
      * @return string
      */
     public function getGitCommit()
     {
-        return $this->container['git_commit'];
+        return $this->container['gitCommit'];
     }
 
     /**
-     * Sets git_commit
-     * @param string $git_commit
+     * Sets gitCommit
+     * @param string $gitCommit
      * @return $this
      */
-    public function setGitCommit($git_commit)
+    public function setGitCommit($gitCommit)
     {
-        $this->container['git_commit'] = $git_commit;
+        $this->container['gitCommit'] = $gitCommit;
 
         return $this;
     }
 
     /**
-     * Gets git_tree_state
+     * Gets gitTreeState
      * @return string
      */
     public function getGitTreeState()
     {
-        return $this->container['git_tree_state'];
+        return $this->container['gitTreeState'];
     }
 
     /**
-     * Sets git_tree_state
-     * @param string $git_tree_state
+     * Sets gitTreeState
+     * @param string $gitTreeState
      * @return $this
      */
-    public function setGitTreeState($git_tree_state)
+    public function setGitTreeState($gitTreeState)
     {
-        $this->container['git_tree_state'] = $git_tree_state;
+        $this->container['gitTreeState'] = $gitTreeState;
 
         return $this;
     }
 
     /**
-     * Gets git_version
+     * Gets gitVersion
      * @return string
      */
     public function getGitVersion()
     {
-        return $this->container['git_version'];
+        return $this->container['gitVersion'];
     }
 
     /**
-     * Sets git_version
-     * @param string $git_version
+     * Sets gitVersion
+     * @param string $gitVersion
      * @return $this
      */
-    public function setGitVersion($git_version)
+    public function setGitVersion($gitVersion)
     {
-        $this->container['git_version'] = $git_version;
+        $this->container['gitVersion'] = $gitVersion;
 
         return $this;
     }
 
     /**
-     * Gets go_version
+     * Gets goVersion
      * @return string
      */
     public function getGoVersion()
     {
-        return $this->container['go_version'];
+        return $this->container['goVersion'];
     }
 
     /**
-     * Sets go_version
-     * @param string $go_version
+     * Sets goVersion
+     * @param string $goVersion
      * @return $this
      */
-    public function setGoVersion($go_version)
+    public function setGoVersion($goVersion)
     {
-        $this->container['go_version'] = $go_version;
+        $this->container['goVersion'] = $goVersion;
 
         return $this;
     }

@@ -55,8 +55,8 @@ class V1VolumeProjection implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config_map' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapProjection',
-        'downward_api' => '\UniversityOfAdelaide\OpenShift\Model\V1DownwardAPIProjection',
+        'configMap' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapProjection',
+        'downwardAPI' => '\UniversityOfAdelaide\OpenShift\Model\V1DownwardAPIProjection',
         'secret' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretProjection'
     ];
 
@@ -70,8 +70,8 @@ class V1VolumeProjection implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'config_map' => 'configMap',
-        'downward_api' => 'downwardAPI',
+        'configMap' => 'configMap',
+        'downwardAPI' => 'downwardAPI',
         'secret' => 'secret'
     ];
 
@@ -81,8 +81,8 @@ class V1VolumeProjection implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'config_map' => 'setConfigMap',
-        'downward_api' => 'setDownwardApi',
+        'configMap' => 'setConfigMap',
+        'downwardAPI' => 'setDownwardAPI',
         'secret' => 'setSecret'
     ];
 
@@ -92,8 +92,8 @@ class V1VolumeProjection implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'config_map' => 'getConfigMap',
-        'downward_api' => 'getDownwardApi',
+        'configMap' => 'getConfigMap',
+        'downwardAPI' => 'getDownwardAPI',
         'secret' => 'getSecret'
     ];
 
@@ -128,8 +128,8 @@ class V1VolumeProjection implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['config_map'] = isset($data['config_map']) ? $data['config_map'] : null;
-        $this->container['downward_api'] = isset($data['downward_api']) ? $data['downward_api'] : null;
+        $this->container['configMap'] = isset($data['configMap']) ? $data['configMap'] : null;
+        $this->container['downwardAPI'] = isset($data['downwardAPI']) ? $data['downwardAPI'] : null;
         $this->container['secret'] = isset($data['secret']) ? $data['secret'] : null;
     }
 
@@ -159,43 +159,43 @@ class V1VolumeProjection implements ArrayAccess
 
 
     /**
-     * Gets config_map
+     * Gets configMap
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapProjection
      */
     public function getConfigMap()
     {
-        return $this->container['config_map'];
+        return $this->container['configMap'];
     }
 
     /**
-     * Sets config_map
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapProjection $config_map information about the configMap data to project
+     * Sets configMap
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapProjection $configMap information about the configMap data to project
      * @return $this
      */
-    public function setConfigMap($config_map)
+    public function setConfigMap($configMap)
     {
-        $this->container['config_map'] = $config_map;
+        $this->container['configMap'] = $configMap;
 
         return $this;
     }
 
     /**
-     * Gets downward_api
+     * Gets downwardAPI
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DownwardAPIProjection
      */
-    public function getDownwardApi()
+    public function getDownwardAPI()
     {
-        return $this->container['downward_api'];
+        return $this->container['downwardAPI'];
     }
 
     /**
-     * Sets downward_api
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DownwardAPIProjection $downward_api information about the downwardAPI data to project
+     * Sets downwardAPI
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DownwardAPIProjection $downwardAPI information about the downwardAPI data to project
      * @return $this
      */
-    public function setDownwardApi($downward_api)
+    public function setDownwardAPI($downwardAPI)
     {
-        $this->container['downward_api'] = $downward_api;
+        $this->container['downwardAPI'] = $downwardAPI;
 
         return $this;
     }

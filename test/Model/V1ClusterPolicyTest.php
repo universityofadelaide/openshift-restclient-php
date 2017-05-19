@@ -83,7 +83,7 @@ class V1ClusterPolicyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1ClusterPolicyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_modified"
+     * Test attribute "lastModified"
      */
     public function testPropertyLastModified()
     {

@@ -83,7 +83,7 @@ class V1beta1DeploymentSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_ready_seconds"
+     * Test attribute "minReadySeconds"
      */
     public function testPropertyMinReadySeconds()
     {
@@ -99,7 +99,7 @@ class V1beta1DeploymentSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "progress_deadline_seconds"
+     * Test attribute "progressDeadlineSeconds"
      */
     public function testPropertyProgressDeadlineSeconds()
     {
@@ -115,7 +115,7 @@ class V1beta1DeploymentSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "revision_history_limit"
+     * Test attribute "revisionHistoryLimit"
      */
     public function testPropertyRevisionHistoryLimit()
     {
@@ -123,7 +123,7 @@ class V1beta1DeploymentSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "rollback_to"
+     * Test attribute "rollbackTo"
      */
     public function testPropertyRollbackTo()
     {

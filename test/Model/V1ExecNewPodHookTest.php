@@ -91,7 +91,7 @@ class V1ExecNewPodHookTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "container_name"
+     * Test attribute "containerName"
      */
     public function testPropertyContainerName()
     {

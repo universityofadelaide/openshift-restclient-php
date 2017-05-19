@@ -91,7 +91,7 @@ class V1DeploymentTriggerImageChangeParamsTest extends \PHPUnit_Framework_TestCa
     }
 
     /**
-     * Test attribute "container_names"
+     * Test attribute "containerNames"
      */
     public function testPropertyContainerNames()
     {
@@ -107,7 +107,7 @@ class V1DeploymentTriggerImageChangeParamsTest extends \PHPUnit_Framework_TestCa
     }
 
     /**
-     * Test attribute "last_triggered_image"
+     * Test attribute "lastTriggeredImage"
      */
     public function testPropertyLastTriggeredImage()
     {

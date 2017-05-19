@@ -55,7 +55,7 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_modes' => 'string[]',
+        'accessModes' => 'string[]',
         'capacity' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'phase' => 'string'
     ];
@@ -70,7 +70,7 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_modes' => 'accessModes',
+        'accessModes' => 'accessModes',
         'capacity' => 'capacity',
         'phase' => 'phase'
     ];
@@ -81,7 +81,7 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_modes' => 'setAccessModes',
+        'accessModes' => 'setAccessModes',
         'capacity' => 'setCapacity',
         'phase' => 'setPhase'
     ];
@@ -92,7 +92,7 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_modes' => 'getAccessModes',
+        'accessModes' => 'getAccessModes',
         'capacity' => 'getCapacity',
         'phase' => 'getPhase'
     ];
@@ -128,7 +128,7 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_modes'] = isset($data['access_modes']) ? $data['access_modes'] : null;
+        $this->container['accessModes'] = isset($data['accessModes']) ? $data['accessModes'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
     }
@@ -159,22 +159,22 @@ class V1PersistentVolumeClaimStatus implements ArrayAccess
 
 
     /**
-     * Gets access_modes
+     * Gets accessModes
      * @return string[]
      */
     public function getAccessModes()
     {
-        return $this->container['access_modes'];
+        return $this->container['accessModes'];
     }
 
     /**
-     * Sets access_modes
-     * @param string[] $access_modes AccessModes contains the actual access modes the volume backing the PVC has. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
+     * Sets accessModes
+     * @param string[] $accessModes AccessModes contains the actual access modes the volume backing the PVC has. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
      * @return $this
      */
-    public function setAccessModes($access_modes)
+    public function setAccessModes($accessModes)
     {
-        $this->container['access_modes'] = $access_modes;
+        $this->container['accessModes'] = $accessModes;
 
         return $this;
     }

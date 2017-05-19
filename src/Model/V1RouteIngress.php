@@ -57,9 +57,9 @@ class V1RouteIngress implements ArrayAccess
     protected static $swaggerTypes = [
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1RouteIngressCondition[]',
         'host' => 'string',
-        'router_canonical_hostname' => 'string',
-        'router_name' => 'string',
-        'wildcard_policy' => 'string'
+        'routerCanonicalHostname' => 'string',
+        'routerName' => 'string',
+        'wildcardPolicy' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -74,9 +74,9 @@ class V1RouteIngress implements ArrayAccess
     protected static $attributeMap = [
         'conditions' => 'conditions',
         'host' => 'host',
-        'router_canonical_hostname' => 'routerCanonicalHostname',
-        'router_name' => 'routerName',
-        'wildcard_policy' => 'wildcardPolicy'
+        'routerCanonicalHostname' => 'routerCanonicalHostname',
+        'routerName' => 'routerName',
+        'wildcardPolicy' => 'wildcardPolicy'
     ];
 
 
@@ -87,9 +87,9 @@ class V1RouteIngress implements ArrayAccess
     protected static $setters = [
         'conditions' => 'setConditions',
         'host' => 'setHost',
-        'router_canonical_hostname' => 'setRouterCanonicalHostname',
-        'router_name' => 'setRouterName',
-        'wildcard_policy' => 'setWildcardPolicy'
+        'routerCanonicalHostname' => 'setRouterCanonicalHostname',
+        'routerName' => 'setRouterName',
+        'wildcardPolicy' => 'setWildcardPolicy'
     ];
 
 
@@ -100,9 +100,9 @@ class V1RouteIngress implements ArrayAccess
     protected static $getters = [
         'conditions' => 'getConditions',
         'host' => 'getHost',
-        'router_canonical_hostname' => 'getRouterCanonicalHostname',
-        'router_name' => 'getRouterName',
-        'wildcard_policy' => 'getWildcardPolicy'
+        'routerCanonicalHostname' => 'getRouterCanonicalHostname',
+        'routerName' => 'getRouterName',
+        'wildcardPolicy' => 'getWildcardPolicy'
     ];
 
     public static function attributeMap()
@@ -138,9 +138,9 @@ class V1RouteIngress implements ArrayAccess
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['router_canonical_hostname'] = isset($data['router_canonical_hostname']) ? $data['router_canonical_hostname'] : null;
-        $this->container['router_name'] = isset($data['router_name']) ? $data['router_name'] : null;
-        $this->container['wildcard_policy'] = isset($data['wildcard_policy']) ? $data['wildcard_policy'] : null;
+        $this->container['routerCanonicalHostname'] = isset($data['routerCanonicalHostname']) ? $data['routerCanonicalHostname'] : null;
+        $this->container['routerName'] = isset($data['routerName']) ? $data['routerName'] : null;
+        $this->container['wildcardPolicy'] = isset($data['wildcardPolicy']) ? $data['wildcardPolicy'] : null;
     }
 
     /**
@@ -211,64 +211,64 @@ class V1RouteIngress implements ArrayAccess
     }
 
     /**
-     * Gets router_canonical_hostname
+     * Gets routerCanonicalHostname
      * @return string
      */
     public function getRouterCanonicalHostname()
     {
-        return $this->container['router_canonical_hostname'];
+        return $this->container['routerCanonicalHostname'];
     }
 
     /**
-     * Sets router_canonical_hostname
-     * @param string $router_canonical_hostname CanonicalHostname is the external host name for the router that can be used as a CNAME for the host requested for this route. This value is optional and may not be set in all cases.
+     * Sets routerCanonicalHostname
+     * @param string $routerCanonicalHostname CanonicalHostname is the external host name for the router that can be used as a CNAME for the host requested for this route. This value is optional and may not be set in all cases.
      * @return $this
      */
-    public function setRouterCanonicalHostname($router_canonical_hostname)
+    public function setRouterCanonicalHostname($routerCanonicalHostname)
     {
-        $this->container['router_canonical_hostname'] = $router_canonical_hostname;
+        $this->container['routerCanonicalHostname'] = $routerCanonicalHostname;
 
         return $this;
     }
 
     /**
-     * Gets router_name
+     * Gets routerName
      * @return string
      */
     public function getRouterName()
     {
-        return $this->container['router_name'];
+        return $this->container['routerName'];
     }
 
     /**
-     * Sets router_name
-     * @param string $router_name Name is a name chosen by the router to identify itself; this value is required
+     * Sets routerName
+     * @param string $routerName Name is a name chosen by the router to identify itself; this value is required
      * @return $this
      */
-    public function setRouterName($router_name)
+    public function setRouterName($routerName)
     {
-        $this->container['router_name'] = $router_name;
+        $this->container['routerName'] = $routerName;
 
         return $this;
     }
 
     /**
-     * Gets wildcard_policy
+     * Gets wildcardPolicy
      * @return string
      */
     public function getWildcardPolicy()
     {
-        return $this->container['wildcard_policy'];
+        return $this->container['wildcardPolicy'];
     }
 
     /**
-     * Sets wildcard_policy
-     * @param string $wildcard_policy Wildcard policy is the wildcard policy that was allowed where this route is exposed.
+     * Sets wildcardPolicy
+     * @param string $wildcardPolicy Wildcard policy is the wildcard policy that was allowed where this route is exposed.
      * @return $this
      */
-    public function setWildcardPolicy($wildcard_policy)
+    public function setWildcardPolicy($wildcardPolicy)
     {
-        $this->container['wildcard_policy'] = $wildcard_policy;
+        $this->container['wildcardPolicy'] = $wildcardPolicy;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_config"
+     * Test attribute "dockerImageConfig"
      */
     public function testPropertyDockerImageConfig()
     {
@@ -99,7 +99,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_layers"
+     * Test attribute "dockerImageLayers"
      */
     public function testPropertyDockerImageLayers()
     {
@@ -107,7 +107,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_manifest"
+     * Test attribute "dockerImageManifest"
      */
     public function testPropertyDockerImageManifest()
     {
@@ -115,7 +115,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_manifest_media_type"
+     * Test attribute "dockerImageManifestMediaType"
      */
     public function testPropertyDockerImageManifestMediaType()
     {
@@ -123,7 +123,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_metadata"
+     * Test attribute "dockerImageMetadata"
      */
     public function testPropertyDockerImageMetadata()
     {
@@ -131,7 +131,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_metadata_version"
+     * Test attribute "dockerImageMetadataVersion"
      */
     public function testPropertyDockerImageMetadataVersion()
     {
@@ -139,7 +139,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_reference"
+     * Test attribute "dockerImageReference"
      */
     public function testPropertyDockerImageReference()
     {
@@ -147,7 +147,7 @@ class V1ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_signatures"
+     * Test attribute "dockerImageSignatures"
      */
     public function testPropertyDockerImageSignatures()
     {

@@ -55,7 +55,7 @@ class V1beta1SubresourceReference implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
         'name' => 'string',
         'subresource' => 'string'
@@ -71,7 +71,7 @@ class V1beta1SubresourceReference implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
         'name' => 'name',
         'subresource' => 'subresource'
@@ -83,7 +83,7 @@ class V1beta1SubresourceReference implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
         'name' => 'setName',
         'subresource' => 'setSubresource'
@@ -95,7 +95,7 @@ class V1beta1SubresourceReference implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
         'name' => 'getName',
         'subresource' => 'getSubresource'
@@ -132,7 +132,7 @@ class V1beta1SubresourceReference implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['subresource'] = isset($data['subresource']) ? $data['subresource'] : null;
@@ -164,22 +164,22 @@ class V1beta1SubresourceReference implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version API version of the referent
+     * Sets apiVersion
+     * @param string $apiVersion API version of the referent
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }

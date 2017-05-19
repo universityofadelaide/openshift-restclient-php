@@ -83,7 +83,7 @@ class V1ImageStreamSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_repository"
+     * Test attribute "dockerImageRepository"
      */
     public function testPropertyDockerImageRepository()
     {

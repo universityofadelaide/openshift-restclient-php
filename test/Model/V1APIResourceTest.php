@@ -107,7 +107,7 @@ class V1APIResourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "short_names"
+     * Test attribute "shortNames"
      */
     public function testPropertyShortNames()
     {

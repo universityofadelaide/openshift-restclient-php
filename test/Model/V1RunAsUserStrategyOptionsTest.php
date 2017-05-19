@@ -99,7 +99,7 @@ class V1RunAsUserStrategyOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "uid_range_max"
+     * Test attribute "uidRangeMax"
      */
     public function testPropertyUidRangeMax()
     {
@@ -107,7 +107,7 @@ class V1RunAsUserStrategyOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "uid_range_min"
+     * Test attribute "uidRangeMin"
      */
     public function testPropertyUidRangeMin()
     {

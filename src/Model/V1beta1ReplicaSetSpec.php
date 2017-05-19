@@ -55,7 +55,7 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'min_ready_seconds' => 'int',
+        'minReadySeconds' => 'int',
         'replicas' => 'int',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec'
@@ -71,7 +71,7 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'min_ready_seconds' => 'minReadySeconds',
+        'minReadySeconds' => 'minReadySeconds',
         'replicas' => 'replicas',
         'selector' => 'selector',
         'template' => 'template'
@@ -83,7 +83,7 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'min_ready_seconds' => 'setMinReadySeconds',
+        'minReadySeconds' => 'setMinReadySeconds',
         'replicas' => 'setReplicas',
         'selector' => 'setSelector',
         'template' => 'setTemplate'
@@ -95,7 +95,7 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'min_ready_seconds' => 'getMinReadySeconds',
+        'minReadySeconds' => 'getMinReadySeconds',
         'replicas' => 'getReplicas',
         'selector' => 'getSelector',
         'template' => 'getTemplate'
@@ -132,7 +132,7 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['min_ready_seconds'] = isset($data['min_ready_seconds']) ? $data['min_ready_seconds'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
@@ -164,22 +164,22 @@ class V1beta1ReplicaSetSpec implements ArrayAccess
 
 
     /**
-     * Gets min_ready_seconds
+     * Gets minReadySeconds
      * @return int
      */
     public function getMinReadySeconds()
     {
-        return $this->container['min_ready_seconds'];
+        return $this->container['minReadySeconds'];
     }
 
     /**
-     * Sets min_ready_seconds
-     * @param int $min_ready_seconds Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
+     * Sets minReadySeconds
+     * @param int $minReadySeconds Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
      * @return $this
      */
-    public function setMinReadySeconds($min_ready_seconds)
+    public function setMinReadySeconds($minReadySeconds)
     {
-        $this->container['min_ready_seconds'] = $min_ready_seconds;
+        $this->container['minReadySeconds'] = $minReadySeconds;
 
         return $this;
     }

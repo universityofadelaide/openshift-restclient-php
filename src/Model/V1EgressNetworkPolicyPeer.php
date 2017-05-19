@@ -55,8 +55,8 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cidr_selector' => 'string',
-        'dns_name' => 'string'
+        'cidrSelector' => 'string',
+        'dnsName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cidr_selector' => 'cidrSelector',
-        'dns_name' => 'dnsName'
+        'cidrSelector' => 'cidrSelector',
+        'dnsName' => 'dnsName'
     ];
 
 
@@ -79,8 +79,8 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cidr_selector' => 'setCidrSelector',
-        'dns_name' => 'setDnsName'
+        'cidrSelector' => 'setCidrSelector',
+        'dnsName' => 'setDnsName'
     ];
 
 
@@ -89,8 +89,8 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cidr_selector' => 'getCidrSelector',
-        'dns_name' => 'getDnsName'
+        'cidrSelector' => 'getCidrSelector',
+        'dnsName' => 'getDnsName'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cidr_selector'] = isset($data['cidr_selector']) ? $data['cidr_selector'] : null;
-        $this->container['dns_name'] = isset($data['dns_name']) ? $data['dns_name'] : null;
+        $this->container['cidrSelector'] = isset($data['cidrSelector']) ? $data['cidrSelector'] : null;
+        $this->container['dnsName'] = isset($data['dnsName']) ? $data['dnsName'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1EgressNetworkPolicyPeer implements ArrayAccess
 
 
     /**
-     * Gets cidr_selector
+     * Gets cidrSelector
      * @return string
      */
     public function getCidrSelector()
     {
-        return $this->container['cidr_selector'];
+        return $this->container['cidrSelector'];
     }
 
     /**
-     * Sets cidr_selector
-     * @param string $cidr_selector cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset
+     * Sets cidrSelector
+     * @param string $cidrSelector cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset
      * @return $this
      */
-    public function setCidrSelector($cidr_selector)
+    public function setCidrSelector($cidrSelector)
     {
-        $this->container['cidr_selector'] = $cidr_selector;
+        $this->container['cidrSelector'] = $cidrSelector;
 
         return $this;
     }
 
     /**
-     * Gets dns_name
+     * Gets dnsName
      * @return string
      */
     public function getDnsName()
     {
-        return $this->container['dns_name'];
+        return $this->container['dnsName'];
     }
 
     /**
-     * Sets dns_name
-     * @param string $dns_name dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset
+     * Sets dnsName
+     * @param string $dnsName dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset
      * @return $this
      */
-    public function setDnsName($dns_name)
+    public function setDnsName($dnsName)
     {
-        $this->container['dns_name'] = $dns_name;
+        $this->container['dnsName'] = $dnsName;
 
         return $this;
     }

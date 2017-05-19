@@ -83,7 +83,7 @@ class V1RollingDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "interval_seconds"
+     * Test attribute "intervalSeconds"
      */
     public function testPropertyIntervalSeconds()
     {
@@ -91,7 +91,7 @@ class V1RollingDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_surge"
+     * Test attribute "maxSurge"
      */
     public function testPropertyMaxSurge()
     {
@@ -99,7 +99,7 @@ class V1RollingDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_unavailable"
+     * Test attribute "maxUnavailable"
      */
     public function testPropertyMaxUnavailable()
     {
@@ -123,7 +123,7 @@ class V1RollingDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "timeout_seconds"
+     * Test attribute "timeoutSeconds"
      */
     public function testPropertyTimeoutSeconds()
     {
@@ -131,7 +131,7 @@ class V1RollingDeploymentStrategyParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "update_period_seconds"
+     * Test attribute "updatePeriodSeconds"
      */
     public function testPropertyUpdatePeriodSeconds()
     {

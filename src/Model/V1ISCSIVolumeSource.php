@@ -55,16 +55,16 @@ class V1ISCSIVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'chap_auth_discovery' => 'bool',
-        'chap_auth_session' => 'bool',
-        'fs_type' => 'string',
+        'chapAuthDiscovery' => 'bool',
+        'chapAuthSession' => 'bool',
+        'fsType' => 'string',
         'iqn' => 'string',
-        'iscsi_interface' => 'string',
+        'iscsiInterface' => 'string',
         'lun' => 'int',
         'portals' => 'string[]',
-        'read_only' => 'bool',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
-        'target_portal' => 'string'
+        'readOnly' => 'bool',
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'targetPortal' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -77,16 +77,16 @@ class V1ISCSIVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chap_auth_discovery' => 'chapAuthDiscovery',
-        'chap_auth_session' => 'chapAuthSession',
-        'fs_type' => 'fsType',
+        'chapAuthDiscovery' => 'chapAuthDiscovery',
+        'chapAuthSession' => 'chapAuthSession',
+        'fsType' => 'fsType',
         'iqn' => 'iqn',
-        'iscsi_interface' => 'iscsiInterface',
+        'iscsiInterface' => 'iscsiInterface',
         'lun' => 'lun',
         'portals' => 'portals',
-        'read_only' => 'readOnly',
-        'secret_ref' => 'secretRef',
-        'target_portal' => 'targetPortal'
+        'readOnly' => 'readOnly',
+        'secretRef' => 'secretRef',
+        'targetPortal' => 'targetPortal'
     ];
 
 
@@ -95,16 +95,16 @@ class V1ISCSIVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chap_auth_discovery' => 'setChapAuthDiscovery',
-        'chap_auth_session' => 'setChapAuthSession',
-        'fs_type' => 'setFsType',
+        'chapAuthDiscovery' => 'setChapAuthDiscovery',
+        'chapAuthSession' => 'setChapAuthSession',
+        'fsType' => 'setFsType',
         'iqn' => 'setIqn',
-        'iscsi_interface' => 'setIscsiInterface',
+        'iscsiInterface' => 'setIscsiInterface',
         'lun' => 'setLun',
         'portals' => 'setPortals',
-        'read_only' => 'setReadOnly',
-        'secret_ref' => 'setSecretRef',
-        'target_portal' => 'setTargetPortal'
+        'readOnly' => 'setReadOnly',
+        'secretRef' => 'setSecretRef',
+        'targetPortal' => 'setTargetPortal'
     ];
 
 
@@ -113,16 +113,16 @@ class V1ISCSIVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chap_auth_discovery' => 'getChapAuthDiscovery',
-        'chap_auth_session' => 'getChapAuthSession',
-        'fs_type' => 'getFsType',
+        'chapAuthDiscovery' => 'getChapAuthDiscovery',
+        'chapAuthSession' => 'getChapAuthSession',
+        'fsType' => 'getFsType',
         'iqn' => 'getIqn',
-        'iscsi_interface' => 'getIscsiInterface',
+        'iscsiInterface' => 'getIscsiInterface',
         'lun' => 'getLun',
         'portals' => 'getPortals',
-        'read_only' => 'getReadOnly',
-        'secret_ref' => 'getSecretRef',
-        'target_portal' => 'getTargetPortal'
+        'readOnly' => 'getReadOnly',
+        'secretRef' => 'getSecretRef',
+        'targetPortal' => 'getTargetPortal'
     ];
 
     public static function attributeMap()
@@ -156,16 +156,16 @@ class V1ISCSIVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chap_auth_discovery'] = isset($data['chap_auth_discovery']) ? $data['chap_auth_discovery'] : null;
-        $this->container['chap_auth_session'] = isset($data['chap_auth_session']) ? $data['chap_auth_session'] : null;
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['chapAuthDiscovery'] = isset($data['chapAuthDiscovery']) ? $data['chapAuthDiscovery'] : null;
+        $this->container['chapAuthSession'] = isset($data['chapAuthSession']) ? $data['chapAuthSession'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['iqn'] = isset($data['iqn']) ? $data['iqn'] : null;
-        $this->container['iscsi_interface'] = isset($data['iscsi_interface']) ? $data['iscsi_interface'] : null;
+        $this->container['iscsiInterface'] = isset($data['iscsiInterface']) ? $data['iscsiInterface'] : null;
         $this->container['lun'] = isset($data['lun']) ? $data['lun'] : null;
         $this->container['portals'] = isset($data['portals']) ? $data['portals'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
-        $this->container['target_portal'] = isset($data['target_portal']) ? $data['target_portal'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
+        $this->container['targetPortal'] = isset($data['targetPortal']) ? $data['targetPortal'] : null;
     }
 
     /**
@@ -183,8 +183,8 @@ class V1ISCSIVolumeSource implements ArrayAccess
         if ($this->container['lun'] === null) {
             $invalid_properties[] = "'lun' can't be null";
         }
-        if ($this->container['target_portal'] === null) {
-            $invalid_properties[] = "'target_portal' can't be null";
+        if ($this->container['targetPortal'] === null) {
+            $invalid_properties[] = "'targetPortal' can't be null";
         }
         return $invalid_properties;
     }
@@ -204,7 +204,7 @@ class V1ISCSIVolumeSource implements ArrayAccess
         if ($this->container['lun'] === null) {
             return false;
         }
-        if ($this->container['target_portal'] === null) {
+        if ($this->container['targetPortal'] === null) {
             return false;
         }
         return true;
@@ -212,64 +212,64 @@ class V1ISCSIVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets chap_auth_discovery
+     * Gets chapAuthDiscovery
      * @return bool
      */
     public function getChapAuthDiscovery()
     {
-        return $this->container['chap_auth_discovery'];
+        return $this->container['chapAuthDiscovery'];
     }
 
     /**
-     * Sets chap_auth_discovery
-     * @param bool $chap_auth_discovery whether support iSCSI Discovery CHAP authentication
+     * Sets chapAuthDiscovery
+     * @param bool $chapAuthDiscovery whether support iSCSI Discovery CHAP authentication
      * @return $this
      */
-    public function setChapAuthDiscovery($chap_auth_discovery)
+    public function setChapAuthDiscovery($chapAuthDiscovery)
     {
-        $this->container['chap_auth_discovery'] = $chap_auth_discovery;
+        $this->container['chapAuthDiscovery'] = $chapAuthDiscovery;
 
         return $this;
     }
 
     /**
-     * Gets chap_auth_session
+     * Gets chapAuthSession
      * @return bool
      */
     public function getChapAuthSession()
     {
-        return $this->container['chap_auth_session'];
+        return $this->container['chapAuthSession'];
     }
 
     /**
-     * Sets chap_auth_session
-     * @param bool $chap_auth_session whether support iSCSI Session CHAP authentication
+     * Sets chapAuthSession
+     * @param bool $chapAuthSession whether support iSCSI Session CHAP authentication
      * @return $this
      */
-    public function setChapAuthSession($chap_auth_session)
+    public function setChapAuthSession($chapAuthSession)
     {
-        $this->container['chap_auth_session'] = $chap_auth_session;
+        $this->container['chapAuthSession'] = $chapAuthSession;
 
         return $this;
     }
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+     * Sets fsType
+     * @param string $fsType Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -296,22 +296,22 @@ class V1ISCSIVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets iscsi_interface
+     * Gets iscsiInterface
      * @return string
      */
     public function getIscsiInterface()
     {
-        return $this->container['iscsi_interface'];
+        return $this->container['iscsiInterface'];
     }
 
     /**
-     * Sets iscsi_interface
-     * @param string $iscsi_interface Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport.
+     * Sets iscsiInterface
+     * @param string $iscsiInterface Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport.
      * @return $this
      */
-    public function setIscsiInterface($iscsi_interface)
+    public function setIscsiInterface($iscsiInterface)
     {
-        $this->container['iscsi_interface'] = $iscsi_interface;
+        $this->container['iscsiInterface'] = $iscsiInterface;
 
         return $this;
     }
@@ -359,64 +359,64 @@ class V1ISCSIVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_ref CHAP secret for iSCSI target and initiator authentication
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretRef CHAP secret for iSCSI target and initiator authentication
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }
 
     /**
-     * Gets target_portal
+     * Gets targetPortal
      * @return string
      */
     public function getTargetPortal()
     {
-        return $this->container['target_portal'];
+        return $this->container['targetPortal'];
     }
 
     /**
-     * Sets target_portal
-     * @param string $target_portal iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+     * Sets targetPortal
+     * @param string $targetPortal iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
      * @return $this
      */
-    public function setTargetPortal($target_portal)
+    public function setTargetPortal($targetPortal)
     {
-        $this->container['target_portal'] = $target_portal;
+        $this->container['targetPortal'] = $targetPortal;
 
         return $this;
     }

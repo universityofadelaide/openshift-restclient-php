@@ -55,11 +55,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'caching_mode' => 'string',
-        'disk_name' => 'string',
-        'disk_uri' => 'string',
-        'fs_type' => 'string',
-        'read_only' => 'bool'
+        'cachingMode' => 'string',
+        'diskName' => 'string',
+        'diskURI' => 'string',
+        'fsType' => 'string',
+        'readOnly' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'caching_mode' => 'cachingMode',
-        'disk_name' => 'diskName',
-        'disk_uri' => 'diskURI',
-        'fs_type' => 'fsType',
-        'read_only' => 'readOnly'
+        'cachingMode' => 'cachingMode',
+        'diskName' => 'diskName',
+        'diskURI' => 'diskURI',
+        'fsType' => 'fsType',
+        'readOnly' => 'readOnly'
     ];
 
 
@@ -85,11 +85,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'caching_mode' => 'setCachingMode',
-        'disk_name' => 'setDiskName',
-        'disk_uri' => 'setDiskUri',
-        'fs_type' => 'setFsType',
-        'read_only' => 'setReadOnly'
+        'cachingMode' => 'setCachingMode',
+        'diskName' => 'setDiskName',
+        'diskURI' => 'setDiskURI',
+        'fsType' => 'setFsType',
+        'readOnly' => 'setReadOnly'
     ];
 
 
@@ -98,11 +98,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'caching_mode' => 'getCachingMode',
-        'disk_name' => 'getDiskName',
-        'disk_uri' => 'getDiskUri',
-        'fs_type' => 'getFsType',
-        'read_only' => 'getReadOnly'
+        'cachingMode' => 'getCachingMode',
+        'diskName' => 'getDiskName',
+        'diskURI' => 'getDiskURI',
+        'fsType' => 'getFsType',
+        'readOnly' => 'getReadOnly'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['caching_mode'] = isset($data['caching_mode']) ? $data['caching_mode'] : null;
-        $this->container['disk_name'] = isset($data['disk_name']) ? $data['disk_name'] : null;
-        $this->container['disk_uri'] = isset($data['disk_uri']) ? $data['disk_uri'] : null;
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['cachingMode'] = isset($data['cachingMode']) ? $data['cachingMode'] : null;
+        $this->container['diskName'] = isset($data['diskName']) ? $data['diskName'] : null;
+        $this->container['diskURI'] = isset($data['diskURI']) ? $data['diskURI'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 
     /**
@@ -152,11 +152,11 @@ class V1AzureDiskVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['disk_name'] === null) {
-            $invalid_properties[] = "'disk_name' can't be null";
+        if ($this->container['diskName'] === null) {
+            $invalid_properties[] = "'diskName' can't be null";
         }
-        if ($this->container['disk_uri'] === null) {
-            $invalid_properties[] = "'disk_uri' can't be null";
+        if ($this->container['diskURI'] === null) {
+            $invalid_properties[] = "'diskURI' can't be null";
         }
         return $invalid_properties;
     }
@@ -170,10 +170,10 @@ class V1AzureDiskVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['disk_name'] === null) {
+        if ($this->container['diskName'] === null) {
             return false;
         }
-        if ($this->container['disk_uri'] === null) {
+        if ($this->container['diskURI'] === null) {
             return false;
         }
         return true;
@@ -181,106 +181,106 @@ class V1AzureDiskVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets caching_mode
+     * Gets cachingMode
      * @return string
      */
     public function getCachingMode()
     {
-        return $this->container['caching_mode'];
+        return $this->container['cachingMode'];
     }
 
     /**
-     * Sets caching_mode
-     * @param string $caching_mode Host Caching mode: None, Read Only, Read Write.
+     * Sets cachingMode
+     * @param string $cachingMode Host Caching mode: None, Read Only, Read Write.
      * @return $this
      */
-    public function setCachingMode($caching_mode)
+    public function setCachingMode($cachingMode)
     {
-        $this->container['caching_mode'] = $caching_mode;
+        $this->container['cachingMode'] = $cachingMode;
 
         return $this;
     }
 
     /**
-     * Gets disk_name
+     * Gets diskName
      * @return string
      */
     public function getDiskName()
     {
-        return $this->container['disk_name'];
+        return $this->container['diskName'];
     }
 
     /**
-     * Sets disk_name
-     * @param string $disk_name The Name of the data disk in the blob storage
+     * Sets diskName
+     * @param string $diskName The Name of the data disk in the blob storage
      * @return $this
      */
-    public function setDiskName($disk_name)
+    public function setDiskName($diskName)
     {
-        $this->container['disk_name'] = $disk_name;
+        $this->container['diskName'] = $diskName;
 
         return $this;
     }
 
     /**
-     * Gets disk_uri
+     * Gets diskURI
      * @return string
      */
-    public function getDiskUri()
+    public function getDiskURI()
     {
-        return $this->container['disk_uri'];
+        return $this->container['diskURI'];
     }
 
     /**
-     * Sets disk_uri
-     * @param string $disk_uri The URI the data disk in the blob storage
+     * Sets diskURI
+     * @param string $diskURI The URI the data disk in the blob storage
      * @return $this
      */
-    public function setDiskUri($disk_uri)
+    public function setDiskURI($diskURI)
     {
-        $this->container['disk_uri'] = $disk_uri;
+        $this->container['diskURI'] = $diskURI;
 
         return $this;
     }
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+     * Sets readOnly
+     * @param bool $readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

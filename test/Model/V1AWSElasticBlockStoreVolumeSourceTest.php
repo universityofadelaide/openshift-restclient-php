@@ -83,7 +83,7 @@ class V1AWSElasticBlockStoreVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -99,7 +99,7 @@ class V1AWSElasticBlockStoreVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -107,9 +107,9 @@ class V1AWSElasticBlockStoreVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "volume_id"
+     * Test attribute "volumeID"
      */
-    public function testPropertyVolumeId()
+    public function testPropertyVolumeID()
     {
 
     }

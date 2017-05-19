@@ -91,7 +91,7 @@ class V1BuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "context_dir"
+     * Test attribute "contextDir"
      */
     public function testPropertyContextDir()
     {
@@ -131,7 +131,7 @@ class V1BuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "source_secret"
+     * Test attribute "sourceSecret"
      */
     public function testPropertySourceSecret()
     {

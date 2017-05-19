@@ -55,9 +55,9 @@ class V1ProjectRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'description' => 'string',
-        'display_name' => 'string',
+        'displayName' => 'string',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta'
     ];
@@ -72,9 +72,9 @@ class V1ProjectRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'description' => 'description',
-        'display_name' => 'displayName',
+        'displayName' => 'displayName',
         'kind' => 'kind',
         'metadata' => 'metadata'
     ];
@@ -85,9 +85,9 @@ class V1ProjectRequest implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
+        'displayName' => 'setDisplayName',
         'kind' => 'setKind',
         'metadata' => 'setMetadata'
     ];
@@ -98,9 +98,9 @@ class V1ProjectRequest implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
+        'displayName' => 'getDisplayName',
         'kind' => 'getKind',
         'metadata' => 'getMetadata'
     ];
@@ -136,9 +136,9 @@ class V1ProjectRequest implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
@@ -169,22 +169,22 @@ class V1ProjectRequest implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -211,22 +211,22 @@ class V1ProjectRequest implements ArrayAccess
     }
 
     /**
-     * Gets display_name
+     * Gets displayName
      * @return string
      */
     public function getDisplayName()
     {
-        return $this->container['display_name'];
+        return $this->container['displayName'];
     }
 
     /**
-     * Sets display_name
-     * @param string $display_name DisplayName is the display name to apply to a project
+     * Sets displayName
+     * @param string $displayName DisplayName is the display name to apply to a project
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setDisplayName($displayName)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['displayName'] = $displayName;
 
         return $this;
     }

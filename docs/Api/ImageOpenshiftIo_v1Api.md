@@ -59,7 +59,7 @@ create an Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Image(); // \UniversityOfAdelaide\OpenShift\Model\V1Image | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -106,7 +106,7 @@ create an ImageSignature
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageSignature(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageSignature | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -153,7 +153,7 @@ create an ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStream(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStream | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -200,7 +200,7 @@ create an ImageStreamImport
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -247,7 +247,7 @@ create an ImageStreamMapping
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -294,7 +294,7 @@ create an ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -341,7 +341,7 @@ create an ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStream(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStream | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -390,7 +390,7 @@ create an ImageStreamImport
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -439,7 +439,7 @@ create an ImageStreamMapping
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -488,7 +488,7 @@ create an ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -526,7 +526,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteImageOpenshiftIoV1CollectionImage**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1CollectionImage($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1CollectionImage($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -537,16 +537,16 @@ delete collection of Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteImageOpenshiftIoV1CollectionImage($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteImageOpenshiftIoV1CollectionImage($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->deleteImageOpenshiftIoV1CollectionImage: ', $e->getMessage(), PHP_EOL;
@@ -559,10 +559,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -581,7 +581,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteImageOpenshiftIoV1CollectionNamespacedImageStream**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1CollectionNamespacedImageStream($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1CollectionNamespacedImageStream($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -592,17 +592,17 @@ delete collection of ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->deleteImageOpenshiftIoV1CollectionNamespacedImageStream($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->deleteImageOpenshiftIoV1CollectionNamespacedImageStream($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->deleteImageOpenshiftIoV1CollectionNamespacedImageStream: ', $e->getMessage(), PHP_EOL;
@@ -616,10 +616,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -638,7 +638,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteImageOpenshiftIoV1Image**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1Image($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1Image($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -649,16 +649,16 @@ delete an Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteImageOpenshiftIoV1Image($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteImageOpenshiftIoV1Image($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->deleteImageOpenshiftIoV1Image: ', $e->getMessage(), PHP_EOL;
@@ -673,9 +673,9 @@ Name | Type | Description  | Notes
  **name** | **string**| name of the Image |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -704,7 +704,7 @@ delete an ImageSignature
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageSignature
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -740,7 +740,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteImageOpenshiftIoV1NamespacedImageStream**
-> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy)
+> \UniversityOfAdelaide\OpenShift\Model\V1Status deleteImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy)
 
 
 
@@ -751,17 +751,17 @@ delete an ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions(); // \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$grace_period_seconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-$orphan_dependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-$propagation_policy = "propagation_policy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+$gracePeriodSeconds = 56; // int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+$orphanDependents = true; // bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+$propagationPolicy = "propagationPolicy_example"; // string | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
 
 try {
-    $result = $api_instance->deleteImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+    $result = $api_instance->deleteImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->deleteImageOpenshiftIoV1NamespacedImageStream: ', $e->getMessage(), PHP_EOL;
@@ -777,9 +777,9 @@ Name | Type | Description  | Notes
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **body** | [**\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions**](../Model/\UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions.md)|  |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **grace_period_seconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
- **orphan_dependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagation_policy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **gracePeriodSeconds** | **int**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **bool**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **string**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
 
 ### Return type
 
@@ -808,7 +808,7 @@ delete an ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -857,7 +857,7 @@ get available resources
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getImageOpenshiftIoV1APIResources();
@@ -887,7 +887,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listImageOpenshiftIoV1Image**
-> \UniversityOfAdelaide\OpenShift\Model\V1ImageList listImageOpenshiftIoV1Image($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ImageList listImageOpenshiftIoV1Image($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -898,16 +898,16 @@ list or watch objects of kind Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listImageOpenshiftIoV1Image($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listImageOpenshiftIoV1Image($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->listImageOpenshiftIoV1Image: ', $e->getMessage(), PHP_EOL;
@@ -920,10 +920,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -942,7 +942,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listImageOpenshiftIoV1ImageStreamForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamList listImageOpenshiftIoV1ImageStreamForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamList listImageOpenshiftIoV1ImageStreamForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -953,16 +953,16 @@ list or watch objects of kind ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listImageOpenshiftIoV1ImageStreamForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listImageOpenshiftIoV1ImageStreamForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->listImageOpenshiftIoV1ImageStreamForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -975,10 +975,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -997,7 +997,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listImageOpenshiftIoV1ImageStreamTagForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTagList listImageOpenshiftIoV1ImageStreamTagForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTagList listImageOpenshiftIoV1ImageStreamTagForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1008,16 +1008,16 @@ list objects of kind ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listImageOpenshiftIoV1ImageStreamTagForAllNamespaces($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listImageOpenshiftIoV1ImageStreamTagForAllNamespaces($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->listImageOpenshiftIoV1ImageStreamTagForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -1030,10 +1030,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1052,7 +1052,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listImageOpenshiftIoV1NamespacedImageStream**
-> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamList listImageOpenshiftIoV1NamespacedImageStream($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamList listImageOpenshiftIoV1NamespacedImageStream($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1063,17 +1063,17 @@ list or watch objects of kind ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listImageOpenshiftIoV1NamespacedImageStream($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listImageOpenshiftIoV1NamespacedImageStream($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->listImageOpenshiftIoV1NamespacedImageStream: ', $e->getMessage(), PHP_EOL;
@@ -1087,10 +1087,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1109,7 +1109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listImageOpenshiftIoV1NamespacedImageStreamTag**
-> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTagList listImageOpenshiftIoV1NamespacedImageStreamTag($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTagList listImageOpenshiftIoV1NamespacedImageStreamTag($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1120,17 +1120,17 @@ list objects of kind ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->listImageOpenshiftIoV1NamespacedImageStreamTag($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->listImageOpenshiftIoV1NamespacedImageStreamTag($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->listImageOpenshiftIoV1NamespacedImageStreamTag: ', $e->getMessage(), PHP_EOL;
@@ -1144,10 +1144,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1177,7 +1177,7 @@ partially update the specified Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1226,7 +1226,7 @@ partially update the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -1277,7 +1277,7 @@ partially update status of the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -1328,7 +1328,7 @@ partially update the specified ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Patch(); // \UniversityOfAdelaide\OpenShift\Model\V1Patch | 
@@ -1379,7 +1379,7 @@ read the specified Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 $exact = true; // bool | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
@@ -1430,7 +1430,7 @@ read the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1483,7 +1483,7 @@ read the specified ImageStreamImage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamImage
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1532,7 +1532,7 @@ read status of the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1581,7 +1581,7 @@ read the specified ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1619,7 +1619,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **readImageOpenshiftIoV1NamespacedSecretListSecrets**
-> \UniversityOfAdelaide\OpenShift\Model\V1SecretList readImageOpenshiftIoV1NamespacedSecretListSecrets($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1SecretList readImageOpenshiftIoV1NamespacedSecretListSecrets($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1630,18 +1630,18 @@ read secrets of the specified SecretList
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the SecretList
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->readImageOpenshiftIoV1NamespacedSecretListSecrets($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->readImageOpenshiftIoV1NamespacedSecretListSecrets($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->readImageOpenshiftIoV1NamespacedSecretListSecrets: ', $e->getMessage(), PHP_EOL;
@@ -1655,11 +1655,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the SecretList |
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1689,7 +1689,7 @@ replace the specified Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Image(); // \UniversityOfAdelaide\OpenShift\Model\V1Image | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -1738,7 +1738,7 @@ replace the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStream(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStream | 
@@ -1789,7 +1789,7 @@ replace status of the specified ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStream(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStream | 
@@ -1840,7 +1840,7 @@ replace the specified ImageStreamTag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag | 
@@ -1880,7 +1880,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchImageOpenshiftIoV1Image**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1Image($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1Image($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1891,17 +1891,17 @@ watch changes to an object of kind Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchImageOpenshiftIoV1Image($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchImageOpenshiftIoV1Image($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->watchImageOpenshiftIoV1Image: ', $e->getMessage(), PHP_EOL;
@@ -1914,11 +1914,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the Image |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1937,7 +1937,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchImageOpenshiftIoV1ImageList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1ImageList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1ImageList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -1948,16 +1948,16 @@ watch individual changes to a list of Image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchImageOpenshiftIoV1ImageList($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchImageOpenshiftIoV1ImageList($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->watchImageOpenshiftIoV1ImageList: ', $e->getMessage(), PHP_EOL;
@@ -1969,11 +1969,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -1992,7 +1992,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchImageOpenshiftIoV1ImageStreamListForAllNamespaces**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1ImageStreamListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1ImageStreamListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2003,16 +2003,16 @@ watch individual changes to a list of ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchImageOpenshiftIoV1ImageStreamListForAllNamespaces($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchImageOpenshiftIoV1ImageStreamListForAllNamespaces($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->watchImageOpenshiftIoV1ImageStreamListForAllNamespaces: ', $e->getMessage(), PHP_EOL;
@@ -2024,11 +2024,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2047,7 +2047,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchImageOpenshiftIoV1NamespacedImageStream**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2058,18 +2058,18 @@ watch changes to an object of kind ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchImageOpenshiftIoV1NamespacedImageStream($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->watchImageOpenshiftIoV1NamespacedImageStream: ', $e->getMessage(), PHP_EOL;
@@ -2083,11 +2083,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| name of the ImageStream |
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -2106,7 +2106,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **watchImageOpenshiftIoV1NamespacedImageStreamList**
-> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1NamespacedImageStreamList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch)
+> \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent watchImageOpenshiftIoV1NamespacedImageStreamList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch)
 
 
 
@@ -2117,17 +2117,17 @@ watch individual changes to a list of ImageStream
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ImageOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
-$field_selector = "field_selector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-$label_selector = "label_selector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+$fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+$labelSelector = "labelSelector_example"; // string | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
-$resource_version = "resource_version_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-$timeout_seconds = 56; // int | Timeout for the list/watch call.
+$resourceVersion = "resourceVersion_example"; // string | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+$timeoutSeconds = 56; // int | Timeout for the list/watch call.
 $watch = true; // bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 try {
-    $result = $api_instance->watchImageOpenshiftIoV1NamespacedImageStreamList($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+    $result = $api_instance->watchImageOpenshiftIoV1NamespacedImageStreamList($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageOpenshiftIo_v1Api->watchImageOpenshiftIoV1NamespacedImageStreamList: ', $e->getMessage(), PHP_EOL;
@@ -2140,11 +2140,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **string**| object name and auth scope, such as for teams and projects |
- **field_selector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **label_selector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
+ **fieldSelector** | **string**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **labelSelector** | **string**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **string**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **resource_version** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeout_seconds** | **int**| Timeout for the list/watch call. | [optional]
+ **resourceVersion** | **string**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **int**| Timeout for the list/watch call. | [optional]
  **watch** | **bool**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type

@@ -83,7 +83,7 @@ class V1ContainerPortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "container_port"
+     * Test attribute "containerPort"
      */
     public function testPropertyContainerPort()
     {
@@ -91,15 +91,15 @@ class V1ContainerPortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_ip"
+     * Test attribute "hostIP"
      */
-    public function testPropertyHostIp()
+    public function testPropertyHostIP()
     {
 
     }
 
     /**
-     * Test attribute "host_port"
+     * Test attribute "hostPort"
      */
     public function testPropertyHostPort()
     {

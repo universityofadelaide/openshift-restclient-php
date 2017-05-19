@@ -83,7 +83,7 @@ class V1UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "full_name"
+     * Test attribute "fullName"
      */
     public function testPropertyFullName()
     {

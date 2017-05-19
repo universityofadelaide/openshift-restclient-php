@@ -91,7 +91,7 @@ class V1SourceBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "force_pull"
+     * Test attribute "forcePull"
      */
     public function testPropertyForcePull()
     {
@@ -115,7 +115,7 @@ class V1SourceBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pull_secret"
+     * Test attribute "pullSecret"
      */
     public function testPropertyPullSecret()
     {
@@ -123,7 +123,7 @@ class V1SourceBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "runtime_artifacts"
+     * Test attribute "runtimeArtifacts"
      */
     public function testPropertyRuntimeArtifacts()
     {
@@ -131,7 +131,7 @@ class V1SourceBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "runtime_image"
+     * Test attribute "runtimeImage"
      */
     public function testPropertyRuntimeImage()
     {

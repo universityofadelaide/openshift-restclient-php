@@ -55,13 +55,13 @@ class V1OAuthClientAuthorization implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'client_name' => 'string',
+        'apiVersion' => 'string',
+        'clientName' => 'string',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'scopes' => 'string[]',
-        'user_name' => 'string',
-        'user_uid' => 'string'
+        'userName' => 'string',
+        'userUID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1OAuthClientAuthorization implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'client_name' => 'clientName',
+        'apiVersion' => 'apiVersion',
+        'clientName' => 'clientName',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'scopes' => 'scopes',
-        'user_name' => 'userName',
-        'user_uid' => 'userUID'
+        'userName' => 'userName',
+        'userUID' => 'userUID'
     ];
 
 
@@ -89,13 +89,13 @@ class V1OAuthClientAuthorization implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'client_name' => 'setClientName',
+        'apiVersion' => 'setApiVersion',
+        'clientName' => 'setClientName',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'scopes' => 'setScopes',
-        'user_name' => 'setUserName',
-        'user_uid' => 'setUserUid'
+        'userName' => 'setUserName',
+        'userUID' => 'setUserUID'
     ];
 
 
@@ -104,13 +104,13 @@ class V1OAuthClientAuthorization implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'client_name' => 'getClientName',
+        'apiVersion' => 'getApiVersion',
+        'clientName' => 'getClientName',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'scopes' => 'getScopes',
-        'user_name' => 'getUserName',
-        'user_uid' => 'getUserUid'
+        'userName' => 'getUserName',
+        'userUID' => 'getUserUID'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1OAuthClientAuthorization implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['clientName'] = isset($data['clientName']) ? $data['clientName'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
-        $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
-        $this->container['user_uid'] = isset($data['user_uid']) ? $data['user_uid'] : null;
+        $this->container['userName'] = isset($data['userName']) ? $data['userName'] : null;
+        $this->container['userUID'] = isset($data['userUID']) ? $data['userUID'] : null;
     }
 
     /**
@@ -179,43 +179,43 @@ class V1OAuthClientAuthorization implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets client_name
+     * Gets clientName
      * @return string
      */
     public function getClientName()
     {
-        return $this->container['client_name'];
+        return $this->container['clientName'];
     }
 
     /**
-     * Sets client_name
-     * @param string $client_name ClientName references the client that created this authorization
+     * Sets clientName
+     * @param string $clientName ClientName references the client that created this authorization
      * @return $this
      */
-    public function setClientName($client_name)
+    public function setClientName($clientName)
     {
-        $this->container['client_name'] = $client_name;
+        $this->container['clientName'] = $clientName;
 
         return $this;
     }
@@ -284,43 +284,43 @@ class V1OAuthClientAuthorization implements ArrayAccess
     }
 
     /**
-     * Gets user_name
+     * Gets userName
      * @return string
      */
     public function getUserName()
     {
-        return $this->container['user_name'];
+        return $this->container['userName'];
     }
 
     /**
-     * Sets user_name
-     * @param string $user_name UserName is the user name that authorized this client
+     * Sets userName
+     * @param string $userName UserName is the user name that authorized this client
      * @return $this
      */
-    public function setUserName($user_name)
+    public function setUserName($userName)
     {
-        $this->container['user_name'] = $user_name;
+        $this->container['userName'] = $userName;
 
         return $this;
     }
 
     /**
-     * Gets user_uid
+     * Gets userUID
      * @return string
      */
-    public function getUserUid()
+    public function getUserUID()
     {
-        return $this->container['user_uid'];
+        return $this->container['userUID'];
     }
 
     /**
-     * Sets user_uid
-     * @param string $user_uid UserUID is the unique UID associated with this authorization. UserUID and UserName must both match for this authorization to be valid.
+     * Sets userUID
+     * @param string $userUID UserUID is the unique UID associated with this authorization. UserUID and UserName must both match for this authorization to be valid.
      * @return $this
      */
-    public function setUserUid($user_uid)
+    public function setUserUID($userUID)
     {
-        $this->container['user_uid'] = $user_uid;
+        $this->container['userUID'] = $userUID;
 
         return $this;
     }

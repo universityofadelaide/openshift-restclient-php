@@ -91,7 +91,7 @@ class V1NamedClusterRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "role_binding"
+     * Test attribute "roleBinding"
      */
     public function testPropertyRoleBinding()
     {

@@ -55,7 +55,7 @@ class V1NodeSelectorTerm implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'match_expressions' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorRequirement[]'
+        'matchExpressions' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorRequirement[]'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1NodeSelectorTerm implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'match_expressions' => 'matchExpressions'
+        'matchExpressions' => 'matchExpressions'
     ];
 
 
@@ -77,7 +77,7 @@ class V1NodeSelectorTerm implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'match_expressions' => 'setMatchExpressions'
+        'matchExpressions' => 'setMatchExpressions'
     ];
 
 
@@ -86,7 +86,7 @@ class V1NodeSelectorTerm implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'match_expressions' => 'getMatchExpressions'
+        'matchExpressions' => 'getMatchExpressions'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1NodeSelectorTerm implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['match_expressions'] = isset($data['match_expressions']) ? $data['match_expressions'] : null;
+        $this->container['matchExpressions'] = isset($data['matchExpressions']) ? $data['matchExpressions'] : null;
     }
 
     /**
@@ -132,8 +132,8 @@ class V1NodeSelectorTerm implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['match_expressions'] === null) {
-            $invalid_properties[] = "'match_expressions' can't be null";
+        if ($this->container['matchExpressions'] === null) {
+            $invalid_properties[] = "'matchExpressions' can't be null";
         }
         return $invalid_properties;
     }
@@ -147,7 +147,7 @@ class V1NodeSelectorTerm implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['match_expressions'] === null) {
+        if ($this->container['matchExpressions'] === null) {
             return false;
         }
         return true;
@@ -155,22 +155,22 @@ class V1NodeSelectorTerm implements ArrayAccess
 
 
     /**
-     * Gets match_expressions
+     * Gets matchExpressions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorRequirement[]
      */
     public function getMatchExpressions()
     {
-        return $this->container['match_expressions'];
+        return $this->container['matchExpressions'];
     }
 
     /**
-     * Sets match_expressions
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorRequirement[] $match_expressions Required. A list of node selector requirements. The requirements are ANDed.
+     * Sets matchExpressions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSelectorRequirement[] $matchExpressions Required. A list of node selector requirements. The requirements are ANDed.
      * @return $this
      */
-    public function setMatchExpressions($match_expressions)
+    public function setMatchExpressions($matchExpressions)
     {
-        $this->container['match_expressions'] = $match_expressions;
+        $this->container['matchExpressions'] = $matchExpressions;
 
         return $this;
     }

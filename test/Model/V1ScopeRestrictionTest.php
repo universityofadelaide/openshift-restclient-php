@@ -83,7 +83,7 @@ class V1ScopeRestrictionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "cluster_role"
+     * Test attribute "clusterRole"
      */
     public function testPropertyClusterRole()
     {

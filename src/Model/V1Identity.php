@@ -55,12 +55,12 @@ class V1Identity implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'extra' => 'map[string,string]',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'provider_name' => 'string',
-        'provider_user_name' => 'string',
+        'providerName' => 'string',
+        'providerUserName' => 'string',
         'user' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
     ];
 
@@ -74,12 +74,12 @@ class V1Identity implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'extra' => 'extra',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'provider_name' => 'providerName',
-        'provider_user_name' => 'providerUserName',
+        'providerName' => 'providerName',
+        'providerUserName' => 'providerUserName',
         'user' => 'user'
     ];
 
@@ -89,12 +89,12 @@ class V1Identity implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'extra' => 'setExtra',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'provider_name' => 'setProviderName',
-        'provider_user_name' => 'setProviderUserName',
+        'providerName' => 'setProviderName',
+        'providerUserName' => 'setProviderUserName',
         'user' => 'setUser'
     ];
 
@@ -104,12 +104,12 @@ class V1Identity implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'extra' => 'getExtra',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'provider_name' => 'getProviderName',
-        'provider_user_name' => 'getProviderUserName',
+        'providerName' => 'getProviderName',
+        'providerUserName' => 'getProviderUserName',
         'user' => 'getUser'
     ];
 
@@ -144,12 +144,12 @@ class V1Identity implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['provider_name'] = isset($data['provider_name']) ? $data['provider_name'] : null;
-        $this->container['provider_user_name'] = isset($data['provider_user_name']) ? $data['provider_user_name'] : null;
+        $this->container['providerName'] = isset($data['providerName']) ? $data['providerName'] : null;
+        $this->container['providerUserName'] = isset($data['providerUserName']) ? $data['providerUserName'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -162,11 +162,11 @@ class V1Identity implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['provider_name'] === null) {
-            $invalid_properties[] = "'provider_name' can't be null";
+        if ($this->container['providerName'] === null) {
+            $invalid_properties[] = "'providerName' can't be null";
         }
-        if ($this->container['provider_user_name'] === null) {
-            $invalid_properties[] = "'provider_user_name' can't be null";
+        if ($this->container['providerUserName'] === null) {
+            $invalid_properties[] = "'providerUserName' can't be null";
         }
         if ($this->container['user'] === null) {
             $invalid_properties[] = "'user' can't be null";
@@ -183,10 +183,10 @@ class V1Identity implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['provider_name'] === null) {
+        if ($this->container['providerName'] === null) {
             return false;
         }
-        if ($this->container['provider_user_name'] === null) {
+        if ($this->container['providerUserName'] === null) {
             return false;
         }
         if ($this->container['user'] === null) {
@@ -197,22 +197,22 @@ class V1Identity implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -281,43 +281,43 @@ class V1Identity implements ArrayAccess
     }
 
     /**
-     * Gets provider_name
+     * Gets providerName
      * @return string
      */
     public function getProviderName()
     {
-        return $this->container['provider_name'];
+        return $this->container['providerName'];
     }
 
     /**
-     * Sets provider_name
-     * @param string $provider_name ProviderName is the source of identity information
+     * Sets providerName
+     * @param string $providerName ProviderName is the source of identity information
      * @return $this
      */
-    public function setProviderName($provider_name)
+    public function setProviderName($providerName)
     {
-        $this->container['provider_name'] = $provider_name;
+        $this->container['providerName'] = $providerName;
 
         return $this;
     }
 
     /**
-     * Gets provider_user_name
+     * Gets providerUserName
      * @return string
      */
     public function getProviderUserName()
     {
-        return $this->container['provider_user_name'];
+        return $this->container['providerUserName'];
     }
 
     /**
-     * Sets provider_user_name
-     * @param string $provider_user_name ProviderUserName uniquely represents this identity in the scope of the provider
+     * Sets providerUserName
+     * @param string $providerUserName ProviderUserName uniquely represents this identity in the scope of the provider
      * @return $this
      */
-    public function setProviderUserName($provider_user_name)
+    public function setProviderUserName($providerUserName)
     {
-        $this->container['provider_user_name'] = $provider_user_name;
+        $this->container['providerUserName'] = $providerUserName;
 
         return $this;
     }

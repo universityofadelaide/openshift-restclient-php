@@ -83,7 +83,7 @@ class V1NodeSelectorTermTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "match_expressions"
+     * Test attribute "matchExpressions"
      */
     public function testPropertyMatchExpressions()
     {

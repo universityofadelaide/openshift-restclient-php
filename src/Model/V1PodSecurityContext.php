@@ -55,11 +55,11 @@ class V1PodSecurityContext implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_group' => 'int',
-        'run_as_non_root' => 'bool',
-        'run_as_user' => 'int',
-        'se_linux_options' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions',
-        'supplemental_groups' => 'int[]'
+        'fsGroup' => 'int',
+        'runAsNonRoot' => 'bool',
+        'runAsUser' => 'int',
+        'seLinuxOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions',
+        'supplementalGroups' => 'int[]'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1PodSecurityContext implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_group' => 'fsGroup',
-        'run_as_non_root' => 'runAsNonRoot',
-        'run_as_user' => 'runAsUser',
-        'se_linux_options' => 'seLinuxOptions',
-        'supplemental_groups' => 'supplementalGroups'
+        'fsGroup' => 'fsGroup',
+        'runAsNonRoot' => 'runAsNonRoot',
+        'runAsUser' => 'runAsUser',
+        'seLinuxOptions' => 'seLinuxOptions',
+        'supplementalGroups' => 'supplementalGroups'
     ];
 
 
@@ -85,11 +85,11 @@ class V1PodSecurityContext implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_group' => 'setFsGroup',
-        'run_as_non_root' => 'setRunAsNonRoot',
-        'run_as_user' => 'setRunAsUser',
-        'se_linux_options' => 'setSeLinuxOptions',
-        'supplemental_groups' => 'setSupplementalGroups'
+        'fsGroup' => 'setFsGroup',
+        'runAsNonRoot' => 'setRunAsNonRoot',
+        'runAsUser' => 'setRunAsUser',
+        'seLinuxOptions' => 'setSeLinuxOptions',
+        'supplementalGroups' => 'setSupplementalGroups'
     ];
 
 
@@ -98,11 +98,11 @@ class V1PodSecurityContext implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_group' => 'getFsGroup',
-        'run_as_non_root' => 'getRunAsNonRoot',
-        'run_as_user' => 'getRunAsUser',
-        'se_linux_options' => 'getSeLinuxOptions',
-        'supplemental_groups' => 'getSupplementalGroups'
+        'fsGroup' => 'getFsGroup',
+        'runAsNonRoot' => 'getRunAsNonRoot',
+        'runAsUser' => 'getRunAsUser',
+        'seLinuxOptions' => 'getSeLinuxOptions',
+        'supplementalGroups' => 'getSupplementalGroups'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1PodSecurityContext implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_group'] = isset($data['fs_group']) ? $data['fs_group'] : null;
-        $this->container['run_as_non_root'] = isset($data['run_as_non_root']) ? $data['run_as_non_root'] : null;
-        $this->container['run_as_user'] = isset($data['run_as_user']) ? $data['run_as_user'] : null;
-        $this->container['se_linux_options'] = isset($data['se_linux_options']) ? $data['se_linux_options'] : null;
-        $this->container['supplemental_groups'] = isset($data['supplemental_groups']) ? $data['supplemental_groups'] : null;
+        $this->container['fsGroup'] = isset($data['fsGroup']) ? $data['fsGroup'] : null;
+        $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['runAsUser'] = isset($data['runAsUser']) ? $data['runAsUser'] : null;
+        $this->container['seLinuxOptions'] = isset($data['seLinuxOptions']) ? $data['seLinuxOptions'] : null;
+        $this->container['supplementalGroups'] = isset($data['supplementalGroups']) ? $data['supplementalGroups'] : null;
     }
 
     /**
@@ -169,106 +169,106 @@ class V1PodSecurityContext implements ArrayAccess
 
 
     /**
-     * Gets fs_group
+     * Gets fsGroup
      * @return int
      */
     public function getFsGroup()
     {
-        return $this->container['fs_group'];
+        return $this->container['fsGroup'];
     }
 
     /**
-     * Sets fs_group
-     * @param int $fs_group A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----  If unset, the Kubelet will not modify the ownership and permissions of any volume.
+     * Sets fsGroup
+     * @param int $fsGroup A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----  If unset, the Kubelet will not modify the ownership and permissions of any volume.
      * @return $this
      */
-    public function setFsGroup($fs_group)
+    public function setFsGroup($fsGroup)
     {
-        $this->container['fs_group'] = $fs_group;
+        $this->container['fsGroup'] = $fsGroup;
 
         return $this;
     }
 
     /**
-     * Gets run_as_non_root
+     * Gets runAsNonRoot
      * @return bool
      */
     public function getRunAsNonRoot()
     {
-        return $this->container['run_as_non_root'];
+        return $this->container['runAsNonRoot'];
     }
 
     /**
-     * Sets run_as_non_root
-     * @param bool $run_as_non_root Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+     * Sets runAsNonRoot
+     * @param bool $runAsNonRoot Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
      * @return $this
      */
-    public function setRunAsNonRoot($run_as_non_root)
+    public function setRunAsNonRoot($runAsNonRoot)
     {
-        $this->container['run_as_non_root'] = $run_as_non_root;
+        $this->container['runAsNonRoot'] = $runAsNonRoot;
 
         return $this;
     }
 
     /**
-     * Gets run_as_user
+     * Gets runAsUser
      * @return int
      */
     public function getRunAsUser()
     {
-        return $this->container['run_as_user'];
+        return $this->container['runAsUser'];
     }
 
     /**
-     * Sets run_as_user
-     * @param int $run_as_user The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+     * Sets runAsUser
+     * @param int $runAsUser The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
      * @return $this
      */
-    public function setRunAsUser($run_as_user)
+    public function setRunAsUser($runAsUser)
     {
-        $this->container['run_as_user'] = $run_as_user;
+        $this->container['runAsUser'] = $runAsUser;
 
         return $this;
     }
 
     /**
-     * Gets se_linux_options
+     * Gets seLinuxOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions
      */
     public function getSeLinuxOptions()
     {
-        return $this->container['se_linux_options'];
+        return $this->container['seLinuxOptions'];
     }
 
     /**
-     * Sets se_linux_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $se_linux_options The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+     * Sets seLinuxOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $seLinuxOptions The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
      * @return $this
      */
-    public function setSeLinuxOptions($se_linux_options)
+    public function setSeLinuxOptions($seLinuxOptions)
     {
-        $this->container['se_linux_options'] = $se_linux_options;
+        $this->container['seLinuxOptions'] = $seLinuxOptions;
 
         return $this;
     }
 
     /**
-     * Gets supplemental_groups
+     * Gets supplementalGroups
      * @return int[]
      */
     public function getSupplementalGroups()
     {
-        return $this->container['supplemental_groups'];
+        return $this->container['supplementalGroups'];
     }
 
     /**
-     * Sets supplemental_groups
-     * @param int[] $supplemental_groups A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.
+     * Sets supplementalGroups
+     * @param int[] $supplementalGroups A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.
      * @return $this
      */
-    public function setSupplementalGroups($supplemental_groups)
+    public function setSupplementalGroups($supplementalGroups)
     {
-        $this->container['supplemental_groups'] = $supplemental_groups;
+        $this->container['supplementalGroups'] = $supplementalGroups;
 
         return $this;
     }

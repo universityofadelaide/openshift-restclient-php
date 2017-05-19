@@ -55,13 +55,13 @@ class V1ContainerStateTerminated implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'container_id' => 'string',
-        'exit_code' => 'int',
-        'finished_at' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'containerID' => 'string',
+        'exitCode' => 'int',
+        'finishedAt' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'reason' => 'string',
         'signal' => 'int',
-        'started_at' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
+        'startedAt' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1ContainerStateTerminated implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_id' => 'containerID',
-        'exit_code' => 'exitCode',
-        'finished_at' => 'finishedAt',
+        'containerID' => 'containerID',
+        'exitCode' => 'exitCode',
+        'finishedAt' => 'finishedAt',
         'message' => 'message',
         'reason' => 'reason',
         'signal' => 'signal',
-        'started_at' => 'startedAt'
+        'startedAt' => 'startedAt'
     ];
 
 
@@ -89,13 +89,13 @@ class V1ContainerStateTerminated implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'container_id' => 'setContainerId',
-        'exit_code' => 'setExitCode',
-        'finished_at' => 'setFinishedAt',
+        'containerID' => 'setContainerID',
+        'exitCode' => 'setExitCode',
+        'finishedAt' => 'setFinishedAt',
         'message' => 'setMessage',
         'reason' => 'setReason',
         'signal' => 'setSignal',
-        'started_at' => 'setStartedAt'
+        'startedAt' => 'setStartedAt'
     ];
 
 
@@ -104,13 +104,13 @@ class V1ContainerStateTerminated implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'container_id' => 'getContainerId',
-        'exit_code' => 'getExitCode',
-        'finished_at' => 'getFinishedAt',
+        'containerID' => 'getContainerID',
+        'exitCode' => 'getExitCode',
+        'finishedAt' => 'getFinishedAt',
         'message' => 'getMessage',
         'reason' => 'getReason',
         'signal' => 'getSignal',
-        'started_at' => 'getStartedAt'
+        'startedAt' => 'getStartedAt'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1ContainerStateTerminated implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
-        $this->container['exit_code'] = isset($data['exit_code']) ? $data['exit_code'] : null;
-        $this->container['finished_at'] = isset($data['finished_at']) ? $data['finished_at'] : null;
+        $this->container['containerID'] = isset($data['containerID']) ? $data['containerID'] : null;
+        $this->container['exitCode'] = isset($data['exitCode']) ? $data['exitCode'] : null;
+        $this->container['finishedAt'] = isset($data['finishedAt']) ? $data['finishedAt'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['signal'] = isset($data['signal']) ? $data['signal'] : null;
-        $this->container['started_at'] = isset($data['started_at']) ? $data['started_at'] : null;
+        $this->container['startedAt'] = isset($data['startedAt']) ? $data['startedAt'] : null;
     }
 
     /**
@@ -162,8 +162,8 @@ class V1ContainerStateTerminated implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['exit_code'] === null) {
-            $invalid_properties[] = "'exit_code' can't be null";
+        if ($this->container['exitCode'] === null) {
+            $invalid_properties[] = "'exitCode' can't be null";
         }
         return $invalid_properties;
     }
@@ -177,7 +177,7 @@ class V1ContainerStateTerminated implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['exit_code'] === null) {
+        if ($this->container['exitCode'] === null) {
             return false;
         }
         return true;
@@ -185,64 +185,64 @@ class V1ContainerStateTerminated implements ArrayAccess
 
 
     /**
-     * Gets container_id
+     * Gets containerID
      * @return string
      */
-    public function getContainerId()
+    public function getContainerID()
     {
-        return $this->container['container_id'];
+        return $this->container['containerID'];
     }
 
     /**
-     * Sets container_id
-     * @param string $container_id Container's ID in the format 'docker://<container_id>'
+     * Sets containerID
+     * @param string $containerID Container's ID in the format 'docker://<container_id>'
      * @return $this
      */
-    public function setContainerId($container_id)
+    public function setContainerID($containerID)
     {
-        $this->container['container_id'] = $container_id;
+        $this->container['containerID'] = $containerID;
 
         return $this;
     }
 
     /**
-     * Gets exit_code
+     * Gets exitCode
      * @return int
      */
     public function getExitCode()
     {
-        return $this->container['exit_code'];
+        return $this->container['exitCode'];
     }
 
     /**
-     * Sets exit_code
-     * @param int $exit_code Exit status from the last termination of the container
+     * Sets exitCode
+     * @param int $exitCode Exit status from the last termination of the container
      * @return $this
      */
-    public function setExitCode($exit_code)
+    public function setExitCode($exitCode)
     {
-        $this->container['exit_code'] = $exit_code;
+        $this->container['exitCode'] = $exitCode;
 
         return $this;
     }
 
     /**
-     * Gets finished_at
+     * Gets finishedAt
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getFinishedAt()
     {
-        return $this->container['finished_at'];
+        return $this->container['finishedAt'];
     }
 
     /**
-     * Sets finished_at
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $finished_at Time at which the container last terminated
+     * Sets finishedAt
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $finishedAt Time at which the container last terminated
      * @return $this
      */
-    public function setFinishedAt($finished_at)
+    public function setFinishedAt($finishedAt)
     {
-        $this->container['finished_at'] = $finished_at;
+        $this->container['finishedAt'] = $finishedAt;
 
         return $this;
     }
@@ -311,22 +311,22 @@ class V1ContainerStateTerminated implements ArrayAccess
     }
 
     /**
-     * Gets started_at
+     * Gets startedAt
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartedAt()
     {
-        return $this->container['started_at'];
+        return $this->container['startedAt'];
     }
 
     /**
-     * Sets started_at
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $started_at Time at which previous execution of the container started
+     * Sets startedAt
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startedAt Time at which previous execution of the container started
      * @return $this
      */
-    public function setStartedAt($started_at)
+    public function setStartedAt($startedAt)
     {
-        $this->container['started_at'] = $started_at;
+        $this->container['startedAt'] = $startedAt;
 
         return $this;
     }

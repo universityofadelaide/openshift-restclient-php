@@ -91,7 +91,7 @@ class V1TagEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_image_reference"
+     * Test attribute "dockerImageReference"
      */
     public function testPropertyDockerImageReference()
     {

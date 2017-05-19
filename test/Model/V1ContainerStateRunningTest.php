@@ -83,7 +83,7 @@ class V1ContainerStateRunningTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "started_at"
+     * Test attribute "startedAt"
      */
     public function testPropertyStartedAt()
     {

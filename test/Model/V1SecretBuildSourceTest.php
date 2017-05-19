@@ -83,7 +83,7 @@ class V1SecretBuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "destination_dir"
+     * Test attribute "destinationDir"
      */
     public function testPropertyDestinationDir()
     {

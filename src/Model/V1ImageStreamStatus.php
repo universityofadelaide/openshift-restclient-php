@@ -55,7 +55,7 @@ class V1ImageStreamStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'docker_image_repository' => 'string',
+        'dockerImageRepository' => 'string',
         'tags' => '\UniversityOfAdelaide\OpenShift\Model\V1NamedTagEventList[]'
     ];
 
@@ -69,7 +69,7 @@ class V1ImageStreamStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'docker_image_repository' => 'dockerImageRepository',
+        'dockerImageRepository' => 'dockerImageRepository',
         'tags' => 'tags'
     ];
 
@@ -79,7 +79,7 @@ class V1ImageStreamStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'docker_image_repository' => 'setDockerImageRepository',
+        'dockerImageRepository' => 'setDockerImageRepository',
         'tags' => 'setTags'
     ];
 
@@ -89,7 +89,7 @@ class V1ImageStreamStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'docker_image_repository' => 'getDockerImageRepository',
+        'dockerImageRepository' => 'getDockerImageRepository',
         'tags' => 'getTags'
     ];
 
@@ -124,7 +124,7 @@ class V1ImageStreamStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['docker_image_repository'] = isset($data['docker_image_repository']) ? $data['docker_image_repository'] : null;
+        $this->container['dockerImageRepository'] = isset($data['dockerImageRepository']) ? $data['dockerImageRepository'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -137,8 +137,8 @@ class V1ImageStreamStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['docker_image_repository'] === null) {
-            $invalid_properties[] = "'docker_image_repository' can't be null";
+        if ($this->container['dockerImageRepository'] === null) {
+            $invalid_properties[] = "'dockerImageRepository' can't be null";
         }
         return $invalid_properties;
     }
@@ -152,7 +152,7 @@ class V1ImageStreamStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['docker_image_repository'] === null) {
+        if ($this->container['dockerImageRepository'] === null) {
             return false;
         }
         return true;
@@ -160,22 +160,22 @@ class V1ImageStreamStatus implements ArrayAccess
 
 
     /**
-     * Gets docker_image_repository
+     * Gets dockerImageRepository
      * @return string
      */
     public function getDockerImageRepository()
     {
-        return $this->container['docker_image_repository'];
+        return $this->container['dockerImageRepository'];
     }
 
     /**
-     * Sets docker_image_repository
-     * @param string $docker_image_repository DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located
+     * Sets dockerImageRepository
+     * @param string $dockerImageRepository DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located
      * @return $this
      */
-    public function setDockerImageRepository($docker_image_repository)
+    public function setDockerImageRepository($dockerImageRepository)
     {
-        $this->container['docker_image_repository'] = $docker_image_repository;
+        $this->container['dockerImageRepository'] = $dockerImageRepository;
 
         return $this;
     }

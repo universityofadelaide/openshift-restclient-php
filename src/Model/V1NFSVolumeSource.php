@@ -56,7 +56,7 @@ class V1NFSVolumeSource implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'path' => 'string',
-        'read_only' => 'bool',
+        'readOnly' => 'bool',
         'server' => 'string'
     ];
 
@@ -71,7 +71,7 @@ class V1NFSVolumeSource implements ArrayAccess
      */
     protected static $attributeMap = [
         'path' => 'path',
-        'read_only' => 'readOnly',
+        'readOnly' => 'readOnly',
         'server' => 'server'
     ];
 
@@ -82,7 +82,7 @@ class V1NFSVolumeSource implements ArrayAccess
      */
     protected static $setters = [
         'path' => 'setPath',
-        'read_only' => 'setReadOnly',
+        'readOnly' => 'setReadOnly',
         'server' => 'setServer'
     ];
 
@@ -93,7 +93,7 @@ class V1NFSVolumeSource implements ArrayAccess
      */
     protected static $getters = [
         'path' => 'getPath',
-        'read_only' => 'getReadOnly',
+        'readOnly' => 'getReadOnly',
         'server' => 'getServer'
     ];
 
@@ -129,7 +129,7 @@ class V1NFSVolumeSource implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['server'] = isset($data['server']) ? $data['server'] : null;
     }
 
@@ -192,22 +192,22 @@ class V1NFSVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

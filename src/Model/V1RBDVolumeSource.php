@@ -55,13 +55,13 @@ class V1RBDVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
+        'fsType' => 'string',
         'image' => 'string',
         'keyring' => 'string',
         'monitors' => 'string[]',
         'pool' => 'string',
-        'read_only' => 'bool',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'readOnly' => 'bool',
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
         'user' => 'string'
     ];
 
@@ -75,13 +75,13 @@ class V1RBDVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
+        'fsType' => 'fsType',
         'image' => 'image',
         'keyring' => 'keyring',
         'monitors' => 'monitors',
         'pool' => 'pool',
-        'read_only' => 'readOnly',
-        'secret_ref' => 'secretRef',
+        'readOnly' => 'readOnly',
+        'secretRef' => 'secretRef',
         'user' => 'user'
     ];
 
@@ -91,13 +91,13 @@ class V1RBDVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
+        'fsType' => 'setFsType',
         'image' => 'setImage',
         'keyring' => 'setKeyring',
         'monitors' => 'setMonitors',
         'pool' => 'setPool',
-        'read_only' => 'setReadOnly',
-        'secret_ref' => 'setSecretRef',
+        'readOnly' => 'setReadOnly',
+        'secretRef' => 'setSecretRef',
         'user' => 'setUser'
     ];
 
@@ -107,13 +107,13 @@ class V1RBDVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
+        'fsType' => 'getFsType',
         'image' => 'getImage',
         'keyring' => 'getKeyring',
         'monitors' => 'getMonitors',
         'pool' => 'getPool',
-        'read_only' => 'getReadOnly',
-        'secret_ref' => 'getSecretRef',
+        'readOnly' => 'getReadOnly',
+        'secretRef' => 'getSecretRef',
         'user' => 'getUser'
     ];
 
@@ -148,13 +148,13 @@ class V1RBDVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['keyring'] = isset($data['keyring']) ? $data['keyring'] : null;
         $this->container['monitors'] = isset($data['monitors']) ? $data['monitors'] : null;
         $this->container['pool'] = isset($data['pool']) ? $data['pool'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -196,22 +196,22 @@ class V1RBDVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+     * Sets fsType
+     * @param string $fsType Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -301,43 +301,43 @@ class V1RBDVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_ref SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretRef SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }

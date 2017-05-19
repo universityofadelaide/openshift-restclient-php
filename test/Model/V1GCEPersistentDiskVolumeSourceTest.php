@@ -83,7 +83,7 @@ class V1GCEPersistentDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -99,7 +99,7 @@ class V1GCEPersistentDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pd_name"
+     * Test attribute "pdName"
      */
     public function testPropertyPdName()
     {
@@ -107,7 +107,7 @@ class V1GCEPersistentDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {

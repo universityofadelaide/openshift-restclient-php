@@ -83,7 +83,7 @@ class V2alpha1ObjectMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_value"
+     * Test attribute "currentValue"
      */
     public function testPropertyCurrentValue()
     {
@@ -91,7 +91,7 @@ class V2alpha1ObjectMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "metric_name"
+     * Test attribute "metricName"
      */
     public function testPropertyMetricName()
     {

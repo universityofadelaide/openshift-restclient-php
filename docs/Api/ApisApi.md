@@ -19,7 +19,7 @@ get available API versions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\ApisApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\ApisApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getAPIVersions();

@@ -55,11 +55,11 @@ class V1beta1DeploymentRollback implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
         'name' => 'string',
-        'rollback_to' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RollbackConfig',
-        'updated_annotations' => 'map[string,string]'
+        'rollbackTo' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RollbackConfig',
+        'updatedAnnotations' => 'map[string,string]'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1beta1DeploymentRollback implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
         'name' => 'name',
-        'rollback_to' => 'rollbackTo',
-        'updated_annotations' => 'updatedAnnotations'
+        'rollbackTo' => 'rollbackTo',
+        'updatedAnnotations' => 'updatedAnnotations'
     ];
 
 
@@ -85,11 +85,11 @@ class V1beta1DeploymentRollback implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
         'name' => 'setName',
-        'rollback_to' => 'setRollbackTo',
-        'updated_annotations' => 'setUpdatedAnnotations'
+        'rollbackTo' => 'setRollbackTo',
+        'updatedAnnotations' => 'setUpdatedAnnotations'
     ];
 
 
@@ -98,11 +98,11 @@ class V1beta1DeploymentRollback implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
         'name' => 'getName',
-        'rollback_to' => 'getRollbackTo',
-        'updated_annotations' => 'getUpdatedAnnotations'
+        'rollbackTo' => 'getRollbackTo',
+        'updatedAnnotations' => 'getUpdatedAnnotations'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1beta1DeploymentRollback implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rollback_to'] = isset($data['rollback_to']) ? $data['rollback_to'] : null;
-        $this->container['updated_annotations'] = isset($data['updated_annotations']) ? $data['updated_annotations'] : null;
+        $this->container['rollbackTo'] = isset($data['rollbackTo']) ? $data['rollbackTo'] : null;
+        $this->container['updatedAnnotations'] = isset($data['updatedAnnotations']) ? $data['updatedAnnotations'] : null;
     }
 
     /**
@@ -155,8 +155,8 @@ class V1beta1DeploymentRollback implements ArrayAccess
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
         }
-        if ($this->container['rollback_to'] === null) {
-            $invalid_properties[] = "'rollback_to' can't be null";
+        if ($this->container['rollbackTo'] === null) {
+            $invalid_properties[] = "'rollbackTo' can't be null";
         }
         return $invalid_properties;
     }
@@ -173,7 +173,7 @@ class V1beta1DeploymentRollback implements ArrayAccess
         if ($this->container['name'] === null) {
             return false;
         }
-        if ($this->container['rollback_to'] === null) {
+        if ($this->container['rollbackTo'] === null) {
             return false;
         }
         return true;
@@ -181,22 +181,22 @@ class V1beta1DeploymentRollback implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -244,43 +244,43 @@ class V1beta1DeploymentRollback implements ArrayAccess
     }
 
     /**
-     * Gets rollback_to
+     * Gets rollbackTo
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1RollbackConfig
      */
     public function getRollbackTo()
     {
-        return $this->container['rollback_to'];
+        return $this->container['rollbackTo'];
     }
 
     /**
-     * Sets rollback_to
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RollbackConfig $rollback_to The config of this deployment rollback.
+     * Sets rollbackTo
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RollbackConfig $rollbackTo The config of this deployment rollback.
      * @return $this
      */
-    public function setRollbackTo($rollback_to)
+    public function setRollbackTo($rollbackTo)
     {
-        $this->container['rollback_to'] = $rollback_to;
+        $this->container['rollbackTo'] = $rollbackTo;
 
         return $this;
     }
 
     /**
-     * Gets updated_annotations
+     * Gets updatedAnnotations
      * @return map[string,string]
      */
     public function getUpdatedAnnotations()
     {
-        return $this->container['updated_annotations'];
+        return $this->container['updatedAnnotations'];
     }
 
     /**
-     * Sets updated_annotations
-     * @param map[string,string] $updated_annotations The annotations to be updated to a deployment
+     * Sets updatedAnnotations
+     * @param map[string,string] $updatedAnnotations The annotations to be updated to a deployment
      * @return $this
      */
-    public function setUpdatedAnnotations($updated_annotations)
+    public function setUpdatedAnnotations($updatedAnnotations)
     {
-        $this->container['updated_annotations'] = $updated_annotations;
+        $this->container['updatedAnnotations'] = $updatedAnnotations;
 
         return $this;
     }

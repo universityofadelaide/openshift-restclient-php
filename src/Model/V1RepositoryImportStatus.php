@@ -55,7 +55,7 @@ class V1RepositoryImportStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'additional_tags' => 'string[]',
+        'additionalTags' => 'string[]',
         'images' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageImportStatus[]',
         'status' => '\UniversityOfAdelaide\OpenShift\Model\V1Status'
     ];
@@ -70,7 +70,7 @@ class V1RepositoryImportStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_tags' => 'additionalTags',
+        'additionalTags' => 'additionalTags',
         'images' => 'images',
         'status' => 'status'
     ];
@@ -81,7 +81,7 @@ class V1RepositoryImportStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'additional_tags' => 'setAdditionalTags',
+        'additionalTags' => 'setAdditionalTags',
         'images' => 'setImages',
         'status' => 'setStatus'
     ];
@@ -92,7 +92,7 @@ class V1RepositoryImportStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'additional_tags' => 'getAdditionalTags',
+        'additionalTags' => 'getAdditionalTags',
         'images' => 'getImages',
         'status' => 'getStatus'
     ];
@@ -128,7 +128,7 @@ class V1RepositoryImportStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_tags'] = isset($data['additional_tags']) ? $data['additional_tags'] : null;
+        $this->container['additionalTags'] = isset($data['additionalTags']) ? $data['additionalTags'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -159,22 +159,22 @@ class V1RepositoryImportStatus implements ArrayAccess
 
 
     /**
-     * Gets additional_tags
+     * Gets additionalTags
      * @return string[]
      */
     public function getAdditionalTags()
     {
-        return $this->container['additional_tags'];
+        return $this->container['additionalTags'];
     }
 
     /**
-     * Sets additional_tags
-     * @param string[] $additional_tags AdditionalTags are tags that exist in the repository but were not imported because a maximum limit of automatic imports was applied.
+     * Sets additionalTags
+     * @param string[] $additionalTags AdditionalTags are tags that exist in the repository but were not imported because a maximum limit of automatic imports was applied.
      * @return $this
      */
-    public function setAdditionalTags($additional_tags)
+    public function setAdditionalTags($additionalTags)
     {
-        $this->container['additional_tags'] = $additional_tags;
+        $this->container['additionalTags'] = $additionalTags;
 
         return $this;
     }

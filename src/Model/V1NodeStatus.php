@@ -59,12 +59,12 @@ class V1NodeStatus implements ArrayAccess
         'allocatable' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'capacity' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeCondition[]',
-        'daemon_endpoints' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeDaemonEndpoints',
+        'daemonEndpoints' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeDaemonEndpoints',
         'images' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerImage[]',
-        'node_info' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSystemInfo',
+        'nodeInfo' => '\UniversityOfAdelaide\OpenShift\Model\V1NodeSystemInfo',
         'phase' => 'string',
-        'volumes_attached' => '\UniversityOfAdelaide\OpenShift\Model\V1AttachedVolume[]',
-        'volumes_in_use' => 'string[]'
+        'volumesAttached' => '\UniversityOfAdelaide\OpenShift\Model\V1AttachedVolume[]',
+        'volumesInUse' => 'string[]'
     ];
 
     public static function swaggerTypes()
@@ -81,12 +81,12 @@ class V1NodeStatus implements ArrayAccess
         'allocatable' => 'allocatable',
         'capacity' => 'capacity',
         'conditions' => 'conditions',
-        'daemon_endpoints' => 'daemonEndpoints',
+        'daemonEndpoints' => 'daemonEndpoints',
         'images' => 'images',
-        'node_info' => 'nodeInfo',
+        'nodeInfo' => 'nodeInfo',
         'phase' => 'phase',
-        'volumes_attached' => 'volumesAttached',
-        'volumes_in_use' => 'volumesInUse'
+        'volumesAttached' => 'volumesAttached',
+        'volumesInUse' => 'volumesInUse'
     ];
 
 
@@ -99,12 +99,12 @@ class V1NodeStatus implements ArrayAccess
         'allocatable' => 'setAllocatable',
         'capacity' => 'setCapacity',
         'conditions' => 'setConditions',
-        'daemon_endpoints' => 'setDaemonEndpoints',
+        'daemonEndpoints' => 'setDaemonEndpoints',
         'images' => 'setImages',
-        'node_info' => 'setNodeInfo',
+        'nodeInfo' => 'setNodeInfo',
         'phase' => 'setPhase',
-        'volumes_attached' => 'setVolumesAttached',
-        'volumes_in_use' => 'setVolumesInUse'
+        'volumesAttached' => 'setVolumesAttached',
+        'volumesInUse' => 'setVolumesInUse'
     ];
 
 
@@ -117,12 +117,12 @@ class V1NodeStatus implements ArrayAccess
         'allocatable' => 'getAllocatable',
         'capacity' => 'getCapacity',
         'conditions' => 'getConditions',
-        'daemon_endpoints' => 'getDaemonEndpoints',
+        'daemonEndpoints' => 'getDaemonEndpoints',
         'images' => 'getImages',
-        'node_info' => 'getNodeInfo',
+        'nodeInfo' => 'getNodeInfo',
         'phase' => 'getPhase',
-        'volumes_attached' => 'getVolumesAttached',
-        'volumes_in_use' => 'getVolumesInUse'
+        'volumesAttached' => 'getVolumesAttached',
+        'volumesInUse' => 'getVolumesInUse'
     ];
 
     public static function attributeMap()
@@ -160,12 +160,12 @@ class V1NodeStatus implements ArrayAccess
         $this->container['allocatable'] = isset($data['allocatable']) ? $data['allocatable'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
-        $this->container['daemon_endpoints'] = isset($data['daemon_endpoints']) ? $data['daemon_endpoints'] : null;
+        $this->container['daemonEndpoints'] = isset($data['daemonEndpoints']) ? $data['daemonEndpoints'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
+        $this->container['nodeInfo'] = isset($data['nodeInfo']) ? $data['nodeInfo'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
-        $this->container['volumes_attached'] = isset($data['volumes_attached']) ? $data['volumes_attached'] : null;
-        $this->container['volumes_in_use'] = isset($data['volumes_in_use']) ? $data['volumes_in_use'] : null;
+        $this->container['volumesAttached'] = isset($data['volumesAttached']) ? $data['volumesAttached'] : null;
+        $this->container['volumesInUse'] = isset($data['volumesInUse']) ? $data['volumesInUse'] : null;
     }
 
     /**
@@ -278,22 +278,22 @@ class V1NodeStatus implements ArrayAccess
     }
 
     /**
-     * Gets daemon_endpoints
+     * Gets daemonEndpoints
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NodeDaemonEndpoints
      */
     public function getDaemonEndpoints()
     {
-        return $this->container['daemon_endpoints'];
+        return $this->container['daemonEndpoints'];
     }
 
     /**
-     * Sets daemon_endpoints
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeDaemonEndpoints $daemon_endpoints Endpoints of daemons running on the Node.
+     * Sets daemonEndpoints
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeDaemonEndpoints $daemonEndpoints Endpoints of daemons running on the Node.
      * @return $this
      */
-    public function setDaemonEndpoints($daemon_endpoints)
+    public function setDaemonEndpoints($daemonEndpoints)
     {
-        $this->container['daemon_endpoints'] = $daemon_endpoints;
+        $this->container['daemonEndpoints'] = $daemonEndpoints;
 
         return $this;
     }
@@ -320,22 +320,22 @@ class V1NodeStatus implements ArrayAccess
     }
 
     /**
-     * Gets node_info
+     * Gets nodeInfo
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NodeSystemInfo
      */
     public function getNodeInfo()
     {
-        return $this->container['node_info'];
+        return $this->container['nodeInfo'];
     }
 
     /**
-     * Sets node_info
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSystemInfo $node_info Set of ids/uuids to uniquely identify the node. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#node-info
+     * Sets nodeInfo
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NodeSystemInfo $nodeInfo Set of ids/uuids to uniquely identify the node. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#node-info
      * @return $this
      */
-    public function setNodeInfo($node_info)
+    public function setNodeInfo($nodeInfo)
     {
-        $this->container['node_info'] = $node_info;
+        $this->container['nodeInfo'] = $nodeInfo;
 
         return $this;
     }
@@ -362,43 +362,43 @@ class V1NodeStatus implements ArrayAccess
     }
 
     /**
-     * Gets volumes_attached
+     * Gets volumesAttached
      * @return \UniversityOfAdelaide\OpenShift\Model\V1AttachedVolume[]
      */
     public function getVolumesAttached()
     {
-        return $this->container['volumes_attached'];
+        return $this->container['volumesAttached'];
     }
 
     /**
-     * Sets volumes_attached
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1AttachedVolume[] $volumes_attached List of volumes that are attached to the node.
+     * Sets volumesAttached
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1AttachedVolume[] $volumesAttached List of volumes that are attached to the node.
      * @return $this
      */
-    public function setVolumesAttached($volumes_attached)
+    public function setVolumesAttached($volumesAttached)
     {
-        $this->container['volumes_attached'] = $volumes_attached;
+        $this->container['volumesAttached'] = $volumesAttached;
 
         return $this;
     }
 
     /**
-     * Gets volumes_in_use
+     * Gets volumesInUse
      * @return string[]
      */
     public function getVolumesInUse()
     {
-        return $this->container['volumes_in_use'];
+        return $this->container['volumesInUse'];
     }
 
     /**
-     * Sets volumes_in_use
-     * @param string[] $volumes_in_use List of attachable volumes in use (mounted) by the node.
+     * Sets volumesInUse
+     * @param string[] $volumesInUse List of attachable volumes in use (mounted) by the node.
      * @return $this
      */
-    public function setVolumesInUse($volumes_in_use)
+    public function setVolumesInUse($volumesInUse)
     {
-        $this->container['volumes_in_use'] = $volumes_in_use;
+        $this->container['volumesInUse'] = $volumesInUse;
 
         return $this;
     }

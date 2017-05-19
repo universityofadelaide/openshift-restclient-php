@@ -83,7 +83,7 @@ class V1PodSecurityPolicySelfSubjectReviewTest extends \PHPUnit_Framework_TestCa
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {

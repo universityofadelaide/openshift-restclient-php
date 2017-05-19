@@ -55,15 +55,15 @@ class V1Image implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'docker_image_config' => 'string',
-        'docker_image_layers' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLayer[]',
-        'docker_image_manifest' => 'string',
-        'docker_image_manifest_media_type' => 'string',
-        'docker_image_metadata' => '\UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension',
-        'docker_image_metadata_version' => 'string',
-        'docker_image_reference' => 'string',
-        'docker_image_signatures' => 'string[]',
+        'apiVersion' => 'string',
+        'dockerImageConfig' => 'string',
+        'dockerImageLayers' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLayer[]',
+        'dockerImageManifest' => 'string',
+        'dockerImageManifestMediaType' => 'string',
+        'dockerImageMetadata' => '\UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension',
+        'dockerImageMetadataVersion' => 'string',
+        'dockerImageReference' => 'string',
+        'dockerImageSignatures' => 'string[]',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'signatures' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageSignature[]'
@@ -79,15 +79,15 @@ class V1Image implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'docker_image_config' => 'dockerImageConfig',
-        'docker_image_layers' => 'dockerImageLayers',
-        'docker_image_manifest' => 'dockerImageManifest',
-        'docker_image_manifest_media_type' => 'dockerImageManifestMediaType',
-        'docker_image_metadata' => 'dockerImageMetadata',
-        'docker_image_metadata_version' => 'dockerImageMetadataVersion',
-        'docker_image_reference' => 'dockerImageReference',
-        'docker_image_signatures' => 'dockerImageSignatures',
+        'apiVersion' => 'apiVersion',
+        'dockerImageConfig' => 'dockerImageConfig',
+        'dockerImageLayers' => 'dockerImageLayers',
+        'dockerImageManifest' => 'dockerImageManifest',
+        'dockerImageManifestMediaType' => 'dockerImageManifestMediaType',
+        'dockerImageMetadata' => 'dockerImageMetadata',
+        'dockerImageMetadataVersion' => 'dockerImageMetadataVersion',
+        'dockerImageReference' => 'dockerImageReference',
+        'dockerImageSignatures' => 'dockerImageSignatures',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'signatures' => 'signatures'
@@ -99,15 +99,15 @@ class V1Image implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'docker_image_config' => 'setDockerImageConfig',
-        'docker_image_layers' => 'setDockerImageLayers',
-        'docker_image_manifest' => 'setDockerImageManifest',
-        'docker_image_manifest_media_type' => 'setDockerImageManifestMediaType',
-        'docker_image_metadata' => 'setDockerImageMetadata',
-        'docker_image_metadata_version' => 'setDockerImageMetadataVersion',
-        'docker_image_reference' => 'setDockerImageReference',
-        'docker_image_signatures' => 'setDockerImageSignatures',
+        'apiVersion' => 'setApiVersion',
+        'dockerImageConfig' => 'setDockerImageConfig',
+        'dockerImageLayers' => 'setDockerImageLayers',
+        'dockerImageManifest' => 'setDockerImageManifest',
+        'dockerImageManifestMediaType' => 'setDockerImageManifestMediaType',
+        'dockerImageMetadata' => 'setDockerImageMetadata',
+        'dockerImageMetadataVersion' => 'setDockerImageMetadataVersion',
+        'dockerImageReference' => 'setDockerImageReference',
+        'dockerImageSignatures' => 'setDockerImageSignatures',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'signatures' => 'setSignatures'
@@ -119,15 +119,15 @@ class V1Image implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'docker_image_config' => 'getDockerImageConfig',
-        'docker_image_layers' => 'getDockerImageLayers',
-        'docker_image_manifest' => 'getDockerImageManifest',
-        'docker_image_manifest_media_type' => 'getDockerImageManifestMediaType',
-        'docker_image_metadata' => 'getDockerImageMetadata',
-        'docker_image_metadata_version' => 'getDockerImageMetadataVersion',
-        'docker_image_reference' => 'getDockerImageReference',
-        'docker_image_signatures' => 'getDockerImageSignatures',
+        'apiVersion' => 'getApiVersion',
+        'dockerImageConfig' => 'getDockerImageConfig',
+        'dockerImageLayers' => 'getDockerImageLayers',
+        'dockerImageManifest' => 'getDockerImageManifest',
+        'dockerImageManifestMediaType' => 'getDockerImageManifestMediaType',
+        'dockerImageMetadata' => 'getDockerImageMetadata',
+        'dockerImageMetadataVersion' => 'getDockerImageMetadataVersion',
+        'dockerImageReference' => 'getDockerImageReference',
+        'dockerImageSignatures' => 'getDockerImageSignatures',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'signatures' => 'getSignatures'
@@ -164,15 +164,15 @@ class V1Image implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['docker_image_config'] = isset($data['docker_image_config']) ? $data['docker_image_config'] : null;
-        $this->container['docker_image_layers'] = isset($data['docker_image_layers']) ? $data['docker_image_layers'] : null;
-        $this->container['docker_image_manifest'] = isset($data['docker_image_manifest']) ? $data['docker_image_manifest'] : null;
-        $this->container['docker_image_manifest_media_type'] = isset($data['docker_image_manifest_media_type']) ? $data['docker_image_manifest_media_type'] : null;
-        $this->container['docker_image_metadata'] = isset($data['docker_image_metadata']) ? $data['docker_image_metadata'] : null;
-        $this->container['docker_image_metadata_version'] = isset($data['docker_image_metadata_version']) ? $data['docker_image_metadata_version'] : null;
-        $this->container['docker_image_reference'] = isset($data['docker_image_reference']) ? $data['docker_image_reference'] : null;
-        $this->container['docker_image_signatures'] = isset($data['docker_image_signatures']) ? $data['docker_image_signatures'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['dockerImageConfig'] = isset($data['dockerImageConfig']) ? $data['dockerImageConfig'] : null;
+        $this->container['dockerImageLayers'] = isset($data['dockerImageLayers']) ? $data['dockerImageLayers'] : null;
+        $this->container['dockerImageManifest'] = isset($data['dockerImageManifest']) ? $data['dockerImageManifest'] : null;
+        $this->container['dockerImageManifestMediaType'] = isset($data['dockerImageManifestMediaType']) ? $data['dockerImageManifestMediaType'] : null;
+        $this->container['dockerImageMetadata'] = isset($data['dockerImageMetadata']) ? $data['dockerImageMetadata'] : null;
+        $this->container['dockerImageMetadataVersion'] = isset($data['dockerImageMetadataVersion']) ? $data['dockerImageMetadataVersion'] : null;
+        $this->container['dockerImageReference'] = isset($data['dockerImageReference']) ? $data['dockerImageReference'] : null;
+        $this->container['dockerImageSignatures'] = isset($data['dockerImageSignatures']) ? $data['dockerImageSignatures'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['signatures'] = isset($data['signatures']) ? $data['signatures'] : null;
@@ -187,8 +187,8 @@ class V1Image implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['docker_image_layers'] === null) {
-            $invalid_properties[] = "'docker_image_layers' can't be null";
+        if ($this->container['dockerImageLayers'] === null) {
+            $invalid_properties[] = "'dockerImageLayers' can't be null";
         }
         return $invalid_properties;
     }
@@ -202,7 +202,7 @@ class V1Image implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['docker_image_layers'] === null) {
+        if ($this->container['dockerImageLayers'] === null) {
             return false;
         }
         return true;
@@ -210,190 +210,190 @@ class V1Image implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_config
+     * Gets dockerImageConfig
      * @return string
      */
     public function getDockerImageConfig()
     {
-        return $this->container['docker_image_config'];
+        return $this->container['dockerImageConfig'];
     }
 
     /**
-     * Sets docker_image_config
-     * @param string $docker_image_config DockerImageConfig is a JSON blob that the runtime uses to set up the container. This is a part of manifest schema v2.
+     * Sets dockerImageConfig
+     * @param string $dockerImageConfig DockerImageConfig is a JSON blob that the runtime uses to set up the container. This is a part of manifest schema v2.
      * @return $this
      */
-    public function setDockerImageConfig($docker_image_config)
+    public function setDockerImageConfig($dockerImageConfig)
     {
-        $this->container['docker_image_config'] = $docker_image_config;
+        $this->container['dockerImageConfig'] = $dockerImageConfig;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_layers
+     * Gets dockerImageLayers
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageLayer[]
      */
     public function getDockerImageLayers()
     {
-        return $this->container['docker_image_layers'];
+        return $this->container['dockerImageLayers'];
     }
 
     /**
-     * Sets docker_image_layers
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLayer[] $docker_image_layers DockerImageLayers represents the layers in the image. May not be set if the image does not define that data.
+     * Sets dockerImageLayers
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLayer[] $dockerImageLayers DockerImageLayers represents the layers in the image. May not be set if the image does not define that data.
      * @return $this
      */
-    public function setDockerImageLayers($docker_image_layers)
+    public function setDockerImageLayers($dockerImageLayers)
     {
-        $this->container['docker_image_layers'] = $docker_image_layers;
+        $this->container['dockerImageLayers'] = $dockerImageLayers;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_manifest
+     * Gets dockerImageManifest
      * @return string
      */
     public function getDockerImageManifest()
     {
-        return $this->container['docker_image_manifest'];
+        return $this->container['dockerImageManifest'];
     }
 
     /**
-     * Sets docker_image_manifest
-     * @param string $docker_image_manifest DockerImageManifest is the raw JSON of the manifest
+     * Sets dockerImageManifest
+     * @param string $dockerImageManifest DockerImageManifest is the raw JSON of the manifest
      * @return $this
      */
-    public function setDockerImageManifest($docker_image_manifest)
+    public function setDockerImageManifest($dockerImageManifest)
     {
-        $this->container['docker_image_manifest'] = $docker_image_manifest;
+        $this->container['dockerImageManifest'] = $dockerImageManifest;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_manifest_media_type
+     * Gets dockerImageManifestMediaType
      * @return string
      */
     public function getDockerImageManifestMediaType()
     {
-        return $this->container['docker_image_manifest_media_type'];
+        return $this->container['dockerImageManifestMediaType'];
     }
 
     /**
-     * Sets docker_image_manifest_media_type
-     * @param string $docker_image_manifest_media_type DockerImageManifestMediaType specifies the mediaType of manifest. This is a part of manifest schema v2.
+     * Sets dockerImageManifestMediaType
+     * @param string $dockerImageManifestMediaType DockerImageManifestMediaType specifies the mediaType of manifest. This is a part of manifest schema v2.
      * @return $this
      */
-    public function setDockerImageManifestMediaType($docker_image_manifest_media_type)
+    public function setDockerImageManifestMediaType($dockerImageManifestMediaType)
     {
-        $this->container['docker_image_manifest_media_type'] = $docker_image_manifest_media_type;
+        $this->container['dockerImageManifestMediaType'] = $dockerImageManifestMediaType;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_metadata
+     * Gets dockerImageMetadata
      * @return \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension
      */
     public function getDockerImageMetadata()
     {
-        return $this->container['docker_image_metadata'];
+        return $this->container['dockerImageMetadata'];
     }
 
     /**
-     * Sets docker_image_metadata
-     * @param \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension $docker_image_metadata DockerImageMetadata contains metadata about this image
+     * Sets dockerImageMetadata
+     * @param \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension $dockerImageMetadata DockerImageMetadata contains metadata about this image
      * @return $this
      */
-    public function setDockerImageMetadata($docker_image_metadata)
+    public function setDockerImageMetadata($dockerImageMetadata)
     {
-        $this->container['docker_image_metadata'] = $docker_image_metadata;
+        $this->container['dockerImageMetadata'] = $dockerImageMetadata;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_metadata_version
+     * Gets dockerImageMetadataVersion
      * @return string
      */
     public function getDockerImageMetadataVersion()
     {
-        return $this->container['docker_image_metadata_version'];
+        return $this->container['dockerImageMetadataVersion'];
     }
 
     /**
-     * Sets docker_image_metadata_version
-     * @param string $docker_image_metadata_version DockerImageMetadataVersion conveys the version of the object, which if empty defaults to \"1.0\"
+     * Sets dockerImageMetadataVersion
+     * @param string $dockerImageMetadataVersion DockerImageMetadataVersion conveys the version of the object, which if empty defaults to \"1.0\"
      * @return $this
      */
-    public function setDockerImageMetadataVersion($docker_image_metadata_version)
+    public function setDockerImageMetadataVersion($dockerImageMetadataVersion)
     {
-        $this->container['docker_image_metadata_version'] = $docker_image_metadata_version;
+        $this->container['dockerImageMetadataVersion'] = $dockerImageMetadataVersion;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_reference
+     * Gets dockerImageReference
      * @return string
      */
     public function getDockerImageReference()
     {
-        return $this->container['docker_image_reference'];
+        return $this->container['dockerImageReference'];
     }
 
     /**
-     * Sets docker_image_reference
-     * @param string $docker_image_reference DockerImageReference is the string that can be used to pull this image.
+     * Sets dockerImageReference
+     * @param string $dockerImageReference DockerImageReference is the string that can be used to pull this image.
      * @return $this
      */
-    public function setDockerImageReference($docker_image_reference)
+    public function setDockerImageReference($dockerImageReference)
     {
-        $this->container['docker_image_reference'] = $docker_image_reference;
+        $this->container['dockerImageReference'] = $dockerImageReference;
 
         return $this;
     }
 
     /**
-     * Gets docker_image_signatures
+     * Gets dockerImageSignatures
      * @return string[]
      */
     public function getDockerImageSignatures()
     {
-        return $this->container['docker_image_signatures'];
+        return $this->container['dockerImageSignatures'];
     }
 
     /**
-     * Sets docker_image_signatures
-     * @param string[] $docker_image_signatures DockerImageSignatures provides the signatures as opaque blobs. This is a part of manifest schema v1.
+     * Sets dockerImageSignatures
+     * @param string[] $dockerImageSignatures DockerImageSignatures provides the signatures as opaque blobs. This is a part of manifest schema v1.
      * @return $this
      */
-    public function setDockerImageSignatures($docker_image_signatures)
+    public function setDockerImageSignatures($dockerImageSignatures)
     {
-        $this->container['docker_image_signatures'] = $docker_image_signatures;
+        $this->container['dockerImageSignatures'] = $dockerImageSignatures;
 
         return $this;
     }

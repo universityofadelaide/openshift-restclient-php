@@ -83,7 +83,7 @@ class V1OAuthClientAuthorizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1OAuthClientAuthorizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "client_name"
+     * Test attribute "clientName"
      */
     public function testPropertyClientName()
     {
@@ -123,7 +123,7 @@ class V1OAuthClientAuthorizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_name"
+     * Test attribute "userName"
      */
     public function testPropertyUserName()
     {
@@ -131,9 +131,9 @@ class V1OAuthClientAuthorizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_uid"
+     * Test attribute "userUID"
      */
-    public function testPropertyUserUid()
+    public function testPropertyUserUID()
     {
 
     }

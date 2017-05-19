@@ -83,7 +83,7 @@ class V1PodAffinityTermTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "label_selector"
+     * Test attribute "labelSelector"
      */
     public function testPropertyLabelSelector()
     {
@@ -99,7 +99,7 @@ class V1PodAffinityTermTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "topology_key"
+     * Test attribute "topologyKey"
      */
     public function testPropertyTopologyKey()
     {

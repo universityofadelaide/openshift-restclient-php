@@ -55,12 +55,12 @@ class V1Event implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'count' => 'int',
-        'first_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'involved_object' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'firstTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'involvedObject' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'kind' => 'string',
-        'last_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'reason' => 'string',
@@ -78,12 +78,12 @@ class V1Event implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'count' => 'count',
-        'first_timestamp' => 'firstTimestamp',
-        'involved_object' => 'involvedObject',
+        'firstTimestamp' => 'firstTimestamp',
+        'involvedObject' => 'involvedObject',
         'kind' => 'kind',
-        'last_timestamp' => 'lastTimestamp',
+        'lastTimestamp' => 'lastTimestamp',
         'message' => 'message',
         'metadata' => 'metadata',
         'reason' => 'reason',
@@ -97,12 +97,12 @@ class V1Event implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'count' => 'setCount',
-        'first_timestamp' => 'setFirstTimestamp',
-        'involved_object' => 'setInvolvedObject',
+        'firstTimestamp' => 'setFirstTimestamp',
+        'involvedObject' => 'setInvolvedObject',
         'kind' => 'setKind',
-        'last_timestamp' => 'setLastTimestamp',
+        'lastTimestamp' => 'setLastTimestamp',
         'message' => 'setMessage',
         'metadata' => 'setMetadata',
         'reason' => 'setReason',
@@ -116,12 +116,12 @@ class V1Event implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'count' => 'getCount',
-        'first_timestamp' => 'getFirstTimestamp',
-        'involved_object' => 'getInvolvedObject',
+        'firstTimestamp' => 'getFirstTimestamp',
+        'involvedObject' => 'getInvolvedObject',
         'kind' => 'getKind',
-        'last_timestamp' => 'getLastTimestamp',
+        'lastTimestamp' => 'getLastTimestamp',
         'message' => 'getMessage',
         'metadata' => 'getMetadata',
         'reason' => 'getReason',
@@ -160,12 +160,12 @@ class V1Event implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['first_timestamp'] = isset($data['first_timestamp']) ? $data['first_timestamp'] : null;
-        $this->container['involved_object'] = isset($data['involved_object']) ? $data['involved_object'] : null;
+        $this->container['firstTimestamp'] = isset($data['firstTimestamp']) ? $data['firstTimestamp'] : null;
+        $this->container['involvedObject'] = isset($data['involvedObject']) ? $data['involvedObject'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['last_timestamp'] = isset($data['last_timestamp']) ? $data['last_timestamp'] : null;
+        $this->container['lastTimestamp'] = isset($data['lastTimestamp']) ? $data['lastTimestamp'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
@@ -182,8 +182,8 @@ class V1Event implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['involved_object'] === null) {
-            $invalid_properties[] = "'involved_object' can't be null";
+        if ($this->container['involvedObject'] === null) {
+            $invalid_properties[] = "'involvedObject' can't be null";
         }
         if ($this->container['metadata'] === null) {
             $invalid_properties[] = "'metadata' can't be null";
@@ -200,7 +200,7 @@ class V1Event implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['involved_object'] === null) {
+        if ($this->container['involvedObject'] === null) {
             return false;
         }
         if ($this->container['metadata'] === null) {
@@ -211,22 +211,22 @@ class V1Event implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -253,43 +253,43 @@ class V1Event implements ArrayAccess
     }
 
     /**
-     * Gets first_timestamp
+     * Gets firstTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getFirstTimestamp()
     {
-        return $this->container['first_timestamp'];
+        return $this->container['firstTimestamp'];
     }
 
     /**
-     * Sets first_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $first_timestamp The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
+     * Sets firstTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $firstTimestamp The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
      * @return $this
      */
-    public function setFirstTimestamp($first_timestamp)
+    public function setFirstTimestamp($firstTimestamp)
     {
-        $this->container['first_timestamp'] = $first_timestamp;
+        $this->container['firstTimestamp'] = $firstTimestamp;
 
         return $this;
     }
 
     /**
-     * Gets involved_object
+     * Gets involvedObject
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getInvolvedObject()
     {
-        return $this->container['involved_object'];
+        return $this->container['involvedObject'];
     }
 
     /**
-     * Sets involved_object
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $involved_object The object that this event is about.
+     * Sets involvedObject
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $involvedObject The object that this event is about.
      * @return $this
      */
-    public function setInvolvedObject($involved_object)
+    public function setInvolvedObject($involvedObject)
     {
-        $this->container['involved_object'] = $involved_object;
+        $this->container['involvedObject'] = $involvedObject;
 
         return $this;
     }
@@ -316,22 +316,22 @@ class V1Event implements ArrayAccess
     }
 
     /**
-     * Gets last_timestamp
+     * Gets lastTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastTimestamp()
     {
-        return $this->container['last_timestamp'];
+        return $this->container['lastTimestamp'];
     }
 
     /**
-     * Sets last_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_timestamp The time at which the most recent occurrence of this event was recorded.
+     * Sets lastTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastTimestamp The time at which the most recent occurrence of this event was recorded.
      * @return $this
      */
-    public function setLastTimestamp($last_timestamp)
+    public function setLastTimestamp($lastTimestamp)
     {
-        $this->container['last_timestamp'] = $last_timestamp;
+        $this->container['lastTimestamp'] = $lastTimestamp;
 
         return $this;
     }

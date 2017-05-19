@@ -91,7 +91,7 @@ class V1BuildStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "completion_timestamp"
+     * Test attribute "completionTimestamp"
      */
     public function testPropertyCompletionTimestamp()
     {
@@ -131,7 +131,7 @@ class V1BuildStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "output_docker_image_reference"
+     * Test attribute "outputDockerImageReference"
      */
     public function testPropertyOutputDockerImageReference()
     {
@@ -163,7 +163,7 @@ class V1BuildStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "start_timestamp"
+     * Test attribute "startTimestamp"
      */
     public function testPropertyStartTimestamp()
     {

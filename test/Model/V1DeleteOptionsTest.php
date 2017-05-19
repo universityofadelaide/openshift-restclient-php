@@ -83,7 +83,7 @@ class V1DeleteOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1DeleteOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "grace_period_seconds"
+     * Test attribute "gracePeriodSeconds"
      */
     public function testPropertyGracePeriodSeconds()
     {
@@ -107,7 +107,7 @@ class V1DeleteOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "orphan_dependents"
+     * Test attribute "orphanDependents"
      */
     public function testPropertyOrphanDependents()
     {
@@ -123,7 +123,7 @@ class V1DeleteOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "propagation_policy"
+     * Test attribute "propagationPolicy"
      */
     public function testPropertyPropagationPolicy()
     {

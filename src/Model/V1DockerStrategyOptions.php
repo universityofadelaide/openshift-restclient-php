@@ -55,7 +55,7 @@ class V1DockerStrategyOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'build_args' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]'
+        'buildArgs' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1DockerStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'build_args' => 'buildArgs'
+        'buildArgs' => 'buildArgs'
     ];
 
 
@@ -77,7 +77,7 @@ class V1DockerStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'build_args' => 'setBuildArgs'
+        'buildArgs' => 'setBuildArgs'
     ];
 
 
@@ -86,7 +86,7 @@ class V1DockerStrategyOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'build_args' => 'getBuildArgs'
+        'buildArgs' => 'getBuildArgs'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1DockerStrategyOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['build_args'] = isset($data['build_args']) ? $data['build_args'] : null;
+        $this->container['buildArgs'] = isset($data['buildArgs']) ? $data['buildArgs'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1DockerStrategyOptions implements ArrayAccess
 
 
     /**
-     * Gets build_args
+     * Gets buildArgs
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]
      */
     public function getBuildArgs()
     {
-        return $this->container['build_args'];
+        return $this->container['buildArgs'];
     }
 
     /**
-     * Sets build_args
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[] $build_args Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details
+     * Sets buildArgs
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[] $buildArgs Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details
      * @return $this
      */
-    public function setBuildArgs($build_args)
+    public function setBuildArgs($buildArgs)
     {
-        $this->container['build_args'] = $build_args;
+        $this->container['buildArgs'] = $buildArgs;
 
         return $this;
     }

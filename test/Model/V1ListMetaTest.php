@@ -83,7 +83,7 @@ class V1ListMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_version"
+     * Test attribute "resourceVersion"
      */
     public function testPropertyResourceVersion()
     {
@@ -91,7 +91,7 @@ class V1ListMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "self_link"
+     * Test attribute "selfLink"
      */
     public function testPropertySelfLink()
     {

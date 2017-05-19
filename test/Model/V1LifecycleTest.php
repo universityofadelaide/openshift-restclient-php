@@ -83,7 +83,7 @@ class V1LifecycleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "post_start"
+     * Test attribute "postStart"
      */
     public function testPropertyPostStart()
     {
@@ -91,7 +91,7 @@ class V1LifecycleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pre_stop"
+     * Test attribute "preStop"
      */
     public function testPropertyPreStop()
     {

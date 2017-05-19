@@ -83,7 +83,7 @@ class V1PhotonPersistentDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -91,9 +91,9 @@ class V1PhotonPersistentDiskVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pd_id"
+     * Test attribute "pdID"
      */
-    public function testPropertyPdId()
+    public function testPropertyPdID()
     {
 
     }

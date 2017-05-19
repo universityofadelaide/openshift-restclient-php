@@ -83,7 +83,7 @@ class V1NodeSelectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_selector_terms"
+     * Test attribute "nodeSelectorTerms"
      */
     public function testPropertyNodeSelectorTerms()
     {

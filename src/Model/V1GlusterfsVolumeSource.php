@@ -57,7 +57,7 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     protected static $swaggerTypes = [
         'endpoints' => 'string',
         'path' => 'string',
-        'read_only' => 'bool'
+        'readOnly' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -72,7 +72,7 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     protected static $attributeMap = [
         'endpoints' => 'endpoints',
         'path' => 'path',
-        'read_only' => 'readOnly'
+        'readOnly' => 'readOnly'
     ];
 
 
@@ -83,7 +83,7 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     protected static $setters = [
         'endpoints' => 'setEndpoints',
         'path' => 'setPath',
-        'read_only' => 'setReadOnly'
+        'readOnly' => 'setReadOnly'
     ];
 
 
@@ -94,7 +94,7 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     protected static $getters = [
         'endpoints' => 'getEndpoints',
         'path' => 'getPath',
-        'read_only' => 'getReadOnly'
+        'readOnly' => 'getReadOnly'
     ];
 
     public static function attributeMap()
@@ -130,7 +130,7 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     {
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 
     /**
@@ -213,22 +213,22 @@ class V1GlusterfsVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

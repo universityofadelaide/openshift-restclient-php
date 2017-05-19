@@ -56,9 +56,9 @@ class V1alpha1PodPresetSpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'env_from' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]',
+        'envFrom' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
-        'volume_mounts' => '\UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]',
+        'volumeMounts' => '\UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]',
         'volumes' => '\UniversityOfAdelaide\OpenShift\Model\V1Volume[]'
     ];
 
@@ -73,9 +73,9 @@ class V1alpha1PodPresetSpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'env' => 'env',
-        'env_from' => 'envFrom',
+        'envFrom' => 'envFrom',
         'selector' => 'selector',
-        'volume_mounts' => 'volumeMounts',
+        'volumeMounts' => 'volumeMounts',
         'volumes' => 'volumes'
     ];
 
@@ -86,9 +86,9 @@ class V1alpha1PodPresetSpec implements ArrayAccess
      */
     protected static $setters = [
         'env' => 'setEnv',
-        'env_from' => 'setEnvFrom',
+        'envFrom' => 'setEnvFrom',
         'selector' => 'setSelector',
-        'volume_mounts' => 'setVolumeMounts',
+        'volumeMounts' => 'setVolumeMounts',
         'volumes' => 'setVolumes'
     ];
 
@@ -99,9 +99,9 @@ class V1alpha1PodPresetSpec implements ArrayAccess
      */
     protected static $getters = [
         'env' => 'getEnv',
-        'env_from' => 'getEnvFrom',
+        'envFrom' => 'getEnvFrom',
         'selector' => 'getSelector',
-        'volume_mounts' => 'getVolumeMounts',
+        'volumeMounts' => 'getVolumeMounts',
         'volumes' => 'getVolumes'
     ];
 
@@ -137,9 +137,9 @@ class V1alpha1PodPresetSpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
-        $this->container['env_from'] = isset($data['env_from']) ? $data['env_from'] : null;
+        $this->container['envFrom'] = isset($data['envFrom']) ? $data['envFrom'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
-        $this->container['volume_mounts'] = isset($data['volume_mounts']) ? $data['volume_mounts'] : null;
+        $this->container['volumeMounts'] = isset($data['volumeMounts']) ? $data['volumeMounts'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
 
@@ -190,22 +190,22 @@ class V1alpha1PodPresetSpec implements ArrayAccess
     }
 
     /**
-     * Gets env_from
+     * Gets envFrom
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]
      */
     public function getEnvFrom()
     {
-        return $this->container['env_from'];
+        return $this->container['envFrom'];
     }
 
     /**
-     * Sets env_from
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[] $env_from EnvFrom defines the collection of EnvFromSource to inject into containers.
+     * Sets envFrom
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[] $envFrom EnvFrom defines the collection of EnvFromSource to inject into containers.
      * @return $this
      */
-    public function setEnvFrom($env_from)
+    public function setEnvFrom($envFrom)
     {
-        $this->container['env_from'] = $env_from;
+        $this->container['envFrom'] = $envFrom;
 
         return $this;
     }
@@ -232,22 +232,22 @@ class V1alpha1PodPresetSpec implements ArrayAccess
     }
 
     /**
-     * Gets volume_mounts
+     * Gets volumeMounts
      * @return \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]
      */
     public function getVolumeMounts()
     {
-        return $this->container['volume_mounts'];
+        return $this->container['volumeMounts'];
     }
 
     /**
-     * Sets volume_mounts
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[] $volume_mounts VolumeMounts defines the collection of VolumeMount to inject into containers.
+     * Sets volumeMounts
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[] $volumeMounts VolumeMounts defines the collection of VolumeMount to inject into containers.
      * @return $this
      */
-    public function setVolumeMounts($volume_mounts)
+    public function setVolumeMounts($volumeMounts)
     {
-        $this->container['volume_mounts'] = $volume_mounts;
+        $this->container['volumeMounts'] = $volumeMounts;
 
         return $this;
     }

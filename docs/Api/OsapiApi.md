@@ -19,7 +19,7 @@ list supported server API versions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\OsapiApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\OsapiApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $api_instance->getOsapiVersion();

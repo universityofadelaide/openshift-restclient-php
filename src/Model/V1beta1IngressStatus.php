@@ -55,7 +55,7 @@ class V1beta1IngressStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'load_balancer' => '\UniversityOfAdelaide\OpenShift\Model\V1LoadBalancerStatus'
+        'loadBalancer' => '\UniversityOfAdelaide\OpenShift\Model\V1LoadBalancerStatus'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1beta1IngressStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'load_balancer' => 'loadBalancer'
+        'loadBalancer' => 'loadBalancer'
     ];
 
 
@@ -77,7 +77,7 @@ class V1beta1IngressStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'load_balancer' => 'setLoadBalancer'
+        'loadBalancer' => 'setLoadBalancer'
     ];
 
 
@@ -86,7 +86,7 @@ class V1beta1IngressStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'load_balancer' => 'getLoadBalancer'
+        'loadBalancer' => 'getLoadBalancer'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1beta1IngressStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['load_balancer'] = isset($data['load_balancer']) ? $data['load_balancer'] : null;
+        $this->container['loadBalancer'] = isset($data['loadBalancer']) ? $data['loadBalancer'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1beta1IngressStatus implements ArrayAccess
 
 
     /**
-     * Gets load_balancer
+     * Gets loadBalancer
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LoadBalancerStatus
      */
     public function getLoadBalancer()
     {
-        return $this->container['load_balancer'];
+        return $this->container['loadBalancer'];
     }
 
     /**
-     * Sets load_balancer
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LoadBalancerStatus $load_balancer LoadBalancer contains the current status of the load-balancer.
+     * Sets loadBalancer
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LoadBalancerStatus $loadBalancer LoadBalancer contains the current status of the load-balancer.
      * @return $this
      */
-    public function setLoadBalancer($load_balancer)
+    public function setLoadBalancer($loadBalancer)
     {
-        $this->container['load_balancer'] = $load_balancer;
+        $this->container['loadBalancer'] = $loadBalancer;
 
         return $this;
     }

@@ -55,12 +55,12 @@ class V1CustomBuildStrategy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'build_api_version' => 'string',
+        'buildAPIVersion' => 'string',
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'expose_docker_socket' => 'bool',
-        'force_pull' => 'bool',
+        'exposeDockerSocket' => 'bool',
+        'forcePull' => 'bool',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'pull_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'pullSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
         'secrets' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretSpec[]'
     ];
 
@@ -74,12 +74,12 @@ class V1CustomBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'build_api_version' => 'buildAPIVersion',
+        'buildAPIVersion' => 'buildAPIVersion',
         'env' => 'env',
-        'expose_docker_socket' => 'exposeDockerSocket',
-        'force_pull' => 'forcePull',
+        'exposeDockerSocket' => 'exposeDockerSocket',
+        'forcePull' => 'forcePull',
         'from' => 'from',
-        'pull_secret' => 'pullSecret',
+        'pullSecret' => 'pullSecret',
         'secrets' => 'secrets'
     ];
 
@@ -89,12 +89,12 @@ class V1CustomBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'build_api_version' => 'setBuildApiVersion',
+        'buildAPIVersion' => 'setBuildAPIVersion',
         'env' => 'setEnv',
-        'expose_docker_socket' => 'setExposeDockerSocket',
-        'force_pull' => 'setForcePull',
+        'exposeDockerSocket' => 'setExposeDockerSocket',
+        'forcePull' => 'setForcePull',
         'from' => 'setFrom',
-        'pull_secret' => 'setPullSecret',
+        'pullSecret' => 'setPullSecret',
         'secrets' => 'setSecrets'
     ];
 
@@ -104,12 +104,12 @@ class V1CustomBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'build_api_version' => 'getBuildApiVersion',
+        'buildAPIVersion' => 'getBuildAPIVersion',
         'env' => 'getEnv',
-        'expose_docker_socket' => 'getExposeDockerSocket',
-        'force_pull' => 'getForcePull',
+        'exposeDockerSocket' => 'getExposeDockerSocket',
+        'forcePull' => 'getForcePull',
         'from' => 'getFrom',
-        'pull_secret' => 'getPullSecret',
+        'pullSecret' => 'getPullSecret',
         'secrets' => 'getSecrets'
     ];
 
@@ -144,12 +144,12 @@ class V1CustomBuildStrategy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['build_api_version'] = isset($data['build_api_version']) ? $data['build_api_version'] : null;
+        $this->container['buildAPIVersion'] = isset($data['buildAPIVersion']) ? $data['buildAPIVersion'] : null;
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
-        $this->container['expose_docker_socket'] = isset($data['expose_docker_socket']) ? $data['expose_docker_socket'] : null;
-        $this->container['force_pull'] = isset($data['force_pull']) ? $data['force_pull'] : null;
+        $this->container['exposeDockerSocket'] = isset($data['exposeDockerSocket']) ? $data['exposeDockerSocket'] : null;
+        $this->container['forcePull'] = isset($data['forcePull']) ? $data['forcePull'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['pull_secret'] = isset($data['pull_secret']) ? $data['pull_secret'] : null;
+        $this->container['pullSecret'] = isset($data['pullSecret']) ? $data['pullSecret'] : null;
         $this->container['secrets'] = isset($data['secrets']) ? $data['secrets'] : null;
     }
 
@@ -185,22 +185,22 @@ class V1CustomBuildStrategy implements ArrayAccess
 
 
     /**
-     * Gets build_api_version
+     * Gets buildAPIVersion
      * @return string
      */
-    public function getBuildApiVersion()
+    public function getBuildAPIVersion()
     {
-        return $this->container['build_api_version'];
+        return $this->container['buildAPIVersion'];
     }
 
     /**
-     * Sets build_api_version
-     * @param string $build_api_version buildAPIVersion is the requested API version for the Build object serialized and passed to the custom builder
+     * Sets buildAPIVersion
+     * @param string $buildAPIVersion buildAPIVersion is the requested API version for the Build object serialized and passed to the custom builder
      * @return $this
      */
-    public function setBuildApiVersion($build_api_version)
+    public function setBuildAPIVersion($buildAPIVersion)
     {
-        $this->container['build_api_version'] = $build_api_version;
+        $this->container['buildAPIVersion'] = $buildAPIVersion;
 
         return $this;
     }
@@ -227,43 +227,43 @@ class V1CustomBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets expose_docker_socket
+     * Gets exposeDockerSocket
      * @return bool
      */
     public function getExposeDockerSocket()
     {
-        return $this->container['expose_docker_socket'];
+        return $this->container['exposeDockerSocket'];
     }
 
     /**
-     * Sets expose_docker_socket
-     * @param bool $expose_docker_socket exposeDockerSocket will allow running Docker commands (and build Docker images) from inside the Docker container.
+     * Sets exposeDockerSocket
+     * @param bool $exposeDockerSocket exposeDockerSocket will allow running Docker commands (and build Docker images) from inside the Docker container.
      * @return $this
      */
-    public function setExposeDockerSocket($expose_docker_socket)
+    public function setExposeDockerSocket($exposeDockerSocket)
     {
-        $this->container['expose_docker_socket'] = $expose_docker_socket;
+        $this->container['exposeDockerSocket'] = $exposeDockerSocket;
 
         return $this;
     }
 
     /**
-     * Gets force_pull
+     * Gets forcePull
      * @return bool
      */
     public function getForcePull()
     {
-        return $this->container['force_pull'];
+        return $this->container['forcePull'];
     }
 
     /**
-     * Sets force_pull
-     * @param bool $force_pull forcePull describes if the controller should configure the build pod to always pull the images for the builder or only pull if it is not present locally
+     * Sets forcePull
+     * @param bool $forcePull forcePull describes if the controller should configure the build pod to always pull the images for the builder or only pull if it is not present locally
      * @return $this
      */
-    public function setForcePull($force_pull)
+    public function setForcePull($forcePull)
     {
-        $this->container['force_pull'] = $force_pull;
+        $this->container['forcePull'] = $forcePull;
 
         return $this;
     }
@@ -290,22 +290,22 @@ class V1CustomBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets pull_secret
+     * Gets pullSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getPullSecret()
     {
-        return $this->container['pull_secret'];
+        return $this->container['pullSecret'];
     }
 
     /**
-     * Sets pull_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pull_secret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
+     * Sets pullSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pullSecret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
      * @return $this
      */
-    public function setPullSecret($pull_secret)
+    public function setPullSecret($pullSecret)
     {
-        $this->container['pull_secret'] = $pull_secret;
+        $this->container['pullSecret'] = $pullSecret;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1PersistentVolumeClaimStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "access_modes"
+     * Test attribute "accessModes"
      */
     public function testPropertyAccessModes()
     {

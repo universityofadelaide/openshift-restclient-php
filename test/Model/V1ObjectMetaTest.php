@@ -91,7 +91,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "cluster_name"
+     * Test attribute "clusterName"
      */
     public function testPropertyClusterName()
     {
@@ -99,7 +99,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "creation_timestamp"
+     * Test attribute "creationTimestamp"
      */
     public function testPropertyCreationTimestamp()
     {
@@ -107,7 +107,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "deletion_grace_period_seconds"
+     * Test attribute "deletionGracePeriodSeconds"
      */
     public function testPropertyDeletionGracePeriodSeconds()
     {
@@ -115,7 +115,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "deletion_timestamp"
+     * Test attribute "deletionTimestamp"
      */
     public function testPropertyDeletionTimestamp()
     {
@@ -131,7 +131,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "generate_name"
+     * Test attribute "generateName"
      */
     public function testPropertyGenerateName()
     {
@@ -171,7 +171,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "owner_references"
+     * Test attribute "ownerReferences"
      */
     public function testPropertyOwnerReferences()
     {
@@ -179,7 +179,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_version"
+     * Test attribute "resourceVersion"
      */
     public function testPropertyResourceVersion()
     {
@@ -187,7 +187,7 @@ class V1ObjectMetaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "self_link"
+     * Test attribute "selfLink"
      */
     public function testPropertySelfLink()
     {

@@ -83,7 +83,7 @@ class V1SecretSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "mount_path"
+     * Test attribute "mountPath"
      */
     public function testPropertyMountPath()
     {
@@ -91,7 +91,7 @@ class V1SecretSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_source"
+     * Test attribute "secretSource"
      */
     public function testPropertySecretSource()
     {

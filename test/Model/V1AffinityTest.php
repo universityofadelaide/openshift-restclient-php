@@ -83,7 +83,7 @@ class V1AffinityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_affinity"
+     * Test attribute "nodeAffinity"
      */
     public function testPropertyNodeAffinity()
     {
@@ -91,7 +91,7 @@ class V1AffinityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_affinity"
+     * Test attribute "podAffinity"
      */
     public function testPropertyPodAffinity()
     {
@@ -99,7 +99,7 @@ class V1AffinityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_anti_affinity"
+     * Test attribute "podAntiAffinity"
      */
     public function testPropertyPodAntiAffinity()
     {

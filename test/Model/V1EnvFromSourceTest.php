@@ -83,7 +83,7 @@ class V1EnvFromSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "config_map_ref"
+     * Test attribute "configMapRef"
      */
     public function testPropertyConfigMapRef()
     {
@@ -99,7 +99,7 @@ class V1EnvFromSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_ref"
+     * Test attribute "secretRef"
      */
     public function testPropertySecretRef()
     {

@@ -56,9 +56,9 @@ class V1LimitRangeItem implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'default' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
-        'default_request' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
+        'defaultRequest' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'max' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
-        'max_limit_request_ratio' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
+        'maxLimitRequestRatio' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'min' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'type' => 'string'
     ];
@@ -74,9 +74,9 @@ class V1LimitRangeItem implements ArrayAccess
      */
     protected static $attributeMap = [
         'default' => 'default',
-        'default_request' => 'defaultRequest',
+        'defaultRequest' => 'defaultRequest',
         'max' => 'max',
-        'max_limit_request_ratio' => 'maxLimitRequestRatio',
+        'maxLimitRequestRatio' => 'maxLimitRequestRatio',
         'min' => 'min',
         'type' => 'type'
     ];
@@ -88,9 +88,9 @@ class V1LimitRangeItem implements ArrayAccess
      */
     protected static $setters = [
         'default' => 'setDefault',
-        'default_request' => 'setDefaultRequest',
+        'defaultRequest' => 'setDefaultRequest',
         'max' => 'setMax',
-        'max_limit_request_ratio' => 'setMaxLimitRequestRatio',
+        'maxLimitRequestRatio' => 'setMaxLimitRequestRatio',
         'min' => 'setMin',
         'type' => 'setType'
     ];
@@ -102,9 +102,9 @@ class V1LimitRangeItem implements ArrayAccess
      */
     protected static $getters = [
         'default' => 'getDefault',
-        'default_request' => 'getDefaultRequest',
+        'defaultRequest' => 'getDefaultRequest',
         'max' => 'getMax',
-        'max_limit_request_ratio' => 'getMaxLimitRequestRatio',
+        'maxLimitRequestRatio' => 'getMaxLimitRequestRatio',
         'min' => 'getMin',
         'type' => 'getType'
     ];
@@ -141,9 +141,9 @@ class V1LimitRangeItem implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['default'] = isset($data['default']) ? $data['default'] : null;
-        $this->container['default_request'] = isset($data['default_request']) ? $data['default_request'] : null;
+        $this->container['defaultRequest'] = isset($data['defaultRequest']) ? $data['defaultRequest'] : null;
         $this->container['max'] = isset($data['max']) ? $data['max'] : null;
-        $this->container['max_limit_request_ratio'] = isset($data['max_limit_request_ratio']) ? $data['max_limit_request_ratio'] : null;
+        $this->container['maxLimitRequestRatio'] = isset($data['maxLimitRequestRatio']) ? $data['maxLimitRequestRatio'] : null;
         $this->container['min'] = isset($data['min']) ? $data['min'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -195,22 +195,22 @@ class V1LimitRangeItem implements ArrayAccess
     }
 
     /**
-     * Gets default_request
+     * Gets defaultRequest
      * @return map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]
      */
     public function getDefaultRequest()
     {
-        return $this->container['default_request'];
+        return $this->container['defaultRequest'];
     }
 
     /**
-     * Sets default_request
-     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity] $default_request DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
+     * Sets defaultRequest
+     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity] $defaultRequest DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
      * @return $this
      */
-    public function setDefaultRequest($default_request)
+    public function setDefaultRequest($defaultRequest)
     {
-        $this->container['default_request'] = $default_request;
+        $this->container['defaultRequest'] = $defaultRequest;
 
         return $this;
     }
@@ -237,22 +237,22 @@ class V1LimitRangeItem implements ArrayAccess
     }
 
     /**
-     * Gets max_limit_request_ratio
+     * Gets maxLimitRequestRatio
      * @return map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]
      */
     public function getMaxLimitRequestRatio()
     {
-        return $this->container['max_limit_request_ratio'];
+        return $this->container['maxLimitRequestRatio'];
     }
 
     /**
-     * Sets max_limit_request_ratio
-     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity] $max_limit_request_ratio MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
+     * Sets maxLimitRequestRatio
+     * @param map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity] $maxLimitRequestRatio MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
      * @return $this
      */
-    public function setMaxLimitRequestRatio($max_limit_request_ratio)
+    public function setMaxLimitRequestRatio($maxLimitRequestRatio)
     {
-        $this->container['max_limit_request_ratio'] = $max_limit_request_ratio;
+        $this->container['maxLimitRequestRatio'] = $maxLimitRequestRatio;
 
         return $this;
     }

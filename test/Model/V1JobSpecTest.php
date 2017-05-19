@@ -83,7 +83,7 @@ class V1JobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "active_deadline_seconds"
+     * Test attribute "activeDeadlineSeconds"
      */
     public function testPropertyActiveDeadlineSeconds()
     {
@@ -99,7 +99,7 @@ class V1JobSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "manual_selector"
+     * Test attribute "manualSelector"
      */
     public function testPropertyManualSelector()
     {

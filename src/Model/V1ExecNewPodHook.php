@@ -56,7 +56,7 @@ class V1ExecNewPodHook implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'command' => 'string[]',
-        'container_name' => 'string',
+        'containerName' => 'string',
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
         'volumes' => 'string[]'
     ];
@@ -72,7 +72,7 @@ class V1ExecNewPodHook implements ArrayAccess
      */
     protected static $attributeMap = [
         'command' => 'command',
-        'container_name' => 'containerName',
+        'containerName' => 'containerName',
         'env' => 'env',
         'volumes' => 'volumes'
     ];
@@ -84,7 +84,7 @@ class V1ExecNewPodHook implements ArrayAccess
      */
     protected static $setters = [
         'command' => 'setCommand',
-        'container_name' => 'setContainerName',
+        'containerName' => 'setContainerName',
         'env' => 'setEnv',
         'volumes' => 'setVolumes'
     ];
@@ -96,7 +96,7 @@ class V1ExecNewPodHook implements ArrayAccess
      */
     protected static $getters = [
         'command' => 'getCommand',
-        'container_name' => 'getContainerName',
+        'containerName' => 'getContainerName',
         'env' => 'getEnv',
         'volumes' => 'getVolumes'
     ];
@@ -133,7 +133,7 @@ class V1ExecNewPodHook implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
+        $this->container['containerName'] = isset($data['containerName']) ? $data['containerName'] : null;
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
@@ -150,8 +150,8 @@ class V1ExecNewPodHook implements ArrayAccess
         if ($this->container['command'] === null) {
             $invalid_properties[] = "'command' can't be null";
         }
-        if ($this->container['container_name'] === null) {
-            $invalid_properties[] = "'container_name' can't be null";
+        if ($this->container['containerName'] === null) {
+            $invalid_properties[] = "'containerName' can't be null";
         }
         return $invalid_properties;
     }
@@ -168,7 +168,7 @@ class V1ExecNewPodHook implements ArrayAccess
         if ($this->container['command'] === null) {
             return false;
         }
-        if ($this->container['container_name'] === null) {
+        if ($this->container['containerName'] === null) {
             return false;
         }
         return true;
@@ -197,22 +197,22 @@ class V1ExecNewPodHook implements ArrayAccess
     }
 
     /**
-     * Gets container_name
+     * Gets containerName
      * @return string
      */
     public function getContainerName()
     {
-        return $this->container['container_name'];
+        return $this->container['containerName'];
     }
 
     /**
-     * Sets container_name
-     * @param string $container_name ContainerName is the name of a container in the deployment pod template whose Docker image will be used for the hook pod's container.
+     * Sets containerName
+     * @param string $containerName ContainerName is the name of a container in the deployment pod template whose Docker image will be used for the hook pod's container.
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setContainerName($containerName)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['containerName'] = $containerName;
 
         return $this;
     }

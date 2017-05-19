@@ -56,10 +56,10 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'include_replication_meta' => 'bool',
-        'include_strategy' => 'bool',
-        'include_template' => 'bool',
-        'include_triggers' => 'bool',
+        'includeReplicationMeta' => 'bool',
+        'includeStrategy' => 'bool',
+        'includeTemplate' => 'bool',
+        'includeTriggers' => 'bool',
         'revision' => 'int'
     ];
 
@@ -74,10 +74,10 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'from' => 'from',
-        'include_replication_meta' => 'includeReplicationMeta',
-        'include_strategy' => 'includeStrategy',
-        'include_template' => 'includeTemplate',
-        'include_triggers' => 'includeTriggers',
+        'includeReplicationMeta' => 'includeReplicationMeta',
+        'includeStrategy' => 'includeStrategy',
+        'includeTemplate' => 'includeTemplate',
+        'includeTriggers' => 'includeTriggers',
         'revision' => 'revision'
     ];
 
@@ -88,10 +88,10 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
      */
     protected static $setters = [
         'from' => 'setFrom',
-        'include_replication_meta' => 'setIncludeReplicationMeta',
-        'include_strategy' => 'setIncludeStrategy',
-        'include_template' => 'setIncludeTemplate',
-        'include_triggers' => 'setIncludeTriggers',
+        'includeReplicationMeta' => 'setIncludeReplicationMeta',
+        'includeStrategy' => 'setIncludeStrategy',
+        'includeTemplate' => 'setIncludeTemplate',
+        'includeTriggers' => 'setIncludeTriggers',
         'revision' => 'setRevision'
     ];
 
@@ -102,10 +102,10 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
      */
     protected static $getters = [
         'from' => 'getFrom',
-        'include_replication_meta' => 'getIncludeReplicationMeta',
-        'include_strategy' => 'getIncludeStrategy',
-        'include_template' => 'getIncludeTemplate',
-        'include_triggers' => 'getIncludeTriggers',
+        'includeReplicationMeta' => 'getIncludeReplicationMeta',
+        'includeStrategy' => 'getIncludeStrategy',
+        'includeTemplate' => 'getIncludeTemplate',
+        'includeTriggers' => 'getIncludeTriggers',
         'revision' => 'getRevision'
     ];
 
@@ -141,10 +141,10 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['include_replication_meta'] = isset($data['include_replication_meta']) ? $data['include_replication_meta'] : null;
-        $this->container['include_strategy'] = isset($data['include_strategy']) ? $data['include_strategy'] : null;
-        $this->container['include_template'] = isset($data['include_template']) ? $data['include_template'] : null;
-        $this->container['include_triggers'] = isset($data['include_triggers']) ? $data['include_triggers'] : null;
+        $this->container['includeReplicationMeta'] = isset($data['includeReplicationMeta']) ? $data['includeReplicationMeta'] : null;
+        $this->container['includeStrategy'] = isset($data['includeStrategy']) ? $data['includeStrategy'] : null;
+        $this->container['includeTemplate'] = isset($data['includeTemplate']) ? $data['includeTemplate'] : null;
+        $this->container['includeTriggers'] = isset($data['includeTriggers']) ? $data['includeTriggers'] : null;
         $this->container['revision'] = isset($data['revision']) ? $data['revision'] : null;
     }
 
@@ -160,17 +160,17 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
         if ($this->container['from'] === null) {
             $invalid_properties[] = "'from' can't be null";
         }
-        if ($this->container['include_replication_meta'] === null) {
-            $invalid_properties[] = "'include_replication_meta' can't be null";
+        if ($this->container['includeReplicationMeta'] === null) {
+            $invalid_properties[] = "'includeReplicationMeta' can't be null";
         }
-        if ($this->container['include_strategy'] === null) {
-            $invalid_properties[] = "'include_strategy' can't be null";
+        if ($this->container['includeStrategy'] === null) {
+            $invalid_properties[] = "'includeStrategy' can't be null";
         }
-        if ($this->container['include_template'] === null) {
-            $invalid_properties[] = "'include_template' can't be null";
+        if ($this->container['includeTemplate'] === null) {
+            $invalid_properties[] = "'includeTemplate' can't be null";
         }
-        if ($this->container['include_triggers'] === null) {
-            $invalid_properties[] = "'include_triggers' can't be null";
+        if ($this->container['includeTriggers'] === null) {
+            $invalid_properties[] = "'includeTriggers' can't be null";
         }
         return $invalid_properties;
     }
@@ -187,16 +187,16 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
         if ($this->container['from'] === null) {
             return false;
         }
-        if ($this->container['include_replication_meta'] === null) {
+        if ($this->container['includeReplicationMeta'] === null) {
             return false;
         }
-        if ($this->container['include_strategy'] === null) {
+        if ($this->container['includeStrategy'] === null) {
             return false;
         }
-        if ($this->container['include_template'] === null) {
+        if ($this->container['includeTemplate'] === null) {
             return false;
         }
-        if ($this->container['include_triggers'] === null) {
+        if ($this->container['includeTriggers'] === null) {
             return false;
         }
         return true;
@@ -225,85 +225,85 @@ class V1DeploymentConfigRollbackSpec implements ArrayAccess
     }
 
     /**
-     * Gets include_replication_meta
+     * Gets includeReplicationMeta
      * @return bool
      */
     public function getIncludeReplicationMeta()
     {
-        return $this->container['include_replication_meta'];
+        return $this->container['includeReplicationMeta'];
     }
 
     /**
-     * Sets include_replication_meta
-     * @param bool $include_replication_meta IncludeReplicationMeta specifies whether to include the replica count and selector.
+     * Sets includeReplicationMeta
+     * @param bool $includeReplicationMeta IncludeReplicationMeta specifies whether to include the replica count and selector.
      * @return $this
      */
-    public function setIncludeReplicationMeta($include_replication_meta)
+    public function setIncludeReplicationMeta($includeReplicationMeta)
     {
-        $this->container['include_replication_meta'] = $include_replication_meta;
+        $this->container['includeReplicationMeta'] = $includeReplicationMeta;
 
         return $this;
     }
 
     /**
-     * Gets include_strategy
+     * Gets includeStrategy
      * @return bool
      */
     public function getIncludeStrategy()
     {
-        return $this->container['include_strategy'];
+        return $this->container['includeStrategy'];
     }
 
     /**
-     * Sets include_strategy
-     * @param bool $include_strategy IncludeStrategy specifies whether to include the deployment Strategy.
+     * Sets includeStrategy
+     * @param bool $includeStrategy IncludeStrategy specifies whether to include the deployment Strategy.
      * @return $this
      */
-    public function setIncludeStrategy($include_strategy)
+    public function setIncludeStrategy($includeStrategy)
     {
-        $this->container['include_strategy'] = $include_strategy;
+        $this->container['includeStrategy'] = $includeStrategy;
 
         return $this;
     }
 
     /**
-     * Gets include_template
+     * Gets includeTemplate
      * @return bool
      */
     public function getIncludeTemplate()
     {
-        return $this->container['include_template'];
+        return $this->container['includeTemplate'];
     }
 
     /**
-     * Sets include_template
-     * @param bool $include_template IncludeTemplate specifies whether to include the PodTemplateSpec.
+     * Sets includeTemplate
+     * @param bool $includeTemplate IncludeTemplate specifies whether to include the PodTemplateSpec.
      * @return $this
      */
-    public function setIncludeTemplate($include_template)
+    public function setIncludeTemplate($includeTemplate)
     {
-        $this->container['include_template'] = $include_template;
+        $this->container['includeTemplate'] = $includeTemplate;
 
         return $this;
     }
 
     /**
-     * Gets include_triggers
+     * Gets includeTriggers
      * @return bool
      */
     public function getIncludeTriggers()
     {
-        return $this->container['include_triggers'];
+        return $this->container['includeTriggers'];
     }
 
     /**
-     * Sets include_triggers
-     * @param bool $include_triggers IncludeTriggers specifies whether to include config Triggers.
+     * Sets includeTriggers
+     * @param bool $includeTriggers IncludeTriggers specifies whether to include config Triggers.
      * @return $this
      */
-    public function setIncludeTriggers($include_triggers)
+    public function setIncludeTriggers($includeTriggers)
     {
-        $this->container['include_triggers'] = $include_triggers;
+        $this->container['includeTriggers'] = $includeTriggers;
 
         return $this;
     }

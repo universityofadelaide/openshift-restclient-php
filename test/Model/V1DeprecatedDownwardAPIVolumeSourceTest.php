@@ -83,7 +83,7 @@ class V1DeprecatedDownwardAPIVolumeSourceTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "default_mode"
+     * Test attribute "defaultMode"
      */
     public function testPropertyDefaultMode()
     {

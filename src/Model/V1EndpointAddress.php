@@ -57,8 +57,8 @@ class V1EndpointAddress implements ArrayAccess
     protected static $swaggerTypes = [
         'hostname' => 'string',
         'ip' => 'string',
-        'node_name' => 'string',
-        'target_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
+        'nodeName' => 'string',
+        'targetRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -73,8 +73,8 @@ class V1EndpointAddress implements ArrayAccess
     protected static $attributeMap = [
         'hostname' => 'hostname',
         'ip' => 'ip',
-        'node_name' => 'nodeName',
-        'target_ref' => 'targetRef'
+        'nodeName' => 'nodeName',
+        'targetRef' => 'targetRef'
     ];
 
 
@@ -85,8 +85,8 @@ class V1EndpointAddress implements ArrayAccess
     protected static $setters = [
         'hostname' => 'setHostname',
         'ip' => 'setIp',
-        'node_name' => 'setNodeName',
-        'target_ref' => 'setTargetRef'
+        'nodeName' => 'setNodeName',
+        'targetRef' => 'setTargetRef'
     ];
 
 
@@ -97,8 +97,8 @@ class V1EndpointAddress implements ArrayAccess
     protected static $getters = [
         'hostname' => 'getHostname',
         'ip' => 'getIp',
-        'node_name' => 'getNodeName',
-        'target_ref' => 'getTargetRef'
+        'nodeName' => 'getNodeName',
+        'targetRef' => 'getTargetRef'
     ];
 
     public static function attributeMap()
@@ -134,8 +134,8 @@ class V1EndpointAddress implements ArrayAccess
     {
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['node_name'] = isset($data['node_name']) ? $data['node_name'] : null;
-        $this->container['target_ref'] = isset($data['target_ref']) ? $data['target_ref'] : null;
+        $this->container['nodeName'] = isset($data['nodeName']) ? $data['nodeName'] : null;
+        $this->container['targetRef'] = isset($data['targetRef']) ? $data['targetRef'] : null;
     }
 
     /**
@@ -212,43 +212,43 @@ class V1EndpointAddress implements ArrayAccess
     }
 
     /**
-     * Gets node_name
+     * Gets nodeName
      * @return string
      */
     public function getNodeName()
     {
-        return $this->container['node_name'];
+        return $this->container['nodeName'];
     }
 
     /**
-     * Sets node_name
-     * @param string $node_name Optional: Node hosting this endpoint. This can be used to determine endpoints local to a node.
+     * Sets nodeName
+     * @param string $nodeName Optional: Node hosting this endpoint. This can be used to determine endpoints local to a node.
      * @return $this
      */
-    public function setNodeName($node_name)
+    public function setNodeName($nodeName)
     {
-        $this->container['node_name'] = $node_name;
+        $this->container['nodeName'] = $nodeName;
 
         return $this;
     }
 
     /**
-     * Gets target_ref
+     * Gets targetRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getTargetRef()
     {
-        return $this->container['target_ref'];
+        return $this->container['targetRef'];
     }
 
     /**
-     * Sets target_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $target_ref Reference to object providing the endpoint.
+     * Sets targetRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $targetRef Reference to object providing the endpoint.
      * @return $this
      */
-    public function setTargetRef($target_ref)
+    public function setTargetRef($targetRef)
     {
-        $this->container['target_ref'] = $target_ref;
+        $this->container['targetRef'] = $targetRef;
 
         return $this;
     }

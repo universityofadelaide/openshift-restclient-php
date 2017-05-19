@@ -55,9 +55,9 @@ class V1SignatureSubject implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'common_name' => 'string',
+        'commonName' => 'string',
         'organization' => 'string',
-        'public_key_id' => 'string'
+        'publicKeyID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1SignatureSubject implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'common_name' => 'commonName',
+        'commonName' => 'commonName',
         'organization' => 'organization',
-        'public_key_id' => 'publicKeyID'
+        'publicKeyID' => 'publicKeyID'
     ];
 
 
@@ -81,9 +81,9 @@ class V1SignatureSubject implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'common_name' => 'setCommonName',
+        'commonName' => 'setCommonName',
         'organization' => 'setOrganization',
-        'public_key_id' => 'setPublicKeyId'
+        'publicKeyID' => 'setPublicKeyID'
     ];
 
 
@@ -92,9 +92,9 @@ class V1SignatureSubject implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'common_name' => 'getCommonName',
+        'commonName' => 'getCommonName',
         'organization' => 'getOrganization',
-        'public_key_id' => 'getPublicKeyId'
+        'publicKeyID' => 'getPublicKeyID'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1SignatureSubject implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['common_name'] = isset($data['common_name']) ? $data['common_name'] : null;
+        $this->container['commonName'] = isset($data['commonName']) ? $data['commonName'] : null;
         $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
-        $this->container['public_key_id'] = isset($data['public_key_id']) ? $data['public_key_id'] : null;
+        $this->container['publicKeyID'] = isset($data['publicKeyID']) ? $data['publicKeyID'] : null;
     }
 
     /**
@@ -142,8 +142,8 @@ class V1SignatureSubject implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['public_key_id'] === null) {
-            $invalid_properties[] = "'public_key_id' can't be null";
+        if ($this->container['publicKeyID'] === null) {
+            $invalid_properties[] = "'publicKeyID' can't be null";
         }
         return $invalid_properties;
     }
@@ -157,7 +157,7 @@ class V1SignatureSubject implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['public_key_id'] === null) {
+        if ($this->container['publicKeyID'] === null) {
             return false;
         }
         return true;
@@ -165,22 +165,22 @@ class V1SignatureSubject implements ArrayAccess
 
 
     /**
-     * Gets common_name
+     * Gets commonName
      * @return string
      */
     public function getCommonName()
     {
-        return $this->container['common_name'];
+        return $this->container['commonName'];
     }
 
     /**
-     * Sets common_name
-     * @param string $common_name Common name (e.g. openshift-signing-service).
+     * Sets commonName
+     * @param string $commonName Common name (e.g. openshift-signing-service).
      * @return $this
      */
-    public function setCommonName($common_name)
+    public function setCommonName($commonName)
     {
-        $this->container['common_name'] = $common_name;
+        $this->container['commonName'] = $commonName;
 
         return $this;
     }
@@ -207,22 +207,22 @@ class V1SignatureSubject implements ArrayAccess
     }
 
     /**
-     * Gets public_key_id
+     * Gets publicKeyID
      * @return string
      */
-    public function getPublicKeyId()
+    public function getPublicKeyID()
     {
-        return $this->container['public_key_id'];
+        return $this->container['publicKeyID'];
     }
 
     /**
-     * Sets public_key_id
-     * @param string $public_key_id If present, it is a human readable key id of public key belonging to the subject used to verify image signature. It should contain at least 64 lowest bits of public key's fingerprint (e.g. 0x685ebe62bf278440).
+     * Sets publicKeyID
+     * @param string $publicKeyID If present, it is a human readable key id of public key belonging to the subject used to verify image signature. It should contain at least 64 lowest bits of public key's fingerprint (e.g. 0x685ebe62bf278440).
      * @return $this
      */
-    public function setPublicKeyId($public_key_id)
+    public function setPublicKeyID($publicKeyID)
     {
-        $this->container['public_key_id'] = $public_key_id;
+        $this->container['publicKeyID'] = $publicKeyID;
 
         return $this;
     }

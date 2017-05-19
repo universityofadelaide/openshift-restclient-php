@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_version** | **string** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources | [optional] 
+**apiVersion** | **string** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources | [optional] 
 **conditions** | [**\UniversityOfAdelaide\OpenShift\Model\V1TagEventCondition[]**](V1TagEventCondition.md) | Conditions is an array of conditions that apply to the image stream tag. | [optional] 
 **generation** | **int** | Generation is the current generation of the tagged image - if tag is provided and this value is not equal to the tag generation, a user has requested an import that has not completed, or Conditions will be filled out indicating any error. | 
 **image** | [**\UniversityOfAdelaide\OpenShift\Model\V1Image**](V1Image.md) | Image associated with the ImageStream and tag. | 

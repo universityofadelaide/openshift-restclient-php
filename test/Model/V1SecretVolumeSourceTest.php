@@ -83,7 +83,7 @@ class V1SecretVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "default_mode"
+     * Test attribute "defaultMode"
      */
     public function testPropertyDefaultMode()
     {
@@ -107,7 +107,7 @@ class V1SecretVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_name"
+     * Test attribute "secretName"
      */
     public function testPropertySecretName()
     {

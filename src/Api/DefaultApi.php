@@ -28,10 +28,15 @@
 
 namespace UniversityOfAdelaide\OpenShift\Api;
 
-use \UniversityOfAdelaide\OpenShift\ApiClient;
-use \UniversityOfAdelaide\OpenShift\ApiException;
-use \UniversityOfAdelaide\OpenShift\Configuration;
-use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use UniversityOfAdelaide\OpenShift\ApiException;
+use UniversityOfAdelaide\OpenShift\Configuration;
+use UniversityOfAdelaide\OpenShift\HeaderSelector;
+use UniversityOfAdelaide\OpenShift\ObjectSerializer;
 
 /**
  * DefaultApi Class Doc Comment
@@ -44,47 +49,36 @@ use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
 class DefaultApi
 {
     /**
-     * API Client
-     *
-     * @var \UniversityOfAdelaide\OpenShift\ApiClient instance of the ApiClient
+     * @var ClientInterface
      */
-    protected $apiClient;
+    protected $client;
 
     /**
-     * Constructor
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient|null $apiClient The api client to use
+     * @var Configuration
      */
-    public function __construct(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient = null)
-    {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
+    protected $config;
 
-        $this->apiClient = $apiClient;
+    /**
+     * @param ClientInterface $client
+     * @param Configuration $config
+     * @param HeaderSelector $selector
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * Get API client
-     *
-     * @return \UniversityOfAdelaide\OpenShift\ApiClient get the API client
+     * @return Configuration
      */
-    public function getApiClient()
+    public function getConfig()
     {
-        return $this->apiClient;
-    }
-
-    /**
-     * Set the API client
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient $apiClient set the API client
-     *
-     * @return DefaultApi
-     */
-    public function setApiClient(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient)
-    {
-        $this->apiClient = $apiClient;
-        return $this;
+        return $this->config;
     }
 
     /**
@@ -96,6 +90,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Template
      */
     public function createNamespacedProcessedTemplate($namespace, $body, $pretty = null)
@@ -113,6 +108,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function createNamespacedProcessedTemplateWithHttpInfo($namespace, $body, $pretty = null)
@@ -125,30 +121,25 @@ class DefaultApi
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createNamespacedProcessedTemplate');
         }
-        // parse inputs
-        $resourcePath = "/oapi/v1/namespaces/{namespace}/processedtemplates";
-        $httpBody = '';
+
+        $resourcePath = '/oapi/v1/namespaces/{namespace}/processedtemplates';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Template';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -158,34 +149,105 @@ class DefaultApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Template',
-                '/oapi/v1/namespaces/{namespace}/processedtemplates'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Template', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createNamespacedProcessedTemplateV1
      *
@@ -195,6 +257,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Template
      */
     public function createNamespacedProcessedTemplateV1($namespace, $body, $pretty = null)
@@ -212,6 +275,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function createNamespacedProcessedTemplateV1WithHttpInfo($namespace, $body, $pretty = null)
@@ -224,30 +288,25 @@ class DefaultApi
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createNamespacedProcessedTemplateV1');
         }
-        // parse inputs
-        $resourcePath = "/apis/template.openshift.io/v1/namespaces/{namespace}/processedtemplates";
-        $httpBody = '';
+
+        $resourcePath = '/apis/template.openshift.io/v1/namespaces/{namespace}/processedtemplates';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Template';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -257,34 +316,105 @@ class DefaultApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Template',
-                '/apis/template.openshift.io/v1/namespaces/{namespace}/processedtemplates'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Template', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createProcessedTemplateForAllNamespaces
      *
@@ -293,6 +423,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Template
      */
     public function createProcessedTemplateForAllNamespaces($body, $pretty = null)
@@ -309,6 +440,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function createProcessedTemplateForAllNamespacesWithHttpInfo($body, $pretty = null)
@@ -317,22 +449,21 @@ class DefaultApi
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createProcessedTemplateForAllNamespaces');
         }
-        // parse inputs
-        $resourcePath = "/apis/template.openshift.io/v1/processedtemplates";
-        $httpBody = '';
+
+        $resourcePath = '/apis/template.openshift.io/v1/processedtemplates';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Template';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -342,34 +473,105 @@ class DefaultApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Template',
-                '/apis/template.openshift.io/v1/processedtemplates'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Template', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createProcessedTemplateForAllNamespacesV1
      *
@@ -378,6 +580,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Template
      */
     public function createProcessedTemplateForAllNamespacesV1($body, $pretty = null)
@@ -394,6 +597,7 @@ class DefaultApi
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Template $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function createProcessedTemplateForAllNamespacesV1WithHttpInfo($body, $pretty = null)
@@ -402,22 +606,21 @@ class DefaultApi
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createProcessedTemplateForAllNamespacesV1');
         }
-        // parse inputs
-        $resourcePath = "/oapi/v1/processedtemplates";
-        $httpBody = '';
+
+        $resourcePath = '/oapi/v1/processedtemplates';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Template';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -427,30 +630,102 @@ class DefaultApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Template',
-                '/oapi/v1/processedtemplates'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Template', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }

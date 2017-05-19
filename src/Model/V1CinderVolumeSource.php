@@ -55,9 +55,9 @@ class V1CinderVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
-        'read_only' => 'bool',
-        'volume_id' => 'string'
+        'fsType' => 'string',
+        'readOnly' => 'bool',
+        'volumeID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1CinderVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
-        'read_only' => 'readOnly',
-        'volume_id' => 'volumeID'
+        'fsType' => 'fsType',
+        'readOnly' => 'readOnly',
+        'volumeID' => 'volumeID'
     ];
 
 
@@ -81,9 +81,9 @@ class V1CinderVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
-        'read_only' => 'setReadOnly',
-        'volume_id' => 'setVolumeId'
+        'fsType' => 'setFsType',
+        'readOnly' => 'setReadOnly',
+        'volumeID' => 'setVolumeID'
     ];
 
 
@@ -92,9 +92,9 @@ class V1CinderVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
-        'read_only' => 'getReadOnly',
-        'volume_id' => 'getVolumeId'
+        'fsType' => 'getFsType',
+        'readOnly' => 'getReadOnly',
+        'volumeID' => 'getVolumeID'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1CinderVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['volume_id'] = isset($data['volume_id']) ? $data['volume_id'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['volumeID'] = isset($data['volumeID']) ? $data['volumeID'] : null;
     }
 
     /**
@@ -142,8 +142,8 @@ class V1CinderVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['volume_id'] === null) {
-            $invalid_properties[] = "'volume_id' can't be null";
+        if ($this->container['volumeID'] === null) {
+            $invalid_properties[] = "'volumeID' can't be null";
         }
         return $invalid_properties;
     }
@@ -157,7 +157,7 @@ class V1CinderVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['volume_id'] === null) {
+        if ($this->container['volumeID'] === null) {
             return false;
         }
         return true;
@@ -165,64 +165,64 @@ class V1CinderVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+     * Sets readOnly
+     * @param bool $readOnly Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets volume_id
+     * Gets volumeID
      * @return string
      */
-    public function getVolumeId()
+    public function getVolumeID()
     {
-        return $this->container['volume_id'];
+        return $this->container['volumeID'];
     }
 
     /**
-     * Sets volume_id
-     * @param string $volume_id volume id used to identify the volume in cinder More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+     * Sets volumeID
+     * @param string $volumeID volume id used to identify the volume in cinder More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
      * @return $this
      */
-    public function setVolumeId($volume_id)
+    public function setVolumeID($volumeID)
     {
-        $this->container['volume_id'] = $volume_id;
+        $this->container['volumeID'] = $volumeID;
 
         return $this;
     }

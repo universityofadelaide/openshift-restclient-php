@@ -55,16 +55,16 @@ class V1ScaleIOVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
+        'fsType' => 'string',
         'gateway' => 'string',
-        'protection_domain' => 'string',
-        'read_only' => 'bool',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
-        'ssl_enabled' => 'bool',
-        'storage_mode' => 'string',
-        'storage_pool' => 'string',
+        'protectionDomain' => 'string',
+        'readOnly' => 'bool',
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'sslEnabled' => 'bool',
+        'storageMode' => 'string',
+        'storagePool' => 'string',
         'system' => 'string',
-        'volume_name' => 'string'
+        'volumeName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -77,16 +77,16 @@ class V1ScaleIOVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
+        'fsType' => 'fsType',
         'gateway' => 'gateway',
-        'protection_domain' => 'protectionDomain',
-        'read_only' => 'readOnly',
-        'secret_ref' => 'secretRef',
-        'ssl_enabled' => 'sslEnabled',
-        'storage_mode' => 'storageMode',
-        'storage_pool' => 'storagePool',
+        'protectionDomain' => 'protectionDomain',
+        'readOnly' => 'readOnly',
+        'secretRef' => 'secretRef',
+        'sslEnabled' => 'sslEnabled',
+        'storageMode' => 'storageMode',
+        'storagePool' => 'storagePool',
         'system' => 'system',
-        'volume_name' => 'volumeName'
+        'volumeName' => 'volumeName'
     ];
 
 
@@ -95,16 +95,16 @@ class V1ScaleIOVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
+        'fsType' => 'setFsType',
         'gateway' => 'setGateway',
-        'protection_domain' => 'setProtectionDomain',
-        'read_only' => 'setReadOnly',
-        'secret_ref' => 'setSecretRef',
-        'ssl_enabled' => 'setSslEnabled',
-        'storage_mode' => 'setStorageMode',
-        'storage_pool' => 'setStoragePool',
+        'protectionDomain' => 'setProtectionDomain',
+        'readOnly' => 'setReadOnly',
+        'secretRef' => 'setSecretRef',
+        'sslEnabled' => 'setSslEnabled',
+        'storageMode' => 'setStorageMode',
+        'storagePool' => 'setStoragePool',
         'system' => 'setSystem',
-        'volume_name' => 'setVolumeName'
+        'volumeName' => 'setVolumeName'
     ];
 
 
@@ -113,16 +113,16 @@ class V1ScaleIOVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
+        'fsType' => 'getFsType',
         'gateway' => 'getGateway',
-        'protection_domain' => 'getProtectionDomain',
-        'read_only' => 'getReadOnly',
-        'secret_ref' => 'getSecretRef',
-        'ssl_enabled' => 'getSslEnabled',
-        'storage_mode' => 'getStorageMode',
-        'storage_pool' => 'getStoragePool',
+        'protectionDomain' => 'getProtectionDomain',
+        'readOnly' => 'getReadOnly',
+        'secretRef' => 'getSecretRef',
+        'sslEnabled' => 'getSslEnabled',
+        'storageMode' => 'getStorageMode',
+        'storagePool' => 'getStoragePool',
         'system' => 'getSystem',
-        'volume_name' => 'getVolumeName'
+        'volumeName' => 'getVolumeName'
     ];
 
     public static function attributeMap()
@@ -156,16 +156,16 @@ class V1ScaleIOVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
-        $this->container['protection_domain'] = isset($data['protection_domain']) ? $data['protection_domain'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
-        $this->container['ssl_enabled'] = isset($data['ssl_enabled']) ? $data['ssl_enabled'] : null;
-        $this->container['storage_mode'] = isset($data['storage_mode']) ? $data['storage_mode'] : null;
-        $this->container['storage_pool'] = isset($data['storage_pool']) ? $data['storage_pool'] : null;
+        $this->container['protectionDomain'] = isset($data['protectionDomain']) ? $data['protectionDomain'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
+        $this->container['sslEnabled'] = isset($data['sslEnabled']) ? $data['sslEnabled'] : null;
+        $this->container['storageMode'] = isset($data['storageMode']) ? $data['storageMode'] : null;
+        $this->container['storagePool'] = isset($data['storagePool']) ? $data['storagePool'] : null;
         $this->container['system'] = isset($data['system']) ? $data['system'] : null;
-        $this->container['volume_name'] = isset($data['volume_name']) ? $data['volume_name'] : null;
+        $this->container['volumeName'] = isset($data['volumeName']) ? $data['volumeName'] : null;
     }
 
     /**
@@ -180,8 +180,8 @@ class V1ScaleIOVolumeSource implements ArrayAccess
         if ($this->container['gateway'] === null) {
             $invalid_properties[] = "'gateway' can't be null";
         }
-        if ($this->container['secret_ref'] === null) {
-            $invalid_properties[] = "'secret_ref' can't be null";
+        if ($this->container['secretRef'] === null) {
+            $invalid_properties[] = "'secretRef' can't be null";
         }
         if ($this->container['system'] === null) {
             $invalid_properties[] = "'system' can't be null";
@@ -201,7 +201,7 @@ class V1ScaleIOVolumeSource implements ArrayAccess
         if ($this->container['gateway'] === null) {
             return false;
         }
-        if ($this->container['secret_ref'] === null) {
+        if ($this->container['secretRef'] === null) {
             return false;
         }
         if ($this->container['system'] === null) {
@@ -212,22 +212,22 @@ class V1ScaleIOVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -254,127 +254,127 @@ class V1ScaleIOVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets protection_domain
+     * Gets protectionDomain
      * @return string
      */
     public function getProtectionDomain()
     {
-        return $this->container['protection_domain'];
+        return $this->container['protectionDomain'];
     }
 
     /**
-     * Sets protection_domain
-     * @param string $protection_domain The name of the Protection Domain for the configured storage (defaults to \"default\").
+     * Sets protectionDomain
+     * @param string $protectionDomain The name of the Protection Domain for the configured storage (defaults to \"default\").
      * @return $this
      */
-    public function setProtectionDomain($protection_domain)
+    public function setProtectionDomain($protectionDomain)
     {
-        $this->container['protection_domain'] = $protection_domain;
+        $this->container['protectionDomain'] = $protectionDomain;
 
         return $this;
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+     * Sets readOnly
+     * @param bool $readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secret_ref SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $secretRef SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }
 
     /**
-     * Gets ssl_enabled
+     * Gets sslEnabled
      * @return bool
      */
     public function getSslEnabled()
     {
-        return $this->container['ssl_enabled'];
+        return $this->container['sslEnabled'];
     }
 
     /**
-     * Sets ssl_enabled
-     * @param bool $ssl_enabled Flag to enable/disable SSL communication with Gateway, default false
+     * Sets sslEnabled
+     * @param bool $sslEnabled Flag to enable/disable SSL communication with Gateway, default false
      * @return $this
      */
-    public function setSslEnabled($ssl_enabled)
+    public function setSslEnabled($sslEnabled)
     {
-        $this->container['ssl_enabled'] = $ssl_enabled;
+        $this->container['sslEnabled'] = $sslEnabled;
 
         return $this;
     }
 
     /**
-     * Gets storage_mode
+     * Gets storageMode
      * @return string
      */
     public function getStorageMode()
     {
-        return $this->container['storage_mode'];
+        return $this->container['storageMode'];
     }
 
     /**
-     * Sets storage_mode
-     * @param string $storage_mode Indicates whether the storage for a volume should be thick or thin (defaults to \"thin\").
+     * Sets storageMode
+     * @param string $storageMode Indicates whether the storage for a volume should be thick or thin (defaults to \"thin\").
      * @return $this
      */
-    public function setStorageMode($storage_mode)
+    public function setStorageMode($storageMode)
     {
-        $this->container['storage_mode'] = $storage_mode;
+        $this->container['storageMode'] = $storageMode;
 
         return $this;
     }
 
     /**
-     * Gets storage_pool
+     * Gets storagePool
      * @return string
      */
     public function getStoragePool()
     {
-        return $this->container['storage_pool'];
+        return $this->container['storagePool'];
     }
 
     /**
-     * Sets storage_pool
-     * @param string $storage_pool The Storage Pool associated with the protection domain (defaults to \"default\").
+     * Sets storagePool
+     * @param string $storagePool The Storage Pool associated with the protection domain (defaults to \"default\").
      * @return $this
      */
-    public function setStoragePool($storage_pool)
+    public function setStoragePool($storagePool)
     {
-        $this->container['storage_pool'] = $storage_pool;
+        $this->container['storagePool'] = $storagePool;
 
         return $this;
     }
@@ -401,22 +401,22 @@ class V1ScaleIOVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets volume_name
+     * Gets volumeName
      * @return string
      */
     public function getVolumeName()
     {
-        return $this->container['volume_name'];
+        return $this->container['volumeName'];
     }
 
     /**
-     * Sets volume_name
-     * @param string $volume_name The name of a volume already created in the ScaleIO system that is associated with this volume source.
+     * Sets volumeName
+     * @param string $volumeName The name of a volume already created in the ScaleIO system that is associated with this volume source.
      * @return $this
      */
-    public function setVolumeName($volume_name)
+    public function setVolumeName($volumeName)
     {
-        $this->container['volume_name'] = $volume_name;
+        $this->container['volumeName'] = $volumeName;
 
         return $this;
     }

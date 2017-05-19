@@ -19,7 +19,7 @@ get information of a group
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\TemplateOpenshiftIoApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\TemplateOpenshiftIoApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getTemplateOpenshiftIoAPIGroup();

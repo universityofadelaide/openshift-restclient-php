@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_group** | **string** | APIGroup is the group for the resource being referenced | 
+**apiGroup** | **string** | APIGroup is the group for the resource being referenced | 
 **kind** | **string** | Kind is the type of resource being referenced | 
 **name** | **string** | Name is the name of resource being referenced | 
 

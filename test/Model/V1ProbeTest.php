@@ -91,7 +91,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "failure_threshold"
+     * Test attribute "failureThreshold"
      */
     public function testPropertyFailureThreshold()
     {
@@ -99,7 +99,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "http_get"
+     * Test attribute "httpGet"
      */
     public function testPropertyHttpGet()
     {
@@ -107,7 +107,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "initial_delay_seconds"
+     * Test attribute "initialDelaySeconds"
      */
     public function testPropertyInitialDelaySeconds()
     {
@@ -115,7 +115,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "period_seconds"
+     * Test attribute "periodSeconds"
      */
     public function testPropertyPeriodSeconds()
     {
@@ -123,7 +123,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "success_threshold"
+     * Test attribute "successThreshold"
      */
     public function testPropertySuccessThreshold()
     {
@@ -131,7 +131,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "tcp_socket"
+     * Test attribute "tcpSocket"
      */
     public function testPropertyTcpSocket()
     {
@@ -139,7 +139,7 @@ class V1ProbeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "timeout_seconds"
+     * Test attribute "timeoutSeconds"
      */
     public function testPropertyTimeoutSeconds()
     {

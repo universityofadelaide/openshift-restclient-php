@@ -83,9 +83,9 @@ class V1CustomBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "build_api_version"
+     * Test attribute "buildAPIVersion"
      */
-    public function testPropertyBuildApiVersion()
+    public function testPropertyBuildAPIVersion()
     {
 
     }
@@ -99,7 +99,7 @@ class V1CustomBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "expose_docker_socket"
+     * Test attribute "exposeDockerSocket"
      */
     public function testPropertyExposeDockerSocket()
     {
@@ -107,7 +107,7 @@ class V1CustomBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "force_pull"
+     * Test attribute "forcePull"
      */
     public function testPropertyForcePull()
     {
@@ -123,7 +123,7 @@ class V1CustomBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pull_secret"
+     * Test attribute "pullSecret"
      */
     public function testPropertyPullSecret()
     {

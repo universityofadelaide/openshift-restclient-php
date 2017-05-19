@@ -55,7 +55,7 @@ class V1beta1RoleRef implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_group' => 'string',
+        'apiGroup' => 'string',
         'kind' => 'string',
         'name' => 'string'
     ];
@@ -70,7 +70,7 @@ class V1beta1RoleRef implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_group' => 'apiGroup',
+        'apiGroup' => 'apiGroup',
         'kind' => 'kind',
         'name' => 'name'
     ];
@@ -81,7 +81,7 @@ class V1beta1RoleRef implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_group' => 'setApiGroup',
+        'apiGroup' => 'setApiGroup',
         'kind' => 'setKind',
         'name' => 'setName'
     ];
@@ -92,7 +92,7 @@ class V1beta1RoleRef implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_group' => 'getApiGroup',
+        'apiGroup' => 'getApiGroup',
         'kind' => 'getKind',
         'name' => 'getName'
     ];
@@ -128,7 +128,7 @@ class V1beta1RoleRef implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_group'] = isset($data['api_group']) ? $data['api_group'] : null;
+        $this->container['apiGroup'] = isset($data['apiGroup']) ? $data['apiGroup'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
@@ -142,8 +142,8 @@ class V1beta1RoleRef implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['api_group'] === null) {
-            $invalid_properties[] = "'api_group' can't be null";
+        if ($this->container['apiGroup'] === null) {
+            $invalid_properties[] = "'apiGroup' can't be null";
         }
         if ($this->container['kind'] === null) {
             $invalid_properties[] = "'kind' can't be null";
@@ -163,7 +163,7 @@ class V1beta1RoleRef implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['api_group'] === null) {
+        if ($this->container['apiGroup'] === null) {
             return false;
         }
         if ($this->container['kind'] === null) {
@@ -177,22 +177,22 @@ class V1beta1RoleRef implements ArrayAccess
 
 
     /**
-     * Gets api_group
+     * Gets apiGroup
      * @return string
      */
     public function getApiGroup()
     {
-        return $this->container['api_group'];
+        return $this->container['apiGroup'];
     }
 
     /**
-     * Sets api_group
-     * @param string $api_group APIGroup is the group for the resource being referenced
+     * Sets apiGroup
+     * @param string $apiGroup APIGroup is the group for the resource being referenced
      * @return $this
      */
-    public function setApiGroup($api_group)
+    public function setApiGroup($apiGroup)
     {
-        $this->container['api_group'] = $api_group;
+        $this->container['apiGroup'] = $apiGroup;
 
         return $this;
     }

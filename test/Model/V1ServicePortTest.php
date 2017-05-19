@@ -91,7 +91,7 @@ class V1ServicePortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_port"
+     * Test attribute "nodePort"
      */
     public function testPropertyNodePort()
     {
@@ -115,7 +115,7 @@ class V1ServicePortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_port"
+     * Test attribute "targetPort"
      */
     public function testPropertyTargetPort()
     {

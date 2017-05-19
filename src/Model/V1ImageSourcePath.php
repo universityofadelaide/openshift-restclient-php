@@ -55,8 +55,8 @@ class V1ImageSourcePath implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'destination_dir' => 'string',
-        'source_path' => 'string'
+        'destinationDir' => 'string',
+        'sourcePath' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1ImageSourcePath implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'destination_dir' => 'destinationDir',
-        'source_path' => 'sourcePath'
+        'destinationDir' => 'destinationDir',
+        'sourcePath' => 'sourcePath'
     ];
 
 
@@ -79,8 +79,8 @@ class V1ImageSourcePath implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'destination_dir' => 'setDestinationDir',
-        'source_path' => 'setSourcePath'
+        'destinationDir' => 'setDestinationDir',
+        'sourcePath' => 'setSourcePath'
     ];
 
 
@@ -89,8 +89,8 @@ class V1ImageSourcePath implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'destination_dir' => 'getDestinationDir',
-        'source_path' => 'getSourcePath'
+        'destinationDir' => 'getDestinationDir',
+        'sourcePath' => 'getSourcePath'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1ImageSourcePath implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['destination_dir'] = isset($data['destination_dir']) ? $data['destination_dir'] : null;
-        $this->container['source_path'] = isset($data['source_path']) ? $data['source_path'] : null;
+        $this->container['destinationDir'] = isset($data['destinationDir']) ? $data['destinationDir'] : null;
+        $this->container['sourcePath'] = isset($data['sourcePath']) ? $data['sourcePath'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V1ImageSourcePath implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['destination_dir'] === null) {
-            $invalid_properties[] = "'destination_dir' can't be null";
+        if ($this->container['destinationDir'] === null) {
+            $invalid_properties[] = "'destinationDir' can't be null";
         }
-        if ($this->container['source_path'] === null) {
-            $invalid_properties[] = "'source_path' can't be null";
+        if ($this->container['sourcePath'] === null) {
+            $invalid_properties[] = "'sourcePath' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V1ImageSourcePath implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['destination_dir'] === null) {
+        if ($this->container['destinationDir'] === null) {
             return false;
         }
-        if ($this->container['source_path'] === null) {
+        if ($this->container['sourcePath'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V1ImageSourcePath implements ArrayAccess
 
 
     /**
-     * Gets destination_dir
+     * Gets destinationDir
      * @return string
      */
     public function getDestinationDir()
     {
-        return $this->container['destination_dir'];
+        return $this->container['destinationDir'];
     }
 
     /**
-     * Sets destination_dir
-     * @param string $destination_dir destinationDir is the relative directory within the build directory where files copied from the image are placed.
+     * Sets destinationDir
+     * @param string $destinationDir destinationDir is the relative directory within the build directory where files copied from the image are placed.
      * @return $this
      */
-    public function setDestinationDir($destination_dir)
+    public function setDestinationDir($destinationDir)
     {
-        $this->container['destination_dir'] = $destination_dir;
+        $this->container['destinationDir'] = $destinationDir;
 
         return $this;
     }
 
     /**
-     * Gets source_path
+     * Gets sourcePath
      * @return string
      */
     public function getSourcePath()
     {
-        return $this->container['source_path'];
+        return $this->container['sourcePath'];
     }
 
     /**
-     * Sets source_path
-     * @param string $source_path sourcePath is the absolute path of the file or directory inside the image to copy to the build directory.  If the source path ends in /. then the content of the directory will be copied, but the directory itself will not be created at the destination.
+     * Sets sourcePath
+     * @param string $sourcePath sourcePath is the absolute path of the file or directory inside the image to copy to the build directory.  If the source path ends in /. then the content of the directory will be copied, but the directory itself will not be created at the destination.
      * @return $this
      */
-    public function setSourcePath($source_path)
+    public function setSourcePath($sourcePath)
     {
-        $this->container['source_path'] = $source_path;
+        $this->container['sourcePath'] = $sourcePath;
 
         return $this;
     }

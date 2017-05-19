@@ -55,8 +55,8 @@ class V1APIResourceList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'group_version' => 'string',
+        'apiVersion' => 'string',
+        'groupVersion' => 'string',
         'kind' => 'string',
         'resources' => '\UniversityOfAdelaide\OpenShift\Model\V1APIResource[]'
     ];
@@ -71,8 +71,8 @@ class V1APIResourceList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'group_version' => 'groupVersion',
+        'apiVersion' => 'apiVersion',
+        'groupVersion' => 'groupVersion',
         'kind' => 'kind',
         'resources' => 'resources'
     ];
@@ -83,8 +83,8 @@ class V1APIResourceList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'group_version' => 'setGroupVersion',
+        'apiVersion' => 'setApiVersion',
+        'groupVersion' => 'setGroupVersion',
         'kind' => 'setKind',
         'resources' => 'setResources'
     ];
@@ -95,8 +95,8 @@ class V1APIResourceList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'group_version' => 'getGroupVersion',
+        'apiVersion' => 'getApiVersion',
+        'groupVersion' => 'getGroupVersion',
         'kind' => 'getKind',
         'resources' => 'getResources'
     ];
@@ -132,8 +132,8 @@ class V1APIResourceList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['group_version'] = isset($data['group_version']) ? $data['group_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['groupVersion'] = isset($data['groupVersion']) ? $data['groupVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
     }
@@ -147,8 +147,8 @@ class V1APIResourceList implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['group_version'] === null) {
-            $invalid_properties[] = "'group_version' can't be null";
+        if ($this->container['groupVersion'] === null) {
+            $invalid_properties[] = "'groupVersion' can't be null";
         }
         if ($this->container['resources'] === null) {
             $invalid_properties[] = "'resources' can't be null";
@@ -165,7 +165,7 @@ class V1APIResourceList implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['group_version'] === null) {
+        if ($this->container['groupVersion'] === null) {
             return false;
         }
         if ($this->container['resources'] === null) {
@@ -176,43 +176,43 @@ class V1APIResourceList implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets group_version
+     * Gets groupVersion
      * @return string
      */
     public function getGroupVersion()
     {
-        return $this->container['group_version'];
+        return $this->container['groupVersion'];
     }
 
     /**
-     * Sets group_version
-     * @param string $group_version groupVersion is the group and version this APIResourceList is for.
+     * Sets groupVersion
+     * @param string $groupVersion groupVersion is the group and version this APIResourceList is for.
      * @return $this
      */
-    public function setGroupVersion($group_version)
+    public function setGroupVersion($groupVersion)
     {
-        $this->container['group_version'] = $group_version;
+        $this->container['groupVersion'] = $groupVersion;
 
         return $this;
     }

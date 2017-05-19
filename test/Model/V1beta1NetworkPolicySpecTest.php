@@ -91,7 +91,7 @@ class V1beta1NetworkPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_selector"
+     * Test attribute "podSelector"
      */
     public function testPropertyPodSelector()
     {

@@ -55,10 +55,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'max_replicas' => 'int',
+        'maxReplicas' => 'int',
         'metrics' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1MetricSpec[]',
-        'min_replicas' => 'int',
-        'scale_target_ref' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference'
+        'minReplicas' => 'int',
+        'scaleTargetRef' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'max_replicas' => 'maxReplicas',
+        'maxReplicas' => 'maxReplicas',
         'metrics' => 'metrics',
-        'min_replicas' => 'minReplicas',
-        'scale_target_ref' => 'scaleTargetRef'
+        'minReplicas' => 'minReplicas',
+        'scaleTargetRef' => 'scaleTargetRef'
     ];
 
 
@@ -83,10 +83,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'max_replicas' => 'setMaxReplicas',
+        'maxReplicas' => 'setMaxReplicas',
         'metrics' => 'setMetrics',
-        'min_replicas' => 'setMinReplicas',
-        'scale_target_ref' => 'setScaleTargetRef'
+        'minReplicas' => 'setMinReplicas',
+        'scaleTargetRef' => 'setScaleTargetRef'
     ];
 
 
@@ -95,10 +95,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'max_replicas' => 'getMaxReplicas',
+        'maxReplicas' => 'getMaxReplicas',
         'metrics' => 'getMetrics',
-        'min_replicas' => 'getMinReplicas',
-        'scale_target_ref' => 'getScaleTargetRef'
+        'minReplicas' => 'getMinReplicas',
+        'scaleTargetRef' => 'getScaleTargetRef'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['max_replicas'] = isset($data['max_replicas']) ? $data['max_replicas'] : null;
+        $this->container['maxReplicas'] = isset($data['maxReplicas']) ? $data['maxReplicas'] : null;
         $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
-        $this->container['min_replicas'] = isset($data['min_replicas']) ? $data['min_replicas'] : null;
-        $this->container['scale_target_ref'] = isset($data['scale_target_ref']) ? $data['scale_target_ref'] : null;
+        $this->container['minReplicas'] = isset($data['minReplicas']) ? $data['minReplicas'] : null;
+        $this->container['scaleTargetRef'] = isset($data['scaleTargetRef']) ? $data['scaleTargetRef'] : null;
     }
 
     /**
@@ -147,11 +147,11 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['max_replicas'] === null) {
-            $invalid_properties[] = "'max_replicas' can't be null";
+        if ($this->container['maxReplicas'] === null) {
+            $invalid_properties[] = "'maxReplicas' can't be null";
         }
-        if ($this->container['scale_target_ref'] === null) {
-            $invalid_properties[] = "'scale_target_ref' can't be null";
+        if ($this->container['scaleTargetRef'] === null) {
+            $invalid_properties[] = "'scaleTargetRef' can't be null";
         }
         return $invalid_properties;
     }
@@ -165,10 +165,10 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['max_replicas'] === null) {
+        if ($this->container['maxReplicas'] === null) {
             return false;
         }
-        if ($this->container['scale_target_ref'] === null) {
+        if ($this->container['scaleTargetRef'] === null) {
             return false;
         }
         return true;
@@ -176,22 +176,22 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
 
 
     /**
-     * Gets max_replicas
+     * Gets maxReplicas
      * @return int
      */
     public function getMaxReplicas()
     {
-        return $this->container['max_replicas'];
+        return $this->container['maxReplicas'];
     }
 
     /**
-     * Sets max_replicas
-     * @param int $max_replicas maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.
+     * Sets maxReplicas
+     * @param int $maxReplicas maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.
      * @return $this
      */
-    public function setMaxReplicas($max_replicas)
+    public function setMaxReplicas($maxReplicas)
     {
-        $this->container['max_replicas'] = $max_replicas;
+        $this->container['maxReplicas'] = $maxReplicas;
 
         return $this;
     }
@@ -218,43 +218,43 @@ class V2alpha1HorizontalPodAutoscalerSpec implements ArrayAccess
     }
 
     /**
-     * Gets min_replicas
+     * Gets minReplicas
      * @return int
      */
     public function getMinReplicas()
     {
-        return $this->container['min_replicas'];
+        return $this->container['minReplicas'];
     }
 
     /**
-     * Sets min_replicas
-     * @param int $min_replicas minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down. It defaults to 1 pod.
+     * Sets minReplicas
+     * @param int $minReplicas minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down. It defaults to 1 pod.
      * @return $this
      */
-    public function setMinReplicas($min_replicas)
+    public function setMinReplicas($minReplicas)
     {
-        $this->container['min_replicas'] = $min_replicas;
+        $this->container['minReplicas'] = $minReplicas;
 
         return $this;
     }
 
     /**
-     * Gets scale_target_ref
+     * Gets scaleTargetRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference
      */
     public function getScaleTargetRef()
     {
-        return $this->container['scale_target_ref'];
+        return $this->container['scaleTargetRef'];
     }
 
     /**
-     * Sets scale_target_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference $scale_target_ref scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
+     * Sets scaleTargetRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference $scaleTargetRef scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
      * @return $this
      */
-    public function setScaleTargetRef($scale_target_ref)
+    public function setScaleTargetRef($scaleTargetRef)
     {
-        $this->container['scale_target_ref'] = $scale_target_ref;
+        $this->container['scaleTargetRef'] = $scaleTargetRef;
 
         return $this;
     }

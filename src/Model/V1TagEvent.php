@@ -56,7 +56,7 @@ class V1TagEvent implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'created' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'docker_image_reference' => 'string',
+        'dockerImageReference' => 'string',
         'generation' => 'int',
         'image' => 'string'
     ];
@@ -72,7 +72,7 @@ class V1TagEvent implements ArrayAccess
      */
     protected static $attributeMap = [
         'created' => 'created',
-        'docker_image_reference' => 'dockerImageReference',
+        'dockerImageReference' => 'dockerImageReference',
         'generation' => 'generation',
         'image' => 'image'
     ];
@@ -84,7 +84,7 @@ class V1TagEvent implements ArrayAccess
      */
     protected static $setters = [
         'created' => 'setCreated',
-        'docker_image_reference' => 'setDockerImageReference',
+        'dockerImageReference' => 'setDockerImageReference',
         'generation' => 'setGeneration',
         'image' => 'setImage'
     ];
@@ -96,7 +96,7 @@ class V1TagEvent implements ArrayAccess
      */
     protected static $getters = [
         'created' => 'getCreated',
-        'docker_image_reference' => 'getDockerImageReference',
+        'dockerImageReference' => 'getDockerImageReference',
         'generation' => 'getGeneration',
         'image' => 'getImage'
     ];
@@ -133,7 +133,7 @@ class V1TagEvent implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['docker_image_reference'] = isset($data['docker_image_reference']) ? $data['docker_image_reference'] : null;
+        $this->container['dockerImageReference'] = isset($data['dockerImageReference']) ? $data['dockerImageReference'] : null;
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
     }
@@ -150,8 +150,8 @@ class V1TagEvent implements ArrayAccess
         if ($this->container['created'] === null) {
             $invalid_properties[] = "'created' can't be null";
         }
-        if ($this->container['docker_image_reference'] === null) {
-            $invalid_properties[] = "'docker_image_reference' can't be null";
+        if ($this->container['dockerImageReference'] === null) {
+            $invalid_properties[] = "'dockerImageReference' can't be null";
         }
         if ($this->container['generation'] === null) {
             $invalid_properties[] = "'generation' can't be null";
@@ -174,7 +174,7 @@ class V1TagEvent implements ArrayAccess
         if ($this->container['created'] === null) {
             return false;
         }
-        if ($this->container['docker_image_reference'] === null) {
+        if ($this->container['dockerImageReference'] === null) {
             return false;
         }
         if ($this->container['generation'] === null) {
@@ -209,22 +209,22 @@ class V1TagEvent implements ArrayAccess
     }
 
     /**
-     * Gets docker_image_reference
+     * Gets dockerImageReference
      * @return string
      */
     public function getDockerImageReference()
     {
-        return $this->container['docker_image_reference'];
+        return $this->container['dockerImageReference'];
     }
 
     /**
-     * Sets docker_image_reference
-     * @param string $docker_image_reference DockerImageReference is the string that can be used to pull this image
+     * Sets dockerImageReference
+     * @param string $dockerImageReference DockerImageReference is the string that can be used to pull this image
      * @return $this
      */
-    public function setDockerImageReference($docker_image_reference)
+    public function setDockerImageReference($dockerImageReference)
     {
-        $this->container['docker_image_reference'] = $docker_image_reference;
+        $this->container['dockerImageReference'] = $dockerImageReference;
 
         return $this;
     }

@@ -55,10 +55,10 @@ class V1FCVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
+        'fsType' => 'string',
         'lun' => 'int',
-        'read_only' => 'bool',
-        'target_ww_ns' => 'string[]'
+        'readOnly' => 'bool',
+        'targetWWNs' => 'string[]'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1FCVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
+        'fsType' => 'fsType',
         'lun' => 'lun',
-        'read_only' => 'readOnly',
-        'target_ww_ns' => 'targetWWNs'
+        'readOnly' => 'readOnly',
+        'targetWWNs' => 'targetWWNs'
     ];
 
 
@@ -83,10 +83,10 @@ class V1FCVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
+        'fsType' => 'setFsType',
         'lun' => 'setLun',
-        'read_only' => 'setReadOnly',
-        'target_ww_ns' => 'setTargetWwNs'
+        'readOnly' => 'setReadOnly',
+        'targetWWNs' => 'setTargetWWNs'
     ];
 
 
@@ -95,10 +95,10 @@ class V1FCVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
+        'fsType' => 'getFsType',
         'lun' => 'getLun',
-        'read_only' => 'getReadOnly',
-        'target_ww_ns' => 'getTargetWwNs'
+        'readOnly' => 'getReadOnly',
+        'targetWWNs' => 'getTargetWWNs'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1FCVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['lun'] = isset($data['lun']) ? $data['lun'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['target_ww_ns'] = isset($data['target_ww_ns']) ? $data['target_ww_ns'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['targetWWNs'] = isset($data['targetWWNs']) ? $data['targetWWNs'] : null;
     }
 
     /**
@@ -150,8 +150,8 @@ class V1FCVolumeSource implements ArrayAccess
         if ($this->container['lun'] === null) {
             $invalid_properties[] = "'lun' can't be null";
         }
-        if ($this->container['target_ww_ns'] === null) {
-            $invalid_properties[] = "'target_ww_ns' can't be null";
+        if ($this->container['targetWWNs'] === null) {
+            $invalid_properties[] = "'targetWWNs' can't be null";
         }
         return $invalid_properties;
     }
@@ -168,7 +168,7 @@ class V1FCVolumeSource implements ArrayAccess
         if ($this->container['lun'] === null) {
             return false;
         }
-        if ($this->container['target_ww_ns'] === null) {
+        if ($this->container['targetWWNs'] === null) {
             return false;
         }
         return true;
@@ -176,22 +176,22 @@ class V1FCVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -218,43 +218,43 @@ class V1FCVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+     * Sets readOnly
+     * @param bool $readOnly Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets target_ww_ns
+     * Gets targetWWNs
      * @return string[]
      */
-    public function getTargetWwNs()
+    public function getTargetWWNs()
     {
-        return $this->container['target_ww_ns'];
+        return $this->container['targetWWNs'];
     }
 
     /**
-     * Sets target_ww_ns
-     * @param string[] $target_ww_ns Required: FC target worldwide names (WWNs)
+     * Sets targetWWNs
+     * @param string[] $targetWWNs Required: FC target worldwide names (WWNs)
      * @return $this
      */
-    public function setTargetWwNs($target_ww_ns)
+    public function setTargetWWNs($targetWWNs)
     {
-        $this->container['target_ww_ns'] = $target_ww_ns;
+        $this->container['targetWWNs'] = $targetWWNs;
 
         return $this;
     }

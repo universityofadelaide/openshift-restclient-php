@@ -58,7 +58,7 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
         'mid' => '\UniversityOfAdelaide\OpenShift\Model\V1LifecycleHook',
         'post' => '\UniversityOfAdelaide\OpenShift\Model\V1LifecycleHook',
         'pre' => '\UniversityOfAdelaide\OpenShift\Model\V1LifecycleHook',
-        'timeout_seconds' => 'int'
+        'timeoutSeconds' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -74,7 +74,7 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
         'mid' => 'mid',
         'post' => 'post',
         'pre' => 'pre',
-        'timeout_seconds' => 'timeoutSeconds'
+        'timeoutSeconds' => 'timeoutSeconds'
     ];
 
 
@@ -86,7 +86,7 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
         'mid' => 'setMid',
         'post' => 'setPost',
         'pre' => 'setPre',
-        'timeout_seconds' => 'setTimeoutSeconds'
+        'timeoutSeconds' => 'setTimeoutSeconds'
     ];
 
 
@@ -98,7 +98,7 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
         'mid' => 'getMid',
         'post' => 'getPost',
         'pre' => 'getPre',
-        'timeout_seconds' => 'getTimeoutSeconds'
+        'timeoutSeconds' => 'getTimeoutSeconds'
     ];
 
     public static function attributeMap()
@@ -135,7 +135,7 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
         $this->container['mid'] = isset($data['mid']) ? $data['mid'] : null;
         $this->container['post'] = isset($data['post']) ? $data['post'] : null;
         $this->container['pre'] = isset($data['pre']) ? $data['pre'] : null;
-        $this->container['timeout_seconds'] = isset($data['timeout_seconds']) ? $data['timeout_seconds'] : null;
+        $this->container['timeoutSeconds'] = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 
     /**
@@ -227,22 +227,22 @@ class V1RecreateDeploymentStrategyParams implements ArrayAccess
     }
 
     /**
-     * Gets timeout_seconds
+     * Gets timeoutSeconds
      * @return int
      */
     public function getTimeoutSeconds()
     {
-        return $this->container['timeout_seconds'];
+        return $this->container['timeoutSeconds'];
     }
 
     /**
-     * Sets timeout_seconds
-     * @param int $timeout_seconds TimeoutSeconds is the time to wait for updates before giving up. If the value is nil, a default will be used.
+     * Sets timeoutSeconds
+     * @param int $timeoutSeconds TimeoutSeconds is the time to wait for updates before giving up. If the value is nil, a default will be used.
      * @return $this
      */
-    public function setTimeoutSeconds($timeout_seconds)
+    public function setTimeoutSeconds($timeoutSeconds)
     {
-        $this->container['timeout_seconds'] = $timeout_seconds;
+        $this->container['timeoutSeconds'] = $timeoutSeconds;
 
         return $this;
     }

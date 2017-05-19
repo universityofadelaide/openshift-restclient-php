@@ -55,30 +55,30 @@ class V1PersistentVolumeSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_modes' => 'string[]',
-        'aws_elastic_block_store' => '\UniversityOfAdelaide\OpenShift\Model\V1AWSElasticBlockStoreVolumeSource',
-        'azure_disk' => '\UniversityOfAdelaide\OpenShift\Model\V1AzureDiskVolumeSource',
-        'azure_file' => '\UniversityOfAdelaide\OpenShift\Model\V1AzureFileVolumeSource',
+        'accessModes' => 'string[]',
+        'awsElasticBlockStore' => '\UniversityOfAdelaide\OpenShift\Model\V1AWSElasticBlockStoreVolumeSource',
+        'azureDisk' => '\UniversityOfAdelaide\OpenShift\Model\V1AzureDiskVolumeSource',
+        'azureFile' => '\UniversityOfAdelaide\OpenShift\Model\V1AzureFileVolumeSource',
         'capacity' => 'map[string,\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity]',
         'cephfs' => '\UniversityOfAdelaide\OpenShift\Model\V1CephFSVolumeSource',
         'cinder' => '\UniversityOfAdelaide\OpenShift\Model\V1CinderVolumeSource',
-        'claim_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'claimRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'fc' => '\UniversityOfAdelaide\OpenShift\Model\V1FCVolumeSource',
-        'flex_volume' => '\UniversityOfAdelaide\OpenShift\Model\V1FlexVolumeSource',
+        'flexVolume' => '\UniversityOfAdelaide\OpenShift\Model\V1FlexVolumeSource',
         'flocker' => '\UniversityOfAdelaide\OpenShift\Model\V1FlockerVolumeSource',
-        'gce_persistent_disk' => '\UniversityOfAdelaide\OpenShift\Model\V1GCEPersistentDiskVolumeSource',
+        'gcePersistentDisk' => '\UniversityOfAdelaide\OpenShift\Model\V1GCEPersistentDiskVolumeSource',
         'glusterfs' => '\UniversityOfAdelaide\OpenShift\Model\V1GlusterfsVolumeSource',
-        'host_path' => '\UniversityOfAdelaide\OpenShift\Model\V1HostPathVolumeSource',
+        'hostPath' => '\UniversityOfAdelaide\OpenShift\Model\V1HostPathVolumeSource',
         'iscsi' => '\UniversityOfAdelaide\OpenShift\Model\V1ISCSIVolumeSource',
         'nfs' => '\UniversityOfAdelaide\OpenShift\Model\V1NFSVolumeSource',
-        'persistent_volume_reclaim_policy' => 'string',
-        'photon_persistent_disk' => '\UniversityOfAdelaide\OpenShift\Model\V1PhotonPersistentDiskVolumeSource',
-        'portworx_volume' => '\UniversityOfAdelaide\OpenShift\Model\V1PortworxVolumeSource',
+        'persistentVolumeReclaimPolicy' => 'string',
+        'photonPersistentDisk' => '\UniversityOfAdelaide\OpenShift\Model\V1PhotonPersistentDiskVolumeSource',
+        'portworxVolume' => '\UniversityOfAdelaide\OpenShift\Model\V1PortworxVolumeSource',
         'quobyte' => '\UniversityOfAdelaide\OpenShift\Model\V1QuobyteVolumeSource',
         'rbd' => '\UniversityOfAdelaide\OpenShift\Model\V1RBDVolumeSource',
-        'scale_io' => '\UniversityOfAdelaide\OpenShift\Model\V1ScaleIOVolumeSource',
-        'storage_class_name' => 'string',
-        'vsphere_volume' => '\UniversityOfAdelaide\OpenShift\Model\V1VsphereVirtualDiskVolumeSource'
+        'scaleIO' => '\UniversityOfAdelaide\OpenShift\Model\V1ScaleIOVolumeSource',
+        'storageClassName' => 'string',
+        'vsphereVolume' => '\UniversityOfAdelaide\OpenShift\Model\V1VsphereVirtualDiskVolumeSource'
     ];
 
     public static function swaggerTypes()
@@ -91,30 +91,30 @@ class V1PersistentVolumeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_modes' => 'accessModes',
-        'aws_elastic_block_store' => 'awsElasticBlockStore',
-        'azure_disk' => 'azureDisk',
-        'azure_file' => 'azureFile',
+        'accessModes' => 'accessModes',
+        'awsElasticBlockStore' => 'awsElasticBlockStore',
+        'azureDisk' => 'azureDisk',
+        'azureFile' => 'azureFile',
         'capacity' => 'capacity',
         'cephfs' => 'cephfs',
         'cinder' => 'cinder',
-        'claim_ref' => 'claimRef',
+        'claimRef' => 'claimRef',
         'fc' => 'fc',
-        'flex_volume' => 'flexVolume',
+        'flexVolume' => 'flexVolume',
         'flocker' => 'flocker',
-        'gce_persistent_disk' => 'gcePersistentDisk',
+        'gcePersistentDisk' => 'gcePersistentDisk',
         'glusterfs' => 'glusterfs',
-        'host_path' => 'hostPath',
+        'hostPath' => 'hostPath',
         'iscsi' => 'iscsi',
         'nfs' => 'nfs',
-        'persistent_volume_reclaim_policy' => 'persistentVolumeReclaimPolicy',
-        'photon_persistent_disk' => 'photonPersistentDisk',
-        'portworx_volume' => 'portworxVolume',
+        'persistentVolumeReclaimPolicy' => 'persistentVolumeReclaimPolicy',
+        'photonPersistentDisk' => 'photonPersistentDisk',
+        'portworxVolume' => 'portworxVolume',
         'quobyte' => 'quobyte',
         'rbd' => 'rbd',
-        'scale_io' => 'scaleIO',
-        'storage_class_name' => 'storageClassName',
-        'vsphere_volume' => 'vsphereVolume'
+        'scaleIO' => 'scaleIO',
+        'storageClassName' => 'storageClassName',
+        'vsphereVolume' => 'vsphereVolume'
     ];
 
 
@@ -123,30 +123,30 @@ class V1PersistentVolumeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_modes' => 'setAccessModes',
-        'aws_elastic_block_store' => 'setAwsElasticBlockStore',
-        'azure_disk' => 'setAzureDisk',
-        'azure_file' => 'setAzureFile',
+        'accessModes' => 'setAccessModes',
+        'awsElasticBlockStore' => 'setAwsElasticBlockStore',
+        'azureDisk' => 'setAzureDisk',
+        'azureFile' => 'setAzureFile',
         'capacity' => 'setCapacity',
         'cephfs' => 'setCephfs',
         'cinder' => 'setCinder',
-        'claim_ref' => 'setClaimRef',
+        'claimRef' => 'setClaimRef',
         'fc' => 'setFc',
-        'flex_volume' => 'setFlexVolume',
+        'flexVolume' => 'setFlexVolume',
         'flocker' => 'setFlocker',
-        'gce_persistent_disk' => 'setGcePersistentDisk',
+        'gcePersistentDisk' => 'setGcePersistentDisk',
         'glusterfs' => 'setGlusterfs',
-        'host_path' => 'setHostPath',
+        'hostPath' => 'setHostPath',
         'iscsi' => 'setIscsi',
         'nfs' => 'setNfs',
-        'persistent_volume_reclaim_policy' => 'setPersistentVolumeReclaimPolicy',
-        'photon_persistent_disk' => 'setPhotonPersistentDisk',
-        'portworx_volume' => 'setPortworxVolume',
+        'persistentVolumeReclaimPolicy' => 'setPersistentVolumeReclaimPolicy',
+        'photonPersistentDisk' => 'setPhotonPersistentDisk',
+        'portworxVolume' => 'setPortworxVolume',
         'quobyte' => 'setQuobyte',
         'rbd' => 'setRbd',
-        'scale_io' => 'setScaleIo',
-        'storage_class_name' => 'setStorageClassName',
-        'vsphere_volume' => 'setVsphereVolume'
+        'scaleIO' => 'setScaleIO',
+        'storageClassName' => 'setStorageClassName',
+        'vsphereVolume' => 'setVsphereVolume'
     ];
 
 
@@ -155,30 +155,30 @@ class V1PersistentVolumeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_modes' => 'getAccessModes',
-        'aws_elastic_block_store' => 'getAwsElasticBlockStore',
-        'azure_disk' => 'getAzureDisk',
-        'azure_file' => 'getAzureFile',
+        'accessModes' => 'getAccessModes',
+        'awsElasticBlockStore' => 'getAwsElasticBlockStore',
+        'azureDisk' => 'getAzureDisk',
+        'azureFile' => 'getAzureFile',
         'capacity' => 'getCapacity',
         'cephfs' => 'getCephfs',
         'cinder' => 'getCinder',
-        'claim_ref' => 'getClaimRef',
+        'claimRef' => 'getClaimRef',
         'fc' => 'getFc',
-        'flex_volume' => 'getFlexVolume',
+        'flexVolume' => 'getFlexVolume',
         'flocker' => 'getFlocker',
-        'gce_persistent_disk' => 'getGcePersistentDisk',
+        'gcePersistentDisk' => 'getGcePersistentDisk',
         'glusterfs' => 'getGlusterfs',
-        'host_path' => 'getHostPath',
+        'hostPath' => 'getHostPath',
         'iscsi' => 'getIscsi',
         'nfs' => 'getNfs',
-        'persistent_volume_reclaim_policy' => 'getPersistentVolumeReclaimPolicy',
-        'photon_persistent_disk' => 'getPhotonPersistentDisk',
-        'portworx_volume' => 'getPortworxVolume',
+        'persistentVolumeReclaimPolicy' => 'getPersistentVolumeReclaimPolicy',
+        'photonPersistentDisk' => 'getPhotonPersistentDisk',
+        'portworxVolume' => 'getPortworxVolume',
         'quobyte' => 'getQuobyte',
         'rbd' => 'getRbd',
-        'scale_io' => 'getScaleIo',
-        'storage_class_name' => 'getStorageClassName',
-        'vsphere_volume' => 'getVsphereVolume'
+        'scaleIO' => 'getScaleIO',
+        'storageClassName' => 'getStorageClassName',
+        'vsphereVolume' => 'getVsphereVolume'
     ];
 
     public static function attributeMap()
@@ -212,30 +212,30 @@ class V1PersistentVolumeSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_modes'] = isset($data['access_modes']) ? $data['access_modes'] : null;
-        $this->container['aws_elastic_block_store'] = isset($data['aws_elastic_block_store']) ? $data['aws_elastic_block_store'] : null;
-        $this->container['azure_disk'] = isset($data['azure_disk']) ? $data['azure_disk'] : null;
-        $this->container['azure_file'] = isset($data['azure_file']) ? $data['azure_file'] : null;
+        $this->container['accessModes'] = isset($data['accessModes']) ? $data['accessModes'] : null;
+        $this->container['awsElasticBlockStore'] = isset($data['awsElasticBlockStore']) ? $data['awsElasticBlockStore'] : null;
+        $this->container['azureDisk'] = isset($data['azureDisk']) ? $data['azureDisk'] : null;
+        $this->container['azureFile'] = isset($data['azureFile']) ? $data['azureFile'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['cephfs'] = isset($data['cephfs']) ? $data['cephfs'] : null;
         $this->container['cinder'] = isset($data['cinder']) ? $data['cinder'] : null;
-        $this->container['claim_ref'] = isset($data['claim_ref']) ? $data['claim_ref'] : null;
+        $this->container['claimRef'] = isset($data['claimRef']) ? $data['claimRef'] : null;
         $this->container['fc'] = isset($data['fc']) ? $data['fc'] : null;
-        $this->container['flex_volume'] = isset($data['flex_volume']) ? $data['flex_volume'] : null;
+        $this->container['flexVolume'] = isset($data['flexVolume']) ? $data['flexVolume'] : null;
         $this->container['flocker'] = isset($data['flocker']) ? $data['flocker'] : null;
-        $this->container['gce_persistent_disk'] = isset($data['gce_persistent_disk']) ? $data['gce_persistent_disk'] : null;
+        $this->container['gcePersistentDisk'] = isset($data['gcePersistentDisk']) ? $data['gcePersistentDisk'] : null;
         $this->container['glusterfs'] = isset($data['glusterfs']) ? $data['glusterfs'] : null;
-        $this->container['host_path'] = isset($data['host_path']) ? $data['host_path'] : null;
+        $this->container['hostPath'] = isset($data['hostPath']) ? $data['hostPath'] : null;
         $this->container['iscsi'] = isset($data['iscsi']) ? $data['iscsi'] : null;
         $this->container['nfs'] = isset($data['nfs']) ? $data['nfs'] : null;
-        $this->container['persistent_volume_reclaim_policy'] = isset($data['persistent_volume_reclaim_policy']) ? $data['persistent_volume_reclaim_policy'] : null;
-        $this->container['photon_persistent_disk'] = isset($data['photon_persistent_disk']) ? $data['photon_persistent_disk'] : null;
-        $this->container['portworx_volume'] = isset($data['portworx_volume']) ? $data['portworx_volume'] : null;
+        $this->container['persistentVolumeReclaimPolicy'] = isset($data['persistentVolumeReclaimPolicy']) ? $data['persistentVolumeReclaimPolicy'] : null;
+        $this->container['photonPersistentDisk'] = isset($data['photonPersistentDisk']) ? $data['photonPersistentDisk'] : null;
+        $this->container['portworxVolume'] = isset($data['portworxVolume']) ? $data['portworxVolume'] : null;
         $this->container['quobyte'] = isset($data['quobyte']) ? $data['quobyte'] : null;
         $this->container['rbd'] = isset($data['rbd']) ? $data['rbd'] : null;
-        $this->container['scale_io'] = isset($data['scale_io']) ? $data['scale_io'] : null;
-        $this->container['storage_class_name'] = isset($data['storage_class_name']) ? $data['storage_class_name'] : null;
-        $this->container['vsphere_volume'] = isset($data['vsphere_volume']) ? $data['vsphere_volume'] : null;
+        $this->container['scaleIO'] = isset($data['scaleIO']) ? $data['scaleIO'] : null;
+        $this->container['storageClassName'] = isset($data['storageClassName']) ? $data['storageClassName'] : null;
+        $this->container['vsphereVolume'] = isset($data['vsphereVolume']) ? $data['vsphereVolume'] : null;
     }
 
     /**
@@ -264,85 +264,85 @@ class V1PersistentVolumeSpec implements ArrayAccess
 
 
     /**
-     * Gets access_modes
+     * Gets accessModes
      * @return string[]
      */
     public function getAccessModes()
     {
-        return $this->container['access_modes'];
+        return $this->container['accessModes'];
     }
 
     /**
-     * Sets access_modes
-     * @param string[] $access_modes AccessModes contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
+     * Sets accessModes
+     * @param string[] $accessModes AccessModes contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
      * @return $this
      */
-    public function setAccessModes($access_modes)
+    public function setAccessModes($accessModes)
     {
-        $this->container['access_modes'] = $access_modes;
+        $this->container['accessModes'] = $accessModes;
 
         return $this;
     }
 
     /**
-     * Gets aws_elastic_block_store
+     * Gets awsElasticBlockStore
      * @return \UniversityOfAdelaide\OpenShift\Model\V1AWSElasticBlockStoreVolumeSource
      */
     public function getAwsElasticBlockStore()
     {
-        return $this->container['aws_elastic_block_store'];
+        return $this->container['awsElasticBlockStore'];
     }
 
     /**
-     * Sets aws_elastic_block_store
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1AWSElasticBlockStoreVolumeSource $aws_elastic_block_store AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+     * Sets awsElasticBlockStore
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1AWSElasticBlockStoreVolumeSource $awsElasticBlockStore AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
      * @return $this
      */
-    public function setAwsElasticBlockStore($aws_elastic_block_store)
+    public function setAwsElasticBlockStore($awsElasticBlockStore)
     {
-        $this->container['aws_elastic_block_store'] = $aws_elastic_block_store;
+        $this->container['awsElasticBlockStore'] = $awsElasticBlockStore;
 
         return $this;
     }
 
     /**
-     * Gets azure_disk
+     * Gets azureDisk
      * @return \UniversityOfAdelaide\OpenShift\Model\V1AzureDiskVolumeSource
      */
     public function getAzureDisk()
     {
-        return $this->container['azure_disk'];
+        return $this->container['azureDisk'];
     }
 
     /**
-     * Sets azure_disk
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1AzureDiskVolumeSource $azure_disk AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+     * Sets azureDisk
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1AzureDiskVolumeSource $azureDisk AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
      * @return $this
      */
-    public function setAzureDisk($azure_disk)
+    public function setAzureDisk($azureDisk)
     {
-        $this->container['azure_disk'] = $azure_disk;
+        $this->container['azureDisk'] = $azureDisk;
 
         return $this;
     }
 
     /**
-     * Gets azure_file
+     * Gets azureFile
      * @return \UniversityOfAdelaide\OpenShift\Model\V1AzureFileVolumeSource
      */
     public function getAzureFile()
     {
-        return $this->container['azure_file'];
+        return $this->container['azureFile'];
     }
 
     /**
-     * Sets azure_file
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1AzureFileVolumeSource $azure_file AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
+     * Sets azureFile
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1AzureFileVolumeSource $azureFile AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
      * @return $this
      */
-    public function setAzureFile($azure_file)
+    public function setAzureFile($azureFile)
     {
-        $this->container['azure_file'] = $azure_file;
+        $this->container['azureFile'] = $azureFile;
 
         return $this;
     }
@@ -411,22 +411,22 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets claim_ref
+     * Gets claimRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getClaimRef()
     {
-        return $this->container['claim_ref'];
+        return $this->container['claimRef'];
     }
 
     /**
-     * Sets claim_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $claim_ref ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#binding
+     * Sets claimRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $claimRef ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#binding
      * @return $this
      */
-    public function setClaimRef($claim_ref)
+    public function setClaimRef($claimRef)
     {
-        $this->container['claim_ref'] = $claim_ref;
+        $this->container['claimRef'] = $claimRef;
 
         return $this;
     }
@@ -453,22 +453,22 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets flex_volume
+     * Gets flexVolume
      * @return \UniversityOfAdelaide\OpenShift\Model\V1FlexVolumeSource
      */
     public function getFlexVolume()
     {
-        return $this->container['flex_volume'];
+        return $this->container['flexVolume'];
     }
 
     /**
-     * Sets flex_volume
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1FlexVolumeSource $flex_volume FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future.
+     * Sets flexVolume
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1FlexVolumeSource $flexVolume FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future.
      * @return $this
      */
-    public function setFlexVolume($flex_volume)
+    public function setFlexVolume($flexVolume)
     {
-        $this->container['flex_volume'] = $flex_volume;
+        $this->container['flexVolume'] = $flexVolume;
 
         return $this;
     }
@@ -495,22 +495,22 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets gce_persistent_disk
+     * Gets gcePersistentDisk
      * @return \UniversityOfAdelaide\OpenShift\Model\V1GCEPersistentDiskVolumeSource
      */
     public function getGcePersistentDisk()
     {
-        return $this->container['gce_persistent_disk'];
+        return $this->container['gcePersistentDisk'];
     }
 
     /**
-     * Sets gce_persistent_disk
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1GCEPersistentDiskVolumeSource $gce_persistent_disk GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+     * Sets gcePersistentDisk
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1GCEPersistentDiskVolumeSource $gcePersistentDisk GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
      * @return $this
      */
-    public function setGcePersistentDisk($gce_persistent_disk)
+    public function setGcePersistentDisk($gcePersistentDisk)
     {
-        $this->container['gce_persistent_disk'] = $gce_persistent_disk;
+        $this->container['gcePersistentDisk'] = $gcePersistentDisk;
 
         return $this;
     }
@@ -537,22 +537,22 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets host_path
+     * Gets hostPath
      * @return \UniversityOfAdelaide\OpenShift\Model\V1HostPathVolumeSource
      */
     public function getHostPath()
     {
-        return $this->container['host_path'];
+        return $this->container['hostPath'];
     }
 
     /**
-     * Sets host_path
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1HostPathVolumeSource $host_path HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+     * Sets hostPath
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1HostPathVolumeSource $hostPath HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
      * @return $this
      */
-    public function setHostPath($host_path)
+    public function setHostPath($hostPath)
     {
-        $this->container['host_path'] = $host_path;
+        $this->container['hostPath'] = $hostPath;
 
         return $this;
     }
@@ -600,64 +600,64 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets persistent_volume_reclaim_policy
+     * Gets persistentVolumeReclaimPolicy
      * @return string
      */
     public function getPersistentVolumeReclaimPolicy()
     {
-        return $this->container['persistent_volume_reclaim_policy'];
+        return $this->container['persistentVolumeReclaimPolicy'];
     }
 
     /**
-     * Sets persistent_volume_reclaim_policy
-     * @param string $persistent_volume_reclaim_policy What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
+     * Sets persistentVolumeReclaimPolicy
+     * @param string $persistentVolumeReclaimPolicy What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
      * @return $this
      */
-    public function setPersistentVolumeReclaimPolicy($persistent_volume_reclaim_policy)
+    public function setPersistentVolumeReclaimPolicy($persistentVolumeReclaimPolicy)
     {
-        $this->container['persistent_volume_reclaim_policy'] = $persistent_volume_reclaim_policy;
+        $this->container['persistentVolumeReclaimPolicy'] = $persistentVolumeReclaimPolicy;
 
         return $this;
     }
 
     /**
-     * Gets photon_persistent_disk
+     * Gets photonPersistentDisk
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PhotonPersistentDiskVolumeSource
      */
     public function getPhotonPersistentDisk()
     {
-        return $this->container['photon_persistent_disk'];
+        return $this->container['photonPersistentDisk'];
     }
 
     /**
-     * Sets photon_persistent_disk
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PhotonPersistentDiskVolumeSource $photon_persistent_disk PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+     * Sets photonPersistentDisk
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PhotonPersistentDiskVolumeSource $photonPersistentDisk PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
      * @return $this
      */
-    public function setPhotonPersistentDisk($photon_persistent_disk)
+    public function setPhotonPersistentDisk($photonPersistentDisk)
     {
-        $this->container['photon_persistent_disk'] = $photon_persistent_disk;
+        $this->container['photonPersistentDisk'] = $photonPersistentDisk;
 
         return $this;
     }
 
     /**
-     * Gets portworx_volume
+     * Gets portworxVolume
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PortworxVolumeSource
      */
     public function getPortworxVolume()
     {
-        return $this->container['portworx_volume'];
+        return $this->container['portworxVolume'];
     }
 
     /**
-     * Sets portworx_volume
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PortworxVolumeSource $portworx_volume PortworxVolume represents a portworx volume attached and mounted on kubelets host machine
+     * Sets portworxVolume
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PortworxVolumeSource $portworxVolume PortworxVolume represents a portworx volume attached and mounted on kubelets host machine
      * @return $this
      */
-    public function setPortworxVolume($portworx_volume)
+    public function setPortworxVolume($portworxVolume)
     {
-        $this->container['portworx_volume'] = $portworx_volume;
+        $this->container['portworxVolume'] = $portworxVolume;
 
         return $this;
     }
@@ -705,64 +705,64 @@ class V1PersistentVolumeSpec implements ArrayAccess
     }
 
     /**
-     * Gets scale_io
+     * Gets scaleIO
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ScaleIOVolumeSource
      */
-    public function getScaleIo()
+    public function getScaleIO()
     {
-        return $this->container['scale_io'];
+        return $this->container['scaleIO'];
     }
 
     /**
-     * Sets scale_io
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ScaleIOVolumeSource $scale_io ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+     * Sets scaleIO
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ScaleIOVolumeSource $scaleIO ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
      * @return $this
      */
-    public function setScaleIo($scale_io)
+    public function setScaleIO($scaleIO)
     {
-        $this->container['scale_io'] = $scale_io;
+        $this->container['scaleIO'] = $scaleIO;
 
         return $this;
     }
 
     /**
-     * Gets storage_class_name
+     * Gets storageClassName
      * @return string
      */
     public function getStorageClassName()
     {
-        return $this->container['storage_class_name'];
+        return $this->container['storageClassName'];
     }
 
     /**
-     * Sets storage_class_name
-     * @param string $storage_class_name Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
+     * Sets storageClassName
+     * @param string $storageClassName Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
      * @return $this
      */
-    public function setStorageClassName($storage_class_name)
+    public function setStorageClassName($storageClassName)
     {
-        $this->container['storage_class_name'] = $storage_class_name;
+        $this->container['storageClassName'] = $storageClassName;
 
         return $this;
     }
 
     /**
-     * Gets vsphere_volume
+     * Gets vsphereVolume
      * @return \UniversityOfAdelaide\OpenShift\Model\V1VsphereVirtualDiskVolumeSource
      */
     public function getVsphereVolume()
     {
-        return $this->container['vsphere_volume'];
+        return $this->container['vsphereVolume'];
     }
 
     /**
-     * Sets vsphere_volume
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1VsphereVirtualDiskVolumeSource $vsphere_volume VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+     * Sets vsphereVolume
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1VsphereVirtualDiskVolumeSource $vsphereVolume VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
      * @return $this
      */
-    public function setVsphereVolume($vsphere_volume)
+    public function setVsphereVolume($vsphereVolume)
     {
-        $this->container['vsphere_volume'] = $vsphere_volume;
+        $this->container['vsphereVolume'] = $vsphereVolume;
 
         return $this;
     }

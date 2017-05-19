@@ -83,7 +83,7 @@ class V1NodeAffinityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "preferred_during_scheduling_ignored_during_execution"
+     * Test attribute "preferredDuringSchedulingIgnoredDuringExecution"
      */
     public function testPropertyPreferredDuringSchedulingIgnoredDuringExecution()
     {
@@ -91,7 +91,7 @@ class V1NodeAffinityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "required_during_scheduling_ignored_during_execution"
+     * Test attribute "requiredDuringSchedulingIgnoredDuringExecution"
      */
     public function testPropertyRequiredDuringSchedulingIgnoredDuringExecution()
     {

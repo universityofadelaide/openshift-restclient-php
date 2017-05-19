@@ -83,7 +83,7 @@ class V1beta1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "cpu_utilization"
+     * Test attribute "cpuUtilization"
      */
     public function testPropertyCpuUtilization()
     {
@@ -91,7 +91,7 @@ class V1beta1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_replicas"
+     * Test attribute "maxReplicas"
      */
     public function testPropertyMaxReplicas()
     {
@@ -99,7 +99,7 @@ class V1beta1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_replicas"
+     * Test attribute "minReplicas"
      */
     public function testPropertyMinReplicas()
     {
@@ -107,7 +107,7 @@ class V1beta1HorizontalPodAutoscalerSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "scale_ref"
+     * Test attribute "scaleRef"
      */
     public function testPropertyScaleRef()
     {

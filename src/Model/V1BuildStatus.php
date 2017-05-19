@@ -56,16 +56,16 @@ class V1BuildStatus implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'cancelled' => 'bool',
-        'completion_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'completionTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'config' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'duration' => 'int',
         'message' => 'string',
         'output' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildStatusOutput',
-        'output_docker_image_reference' => 'string',
+        'outputDockerImageReference' => 'string',
         'phase' => 'string',
         'reason' => 'string',
         'stages' => '\UniversityOfAdelaide\OpenShift\Model\V1StageInfo[]',
-        'start_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
+        'startTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
     ];
 
     public static function swaggerTypes()
@@ -79,16 +79,16 @@ class V1BuildStatus implements ArrayAccess
      */
     protected static $attributeMap = [
         'cancelled' => 'cancelled',
-        'completion_timestamp' => 'completionTimestamp',
+        'completionTimestamp' => 'completionTimestamp',
         'config' => 'config',
         'duration' => 'duration',
         'message' => 'message',
         'output' => 'output',
-        'output_docker_image_reference' => 'outputDockerImageReference',
+        'outputDockerImageReference' => 'outputDockerImageReference',
         'phase' => 'phase',
         'reason' => 'reason',
         'stages' => 'stages',
-        'start_timestamp' => 'startTimestamp'
+        'startTimestamp' => 'startTimestamp'
     ];
 
 
@@ -98,16 +98,16 @@ class V1BuildStatus implements ArrayAccess
      */
     protected static $setters = [
         'cancelled' => 'setCancelled',
-        'completion_timestamp' => 'setCompletionTimestamp',
+        'completionTimestamp' => 'setCompletionTimestamp',
         'config' => 'setConfig',
         'duration' => 'setDuration',
         'message' => 'setMessage',
         'output' => 'setOutput',
-        'output_docker_image_reference' => 'setOutputDockerImageReference',
+        'outputDockerImageReference' => 'setOutputDockerImageReference',
         'phase' => 'setPhase',
         'reason' => 'setReason',
         'stages' => 'setStages',
-        'start_timestamp' => 'setStartTimestamp'
+        'startTimestamp' => 'setStartTimestamp'
     ];
 
 
@@ -117,16 +117,16 @@ class V1BuildStatus implements ArrayAccess
      */
     protected static $getters = [
         'cancelled' => 'getCancelled',
-        'completion_timestamp' => 'getCompletionTimestamp',
+        'completionTimestamp' => 'getCompletionTimestamp',
         'config' => 'getConfig',
         'duration' => 'getDuration',
         'message' => 'getMessage',
         'output' => 'getOutput',
-        'output_docker_image_reference' => 'getOutputDockerImageReference',
+        'outputDockerImageReference' => 'getOutputDockerImageReference',
         'phase' => 'getPhase',
         'reason' => 'getReason',
         'stages' => 'getStages',
-        'start_timestamp' => 'getStartTimestamp'
+        'startTimestamp' => 'getStartTimestamp'
     ];
 
     public static function attributeMap()
@@ -161,16 +161,16 @@ class V1BuildStatus implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cancelled'] = isset($data['cancelled']) ? $data['cancelled'] : null;
-        $this->container['completion_timestamp'] = isset($data['completion_timestamp']) ? $data['completion_timestamp'] : null;
+        $this->container['completionTimestamp'] = isset($data['completionTimestamp']) ? $data['completionTimestamp'] : null;
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['output_docker_image_reference'] = isset($data['output_docker_image_reference']) ? $data['output_docker_image_reference'] : null;
+        $this->container['outputDockerImageReference'] = isset($data['outputDockerImageReference']) ? $data['outputDockerImageReference'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['stages'] = isset($data['stages']) ? $data['stages'] : null;
-        $this->container['start_timestamp'] = isset($data['start_timestamp']) ? $data['start_timestamp'] : null;
+        $this->container['startTimestamp'] = isset($data['startTimestamp']) ? $data['startTimestamp'] : null;
     }
 
     /**
@@ -226,22 +226,22 @@ class V1BuildStatus implements ArrayAccess
     }
 
     /**
-     * Gets completion_timestamp
+     * Gets completionTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getCompletionTimestamp()
     {
-        return $this->container['completion_timestamp'];
+        return $this->container['completionTimestamp'];
     }
 
     /**
-     * Sets completion_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $completion_timestamp completionTimestamp is a timestamp representing the server time when this Build was finished, whether that build failed or succeeded.  It reflects the time at which the Pod running the Build terminated. It is represented in RFC3339 form and is in UTC.
+     * Sets completionTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $completionTimestamp completionTimestamp is a timestamp representing the server time when this Build was finished, whether that build failed or succeeded.  It reflects the time at which the Pod running the Build terminated. It is represented in RFC3339 form and is in UTC.
      * @return $this
      */
-    public function setCompletionTimestamp($completion_timestamp)
+    public function setCompletionTimestamp($completionTimestamp)
     {
-        $this->container['completion_timestamp'] = $completion_timestamp;
+        $this->container['completionTimestamp'] = $completionTimestamp;
 
         return $this;
     }
@@ -331,22 +331,22 @@ class V1BuildStatus implements ArrayAccess
     }
 
     /**
-     * Gets output_docker_image_reference
+     * Gets outputDockerImageReference
      * @return string
      */
     public function getOutputDockerImageReference()
     {
-        return $this->container['output_docker_image_reference'];
+        return $this->container['outputDockerImageReference'];
     }
 
     /**
-     * Sets output_docker_image_reference
-     * @param string $output_docker_image_reference outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image.
+     * Sets outputDockerImageReference
+     * @param string $outputDockerImageReference outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image.
      * @return $this
      */
-    public function setOutputDockerImageReference($output_docker_image_reference)
+    public function setOutputDockerImageReference($outputDockerImageReference)
     {
-        $this->container['output_docker_image_reference'] = $output_docker_image_reference;
+        $this->container['outputDockerImageReference'] = $outputDockerImageReference;
 
         return $this;
     }
@@ -415,22 +415,22 @@ class V1BuildStatus implements ArrayAccess
     }
 
     /**
-     * Gets start_timestamp
+     * Gets startTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartTimestamp()
     {
-        return $this->container['start_timestamp'];
+        return $this->container['startTimestamp'];
     }
 
     /**
-     * Sets start_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $start_timestamp startTimestamp is a timestamp representing the server time when this Build started running in a Pod. It is represented in RFC3339 form and is in UTC.
+     * Sets startTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startTimestamp startTimestamp is a timestamp representing the server time when this Build started running in a Pod. It is represented in RFC3339 form and is in UTC.
      * @return $this
      */
-    public function setStartTimestamp($start_timestamp)
+    public function setStartTimestamp($startTimestamp)
     {
-        $this->container['start_timestamp'] = $start_timestamp;
+        $this->container['startTimestamp'] = $startTimestamp;
 
         return $this;
     }

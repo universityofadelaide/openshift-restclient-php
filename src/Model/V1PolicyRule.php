@@ -55,10 +55,10 @@ class V1PolicyRule implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_groups' => 'string[]',
-        'attribute_restrictions' => '\UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension',
-        'non_resource_ur_ls' => 'string[]',
-        'resource_names' => 'string[]',
+        'apiGroups' => 'string[]',
+        'attributeRestrictions' => '\UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension',
+        'nonResourceURLs' => 'string[]',
+        'resourceNames' => 'string[]',
         'resources' => 'string[]',
         'verbs' => 'string[]'
     ];
@@ -73,10 +73,10 @@ class V1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_groups' => 'apiGroups',
-        'attribute_restrictions' => 'attributeRestrictions',
-        'non_resource_ur_ls' => 'nonResourceURLs',
-        'resource_names' => 'resourceNames',
+        'apiGroups' => 'apiGroups',
+        'attributeRestrictions' => 'attributeRestrictions',
+        'nonResourceURLs' => 'nonResourceURLs',
+        'resourceNames' => 'resourceNames',
         'resources' => 'resources',
         'verbs' => 'verbs'
     ];
@@ -87,10 +87,10 @@ class V1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_groups' => 'setApiGroups',
-        'attribute_restrictions' => 'setAttributeRestrictions',
-        'non_resource_ur_ls' => 'setNonResourceUrLs',
-        'resource_names' => 'setResourceNames',
+        'apiGroups' => 'setApiGroups',
+        'attributeRestrictions' => 'setAttributeRestrictions',
+        'nonResourceURLs' => 'setNonResourceURLs',
+        'resourceNames' => 'setResourceNames',
         'resources' => 'setResources',
         'verbs' => 'setVerbs'
     ];
@@ -101,10 +101,10 @@ class V1PolicyRule implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_groups' => 'getApiGroups',
-        'attribute_restrictions' => 'getAttributeRestrictions',
-        'non_resource_ur_ls' => 'getNonResourceUrLs',
-        'resource_names' => 'getResourceNames',
+        'apiGroups' => 'getApiGroups',
+        'attributeRestrictions' => 'getAttributeRestrictions',
+        'nonResourceURLs' => 'getNonResourceURLs',
+        'resourceNames' => 'getResourceNames',
         'resources' => 'getResources',
         'verbs' => 'getVerbs'
     ];
@@ -140,10 +140,10 @@ class V1PolicyRule implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_groups'] = isset($data['api_groups']) ? $data['api_groups'] : null;
-        $this->container['attribute_restrictions'] = isset($data['attribute_restrictions']) ? $data['attribute_restrictions'] : null;
-        $this->container['non_resource_ur_ls'] = isset($data['non_resource_ur_ls']) ? $data['non_resource_ur_ls'] : null;
-        $this->container['resource_names'] = isset($data['resource_names']) ? $data['resource_names'] : null;
+        $this->container['apiGroups'] = isset($data['apiGroups']) ? $data['apiGroups'] : null;
+        $this->container['attributeRestrictions'] = isset($data['attributeRestrictions']) ? $data['attributeRestrictions'] : null;
+        $this->container['nonResourceURLs'] = isset($data['nonResourceURLs']) ? $data['nonResourceURLs'] : null;
+        $this->container['resourceNames'] = isset($data['resourceNames']) ? $data['resourceNames'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['verbs'] = isset($data['verbs']) ? $data['verbs'] : null;
     }
@@ -157,8 +157,8 @@ class V1PolicyRule implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['api_groups'] === null) {
-            $invalid_properties[] = "'api_groups' can't be null";
+        if ($this->container['apiGroups'] === null) {
+            $invalid_properties[] = "'apiGroups' can't be null";
         }
         if ($this->container['resources'] === null) {
             $invalid_properties[] = "'resources' can't be null";
@@ -178,7 +178,7 @@ class V1PolicyRule implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['api_groups'] === null) {
+        if ($this->container['apiGroups'] === null) {
             return false;
         }
         if ($this->container['resources'] === null) {
@@ -192,85 +192,85 @@ class V1PolicyRule implements ArrayAccess
 
 
     /**
-     * Gets api_groups
+     * Gets apiGroups
      * @return string[]
      */
     public function getApiGroups()
     {
-        return $this->container['api_groups'];
+        return $this->container['apiGroups'];
     }
 
     /**
-     * Sets api_groups
-     * @param string[] $api_groups APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed
+     * Sets apiGroups
+     * @param string[] $apiGroups APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed
      * @return $this
      */
-    public function setApiGroups($api_groups)
+    public function setApiGroups($apiGroups)
     {
-        $this->container['api_groups'] = $api_groups;
+        $this->container['apiGroups'] = $apiGroups;
 
         return $this;
     }
 
     /**
-     * Gets attribute_restrictions
+     * Gets attributeRestrictions
      * @return \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension
      */
     public function getAttributeRestrictions()
     {
-        return $this->container['attribute_restrictions'];
+        return $this->container['attributeRestrictions'];
     }
 
     /**
-     * Sets attribute_restrictions
-     * @param \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension $attribute_restrictions AttributeRestrictions will vary depending on what the Authorizer/AuthorizationAttributeBuilder pair supports. If the Authorizer does not recognize how to handle the AttributeRestrictions, the Authorizer should report an error.
+     * Sets attributeRestrictions
+     * @param \UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension $attributeRestrictions AttributeRestrictions will vary depending on what the Authorizer/AuthorizationAttributeBuilder pair supports. If the Authorizer does not recognize how to handle the AttributeRestrictions, the Authorizer should report an error.
      * @return $this
      */
-    public function setAttributeRestrictions($attribute_restrictions)
+    public function setAttributeRestrictions($attributeRestrictions)
     {
-        $this->container['attribute_restrictions'] = $attribute_restrictions;
+        $this->container['attributeRestrictions'] = $attributeRestrictions;
 
         return $this;
     }
 
     /**
-     * Gets non_resource_ur_ls
+     * Gets nonResourceURLs
      * @return string[]
      */
-    public function getNonResourceUrLs()
+    public function getNonResourceURLs()
     {
-        return $this->container['non_resource_ur_ls'];
+        return $this->container['nonResourceURLs'];
     }
 
     /**
-     * Sets non_resource_ur_ls
-     * @param string[] $non_resource_ur_ls NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different.
+     * Sets nonResourceURLs
+     * @param string[] $nonResourceURLs NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different.
      * @return $this
      */
-    public function setNonResourceUrLs($non_resource_ur_ls)
+    public function setNonResourceURLs($nonResourceURLs)
     {
-        $this->container['non_resource_ur_ls'] = $non_resource_ur_ls;
+        $this->container['nonResourceURLs'] = $nonResourceURLs;
 
         return $this;
     }
 
     /**
-     * Gets resource_names
+     * Gets resourceNames
      * @return string[]
      */
     public function getResourceNames()
     {
-        return $this->container['resource_names'];
+        return $this->container['resourceNames'];
     }
 
     /**
-     * Sets resource_names
-     * @param string[] $resource_names ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.
+     * Sets resourceNames
+     * @param string[] $resourceNames ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.
      * @return $this
      */
-    public function setResourceNames($resource_names)
+    public function setResourceNames($resourceNames)
     {
-        $this->container['resource_names'] = $resource_names;
+        $this->container['resourceNames'] = $resourceNames;
 
         return $this;
     }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**media_type** | **string** | MediaType of the referenced object. | 
+**mediaType** | **string** | MediaType of the referenced object. | 
 **name** | **string** | Name of the layer as defined by the underlying store. | 
 **size** | **int** | Size of the layer in bytes as defined by the underlying store. | 
 

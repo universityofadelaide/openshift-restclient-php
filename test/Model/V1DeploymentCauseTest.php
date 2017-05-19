@@ -83,7 +83,7 @@ class V1DeploymentCauseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_trigger"
+     * Test attribute "imageTrigger"
      */
     public function testPropertyImageTrigger()
     {

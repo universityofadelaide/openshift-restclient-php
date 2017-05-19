@@ -83,7 +83,7 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "completion_deadline_seconds"
+     * Test attribute "completionDeadlineSeconds"
      */
     public function testPropertyCompletionDeadlineSeconds()
     {
@@ -91,7 +91,7 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_selector"
+     * Test attribute "nodeSelector"
      */
     public function testPropertyNodeSelector()
     {
@@ -107,7 +107,7 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "post_commit"
+     * Test attribute "postCommit"
      */
     public function testPropertyPostCommit()
     {
@@ -131,7 +131,7 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_policy"
+     * Test attribute "runPolicy"
      */
     public function testPropertyRunPolicy()
     {
@@ -139,7 +139,7 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_account"
+     * Test attribute "serviceAccount"
      */
     public function testPropertyServiceAccount()
     {

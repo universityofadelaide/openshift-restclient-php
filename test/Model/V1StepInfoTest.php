@@ -83,7 +83,7 @@ class V1StepInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "duration_milliseconds"
+     * Test attribute "durationMilliseconds"
      */
     public function testPropertyDurationMilliseconds()
     {
@@ -99,7 +99,7 @@ class V1StepInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {

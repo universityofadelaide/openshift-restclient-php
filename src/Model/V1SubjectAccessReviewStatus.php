@@ -56,7 +56,7 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'allowed' => 'bool',
-        'evaluation_error' => 'string',
+        'evaluationError' => 'string',
         'reason' => 'string'
     ];
 
@@ -71,7 +71,7 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
      */
     protected static $attributeMap = [
         'allowed' => 'allowed',
-        'evaluation_error' => 'evaluationError',
+        'evaluationError' => 'evaluationError',
         'reason' => 'reason'
     ];
 
@@ -82,7 +82,7 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
      */
     protected static $setters = [
         'allowed' => 'setAllowed',
-        'evaluation_error' => 'setEvaluationError',
+        'evaluationError' => 'setEvaluationError',
         'reason' => 'setReason'
     ];
 
@@ -93,7 +93,7 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
      */
     protected static $getters = [
         'allowed' => 'getAllowed',
-        'evaluation_error' => 'getEvaluationError',
+        'evaluationError' => 'getEvaluationError',
         'reason' => 'getReason'
     ];
 
@@ -129,7 +129,7 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allowed'] = isset($data['allowed']) ? $data['allowed'] : null;
-        $this->container['evaluation_error'] = isset($data['evaluation_error']) ? $data['evaluation_error'] : null;
+        $this->container['evaluationError'] = isset($data['evaluationError']) ? $data['evaluationError'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
@@ -186,22 +186,22 @@ class V1SubjectAccessReviewStatus implements ArrayAccess
     }
 
     /**
-     * Gets evaluation_error
+     * Gets evaluationError
      * @return string
      */
     public function getEvaluationError()
     {
-        return $this->container['evaluation_error'];
+        return $this->container['evaluationError'];
     }
 
     /**
-     * Sets evaluation_error
-     * @param string $evaluation_error EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
+     * Sets evaluationError
+     * @param string $evaluationError EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * @return $this
      */
-    public function setEvaluationError($evaluation_error)
+    public function setEvaluationError($evaluationError)
     {
-        $this->container['evaluation_error'] = $evaluation_error;
+        $this->container['evaluationError'] = $evaluationError;
 
         return $this;
     }

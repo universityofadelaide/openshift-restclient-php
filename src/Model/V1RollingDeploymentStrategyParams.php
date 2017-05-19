@@ -55,13 +55,13 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'interval_seconds' => 'int',
-        'max_surge' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
-        'max_unavailable' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
+        'intervalSeconds' => 'int',
+        'maxSurge' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
+        'maxUnavailable' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
         'post' => '\UniversityOfAdelaide\OpenShift\Model\V1LifecycleHook',
         'pre' => '\UniversityOfAdelaide\OpenShift\Model\V1LifecycleHook',
-        'timeout_seconds' => 'int',
-        'update_period_seconds' => 'int'
+        'timeoutSeconds' => 'int',
+        'updatePeriodSeconds' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'interval_seconds' => 'intervalSeconds',
-        'max_surge' => 'maxSurge',
-        'max_unavailable' => 'maxUnavailable',
+        'intervalSeconds' => 'intervalSeconds',
+        'maxSurge' => 'maxSurge',
+        'maxUnavailable' => 'maxUnavailable',
         'post' => 'post',
         'pre' => 'pre',
-        'timeout_seconds' => 'timeoutSeconds',
-        'update_period_seconds' => 'updatePeriodSeconds'
+        'timeoutSeconds' => 'timeoutSeconds',
+        'updatePeriodSeconds' => 'updatePeriodSeconds'
     ];
 
 
@@ -89,13 +89,13 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'interval_seconds' => 'setIntervalSeconds',
-        'max_surge' => 'setMaxSurge',
-        'max_unavailable' => 'setMaxUnavailable',
+        'intervalSeconds' => 'setIntervalSeconds',
+        'maxSurge' => 'setMaxSurge',
+        'maxUnavailable' => 'setMaxUnavailable',
         'post' => 'setPost',
         'pre' => 'setPre',
-        'timeout_seconds' => 'setTimeoutSeconds',
-        'update_period_seconds' => 'setUpdatePeriodSeconds'
+        'timeoutSeconds' => 'setTimeoutSeconds',
+        'updatePeriodSeconds' => 'setUpdatePeriodSeconds'
     ];
 
 
@@ -104,13 +104,13 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'interval_seconds' => 'getIntervalSeconds',
-        'max_surge' => 'getMaxSurge',
-        'max_unavailable' => 'getMaxUnavailable',
+        'intervalSeconds' => 'getIntervalSeconds',
+        'maxSurge' => 'getMaxSurge',
+        'maxUnavailable' => 'getMaxUnavailable',
         'post' => 'getPost',
         'pre' => 'getPre',
-        'timeout_seconds' => 'getTimeoutSeconds',
-        'update_period_seconds' => 'getUpdatePeriodSeconds'
+        'timeoutSeconds' => 'getTimeoutSeconds',
+        'updatePeriodSeconds' => 'getUpdatePeriodSeconds'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['interval_seconds'] = isset($data['interval_seconds']) ? $data['interval_seconds'] : null;
-        $this->container['max_surge'] = isset($data['max_surge']) ? $data['max_surge'] : null;
-        $this->container['max_unavailable'] = isset($data['max_unavailable']) ? $data['max_unavailable'] : null;
+        $this->container['intervalSeconds'] = isset($data['intervalSeconds']) ? $data['intervalSeconds'] : null;
+        $this->container['maxSurge'] = isset($data['maxSurge']) ? $data['maxSurge'] : null;
+        $this->container['maxUnavailable'] = isset($data['maxUnavailable']) ? $data['maxUnavailable'] : null;
         $this->container['post'] = isset($data['post']) ? $data['post'] : null;
         $this->container['pre'] = isset($data['pre']) ? $data['pre'] : null;
-        $this->container['timeout_seconds'] = isset($data['timeout_seconds']) ? $data['timeout_seconds'] : null;
-        $this->container['update_period_seconds'] = isset($data['update_period_seconds']) ? $data['update_period_seconds'] : null;
+        $this->container['timeoutSeconds'] = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
+        $this->container['updatePeriodSeconds'] = isset($data['updatePeriodSeconds']) ? $data['updatePeriodSeconds'] : null;
     }
 
     /**
@@ -179,64 +179,64 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
 
 
     /**
-     * Gets interval_seconds
+     * Gets intervalSeconds
      * @return int
      */
     public function getIntervalSeconds()
     {
-        return $this->container['interval_seconds'];
+        return $this->container['intervalSeconds'];
     }
 
     /**
-     * Sets interval_seconds
-     * @param int $interval_seconds IntervalSeconds is the time to wait between polling deployment status after update. If the value is nil, a default will be used.
+     * Sets intervalSeconds
+     * @param int $intervalSeconds IntervalSeconds is the time to wait between polling deployment status after update. If the value is nil, a default will be used.
      * @return $this
      */
-    public function setIntervalSeconds($interval_seconds)
+    public function setIntervalSeconds($intervalSeconds)
     {
-        $this->container['interval_seconds'] = $interval_seconds;
+        $this->container['intervalSeconds'] = $intervalSeconds;
 
         return $this;
     }
 
     /**
-     * Gets max_surge
+     * Gets maxSurge
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getMaxSurge()
     {
-        return $this->container['max_surge'];
+        return $this->container['maxSurge'];
     }
 
     /**
-     * Sets max_surge
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $max_surge MaxSurge is the maximum number of pods that can be scheduled above the original number of pods. Value can be an absolute number (ex: 5) or a percentage of total pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up.  This cannot be 0 if MaxUnavailable is 0. By default, 25% is used.  Example: when this is set to 30%, the new RC can be scaled up by 30% immediately when the rolling update starts. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of original pods.
+     * Sets maxSurge
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $maxSurge MaxSurge is the maximum number of pods that can be scheduled above the original number of pods. Value can be an absolute number (ex: 5) or a percentage of total pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up.  This cannot be 0 if MaxUnavailable is 0. By default, 25% is used.  Example: when this is set to 30%, the new RC can be scaled up by 30% immediately when the rolling update starts. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of original pods.
      * @return $this
      */
-    public function setMaxSurge($max_surge)
+    public function setMaxSurge($maxSurge)
     {
-        $this->container['max_surge'] = $max_surge;
+        $this->container['maxSurge'] = $maxSurge;
 
         return $this;
     }
 
     /**
-     * Gets max_unavailable
+     * Gets maxUnavailable
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getMaxUnavailable()
     {
-        return $this->container['max_unavailable'];
+        return $this->container['maxUnavailable'];
     }
 
     /**
-     * Sets max_unavailable
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $max_unavailable MaxUnavailable is the maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of total pods at the start of update (ex: 10%). Absolute number is calculated from percentage by rounding down.  This cannot be 0 if MaxSurge is 0. By default, 25% is used.  Example: when this is set to 30%, the old RC can be scaled down by 30% immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that at least 70% of original number of pods are available at all times during the update.
+     * Sets maxUnavailable
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $maxUnavailable MaxUnavailable is the maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of total pods at the start of update (ex: 10%). Absolute number is calculated from percentage by rounding down.  This cannot be 0 if MaxSurge is 0. By default, 25% is used.  Example: when this is set to 30%, the old RC can be scaled down by 30% immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that at least 70% of original number of pods are available at all times during the update.
      * @return $this
      */
-    public function setMaxUnavailable($max_unavailable)
+    public function setMaxUnavailable($maxUnavailable)
     {
-        $this->container['max_unavailable'] = $max_unavailable;
+        $this->container['maxUnavailable'] = $maxUnavailable;
 
         return $this;
     }
@@ -284,43 +284,43 @@ class V1RollingDeploymentStrategyParams implements ArrayAccess
     }
 
     /**
-     * Gets timeout_seconds
+     * Gets timeoutSeconds
      * @return int
      */
     public function getTimeoutSeconds()
     {
-        return $this->container['timeout_seconds'];
+        return $this->container['timeoutSeconds'];
     }
 
     /**
-     * Sets timeout_seconds
-     * @param int $timeout_seconds TimeoutSeconds is the time to wait for updates before giving up. If the value is nil, a default will be used.
+     * Sets timeoutSeconds
+     * @param int $timeoutSeconds TimeoutSeconds is the time to wait for updates before giving up. If the value is nil, a default will be used.
      * @return $this
      */
-    public function setTimeoutSeconds($timeout_seconds)
+    public function setTimeoutSeconds($timeoutSeconds)
     {
-        $this->container['timeout_seconds'] = $timeout_seconds;
+        $this->container['timeoutSeconds'] = $timeoutSeconds;
 
         return $this;
     }
 
     /**
-     * Gets update_period_seconds
+     * Gets updatePeriodSeconds
      * @return int
      */
     public function getUpdatePeriodSeconds()
     {
-        return $this->container['update_period_seconds'];
+        return $this->container['updatePeriodSeconds'];
     }
 
     /**
-     * Sets update_period_seconds
-     * @param int $update_period_seconds UpdatePeriodSeconds is the time to wait between individual pod updates. If the value is nil, a default will be used.
+     * Sets updatePeriodSeconds
+     * @param int $updatePeriodSeconds UpdatePeriodSeconds is the time to wait between individual pod updates. If the value is nil, a default will be used.
      * @return $this
      */
-    public function setUpdatePeriodSeconds($update_period_seconds)
+    public function setUpdatePeriodSeconds($updatePeriodSeconds)
     {
-        $this->container['update_period_seconds'] = $update_period_seconds;
+        $this->container['updatePeriodSeconds'] = $updatePeriodSeconds;
 
         return $this;
     }

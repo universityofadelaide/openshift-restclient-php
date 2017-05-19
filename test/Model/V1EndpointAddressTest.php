@@ -99,7 +99,7 @@ class V1EndpointAddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_name"
+     * Test attribute "nodeName"
      */
     public function testPropertyNodeName()
     {
@@ -107,7 +107,7 @@ class V1EndpointAddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_ref"
+     * Test attribute "targetRef"
      */
     public function testPropertyTargetRef()
     {

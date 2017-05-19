@@ -56,7 +56,7 @@ class V1ImageChangeTrigger implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'last_triggered_image_id' => 'string'
+        'lastTriggeredImageID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V1ImageChangeTrigger implements ArrayAccess
      */
     protected static $attributeMap = [
         'from' => 'from',
-        'last_triggered_image_id' => 'lastTriggeredImageID'
+        'lastTriggeredImageID' => 'lastTriggeredImageID'
     ];
 
 
@@ -80,7 +80,7 @@ class V1ImageChangeTrigger implements ArrayAccess
      */
     protected static $setters = [
         'from' => 'setFrom',
-        'last_triggered_image_id' => 'setLastTriggeredImageId'
+        'lastTriggeredImageID' => 'setLastTriggeredImageID'
     ];
 
 
@@ -90,7 +90,7 @@ class V1ImageChangeTrigger implements ArrayAccess
      */
     protected static $getters = [
         'from' => 'getFrom',
-        'last_triggered_image_id' => 'getLastTriggeredImageId'
+        'lastTriggeredImageID' => 'getLastTriggeredImageID'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V1ImageChangeTrigger implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['last_triggered_image_id'] = isset($data['last_triggered_image_id']) ? $data['last_triggered_image_id'] : null;
+        $this->container['lastTriggeredImageID'] = isset($data['lastTriggeredImageID']) ? $data['lastTriggeredImageID'] : null;
     }
 
     /**
@@ -175,22 +175,22 @@ class V1ImageChangeTrigger implements ArrayAccess
     }
 
     /**
-     * Gets last_triggered_image_id
+     * Gets lastTriggeredImageID
      * @return string
      */
-    public function getLastTriggeredImageId()
+    public function getLastTriggeredImageID()
     {
-        return $this->container['last_triggered_image_id'];
+        return $this->container['lastTriggeredImageID'];
     }
 
     /**
-     * Sets last_triggered_image_id
-     * @param string $last_triggered_image_id lastTriggeredImageID is used internally by the ImageChangeController to save last used image ID for build
+     * Sets lastTriggeredImageID
+     * @param string $lastTriggeredImageID lastTriggeredImageID is used internally by the ImageChangeController to save last used image ID for build
      * @return $this
      */
-    public function setLastTriggeredImageId($last_triggered_image_id)
+    public function setLastTriggeredImageID($lastTriggeredImageID)
     {
-        $this->container['last_triggered_image_id'] = $last_triggered_image_id;
+        $this->container['lastTriggeredImageID'] = $lastTriggeredImageID;
 
         return $this;
     }

@@ -55,7 +55,7 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_change_params' => '\UniversityOfAdelaide\OpenShift\Model\V1DeploymentTriggerImageChangeParams',
+        'imageChangeParams' => '\UniversityOfAdelaide\OpenShift\Model\V1DeploymentTriggerImageChangeParams',
         'type' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_change_params' => 'imageChangeParams',
+        'imageChangeParams' => 'imageChangeParams',
         'type' => 'type'
     ];
 
@@ -79,7 +79,7 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_change_params' => 'setImageChangeParams',
+        'imageChangeParams' => 'setImageChangeParams',
         'type' => 'setType'
     ];
 
@@ -89,7 +89,7 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_change_params' => 'getImageChangeParams',
+        'imageChangeParams' => 'getImageChangeParams',
         'type' => 'getType'
     ];
 
@@ -124,7 +124,7 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['image_change_params'] = isset($data['image_change_params']) ? $data['image_change_params'] : null;
+        $this->container['imageChangeParams'] = isset($data['imageChangeParams']) ? $data['imageChangeParams'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1DeploymentTriggerPolicy implements ArrayAccess
 
 
     /**
-     * Gets image_change_params
+     * Gets imageChangeParams
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DeploymentTriggerImageChangeParams
      */
     public function getImageChangeParams()
     {
-        return $this->container['image_change_params'];
+        return $this->container['imageChangeParams'];
     }
 
     /**
-     * Sets image_change_params
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeploymentTriggerImageChangeParams $image_change_params ImageChangeParams represents the parameters for the ImageChange trigger.
+     * Sets imageChangeParams
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DeploymentTriggerImageChangeParams $imageChangeParams ImageChangeParams represents the parameters for the ImageChange trigger.
      * @return $this
      */
-    public function setImageChangeParams($image_change_params)
+    public function setImageChangeParams($imageChangeParams)
     {
-        $this->container['image_change_params'] = $image_change_params;
+        $this->container['imageChangeParams'] = $imageChangeParams;
 
         return $this;
     }

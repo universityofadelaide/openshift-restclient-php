@@ -83,7 +83,7 @@ class V1IdentityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -115,7 +115,7 @@ class V1IdentityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "provider_name"
+     * Test attribute "providerName"
      */
     public function testPropertyProviderName()
     {
@@ -123,7 +123,7 @@ class V1IdentityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "provider_user_name"
+     * Test attribute "providerUserName"
      */
     public function testPropertyProviderUserName()
     {

@@ -83,7 +83,7 @@ class V2alpha1ResourceMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_average_utilization"
+     * Test attribute "currentAverageUtilization"
      */
     public function testPropertyCurrentAverageUtilization()
     {
@@ -91,7 +91,7 @@ class V2alpha1ResourceMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_average_value"
+     * Test attribute "currentAverageValue"
      */
     public function testPropertyCurrentAverageValue()
     {

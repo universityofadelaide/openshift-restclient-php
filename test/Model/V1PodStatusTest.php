@@ -91,7 +91,7 @@ class V1PodStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "container_statuses"
+     * Test attribute "containerStatuses"
      */
     public function testPropertyContainerStatuses()
     {
@@ -99,15 +99,15 @@ class V1PodStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_ip"
+     * Test attribute "hostIP"
      */
-    public function testPropertyHostIp()
+    public function testPropertyHostIP()
     {
 
     }
 
     /**
-     * Test attribute "init_container_statuses"
+     * Test attribute "initContainerStatuses"
      */
     public function testPropertyInitContainerStatuses()
     {
@@ -131,15 +131,15 @@ class V1PodStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pod_ip"
+     * Test attribute "podIP"
      */
-    public function testPropertyPodIp()
+    public function testPropertyPodIP()
     {
 
     }
 
     /**
-     * Test attribute "qos_class"
+     * Test attribute "qosClass"
      */
     public function testPropertyQosClass()
     {
@@ -155,7 +155,7 @@ class V1PodStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "start_time"
+     * Test attribute "startTime"
      */
     public function testPropertyStartTime()
     {

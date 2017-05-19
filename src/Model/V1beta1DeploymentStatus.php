@@ -55,13 +55,13 @@ class V1beta1DeploymentStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_replicas' => 'int',
+        'availableReplicas' => 'int',
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1DeploymentCondition[]',
-        'observed_generation' => 'int',
-        'ready_replicas' => 'int',
+        'observedGeneration' => 'int',
+        'readyReplicas' => 'int',
         'replicas' => 'int',
-        'unavailable_replicas' => 'int',
-        'updated_replicas' => 'int'
+        'unavailableReplicas' => 'int',
+        'updatedReplicas' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -74,13 +74,13 @@ class V1beta1DeploymentStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_replicas' => 'availableReplicas',
+        'availableReplicas' => 'availableReplicas',
         'conditions' => 'conditions',
-        'observed_generation' => 'observedGeneration',
-        'ready_replicas' => 'readyReplicas',
+        'observedGeneration' => 'observedGeneration',
+        'readyReplicas' => 'readyReplicas',
         'replicas' => 'replicas',
-        'unavailable_replicas' => 'unavailableReplicas',
-        'updated_replicas' => 'updatedReplicas'
+        'unavailableReplicas' => 'unavailableReplicas',
+        'updatedReplicas' => 'updatedReplicas'
     ];
 
 
@@ -89,13 +89,13 @@ class V1beta1DeploymentStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_replicas' => 'setAvailableReplicas',
+        'availableReplicas' => 'setAvailableReplicas',
         'conditions' => 'setConditions',
-        'observed_generation' => 'setObservedGeneration',
-        'ready_replicas' => 'setReadyReplicas',
+        'observedGeneration' => 'setObservedGeneration',
+        'readyReplicas' => 'setReadyReplicas',
         'replicas' => 'setReplicas',
-        'unavailable_replicas' => 'setUnavailableReplicas',
-        'updated_replicas' => 'setUpdatedReplicas'
+        'unavailableReplicas' => 'setUnavailableReplicas',
+        'updatedReplicas' => 'setUpdatedReplicas'
     ];
 
 
@@ -104,13 +104,13 @@ class V1beta1DeploymentStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_replicas' => 'getAvailableReplicas',
+        'availableReplicas' => 'getAvailableReplicas',
         'conditions' => 'getConditions',
-        'observed_generation' => 'getObservedGeneration',
-        'ready_replicas' => 'getReadyReplicas',
+        'observedGeneration' => 'getObservedGeneration',
+        'readyReplicas' => 'getReadyReplicas',
         'replicas' => 'getReplicas',
-        'unavailable_replicas' => 'getUnavailableReplicas',
-        'updated_replicas' => 'getUpdatedReplicas'
+        'unavailableReplicas' => 'getUnavailableReplicas',
+        'updatedReplicas' => 'getUpdatedReplicas'
     ];
 
     public static function attributeMap()
@@ -144,13 +144,13 @@ class V1beta1DeploymentStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_replicas'] = isset($data['available_replicas']) ? $data['available_replicas'] : null;
+        $this->container['availableReplicas'] = isset($data['availableReplicas']) ? $data['availableReplicas'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
-        $this->container['ready_replicas'] = isset($data['ready_replicas']) ? $data['ready_replicas'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->container['readyReplicas'] = isset($data['readyReplicas']) ? $data['readyReplicas'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
-        $this->container['unavailable_replicas'] = isset($data['unavailable_replicas']) ? $data['unavailable_replicas'] : null;
-        $this->container['updated_replicas'] = isset($data['updated_replicas']) ? $data['updated_replicas'] : null;
+        $this->container['unavailableReplicas'] = isset($data['unavailableReplicas']) ? $data['unavailableReplicas'] : null;
+        $this->container['updatedReplicas'] = isset($data['updatedReplicas']) ? $data['updatedReplicas'] : null;
     }
 
     /**
@@ -179,22 +179,22 @@ class V1beta1DeploymentStatus implements ArrayAccess
 
 
     /**
-     * Gets available_replicas
+     * Gets availableReplicas
      * @return int
      */
     public function getAvailableReplicas()
     {
-        return $this->container['available_replicas'];
+        return $this->container['availableReplicas'];
     }
 
     /**
-     * Sets available_replicas
-     * @param int $available_replicas Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.
+     * Sets availableReplicas
+     * @param int $availableReplicas Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.
      * @return $this
      */
-    public function setAvailableReplicas($available_replicas)
+    public function setAvailableReplicas($availableReplicas)
     {
-        $this->container['available_replicas'] = $available_replicas;
+        $this->container['availableReplicas'] = $availableReplicas;
 
         return $this;
     }
@@ -221,43 +221,43 @@ class V1beta1DeploymentStatus implements ArrayAccess
     }
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation The generation observed by the deployment controller.
+     * Sets observedGeneration
+     * @param int $observedGeneration The generation observed by the deployment controller.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }
 
     /**
-     * Gets ready_replicas
+     * Gets readyReplicas
      * @return int
      */
     public function getReadyReplicas()
     {
-        return $this->container['ready_replicas'];
+        return $this->container['readyReplicas'];
     }
 
     /**
-     * Sets ready_replicas
-     * @param int $ready_replicas Total number of ready pods targeted by this deployment.
+     * Sets readyReplicas
+     * @param int $readyReplicas Total number of ready pods targeted by this deployment.
      * @return $this
      */
-    public function setReadyReplicas($ready_replicas)
+    public function setReadyReplicas($readyReplicas)
     {
-        $this->container['ready_replicas'] = $ready_replicas;
+        $this->container['readyReplicas'] = $readyReplicas;
 
         return $this;
     }
@@ -284,43 +284,43 @@ class V1beta1DeploymentStatus implements ArrayAccess
     }
 
     /**
-     * Gets unavailable_replicas
+     * Gets unavailableReplicas
      * @return int
      */
     public function getUnavailableReplicas()
     {
-        return $this->container['unavailable_replicas'];
+        return $this->container['unavailableReplicas'];
     }
 
     /**
-     * Sets unavailable_replicas
-     * @param int $unavailable_replicas Total number of unavailable pods targeted by this deployment.
+     * Sets unavailableReplicas
+     * @param int $unavailableReplicas Total number of unavailable pods targeted by this deployment.
      * @return $this
      */
-    public function setUnavailableReplicas($unavailable_replicas)
+    public function setUnavailableReplicas($unavailableReplicas)
     {
-        $this->container['unavailable_replicas'] = $unavailable_replicas;
+        $this->container['unavailableReplicas'] = $unavailableReplicas;
 
         return $this;
     }
 
     /**
-     * Gets updated_replicas
+     * Gets updatedReplicas
      * @return int
      */
     public function getUpdatedReplicas()
     {
-        return $this->container['updated_replicas'];
+        return $this->container['updatedReplicas'];
     }
 
     /**
-     * Sets updated_replicas
-     * @param int $updated_replicas Total number of non-terminated pods targeted by this deployment that have the desired template spec.
+     * Sets updatedReplicas
+     * @param int $updatedReplicas Total number of non-terminated pods targeted by this deployment that have the desired template spec.
      * @return $this
      */
-    public function setUpdatedReplicas($updated_replicas)
+    public function setUpdatedReplicas($updatedReplicas)
     {
-        $this->container['updated_replicas'] = $updated_replicas;
+        $this->container['updatedReplicas'] = $updatedReplicas;
 
         return $this;
     }

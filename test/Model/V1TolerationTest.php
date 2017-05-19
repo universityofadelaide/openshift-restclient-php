@@ -107,7 +107,7 @@ class V1TolerationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "toleration_seconds"
+     * Test attribute "tolerationSeconds"
      */
     public function testPropertyTolerationSeconds()
     {

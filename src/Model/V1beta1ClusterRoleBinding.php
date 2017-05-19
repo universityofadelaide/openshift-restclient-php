@@ -55,10 +55,10 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'role_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RoleRef',
+        'roleRef' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1RoleRef',
         'subjects' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1Subject[]'
     ];
 
@@ -72,10 +72,10 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'role_ref' => 'roleRef',
+        'roleRef' => 'roleRef',
         'subjects' => 'subjects'
     ];
 
@@ -85,10 +85,10 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'role_ref' => 'setRoleRef',
+        'roleRef' => 'setRoleRef',
         'subjects' => 'setSubjects'
     ];
 
@@ -98,10 +98,10 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'role_ref' => 'getRoleRef',
+        'roleRef' => 'getRoleRef',
         'subjects' => 'getSubjects'
     ];
 
@@ -136,10 +136,10 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['role_ref'] = isset($data['role_ref']) ? $data['role_ref'] : null;
+        $this->container['roleRef'] = isset($data['roleRef']) ? $data['roleRef'] : null;
         $this->container['subjects'] = isset($data['subjects']) ? $data['subjects'] : null;
     }
 
@@ -152,8 +152,8 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['role_ref'] === null) {
-            $invalid_properties[] = "'role_ref' can't be null";
+        if ($this->container['roleRef'] === null) {
+            $invalid_properties[] = "'roleRef' can't be null";
         }
         if ($this->container['subjects'] === null) {
             $invalid_properties[] = "'subjects' can't be null";
@@ -170,7 +170,7 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['role_ref'] === null) {
+        if ($this->container['roleRef'] === null) {
             return false;
         }
         if ($this->container['subjects'] === null) {
@@ -181,22 +181,22 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -244,22 +244,22 @@ class V1beta1ClusterRoleBinding implements ArrayAccess
     }
 
     /**
-     * Gets role_ref
+     * Gets roleRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1RoleRef
      */
     public function getRoleRef()
     {
-        return $this->container['role_ref'];
+        return $this->container['roleRef'];
     }
 
     /**
-     * Sets role_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RoleRef $role_ref RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+     * Sets roleRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1RoleRef $roleRef RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
      * @return $this
      */
-    public function setRoleRef($role_ref)
+    public function setRoleRef($roleRef)
     {
-        $this->container['role_ref'] = $role_ref;
+        $this->container['roleRef'] = $roleRef;
 
         return $this;
     }

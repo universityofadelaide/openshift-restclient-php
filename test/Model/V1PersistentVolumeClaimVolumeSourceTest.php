@@ -83,7 +83,7 @@ class V1PersistentVolumeClaimVolumeSourceTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "claim_name"
+     * Test attribute "claimName"
      */
     public function testPropertyClaimName()
     {
@@ -91,7 +91,7 @@ class V1PersistentVolumeClaimVolumeSourceTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {

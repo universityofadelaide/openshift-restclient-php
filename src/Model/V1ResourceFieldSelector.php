@@ -55,7 +55,7 @@ class V1ResourceFieldSelector implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'container_name' => 'string',
+        'containerName' => 'string',
         'divisor' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
         'resource' => 'string'
     ];
@@ -70,7 +70,7 @@ class V1ResourceFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_name' => 'containerName',
+        'containerName' => 'containerName',
         'divisor' => 'divisor',
         'resource' => 'resource'
     ];
@@ -81,7 +81,7 @@ class V1ResourceFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'container_name' => 'setContainerName',
+        'containerName' => 'setContainerName',
         'divisor' => 'setDivisor',
         'resource' => 'setResource'
     ];
@@ -92,7 +92,7 @@ class V1ResourceFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'container_name' => 'getContainerName',
+        'containerName' => 'getContainerName',
         'divisor' => 'getDivisor',
         'resource' => 'getResource'
     ];
@@ -128,7 +128,7 @@ class V1ResourceFieldSelector implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
+        $this->container['containerName'] = isset($data['containerName']) ? $data['containerName'] : null;
         $this->container['divisor'] = isset($data['divisor']) ? $data['divisor'] : null;
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
     }
@@ -165,22 +165,22 @@ class V1ResourceFieldSelector implements ArrayAccess
 
 
     /**
-     * Gets container_name
+     * Gets containerName
      * @return string
      */
     public function getContainerName()
     {
-        return $this->container['container_name'];
+        return $this->container['containerName'];
     }
 
     /**
-     * Sets container_name
-     * @param string $container_name Container name: required for volumes, optional for env vars
+     * Sets containerName
+     * @param string $containerName Container name: required for volumes, optional for env vars
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setContainerName($containerName)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['containerName'] = $containerName;
 
         return $this;
     }

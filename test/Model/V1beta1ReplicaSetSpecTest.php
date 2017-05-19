@@ -83,7 +83,7 @@ class V1beta1ReplicaSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_ready_seconds"
+     * Test attribute "minReadySeconds"
      */
     public function testPropertyMinReadySeconds()
     {

@@ -55,9 +55,9 @@ class V1NodeSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'external_id' => 'string',
-        'pod_cidr' => 'string',
-        'provider_id' => 'string',
+        'externalID' => 'string',
+        'podCIDR' => 'string',
+        'providerID' => 'string',
         'taints' => '\UniversityOfAdelaide\OpenShift\Model\V1Taint[]',
         'unschedulable' => 'bool'
     ];
@@ -72,9 +72,9 @@ class V1NodeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'external_id' => 'externalID',
-        'pod_cidr' => 'podCIDR',
-        'provider_id' => 'providerID',
+        'externalID' => 'externalID',
+        'podCIDR' => 'podCIDR',
+        'providerID' => 'providerID',
         'taints' => 'taints',
         'unschedulable' => 'unschedulable'
     ];
@@ -85,9 +85,9 @@ class V1NodeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'external_id' => 'setExternalId',
-        'pod_cidr' => 'setPodCidr',
-        'provider_id' => 'setProviderId',
+        'externalID' => 'setExternalID',
+        'podCIDR' => 'setPodCIDR',
+        'providerID' => 'setProviderID',
         'taints' => 'setTaints',
         'unschedulable' => 'setUnschedulable'
     ];
@@ -98,9 +98,9 @@ class V1NodeSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'external_id' => 'getExternalId',
-        'pod_cidr' => 'getPodCidr',
-        'provider_id' => 'getProviderId',
+        'externalID' => 'getExternalID',
+        'podCIDR' => 'getPodCIDR',
+        'providerID' => 'getProviderID',
         'taints' => 'getTaints',
         'unschedulable' => 'getUnschedulable'
     ];
@@ -136,9 +136,9 @@ class V1NodeSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['external_id'] = isset($data['external_id']) ? $data['external_id'] : null;
-        $this->container['pod_cidr'] = isset($data['pod_cidr']) ? $data['pod_cidr'] : null;
-        $this->container['provider_id'] = isset($data['provider_id']) ? $data['provider_id'] : null;
+        $this->container['externalID'] = isset($data['externalID']) ? $data['externalID'] : null;
+        $this->container['podCIDR'] = isset($data['podCIDR']) ? $data['podCIDR'] : null;
+        $this->container['providerID'] = isset($data['providerID']) ? $data['providerID'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
         $this->container['unschedulable'] = isset($data['unschedulable']) ? $data['unschedulable'] : null;
     }
@@ -169,64 +169,64 @@ class V1NodeSpec implements ArrayAccess
 
 
     /**
-     * Gets external_id
+     * Gets externalID
      * @return string
      */
-    public function getExternalId()
+    public function getExternalID()
     {
-        return $this->container['external_id'];
+        return $this->container['externalID'];
     }
 
     /**
-     * Sets external_id
-     * @param string $external_id External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.
+     * Sets externalID
+     * @param string $externalID External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.
      * @return $this
      */
-    public function setExternalId($external_id)
+    public function setExternalID($externalID)
     {
-        $this->container['external_id'] = $external_id;
+        $this->container['externalID'] = $externalID;
 
         return $this;
     }
 
     /**
-     * Gets pod_cidr
+     * Gets podCIDR
      * @return string
      */
-    public function getPodCidr()
+    public function getPodCIDR()
     {
-        return $this->container['pod_cidr'];
+        return $this->container['podCIDR'];
     }
 
     /**
-     * Sets pod_cidr
-     * @param string $pod_cidr PodCIDR represents the pod IP range assigned to the node.
+     * Sets podCIDR
+     * @param string $podCIDR PodCIDR represents the pod IP range assigned to the node.
      * @return $this
      */
-    public function setPodCidr($pod_cidr)
+    public function setPodCIDR($podCIDR)
     {
-        $this->container['pod_cidr'] = $pod_cidr;
+        $this->container['podCIDR'] = $podCIDR;
 
         return $this;
     }
 
     /**
-     * Gets provider_id
+     * Gets providerID
      * @return string
      */
-    public function getProviderId()
+    public function getProviderID()
     {
-        return $this->container['provider_id'];
+        return $this->container['providerID'];
     }
 
     /**
-     * Sets provider_id
-     * @param string $provider_id ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>
+     * Sets providerID
+     * @param string $providerID ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>
      * @return $this
      */
-    public function setProviderId($provider_id)
+    public function setProviderID($providerID)
     {
-        $this->container['provider_id'] = $provider_id;
+        $this->container['providerID'] = $providerID;
 
         return $this;
     }

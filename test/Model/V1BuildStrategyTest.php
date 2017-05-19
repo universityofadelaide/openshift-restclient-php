@@ -83,7 +83,7 @@ class V1BuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "custom_strategy"
+     * Test attribute "customStrategy"
      */
     public function testPropertyCustomStrategy()
     {
@@ -91,7 +91,7 @@ class V1BuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "docker_strategy"
+     * Test attribute "dockerStrategy"
      */
     public function testPropertyDockerStrategy()
     {
@@ -99,7 +99,7 @@ class V1BuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "jenkins_pipeline_strategy"
+     * Test attribute "jenkinsPipelineStrategy"
      */
     public function testPropertyJenkinsPipelineStrategy()
     {
@@ -107,7 +107,7 @@ class V1BuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "source_strategy"
+     * Test attribute "sourceStrategy"
      */
     public function testPropertySourceStrategy()
     {

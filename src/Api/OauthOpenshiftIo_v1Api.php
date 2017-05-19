@@ -28,10 +28,15 @@
 
 namespace UniversityOfAdelaide\OpenShift\Api;
 
-use \UniversityOfAdelaide\OpenShift\ApiClient;
-use \UniversityOfAdelaide\OpenShift\ApiException;
-use \UniversityOfAdelaide\OpenShift\Configuration;
-use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use UniversityOfAdelaide\OpenShift\ApiException;
+use UniversityOfAdelaide\OpenShift\Configuration;
+use UniversityOfAdelaide\OpenShift\HeaderSelector;
+use UniversityOfAdelaide\OpenShift\ObjectSerializer;
 
 /**
  * OauthOpenshiftIo_v1Api Class Doc Comment
@@ -44,47 +49,36 @@ use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
 class OauthOpenshiftIo_v1Api
 {
     /**
-     * API Client
-     *
-     * @var \UniversityOfAdelaide\OpenShift\ApiClient instance of the ApiClient
+     * @var ClientInterface
      */
-    protected $apiClient;
+    protected $client;
 
     /**
-     * Constructor
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient|null $apiClient The api client to use
+     * @var Configuration
      */
-    public function __construct(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient = null)
-    {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
+    protected $config;
 
-        $this->apiClient = $apiClient;
+    /**
+     * @param ClientInterface $client
+     * @param Configuration $config
+     * @param HeaderSelector $selector
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * Get API client
-     *
-     * @return \UniversityOfAdelaide\OpenShift\ApiClient get the API client
+     * @return Configuration
      */
-    public function getApiClient()
+    public function getConfig()
     {
-        return $this->apiClient;
-    }
-
-    /**
-     * Set the API client
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient $apiClient set the API client
-     *
-     * @return OauthOpenshiftIo_v1Api
-     */
-    public function setApiClient(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient)
-    {
-        $this->apiClient = $apiClient;
-        return $this;
+        return $this->config;
     }
 
     /**
@@ -95,6 +89,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken
      */
     public function createOauthOpenshiftIoV1OAuthAccessToken($body, $pretty = null)
@@ -111,6 +106,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($body, $pretty = null)
@@ -119,22 +115,21 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -144,34 +139,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createOauthOpenshiftIoV1OAuthAuthorizeToken
      *
@@ -180,6 +246,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken
      */
     public function createOauthOpenshiftIoV1OAuthAuthorizeToken($body, $pretty = null)
@@ -196,6 +263,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($body, $pretty = null)
@@ -204,22 +272,21 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -229,34 +296,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createOauthOpenshiftIoV1OAuthClient
      *
@@ -265,6 +403,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient
      */
     public function createOauthOpenshiftIoV1OAuthClient($body, $pretty = null)
@@ -281,6 +420,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOauthOpenshiftIoV1OAuthClientWithHttpInfo($body, $pretty = null)
@@ -289,22 +429,21 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -314,34 +453,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient',
-                '/apis/oauth.openshift.io/v1/oauthclients'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createOauthOpenshiftIoV1OAuthClientAuthorization
      *
@@ -350,6 +560,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization
      */
     public function createOauthOpenshiftIoV1OAuthClientAuthorization($body, $pretty = null)
@@ -366,6 +577,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($body, $pretty = null)
@@ -374,22 +586,21 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -399,51 +610,123 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1CollectionOAuthAccessToken
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthAccessToken($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthAccessToken($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthAccessTokenWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthAccessTokenWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -453,101 +736,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthAccessTokenWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthAccessTokenWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeToken
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeToken($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeToken($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeTokenWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeTokenWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -557,101 +912,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeTokenWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthAuthorizeTokenWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1CollectionOAuthClient
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthClient($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthClient($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthClientWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthClientWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -661,101 +1088,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthClientWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthClientWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthclients'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorization
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorization($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorization($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorizationWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorizationWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -765,84 +1264,155 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorizationWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteOauthOpenshiftIoV1CollectionOAuthClientAuthorizationWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1OAuthAccessToken
      *
@@ -851,15 +1421,16 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthAccessToken (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1OAuthAccessToken($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthAccessToken($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -871,13 +1442,14 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthAccessToken (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -887,42 +1459,37 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -932,34 +1499,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1OAuthAuthorizeToken
      *
@@ -968,15 +1606,16 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthAuthorizeToken (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1OAuthAuthorizeToken($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthAuthorizeToken($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -988,13 +1627,14 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthAuthorizeToken (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -1004,42 +1644,37 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1049,34 +1684,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1OAuthClient
      *
@@ -1085,15 +1791,16 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthClient (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1OAuthClient($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthClient($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -1105,13 +1812,14 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthClient (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -1121,42 +1829,37 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1166,34 +1869,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthclients/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteOauthOpenshiftIoV1OAuthClientAuthorization
      *
@@ -1202,15 +1976,16 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthClientAuthorization (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteOauthOpenshiftIoV1OAuthClientAuthorization($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthClientAuthorization($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -1222,13 +1997,14 @@ class OauthOpenshiftIo_v1Api
      * @param string $name name of the OAuthClientAuthorization (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -1238,42 +2014,37 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1283,40 +2054,112 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation getOauthOpenshiftIoV1APIResources
      *
      * 
      *
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1APIResourceList
      */
     public function getOauthOpenshiftIoV1APIResources()
@@ -1331,71 +2174,143 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1APIResourceList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOauthOpenshiftIoV1APIResourcesWithHttpInfo()
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList';
+
+
 
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList',
-                '/apis/oauth.openshift.io/v1/'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listOauthOpenshiftIoV1OAuthAccessToken
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList
      */
-    public function listOauthOpenshiftIoV1OAuthAccessToken($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthAccessToken($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1405,101 +2320,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessTokenList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listOauthOpenshiftIoV1OAuthAuthorizeToken
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList
      */
-    public function listOauthOpenshiftIoV1OAuthAuthorizeToken($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthAuthorizeToken($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1509,101 +2496,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeTokenList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listOauthOpenshiftIoV1OAuthClient
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList
      */
-    public function listOauthOpenshiftIoV1OAuthClient($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthClient($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listOauthOpenshiftIoV1OAuthClientWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listOauthOpenshiftIoV1OAuthClientWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1613,101 +2672,173 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOauthOpenshiftIoV1OAuthClientWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthClientWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList',
-                '/apis/oauth.openshift.io/v1/oauthclients'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listOauthOpenshiftIoV1OAuthClientAuthorization
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList
      */
-    public function listOauthOpenshiftIoV1OAuthClientAuthorization($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthClientAuthorization($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1717,84 +2848,155 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorizationList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchOauthOpenshiftIoV1OAuthAccessToken
      *
@@ -1804,6 +3006,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken
      */
     public function patchOauthOpenshiftIoV1OAuthAccessToken($name, $body, $pretty = null)
@@ -1821,6 +3024,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty = null)
@@ -1833,30 +3037,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1866,34 +3065,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchOauthOpenshiftIoV1OAuthAuthorizeToken
      *
@@ -1903,6 +3173,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken
      */
     public function patchOauthOpenshiftIoV1OAuthAuthorizeToken($name, $body, $pretty = null)
@@ -1920,6 +3191,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty = null)
@@ -1932,30 +3204,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1965,34 +3232,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchOauthOpenshiftIoV1OAuthClient
      *
@@ -2002,6 +3340,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient
      */
     public function patchOauthOpenshiftIoV1OAuthClient($name, $body, $pretty = null)
@@ -2019,6 +3358,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty = null)
@@ -2031,30 +3371,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2064,34 +3399,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient',
-                '/apis/oauth.openshift.io/v1/oauthclients/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchOauthOpenshiftIoV1OAuthClientAuthorization
      *
@@ -2101,6 +3507,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization
      */
     public function patchOauthOpenshiftIoV1OAuthClientAuthorization($name, $body, $pretty = null)
@@ -2118,6 +3525,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty = null)
@@ -2130,30 +3538,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2163,34 +3566,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readOauthOpenshiftIoV1OAuthAccessToken
      *
@@ -2201,6 +3675,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken
      */
     public function readOauthOpenshiftIoV1OAuthAccessToken($name, $pretty = null, $exact = null, $export = null)
@@ -2219,6 +3694,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function readOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $pretty = null, $exact = null, $export = null)
@@ -2227,70 +3703,136 @@ class OauthOpenshiftIo_v1Api
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling readOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readOauthOpenshiftIoV1OAuthAuthorizeToken
      *
@@ -2301,6 +3843,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken
      */
     public function readOauthOpenshiftIoV1OAuthAuthorizeToken($name, $pretty = null, $exact = null, $export = null)
@@ -2319,6 +3862,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function readOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $pretty = null, $exact = null, $export = null)
@@ -2327,70 +3871,136 @@ class OauthOpenshiftIo_v1Api
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling readOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readOauthOpenshiftIoV1OAuthClient
      *
@@ -2401,6 +4011,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient
      */
     public function readOauthOpenshiftIoV1OAuthClient($name, $pretty = null, $exact = null, $export = null)
@@ -2419,6 +4030,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient, HTTP status code, HTTP response headers (array of strings)
      */
     public function readOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $pretty = null, $exact = null, $export = null)
@@ -2427,70 +4039,136 @@ class OauthOpenshiftIo_v1Api
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling readOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient',
-                '/apis/oauth.openshift.io/v1/oauthclients/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readOauthOpenshiftIoV1OAuthClientAuthorization
      *
@@ -2501,6 +4179,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization
      */
     public function readOauthOpenshiftIoV1OAuthClientAuthorization($name, $pretty = null, $exact = null, $export = null)
@@ -2519,6 +4198,7 @@ class OauthOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization, HTTP status code, HTTP response headers (array of strings)
      */
     public function readOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $pretty = null, $exact = null, $export = null)
@@ -2527,70 +4207,136 @@ class OauthOpenshiftIo_v1Api
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling readOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceOauthOpenshiftIoV1OAuthAccessToken
      *
@@ -2600,6 +4346,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken
      */
     public function replaceOauthOpenshiftIoV1OAuthAccessToken($name, $body, $pretty = null)
@@ -2617,6 +4364,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $body, $pretty = null)
@@ -2629,30 +4377,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2662,34 +4405,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken',
-                '/apis/oauth.openshift.io/v1/oauthaccesstokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceOauthOpenshiftIoV1OAuthAuthorizeToken
      *
@@ -2699,6 +4513,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken
      */
     public function replaceOauthOpenshiftIoV1OAuthAuthorizeToken($name, $body, $pretty = null)
@@ -2716,6 +4531,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $body, $pretty = null)
@@ -2728,30 +4544,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2761,34 +4572,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken',
-                '/apis/oauth.openshift.io/v1/oauthauthorizetokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceOauthOpenshiftIoV1OAuthClient
      *
@@ -2798,6 +4680,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient
      */
     public function replaceOauthOpenshiftIoV1OAuthClient($name, $body, $pretty = null)
@@ -2815,6 +4698,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $body, $pretty = null)
@@ -2827,30 +4711,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclients/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclients/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2860,34 +4739,105 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient',
-                '/apis/oauth.openshift.io/v1/oauthclients/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClient', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceOauthOpenshiftIoV1OAuthClientAuthorization
      *
@@ -2897,6 +4847,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization
      */
     public function replaceOauthOpenshiftIoV1OAuthClientAuthorization($name, $body, $pretty = null)
@@ -2914,6 +4865,7 @@ class OauthOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $body, $pretty = null)
@@ -2926,30 +4878,25 @@ class OauthOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2959,52 +4906,124 @@ class OauthOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization',
-                '/apis/oauth.openshift.io/v1/oauthclientauthorizations/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthAccessToken
      *
      * 
      *
      * @param string $name name of the OAuthAccessToken (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthAccessToken($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAccessToken($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3014,114 +5033,182 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $name name of the OAuthAccessToken (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAccessTokenWithHttpInfo($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling watchOauthOpenshiftIoV1OAuthAccessToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthaccesstokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthaccesstokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthaccesstokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthAccessTokenList
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthAccessTokenList($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAccessTokenList($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthAccessTokenListWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthAccessTokenListWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3130,103 +5217,175 @@ class OauthOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthAccessTokenListWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAccessTokenListWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthaccesstokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthaccesstokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthaccesstokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthAuthorizeToken
      *
      * 
      *
      * @param string $name name of the OAuthAuthorizeToken (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthAuthorizeToken($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAuthorizeToken($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3236,114 +5395,182 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $name name of the OAuthAuthorizeToken (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenWithHttpInfo($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling watchOauthOpenshiftIoV1OAuthAuthorizeToken');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthAuthorizeTokenList
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenList($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenList($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthAuthorizeTokenListWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthAuthorizeTokenListWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3352,103 +5579,175 @@ class OauthOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenListWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthAuthorizeTokenListWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthauthorizetokens'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthClient
      *
      * 
      *
      * @param string $name name of the OAuthClient (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthClient($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClient($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3458,115 +5757,183 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $name name of the OAuthClient (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientWithHttpInfo($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling watchOauthOpenshiftIoV1OAuthClient');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthclients/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthclients/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthclients/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthClientAuthorization
      *
      * 
      *
      * @param string $name name of the OAuthClientAuthorization (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthClientAuthorization($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientAuthorization($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3576,114 +5943,182 @@ class OauthOpenshiftIo_v1Api
      * 
      *
      * @param string $name name of the OAuthClientAuthorization (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationWithHttpInfo($name, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling watchOauthOpenshiftIoV1OAuthClientAuthorization');
         }
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthClientAuthorizationList
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationList($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationList($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientAuthorizationListWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientAuthorizationListWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3692,102 +6127,174 @@ class OauthOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationListWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientAuthorizationListWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthclientauthorizations'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchOauthOpenshiftIoV1OAuthClientList
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchOauthOpenshiftIoV1OAuthClientList($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientList($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientListWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchOauthOpenshiftIoV1OAuthClientListWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3796,81 +6303,153 @@ class OauthOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchOauthOpenshiftIoV1OAuthClientListWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchOauthOpenshiftIoV1OAuthClientListWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/oauth.openshift.io/v1/watch/oauthclients";
-        $httpBody = '';
+
+        $resourcePath = '/apis/oauth.openshift.io/v1/watch/oauthclients';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/oauth.openshift.io/v1/watch/oauthclients'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }

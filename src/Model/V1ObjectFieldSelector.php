@@ -55,8 +55,8 @@ class V1ObjectFieldSelector implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'field_path' => 'string'
+        'apiVersion' => 'string',
+        'fieldPath' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1ObjectFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'field_path' => 'fieldPath'
+        'apiVersion' => 'apiVersion',
+        'fieldPath' => 'fieldPath'
     ];
 
 
@@ -79,8 +79,8 @@ class V1ObjectFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'field_path' => 'setFieldPath'
+        'apiVersion' => 'setApiVersion',
+        'fieldPath' => 'setFieldPath'
     ];
 
 
@@ -89,8 +89,8 @@ class V1ObjectFieldSelector implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'field_path' => 'getFieldPath'
+        'apiVersion' => 'getApiVersion',
+        'fieldPath' => 'getFieldPath'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1ObjectFieldSelector implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['field_path'] = isset($data['field_path']) ? $data['field_path'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['fieldPath'] = isset($data['fieldPath']) ? $data['fieldPath'] : null;
     }
 
     /**
@@ -137,8 +137,8 @@ class V1ObjectFieldSelector implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['field_path'] === null) {
-            $invalid_properties[] = "'field_path' can't be null";
+        if ($this->container['fieldPath'] === null) {
+            $invalid_properties[] = "'fieldPath' can't be null";
         }
         return $invalid_properties;
     }
@@ -152,7 +152,7 @@ class V1ObjectFieldSelector implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['field_path'] === null) {
+        if ($this->container['fieldPath'] === null) {
             return false;
         }
         return true;
@@ -160,43 +160,43 @@ class V1ObjectFieldSelector implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version Version of the schema the FieldPath is written in terms of, defaults to \"v1\".
+     * Sets apiVersion
+     * @param string $apiVersion Version of the schema the FieldPath is written in terms of, defaults to \"v1\".
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets field_path
+     * Gets fieldPath
      * @return string
      */
     public function getFieldPath()
     {
-        return $this->container['field_path'];
+        return $this->container['fieldPath'];
     }
 
     /**
-     * Sets field_path
-     * @param string $field_path Path of the field to select in the specified API version.
+     * Sets fieldPath
+     * @param string $fieldPath Path of the field to select in the specified API version.
      * @return $this
      */
-    public function setFieldPath($field_path)
+    public function setFieldPath($fieldPath)
     {
-        $this->container['field_path'] = $field_path;
+        $this->container['fieldPath'] = $fieldPath;
 
         return $this;
     }

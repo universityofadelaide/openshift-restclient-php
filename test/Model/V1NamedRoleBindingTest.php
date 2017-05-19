@@ -91,7 +91,7 @@ class V1NamedRoleBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "role_binding"
+     * Test attribute "roleBinding"
      */
     public function testPropertyRoleBinding()
     {

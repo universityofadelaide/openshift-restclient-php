@@ -83,7 +83,7 @@ class V1PolicyRuleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_groups"
+     * Test attribute "apiGroups"
      */
     public function testPropertyApiGroups()
     {
@@ -91,7 +91,7 @@ class V1PolicyRuleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "attribute_restrictions"
+     * Test attribute "attributeRestrictions"
      */
     public function testPropertyAttributeRestrictions()
     {
@@ -99,15 +99,15 @@ class V1PolicyRuleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "non_resource_ur_ls"
+     * Test attribute "nonResourceURLs"
      */
-    public function testPropertyNonResourceUrLs()
+    public function testPropertyNonResourceURLs()
     {
 
     }
 
     /**
-     * Test attribute "resource_names"
+     * Test attribute "resourceNames"
      */
     public function testPropertyResourceNames()
     {

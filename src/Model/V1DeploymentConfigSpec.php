@@ -55,10 +55,10 @@ class V1DeploymentConfigSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'min_ready_seconds' => 'int',
+        'minReadySeconds' => 'int',
         'paused' => 'bool',
         'replicas' => 'int',
-        'revision_history_limit' => 'int',
+        'revisionHistoryLimit' => 'int',
         'selector' => 'map[string,string]',
         'strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1DeploymentStrategy',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec',
@@ -76,10 +76,10 @@ class V1DeploymentConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'min_ready_seconds' => 'minReadySeconds',
+        'minReadySeconds' => 'minReadySeconds',
         'paused' => 'paused',
         'replicas' => 'replicas',
-        'revision_history_limit' => 'revisionHistoryLimit',
+        'revisionHistoryLimit' => 'revisionHistoryLimit',
         'selector' => 'selector',
         'strategy' => 'strategy',
         'template' => 'template',
@@ -93,10 +93,10 @@ class V1DeploymentConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'min_ready_seconds' => 'setMinReadySeconds',
+        'minReadySeconds' => 'setMinReadySeconds',
         'paused' => 'setPaused',
         'replicas' => 'setReplicas',
-        'revision_history_limit' => 'setRevisionHistoryLimit',
+        'revisionHistoryLimit' => 'setRevisionHistoryLimit',
         'selector' => 'setSelector',
         'strategy' => 'setStrategy',
         'template' => 'setTemplate',
@@ -110,10 +110,10 @@ class V1DeploymentConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'min_ready_seconds' => 'getMinReadySeconds',
+        'minReadySeconds' => 'getMinReadySeconds',
         'paused' => 'getPaused',
         'replicas' => 'getReplicas',
-        'revision_history_limit' => 'getRevisionHistoryLimit',
+        'revisionHistoryLimit' => 'getRevisionHistoryLimit',
         'selector' => 'getSelector',
         'strategy' => 'getStrategy',
         'template' => 'getTemplate',
@@ -152,10 +152,10 @@ class V1DeploymentConfigSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['min_ready_seconds'] = isset($data['min_ready_seconds']) ? $data['min_ready_seconds'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
-        $this->container['revision_history_limit'] = isset($data['revision_history_limit']) ? $data['revision_history_limit'] : null;
+        $this->container['revisionHistoryLimit'] = isset($data['revisionHistoryLimit']) ? $data['revisionHistoryLimit'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
@@ -213,22 +213,22 @@ class V1DeploymentConfigSpec implements ArrayAccess
 
 
     /**
-     * Gets min_ready_seconds
+     * Gets minReadySeconds
      * @return int
      */
     public function getMinReadySeconds()
     {
-        return $this->container['min_ready_seconds'];
+        return $this->container['minReadySeconds'];
     }
 
     /**
-     * Sets min_ready_seconds
-     * @param int $min_ready_seconds MinReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
+     * Sets minReadySeconds
+     * @param int $minReadySeconds MinReadySeconds is the minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
      * @return $this
      */
-    public function setMinReadySeconds($min_ready_seconds)
+    public function setMinReadySeconds($minReadySeconds)
     {
-        $this->container['min_ready_seconds'] = $min_ready_seconds;
+        $this->container['minReadySeconds'] = $minReadySeconds;
 
         return $this;
     }
@@ -276,22 +276,22 @@ class V1DeploymentConfigSpec implements ArrayAccess
     }
 
     /**
-     * Gets revision_history_limit
+     * Gets revisionHistoryLimit
      * @return int
      */
     public function getRevisionHistoryLimit()
     {
-        return $this->container['revision_history_limit'];
+        return $this->container['revisionHistoryLimit'];
     }
 
     /**
-     * Sets revision_history_limit
-     * @param int $revision_history_limit RevisionHistoryLimit is the number of old ReplicationControllers to retain to allow for rollbacks. This field is a pointer to allow for differentiation between an explicit zero and not specified.
+     * Sets revisionHistoryLimit
+     * @param int $revisionHistoryLimit RevisionHistoryLimit is the number of old ReplicationControllers to retain to allow for rollbacks. This field is a pointer to allow for differentiation between an explicit zero and not specified.
      * @return $this
      */
-    public function setRevisionHistoryLimit($revision_history_limit)
+    public function setRevisionHistoryLimit($revisionHistoryLimit)
     {
-        $this->container['revision_history_limit'] = $revision_history_limit;
+        $this->container['revisionHistoryLimit'] = $revisionHistoryLimit;
 
         return $this;
     }

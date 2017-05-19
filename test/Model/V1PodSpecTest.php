@@ -83,7 +83,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "active_deadline_seconds"
+     * Test attribute "activeDeadlineSeconds"
      */
     public function testPropertyActiveDeadlineSeconds()
     {
@@ -99,7 +99,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "automount_service_account_token"
+     * Test attribute "automountServiceAccountToken"
      */
     public function testPropertyAutomountServiceAccountToken()
     {
@@ -115,7 +115,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dns_policy"
+     * Test attribute "dnsPolicy"
      */
     public function testPropertyDnsPolicy()
     {
@@ -123,15 +123,15 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_ipc"
+     * Test attribute "hostIPC"
      */
-    public function testPropertyHostIpc()
+    public function testPropertyHostIPC()
     {
 
     }
 
     /**
-     * Test attribute "host_network"
+     * Test attribute "hostNetwork"
      */
     public function testPropertyHostNetwork()
     {
@@ -139,9 +139,9 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_pid"
+     * Test attribute "hostPID"
      */
-    public function testPropertyHostPid()
+    public function testPropertyHostPID()
     {
 
     }
@@ -155,7 +155,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_pull_secrets"
+     * Test attribute "imagePullSecrets"
      */
     public function testPropertyImagePullSecrets()
     {
@@ -163,7 +163,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "init_containers"
+     * Test attribute "initContainers"
      */
     public function testPropertyInitContainers()
     {
@@ -171,7 +171,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_name"
+     * Test attribute "nodeName"
      */
     public function testPropertyNodeName()
     {
@@ -179,7 +179,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "node_selector"
+     * Test attribute "nodeSelector"
      */
     public function testPropertyNodeSelector()
     {
@@ -187,7 +187,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "restart_policy"
+     * Test attribute "restartPolicy"
      */
     public function testPropertyRestartPolicy()
     {
@@ -195,7 +195,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "scheduler_name"
+     * Test attribute "schedulerName"
      */
     public function testPropertySchedulerName()
     {
@@ -203,7 +203,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "security_context"
+     * Test attribute "securityContext"
      */
     public function testPropertySecurityContext()
     {
@@ -211,7 +211,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_account"
+     * Test attribute "serviceAccount"
      */
     public function testPropertyServiceAccount()
     {
@@ -219,7 +219,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_account_name"
+     * Test attribute "serviceAccountName"
      */
     public function testPropertyServiceAccountName()
     {
@@ -235,7 +235,7 @@ class V1PodSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "termination_grace_period_seconds"
+     * Test attribute "terminationGracePeriodSeconds"
      */
     public function testPropertyTerminationGracePeriodSeconds()
     {

@@ -57,7 +57,7 @@ class V1beta1ScaleStatus implements ArrayAccess
     protected static $swaggerTypes = [
         'replicas' => 'int',
         'selector' => 'map[string,string]',
-        'target_selector' => 'string'
+        'targetSelector' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -72,7 +72,7 @@ class V1beta1ScaleStatus implements ArrayAccess
     protected static $attributeMap = [
         'replicas' => 'replicas',
         'selector' => 'selector',
-        'target_selector' => 'targetSelector'
+        'targetSelector' => 'targetSelector'
     ];
 
 
@@ -83,7 +83,7 @@ class V1beta1ScaleStatus implements ArrayAccess
     protected static $setters = [
         'replicas' => 'setReplicas',
         'selector' => 'setSelector',
-        'target_selector' => 'setTargetSelector'
+        'targetSelector' => 'setTargetSelector'
     ];
 
 
@@ -94,7 +94,7 @@ class V1beta1ScaleStatus implements ArrayAccess
     protected static $getters = [
         'replicas' => 'getReplicas',
         'selector' => 'getSelector',
-        'target_selector' => 'getTargetSelector'
+        'targetSelector' => 'getTargetSelector'
     ];
 
     public static function attributeMap()
@@ -130,7 +130,7 @@ class V1beta1ScaleStatus implements ArrayAccess
     {
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
-        $this->container['target_selector'] = isset($data['target_selector']) ? $data['target_selector'] : null;
+        $this->container['targetSelector'] = isset($data['targetSelector']) ? $data['targetSelector'] : null;
     }
 
     /**
@@ -207,22 +207,22 @@ class V1beta1ScaleStatus implements ArrayAccess
     }
 
     /**
-     * Gets target_selector
+     * Gets targetSelector
      * @return string
      */
     public function getTargetSelector()
     {
-        return $this->container['target_selector'];
+        return $this->container['targetSelector'];
     }
 
     /**
-     * Sets target_selector
-     * @param string $target_selector label selector for pods that should match the replicas count. This is a serializated version of both map-based and more expressive set-based selectors. This is done to avoid introspection in the clients. The string will be in the same format as the query-param syntax. If the target type only supports map-based selectors, both this field and map-based selector field are populated. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * Sets targetSelector
+     * @param string $targetSelector label selector for pods that should match the replicas count. This is a serializated version of both map-based and more expressive set-based selectors. This is done to avoid introspection in the clients. The string will be in the same format as the query-param syntax. If the target type only supports map-based selectors, both this field and map-based selector field are populated. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * @return $this
      */
-    public function setTargetSelector($target_selector)
+    public function setTargetSelector($targetSelector)
     {
-        $this->container['target_selector'] = $target_selector;
+        $this->container['targetSelector'] = $targetSelector;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1BuildStatusOutputToTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_digest"
+     * Test attribute "imageDigest"
      */
     public function testPropertyImageDigest()
     {

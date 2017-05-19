@@ -83,15 +83,15 @@ class V1ServerAddressByClientCIDRTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "client_cidr"
+     * Test attribute "clientCIDR"
      */
-    public function testPropertyClientCidr()
+    public function testPropertyClientCIDR()
     {
 
     }
 
     /**
-     * Test attribute "server_address"
+     * Test attribute "serverAddress"
      */
     public function testPropertyServerAddress()
     {

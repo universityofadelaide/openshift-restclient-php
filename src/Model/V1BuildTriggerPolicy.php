@@ -59,7 +59,7 @@ class V1BuildTriggerPolicy implements ArrayAccess
         'generic' => '\UniversityOfAdelaide\OpenShift\Model\V1WebHookTrigger',
         'github' => '\UniversityOfAdelaide\OpenShift\Model\V1WebHookTrigger',
         'gitlab' => '\UniversityOfAdelaide\OpenShift\Model\V1WebHookTrigger',
-        'image_change' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageChangeTrigger',
+        'imageChange' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageChangeTrigger',
         'type' => 'string'
     ];
 
@@ -77,7 +77,7 @@ class V1BuildTriggerPolicy implements ArrayAccess
         'generic' => 'generic',
         'github' => 'github',
         'gitlab' => 'gitlab',
-        'image_change' => 'imageChange',
+        'imageChange' => 'imageChange',
         'type' => 'type'
     ];
 
@@ -91,7 +91,7 @@ class V1BuildTriggerPolicy implements ArrayAccess
         'generic' => 'setGeneric',
         'github' => 'setGithub',
         'gitlab' => 'setGitlab',
-        'image_change' => 'setImageChange',
+        'imageChange' => 'setImageChange',
         'type' => 'setType'
     ];
 
@@ -105,7 +105,7 @@ class V1BuildTriggerPolicy implements ArrayAccess
         'generic' => 'getGeneric',
         'github' => 'getGithub',
         'gitlab' => 'getGitlab',
-        'image_change' => 'getImageChange',
+        'imageChange' => 'getImageChange',
         'type' => 'getType'
     ];
 
@@ -144,7 +144,7 @@ class V1BuildTriggerPolicy implements ArrayAccess
         $this->container['generic'] = isset($data['generic']) ? $data['generic'] : null;
         $this->container['github'] = isset($data['github']) ? $data['github'] : null;
         $this->container['gitlab'] = isset($data['gitlab']) ? $data['gitlab'] : null;
-        $this->container['image_change'] = isset($data['image_change']) ? $data['image_change'] : null;
+        $this->container['imageChange'] = isset($data['imageChange']) ? $data['imageChange'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -264,22 +264,22 @@ class V1BuildTriggerPolicy implements ArrayAccess
     }
 
     /**
-     * Gets image_change
+     * Gets imageChange
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeTrigger
      */
     public function getImageChange()
     {
-        return $this->container['image_change'];
+        return $this->container['imageChange'];
     }
 
     /**
-     * Sets image_change
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeTrigger $image_change imageChange contains parameters for an ImageChange type of trigger
+     * Sets imageChange
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeTrigger $imageChange imageChange contains parameters for an ImageChange type of trigger
      * @return $this
      */
-    public function setImageChange($image_change)
+    public function setImageChange($imageChange)
     {
-        $this->container['image_change'] = $image_change;
+        $this->container['imageChange'] = $imageChange;
 
         return $this;
     }

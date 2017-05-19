@@ -83,7 +83,7 @@ class V2alpha1CrossVersionObjectReferenceTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {

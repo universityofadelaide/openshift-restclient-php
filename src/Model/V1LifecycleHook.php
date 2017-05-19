@@ -55,9 +55,9 @@ class V1LifecycleHook implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'exec_new_pod' => '\UniversityOfAdelaide\OpenShift\Model\V1ExecNewPodHook',
-        'failure_policy' => 'string',
-        'tag_images' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImageHook[]'
+        'execNewPod' => '\UniversityOfAdelaide\OpenShift\Model\V1ExecNewPodHook',
+        'failurePolicy' => 'string',
+        'tagImages' => '\UniversityOfAdelaide\OpenShift\Model\V1TagImageHook[]'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1LifecycleHook implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exec_new_pod' => 'execNewPod',
-        'failure_policy' => 'failurePolicy',
-        'tag_images' => 'tagImages'
+        'execNewPod' => 'execNewPod',
+        'failurePolicy' => 'failurePolicy',
+        'tagImages' => 'tagImages'
     ];
 
 
@@ -81,9 +81,9 @@ class V1LifecycleHook implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exec_new_pod' => 'setExecNewPod',
-        'failure_policy' => 'setFailurePolicy',
-        'tag_images' => 'setTagImages'
+        'execNewPod' => 'setExecNewPod',
+        'failurePolicy' => 'setFailurePolicy',
+        'tagImages' => 'setTagImages'
     ];
 
 
@@ -92,9 +92,9 @@ class V1LifecycleHook implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exec_new_pod' => 'getExecNewPod',
-        'failure_policy' => 'getFailurePolicy',
-        'tag_images' => 'getTagImages'
+        'execNewPod' => 'getExecNewPod',
+        'failurePolicy' => 'getFailurePolicy',
+        'tagImages' => 'getTagImages'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1LifecycleHook implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exec_new_pod'] = isset($data['exec_new_pod']) ? $data['exec_new_pod'] : null;
-        $this->container['failure_policy'] = isset($data['failure_policy']) ? $data['failure_policy'] : null;
-        $this->container['tag_images'] = isset($data['tag_images']) ? $data['tag_images'] : null;
+        $this->container['execNewPod'] = isset($data['execNewPod']) ? $data['execNewPod'] : null;
+        $this->container['failurePolicy'] = isset($data['failurePolicy']) ? $data['failurePolicy'] : null;
+        $this->container['tagImages'] = isset($data['tagImages']) ? $data['tagImages'] : null;
     }
 
     /**
@@ -142,8 +142,8 @@ class V1LifecycleHook implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['failure_policy'] === null) {
-            $invalid_properties[] = "'failure_policy' can't be null";
+        if ($this->container['failurePolicy'] === null) {
+            $invalid_properties[] = "'failurePolicy' can't be null";
         }
         return $invalid_properties;
     }
@@ -157,7 +157,7 @@ class V1LifecycleHook implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['failure_policy'] === null) {
+        if ($this->container['failurePolicy'] === null) {
             return false;
         }
         return true;
@@ -165,64 +165,64 @@ class V1LifecycleHook implements ArrayAccess
 
 
     /**
-     * Gets exec_new_pod
+     * Gets execNewPod
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ExecNewPodHook
      */
     public function getExecNewPod()
     {
-        return $this->container['exec_new_pod'];
+        return $this->container['execNewPod'];
     }
 
     /**
-     * Sets exec_new_pod
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ExecNewPodHook $exec_new_pod ExecNewPod specifies the options for a lifecycle hook backed by a pod.
+     * Sets execNewPod
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ExecNewPodHook $execNewPod ExecNewPod specifies the options for a lifecycle hook backed by a pod.
      * @return $this
      */
-    public function setExecNewPod($exec_new_pod)
+    public function setExecNewPod($execNewPod)
     {
-        $this->container['exec_new_pod'] = $exec_new_pod;
+        $this->container['execNewPod'] = $execNewPod;
 
         return $this;
     }
 
     /**
-     * Gets failure_policy
+     * Gets failurePolicy
      * @return string
      */
     public function getFailurePolicy()
     {
-        return $this->container['failure_policy'];
+        return $this->container['failurePolicy'];
     }
 
     /**
-     * Sets failure_policy
-     * @param string $failure_policy FailurePolicy specifies what action to take if the hook fails.
+     * Sets failurePolicy
+     * @param string $failurePolicy FailurePolicy specifies what action to take if the hook fails.
      * @return $this
      */
-    public function setFailurePolicy($failure_policy)
+    public function setFailurePolicy($failurePolicy)
     {
-        $this->container['failure_policy'] = $failure_policy;
+        $this->container['failurePolicy'] = $failurePolicy;
 
         return $this;
     }
 
     /**
-     * Gets tag_images
+     * Gets tagImages
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TagImageHook[]
      */
     public function getTagImages()
     {
-        return $this->container['tag_images'];
+        return $this->container['tagImages'];
     }
 
     /**
-     * Sets tag_images
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImageHook[] $tag_images TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag.
+     * Sets tagImages
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagImageHook[] $tagImages TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag.
      * @return $this
      */
-    public function setTagImages($tag_images)
+    public function setTagImages($tagImages)
     {
-        $this->container['tag_images'] = $tag_images;
+        $this->container['tagImages'] = $tagImages;
 
         return $this;
     }

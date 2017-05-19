@@ -91,7 +91,7 @@ class V2alpha1ResourceMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_average_utilization"
+     * Test attribute "targetAverageUtilization"
      */
     public function testPropertyTargetAverageUtilization()
     {
@@ -99,7 +99,7 @@ class V2alpha1ResourceMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_average_value"
+     * Test attribute "targetAverageValue"
      */
     public function testPropertyTargetAverageValue()
     {

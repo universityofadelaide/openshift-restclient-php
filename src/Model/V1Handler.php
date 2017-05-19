@@ -56,8 +56,8 @@ class V1Handler implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'exec' => '\UniversityOfAdelaide\OpenShift\Model\V1ExecAction',
-        'http_get' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction',
-        'tcp_socket' => '\UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction'
+        'httpGet' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction',
+        'tcpSocket' => '\UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction'
     ];
 
     public static function swaggerTypes()
@@ -71,8 +71,8 @@ class V1Handler implements ArrayAccess
      */
     protected static $attributeMap = [
         'exec' => 'exec',
-        'http_get' => 'httpGet',
-        'tcp_socket' => 'tcpSocket'
+        'httpGet' => 'httpGet',
+        'tcpSocket' => 'tcpSocket'
     ];
 
 
@@ -82,8 +82,8 @@ class V1Handler implements ArrayAccess
      */
     protected static $setters = [
         'exec' => 'setExec',
-        'http_get' => 'setHttpGet',
-        'tcp_socket' => 'setTcpSocket'
+        'httpGet' => 'setHttpGet',
+        'tcpSocket' => 'setTcpSocket'
     ];
 
 
@@ -93,8 +93,8 @@ class V1Handler implements ArrayAccess
      */
     protected static $getters = [
         'exec' => 'getExec',
-        'http_get' => 'getHttpGet',
-        'tcp_socket' => 'getTcpSocket'
+        'httpGet' => 'getHttpGet',
+        'tcpSocket' => 'getTcpSocket'
     ];
 
     public static function attributeMap()
@@ -129,8 +129,8 @@ class V1Handler implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['exec'] = isset($data['exec']) ? $data['exec'] : null;
-        $this->container['http_get'] = isset($data['http_get']) ? $data['http_get'] : null;
-        $this->container['tcp_socket'] = isset($data['tcp_socket']) ? $data['tcp_socket'] : null;
+        $this->container['httpGet'] = isset($data['httpGet']) ? $data['httpGet'] : null;
+        $this->container['tcpSocket'] = isset($data['tcpSocket']) ? $data['tcpSocket'] : null;
     }
 
     /**
@@ -180,43 +180,43 @@ class V1Handler implements ArrayAccess
     }
 
     /**
-     * Gets http_get
+     * Gets httpGet
      * @return \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction
      */
     public function getHttpGet()
     {
-        return $this->container['http_get'];
+        return $this->container['httpGet'];
     }
 
     /**
-     * Sets http_get
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction $http_get HTTPGet specifies the http request to perform.
+     * Sets httpGet
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction $httpGet HTTPGet specifies the http request to perform.
      * @return $this
      */
-    public function setHttpGet($http_get)
+    public function setHttpGet($httpGet)
     {
-        $this->container['http_get'] = $http_get;
+        $this->container['httpGet'] = $httpGet;
 
         return $this;
     }
 
     /**
-     * Gets tcp_socket
+     * Gets tcpSocket
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction
      */
     public function getTcpSocket()
     {
-        return $this->container['tcp_socket'];
+        return $this->container['tcpSocket'];
     }
 
     /**
-     * Sets tcp_socket
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction $tcp_socket TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
+     * Sets tcpSocket
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction $tcpSocket TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
      * @return $this
      */
-    public function setTcpSocket($tcp_socket)
+    public function setTcpSocket($tcpSocket)
     {
-        $this->container['tcp_socket'] = $tcp_socket;
+        $this->container['tcpSocket'] = $tcpSocket;
 
         return $this;
     }

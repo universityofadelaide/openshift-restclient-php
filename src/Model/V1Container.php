@@ -58,23 +58,23 @@ class V1Container implements ArrayAccess
         'args' => 'string[]',
         'command' => 'string[]',
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'env_from' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]',
+        'envFrom' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]',
         'image' => 'string',
-        'image_pull_policy' => 'string',
+        'imagePullPolicy' => 'string',
         'lifecycle' => '\UniversityOfAdelaide\OpenShift\Model\V1Lifecycle',
-        'liveness_probe' => '\UniversityOfAdelaide\OpenShift\Model\V1Probe',
+        'livenessProbe' => '\UniversityOfAdelaide\OpenShift\Model\V1Probe',
         'name' => 'string',
         'ports' => '\UniversityOfAdelaide\OpenShift\Model\V1ContainerPort[]',
-        'readiness_probe' => '\UniversityOfAdelaide\OpenShift\Model\V1Probe',
+        'readinessProbe' => '\UniversityOfAdelaide\OpenShift\Model\V1Probe',
         'resources' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceRequirements',
-        'security_context' => '\UniversityOfAdelaide\OpenShift\Model\V1SecurityContext',
+        'securityContext' => '\UniversityOfAdelaide\OpenShift\Model\V1SecurityContext',
         'stdin' => 'bool',
-        'stdin_once' => 'bool',
-        'termination_message_path' => 'string',
-        'termination_message_policy' => 'string',
+        'stdinOnce' => 'bool',
+        'terminationMessagePath' => 'string',
+        'terminationMessagePolicy' => 'string',
         'tty' => 'bool',
-        'volume_mounts' => '\UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]',
-        'working_dir' => 'string'
+        'volumeMounts' => '\UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]',
+        'workingDir' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -90,23 +90,23 @@ class V1Container implements ArrayAccess
         'args' => 'args',
         'command' => 'command',
         'env' => 'env',
-        'env_from' => 'envFrom',
+        'envFrom' => 'envFrom',
         'image' => 'image',
-        'image_pull_policy' => 'imagePullPolicy',
+        'imagePullPolicy' => 'imagePullPolicy',
         'lifecycle' => 'lifecycle',
-        'liveness_probe' => 'livenessProbe',
+        'livenessProbe' => 'livenessProbe',
         'name' => 'name',
         'ports' => 'ports',
-        'readiness_probe' => 'readinessProbe',
+        'readinessProbe' => 'readinessProbe',
         'resources' => 'resources',
-        'security_context' => 'securityContext',
+        'securityContext' => 'securityContext',
         'stdin' => 'stdin',
-        'stdin_once' => 'stdinOnce',
-        'termination_message_path' => 'terminationMessagePath',
-        'termination_message_policy' => 'terminationMessagePolicy',
+        'stdinOnce' => 'stdinOnce',
+        'terminationMessagePath' => 'terminationMessagePath',
+        'terminationMessagePolicy' => 'terminationMessagePolicy',
         'tty' => 'tty',
-        'volume_mounts' => 'volumeMounts',
-        'working_dir' => 'workingDir'
+        'volumeMounts' => 'volumeMounts',
+        'workingDir' => 'workingDir'
     ];
 
 
@@ -118,23 +118,23 @@ class V1Container implements ArrayAccess
         'args' => 'setArgs',
         'command' => 'setCommand',
         'env' => 'setEnv',
-        'env_from' => 'setEnvFrom',
+        'envFrom' => 'setEnvFrom',
         'image' => 'setImage',
-        'image_pull_policy' => 'setImagePullPolicy',
+        'imagePullPolicy' => 'setImagePullPolicy',
         'lifecycle' => 'setLifecycle',
-        'liveness_probe' => 'setLivenessProbe',
+        'livenessProbe' => 'setLivenessProbe',
         'name' => 'setName',
         'ports' => 'setPorts',
-        'readiness_probe' => 'setReadinessProbe',
+        'readinessProbe' => 'setReadinessProbe',
         'resources' => 'setResources',
-        'security_context' => 'setSecurityContext',
+        'securityContext' => 'setSecurityContext',
         'stdin' => 'setStdin',
-        'stdin_once' => 'setStdinOnce',
-        'termination_message_path' => 'setTerminationMessagePath',
-        'termination_message_policy' => 'setTerminationMessagePolicy',
+        'stdinOnce' => 'setStdinOnce',
+        'terminationMessagePath' => 'setTerminationMessagePath',
+        'terminationMessagePolicy' => 'setTerminationMessagePolicy',
         'tty' => 'setTty',
-        'volume_mounts' => 'setVolumeMounts',
-        'working_dir' => 'setWorkingDir'
+        'volumeMounts' => 'setVolumeMounts',
+        'workingDir' => 'setWorkingDir'
     ];
 
 
@@ -146,23 +146,23 @@ class V1Container implements ArrayAccess
         'args' => 'getArgs',
         'command' => 'getCommand',
         'env' => 'getEnv',
-        'env_from' => 'getEnvFrom',
+        'envFrom' => 'getEnvFrom',
         'image' => 'getImage',
-        'image_pull_policy' => 'getImagePullPolicy',
+        'imagePullPolicy' => 'getImagePullPolicy',
         'lifecycle' => 'getLifecycle',
-        'liveness_probe' => 'getLivenessProbe',
+        'livenessProbe' => 'getLivenessProbe',
         'name' => 'getName',
         'ports' => 'getPorts',
-        'readiness_probe' => 'getReadinessProbe',
+        'readinessProbe' => 'getReadinessProbe',
         'resources' => 'getResources',
-        'security_context' => 'getSecurityContext',
+        'securityContext' => 'getSecurityContext',
         'stdin' => 'getStdin',
-        'stdin_once' => 'getStdinOnce',
-        'termination_message_path' => 'getTerminationMessagePath',
-        'termination_message_policy' => 'getTerminationMessagePolicy',
+        'stdinOnce' => 'getStdinOnce',
+        'terminationMessagePath' => 'getTerminationMessagePath',
+        'terminationMessagePolicy' => 'getTerminationMessagePolicy',
         'tty' => 'getTty',
-        'volume_mounts' => 'getVolumeMounts',
-        'working_dir' => 'getWorkingDir'
+        'volumeMounts' => 'getVolumeMounts',
+        'workingDir' => 'getWorkingDir'
     ];
 
     public static function attributeMap()
@@ -199,23 +199,23 @@ class V1Container implements ArrayAccess
         $this->container['args'] = isset($data['args']) ? $data['args'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
-        $this->container['env_from'] = isset($data['env_from']) ? $data['env_from'] : null;
+        $this->container['envFrom'] = isset($data['envFrom']) ? $data['envFrom'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
-        $this->container['image_pull_policy'] = isset($data['image_pull_policy']) ? $data['image_pull_policy'] : null;
+        $this->container['imagePullPolicy'] = isset($data['imagePullPolicy']) ? $data['imagePullPolicy'] : null;
         $this->container['lifecycle'] = isset($data['lifecycle']) ? $data['lifecycle'] : null;
-        $this->container['liveness_probe'] = isset($data['liveness_probe']) ? $data['liveness_probe'] : null;
+        $this->container['livenessProbe'] = isset($data['livenessProbe']) ? $data['livenessProbe'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
-        $this->container['readiness_probe'] = isset($data['readiness_probe']) ? $data['readiness_probe'] : null;
+        $this->container['readinessProbe'] = isset($data['readinessProbe']) ? $data['readinessProbe'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['security_context'] = isset($data['security_context']) ? $data['security_context'] : null;
+        $this->container['securityContext'] = isset($data['securityContext']) ? $data['securityContext'] : null;
         $this->container['stdin'] = isset($data['stdin']) ? $data['stdin'] : null;
-        $this->container['stdin_once'] = isset($data['stdin_once']) ? $data['stdin_once'] : null;
-        $this->container['termination_message_path'] = isset($data['termination_message_path']) ? $data['termination_message_path'] : null;
-        $this->container['termination_message_policy'] = isset($data['termination_message_policy']) ? $data['termination_message_policy'] : null;
+        $this->container['stdinOnce'] = isset($data['stdinOnce']) ? $data['stdinOnce'] : null;
+        $this->container['terminationMessagePath'] = isset($data['terminationMessagePath']) ? $data['terminationMessagePath'] : null;
+        $this->container['terminationMessagePolicy'] = isset($data['terminationMessagePolicy']) ? $data['terminationMessagePolicy'] : null;
         $this->container['tty'] = isset($data['tty']) ? $data['tty'] : null;
-        $this->container['volume_mounts'] = isset($data['volume_mounts']) ? $data['volume_mounts'] : null;
-        $this->container['working_dir'] = isset($data['working_dir']) ? $data['working_dir'] : null;
+        $this->container['volumeMounts'] = isset($data['volumeMounts']) ? $data['volumeMounts'] : null;
+        $this->container['workingDir'] = isset($data['workingDir']) ? $data['workingDir'] : null;
     }
 
     /**
@@ -313,22 +313,22 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets env_from
+     * Gets envFrom
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[]
      */
     public function getEnvFrom()
     {
-        return $this->container['env_from'];
+        return $this->container['envFrom'];
     }
 
     /**
-     * Sets env_from
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[] $env_from List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+     * Sets envFrom
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvFromSource[] $envFrom List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
      * @return $this
      */
-    public function setEnvFrom($env_from)
+    public function setEnvFrom($envFrom)
     {
-        $this->container['env_from'] = $env_from;
+        $this->container['envFrom'] = $envFrom;
 
         return $this;
     }
@@ -355,22 +355,22 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets image_pull_policy
+     * Gets imagePullPolicy
      * @return string
      */
     public function getImagePullPolicy()
     {
-        return $this->container['image_pull_policy'];
+        return $this->container['imagePullPolicy'];
     }
 
     /**
-     * Sets image_pull_policy
-     * @param string $image_pull_policy Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
+     * Sets imagePullPolicy
+     * @param string $imagePullPolicy Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
      * @return $this
      */
-    public function setImagePullPolicy($image_pull_policy)
+    public function setImagePullPolicy($imagePullPolicy)
     {
-        $this->container['image_pull_policy'] = $image_pull_policy;
+        $this->container['imagePullPolicy'] = $imagePullPolicy;
 
         return $this;
     }
@@ -397,22 +397,22 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets liveness_probe
+     * Gets livenessProbe
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Probe
      */
     public function getLivenessProbe()
     {
-        return $this->container['liveness_probe'];
+        return $this->container['livenessProbe'];
     }
 
     /**
-     * Sets liveness_probe
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Probe $liveness_probe Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+     * Sets livenessProbe
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Probe $livenessProbe Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
      * @return $this
      */
-    public function setLivenessProbe($liveness_probe)
+    public function setLivenessProbe($livenessProbe)
     {
-        $this->container['liveness_probe'] = $liveness_probe;
+        $this->container['livenessProbe'] = $livenessProbe;
 
         return $this;
     }
@@ -460,22 +460,22 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets readiness_probe
+     * Gets readinessProbe
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Probe
      */
     public function getReadinessProbe()
     {
-        return $this->container['readiness_probe'];
+        return $this->container['readinessProbe'];
     }
 
     /**
-     * Sets readiness_probe
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Probe $readiness_probe Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+     * Sets readinessProbe
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Probe $readinessProbe Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
      * @return $this
      */
-    public function setReadinessProbe($readiness_probe)
+    public function setReadinessProbe($readinessProbe)
     {
-        $this->container['readiness_probe'] = $readiness_probe;
+        $this->container['readinessProbe'] = $readinessProbe;
 
         return $this;
     }
@@ -502,22 +502,22 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets security_context
+     * Gets securityContext
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SecurityContext
      */
     public function getSecurityContext()
     {
-        return $this->container['security_context'];
+        return $this->container['securityContext'];
     }
 
     /**
-     * Sets security_context
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecurityContext $security_context Security options the pod should run with. More info: http://releases.k8s.io/HEAD/docs/design/security_context.md
+     * Sets securityContext
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecurityContext $securityContext Security options the pod should run with. More info: http://releases.k8s.io/HEAD/docs/design/security_context.md
      * @return $this
      */
-    public function setSecurityContext($security_context)
+    public function setSecurityContext($securityContext)
     {
-        $this->container['security_context'] = $security_context;
+        $this->container['securityContext'] = $securityContext;
 
         return $this;
     }
@@ -544,64 +544,64 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets stdin_once
+     * Gets stdinOnce
      * @return bool
      */
     public function getStdinOnce()
     {
-        return $this->container['stdin_once'];
+        return $this->container['stdinOnce'];
     }
 
     /**
-     * Sets stdin_once
-     * @param bool $stdin_once Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+     * Sets stdinOnce
+     * @param bool $stdinOnce Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
      * @return $this
      */
-    public function setStdinOnce($stdin_once)
+    public function setStdinOnce($stdinOnce)
     {
-        $this->container['stdin_once'] = $stdin_once;
+        $this->container['stdinOnce'] = $stdinOnce;
 
         return $this;
     }
 
     /**
-     * Gets termination_message_path
+     * Gets terminationMessagePath
      * @return string
      */
     public function getTerminationMessagePath()
     {
-        return $this->container['termination_message_path'];
+        return $this->container['terminationMessagePath'];
     }
 
     /**
-     * Sets termination_message_path
-     * @param string $termination_message_path Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
+     * Sets terminationMessagePath
+     * @param string $terminationMessagePath Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
      * @return $this
      */
-    public function setTerminationMessagePath($termination_message_path)
+    public function setTerminationMessagePath($terminationMessagePath)
     {
-        $this->container['termination_message_path'] = $termination_message_path;
+        $this->container['terminationMessagePath'] = $terminationMessagePath;
 
         return $this;
     }
 
     /**
-     * Gets termination_message_policy
+     * Gets terminationMessagePolicy
      * @return string
      */
     public function getTerminationMessagePolicy()
     {
-        return $this->container['termination_message_policy'];
+        return $this->container['terminationMessagePolicy'];
     }
 
     /**
-     * Sets termination_message_policy
-     * @param string $termination_message_policy Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+     * Sets terminationMessagePolicy
+     * @param string $terminationMessagePolicy Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
      * @return $this
      */
-    public function setTerminationMessagePolicy($termination_message_policy)
+    public function setTerminationMessagePolicy($terminationMessagePolicy)
     {
-        $this->container['termination_message_policy'] = $termination_message_policy;
+        $this->container['terminationMessagePolicy'] = $terminationMessagePolicy;
 
         return $this;
     }
@@ -628,43 +628,43 @@ class V1Container implements ArrayAccess
     }
 
     /**
-     * Gets volume_mounts
+     * Gets volumeMounts
      * @return \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[]
      */
     public function getVolumeMounts()
     {
-        return $this->container['volume_mounts'];
+        return $this->container['volumeMounts'];
     }
 
     /**
-     * Sets volume_mounts
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[] $volume_mounts Pod volumes to mount into the container's filesystem. Cannot be updated.
+     * Sets volumeMounts
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1VolumeMount[] $volumeMounts Pod volumes to mount into the container's filesystem. Cannot be updated.
      * @return $this
      */
-    public function setVolumeMounts($volume_mounts)
+    public function setVolumeMounts($volumeMounts)
     {
-        $this->container['volume_mounts'] = $volume_mounts;
+        $this->container['volumeMounts'] = $volumeMounts;
 
         return $this;
     }
 
     /**
-     * Gets working_dir
+     * Gets workingDir
      * @return string
      */
     public function getWorkingDir()
     {
-        return $this->container['working_dir'];
+        return $this->container['workingDir'];
     }
 
     /**
-     * Sets working_dir
-     * @param string $working_dir Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+     * Sets workingDir
+     * @param string $workingDir Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
      * @return $this
      */
-    public function setWorkingDir($working_dir)
+    public function setWorkingDir($workingDir)
     {
-        $this->container['working_dir'] = $working_dir;
+        $this->container['workingDir'] = $workingDir;
 
         return $this;
     }

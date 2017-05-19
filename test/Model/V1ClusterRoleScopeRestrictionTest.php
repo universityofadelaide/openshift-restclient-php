@@ -83,7 +83,7 @@ class V1ClusterRoleScopeRestrictionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allow_escalation"
+     * Test attribute "allowEscalation"
      */
     public function testPropertyAllowEscalation()
     {
@@ -99,7 +99,7 @@ class V1ClusterRoleScopeRestrictionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "role_names"
+     * Test attribute "roleNames"
      */
     public function testPropertyRoleNames()
     {

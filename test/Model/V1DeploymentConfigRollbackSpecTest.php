@@ -91,7 +91,7 @@ class V1DeploymentConfigRollbackSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "include_replication_meta"
+     * Test attribute "includeReplicationMeta"
      */
     public function testPropertyIncludeReplicationMeta()
     {
@@ -99,7 +99,7 @@ class V1DeploymentConfigRollbackSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "include_strategy"
+     * Test attribute "includeStrategy"
      */
     public function testPropertyIncludeStrategy()
     {
@@ -107,7 +107,7 @@ class V1DeploymentConfigRollbackSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "include_template"
+     * Test attribute "includeTemplate"
      */
     public function testPropertyIncludeTemplate()
     {
@@ -115,7 +115,7 @@ class V1DeploymentConfigRollbackSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "include_triggers"
+     * Test attribute "includeTriggers"
      */
     public function testPropertyIncludeTriggers()
     {

@@ -83,7 +83,7 @@ class V1RepositoryImportStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additional_tags"
+     * Test attribute "additionalTags"
      */
     public function testPropertyAdditionalTags()
     {

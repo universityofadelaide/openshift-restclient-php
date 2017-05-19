@@ -99,7 +99,7 @@ class V1SecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only_root_filesystem"
+     * Test attribute "readOnlyRootFilesystem"
      */
     public function testPropertyReadOnlyRootFilesystem()
     {
@@ -107,7 +107,7 @@ class V1SecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_non_root"
+     * Test attribute "runAsNonRoot"
      */
     public function testPropertyRunAsNonRoot()
     {
@@ -115,7 +115,7 @@ class V1SecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_user"
+     * Test attribute "runAsUser"
      */
     public function testPropertyRunAsUser()
     {
@@ -123,7 +123,7 @@ class V1SecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "se_linux_options"
+     * Test attribute "seLinuxOptions"
      */
     public function testPropertySeLinuxOptions()
     {

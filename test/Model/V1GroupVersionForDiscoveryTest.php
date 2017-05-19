@@ -83,7 +83,7 @@ class V1GroupVersionForDiscoveryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "group_version"
+     * Test attribute "groupVersion"
      */
     public function testPropertyGroupVersion()
     {

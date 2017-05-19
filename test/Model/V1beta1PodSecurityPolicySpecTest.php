@@ -83,7 +83,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "allowed_capabilities"
+     * Test attribute "allowedCapabilities"
      */
     public function testPropertyAllowedCapabilities()
     {
@@ -91,7 +91,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "default_add_capabilities"
+     * Test attribute "defaultAddCapabilities"
      */
     public function testPropertyDefaultAddCapabilities()
     {
@@ -99,7 +99,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_group"
+     * Test attribute "fsGroup"
      */
     public function testPropertyFsGroup()
     {
@@ -107,15 +107,15 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_ipc"
+     * Test attribute "hostIPC"
      */
-    public function testPropertyHostIpc()
+    public function testPropertyHostIPC()
     {
 
     }
 
     /**
-     * Test attribute "host_network"
+     * Test attribute "hostNetwork"
      */
     public function testPropertyHostNetwork()
     {
@@ -123,15 +123,15 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_pid"
+     * Test attribute "hostPID"
      */
-    public function testPropertyHostPid()
+    public function testPropertyHostPID()
     {
 
     }
 
     /**
-     * Test attribute "host_ports"
+     * Test attribute "hostPorts"
      */
     public function testPropertyHostPorts()
     {
@@ -147,7 +147,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only_root_filesystem"
+     * Test attribute "readOnlyRootFilesystem"
      */
     public function testPropertyReadOnlyRootFilesystem()
     {
@@ -155,7 +155,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "required_drop_capabilities"
+     * Test attribute "requiredDropCapabilities"
      */
     public function testPropertyRequiredDropCapabilities()
     {
@@ -163,7 +163,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_user"
+     * Test attribute "runAsUser"
      */
     public function testPropertyRunAsUser()
     {
@@ -171,7 +171,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "se_linux"
+     * Test attribute "seLinux"
      */
     public function testPropertySeLinux()
     {
@@ -179,7 +179,7 @@ class V1beta1PodSecurityPolicySpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "supplemental_groups"
+     * Test attribute "supplementalGroups"
      */
     public function testPropertySupplementalGroups()
     {

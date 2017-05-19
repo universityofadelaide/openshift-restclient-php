@@ -91,7 +91,7 @@ class V1HTTPGetActionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "http_headers"
+     * Test attribute "httpHeaders"
      */
     public function testPropertyHttpHeaders()
     {

@@ -55,7 +55,7 @@ class V1ProjectedVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'default_mode' => 'int',
+        'defaultMode' => 'int',
         'sources' => '\UniversityOfAdelaide\OpenShift\Model\V1VolumeProjection[]'
     ];
 
@@ -69,7 +69,7 @@ class V1ProjectedVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'default_mode' => 'defaultMode',
+        'defaultMode' => 'defaultMode',
         'sources' => 'sources'
     ];
 
@@ -79,7 +79,7 @@ class V1ProjectedVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'default_mode' => 'setDefaultMode',
+        'defaultMode' => 'setDefaultMode',
         'sources' => 'setSources'
     ];
 
@@ -89,7 +89,7 @@ class V1ProjectedVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'default_mode' => 'getDefaultMode',
+        'defaultMode' => 'getDefaultMode',
         'sources' => 'getSources'
     ];
 
@@ -124,7 +124,7 @@ class V1ProjectedVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['default_mode'] = isset($data['default_mode']) ? $data['default_mode'] : null;
+        $this->container['defaultMode'] = isset($data['defaultMode']) ? $data['defaultMode'] : null;
         $this->container['sources'] = isset($data['sources']) ? $data['sources'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1ProjectedVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets default_mode
+     * Gets defaultMode
      * @return int
      */
     public function getDefaultMode()
     {
-        return $this->container['default_mode'];
+        return $this->container['defaultMode'];
     }
 
     /**
-     * Sets default_mode
-     * @param int $default_mode Mode bits to use on created files by default. Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+     * Sets defaultMode
+     * @param int $defaultMode Mode bits to use on created files by default. Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
      * @return $this
      */
-    public function setDefaultMode($default_mode)
+    public function setDefaultMode($defaultMode)
     {
-        $this->container['default_mode'] = $default_mode;
+        $this->container['defaultMode'] = $defaultMode;
 
         return $this;
     }

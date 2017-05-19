@@ -83,7 +83,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "chap_auth_discovery"
+     * Test attribute "chapAuthDiscovery"
      */
     public function testPropertyChapAuthDiscovery()
     {
@@ -91,7 +91,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "chap_auth_session"
+     * Test attribute "chapAuthSession"
      */
     public function testPropertyChapAuthSession()
     {
@@ -99,7 +99,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_type"
+     * Test attribute "fsType"
      */
     public function testPropertyFsType()
     {
@@ -115,7 +115,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "iscsi_interface"
+     * Test attribute "iscsiInterface"
      */
     public function testPropertyIscsiInterface()
     {
@@ -139,7 +139,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -147,7 +147,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_ref"
+     * Test attribute "secretRef"
      */
     public function testPropertySecretRef()
     {
@@ -155,7 +155,7 @@ class V1ISCSIVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_portal"
+     * Test attribute "targetPortal"
      */
     public function testPropertyTargetPortal()
     {

@@ -83,7 +83,7 @@ class V1VolumeProjectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "config_map"
+     * Test attribute "configMap"
      */
     public function testPropertyConfigMap()
     {
@@ -91,9 +91,9 @@ class V1VolumeProjectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "downward_api"
+     * Test attribute "downwardAPI"
      */
-    public function testPropertyDownwardApi()
+    public function testPropertyDownwardAPI()
     {
 
     }

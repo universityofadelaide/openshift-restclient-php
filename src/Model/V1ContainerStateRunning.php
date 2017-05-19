@@ -55,7 +55,7 @@ class V1ContainerStateRunning implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'started_at' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
+        'startedAt' => '\UniversityOfAdelaide\OpenShift\Model\V1Time'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1ContainerStateRunning implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'started_at' => 'startedAt'
+        'startedAt' => 'startedAt'
     ];
 
 
@@ -77,7 +77,7 @@ class V1ContainerStateRunning implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'started_at' => 'setStartedAt'
+        'startedAt' => 'setStartedAt'
     ];
 
 
@@ -86,7 +86,7 @@ class V1ContainerStateRunning implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'started_at' => 'getStartedAt'
+        'startedAt' => 'getStartedAt'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1ContainerStateRunning implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['started_at'] = isset($data['started_at']) ? $data['started_at'] : null;
+        $this->container['startedAt'] = isset($data['startedAt']) ? $data['startedAt'] : null;
     }
 
     /**
@@ -149,22 +149,22 @@ class V1ContainerStateRunning implements ArrayAccess
 
 
     /**
-     * Gets started_at
+     * Gets startedAt
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartedAt()
     {
-        return $this->container['started_at'];
+        return $this->container['startedAt'];
     }
 
     /**
-     * Sets started_at
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $started_at Time at which the container was last (re-)started
+     * Sets startedAt
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startedAt Time at which the container was last (re-)started
      * @return $this
      */
-    public function setStartedAt($started_at)
+    public function setStartedAt($startedAt)
     {
-        $this->container['started_at'] = $started_at;
+        $this->container['startedAt'] = $startedAt;
 
         return $this;
     }

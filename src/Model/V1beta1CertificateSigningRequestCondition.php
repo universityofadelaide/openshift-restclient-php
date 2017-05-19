@@ -54,7 +54,7 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'last_update_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'lastUpdateTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'message' => 'string',
         'reason' => 'string',
         'type' => 'string'
@@ -70,7 +70,7 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_update_time' => 'lastUpdateTime',
+        'lastUpdateTime' => 'lastUpdateTime',
         'message' => 'message',
         'reason' => 'reason',
         'type' => 'type'
@@ -82,7 +82,7 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'last_update_time' => 'setLastUpdateTime',
+        'lastUpdateTime' => 'setLastUpdateTime',
         'message' => 'setMessage',
         'reason' => 'setReason',
         'type' => 'setType'
@@ -94,7 +94,7 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'last_update_time' => 'getLastUpdateTime',
+        'lastUpdateTime' => 'getLastUpdateTime',
         'message' => 'getMessage',
         'reason' => 'getReason',
         'type' => 'getType'
@@ -131,7 +131,7 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['lastUpdateTime'] = isset($data['lastUpdateTime']) ? $data['lastUpdateTime'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -169,22 +169,22 @@ class V1beta1CertificateSigningRequestCondition implements ArrayAccess
 
 
     /**
-     * Gets last_update_time
+     * Gets lastUpdateTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getLastUpdateTime()
     {
-        return $this->container['last_update_time'];
+        return $this->container['lastUpdateTime'];
     }
 
     /**
-     * Sets last_update_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $last_update_time timestamp for the last update to this condition
+     * Sets lastUpdateTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $lastUpdateTime timestamp for the last update to this condition
      * @return $this
      */
-    public function setLastUpdateTime($last_update_time)
+    public function setLastUpdateTime($lastUpdateTime)
     {
-        $this->container['last_update_time'] = $last_update_time;
+        $this->container['lastUpdateTime'] = $lastUpdateTime;
 
         return $this;
     }

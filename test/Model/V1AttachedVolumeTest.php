@@ -83,7 +83,7 @@ class V1AttachedVolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "device_path"
+     * Test attribute "devicePath"
      */
     public function testPropertyDevicePath()
     {

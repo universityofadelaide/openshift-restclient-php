@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_version** | **string** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources | [optional] 
+**apiVersion** | **string** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources | [optional] 
 **count** | **int** | The number of times this event has occurred. | [optional] 
-**first_timestamp** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The time at which the event was first recorded. (Time of server receipt is in TypeMeta.) | [optional] 
-**involved_object** | [**\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference**](V1ObjectReference.md) | The object that this event is about. | 
+**firstTimestamp** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The time at which the event was first recorded. (Time of server receipt is in TypeMeta.) | [optional] 
+**involvedObject** | [**\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference**](V1ObjectReference.md) | The object that this event is about. | 
 **kind** | **string** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds | [optional] 
-**last_timestamp** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The time at which the most recent occurrence of this event was recorded. | [optional] 
+**lastTimestamp** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The time at which the most recent occurrence of this event was recorded. | [optional] 
 **message** | **string** | A human-readable description of the status of this operation. | [optional] 
 **metadata** | [**\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta**](V1ObjectMeta.md) | Standard object&#39;s metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata | 
 **reason** | **string** | This should be a short, machine understandable string that gives the reason for the transition into the object&#39;s current status. | [optional] 

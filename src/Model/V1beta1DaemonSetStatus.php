@@ -55,14 +55,14 @@ class V1beta1DaemonSetStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_number_scheduled' => 'int',
-        'desired_number_scheduled' => 'int',
-        'number_available' => 'int',
-        'number_misscheduled' => 'int',
-        'number_ready' => 'int',
-        'number_unavailable' => 'int',
-        'observed_generation' => 'int',
-        'updated_number_scheduled' => 'int'
+        'currentNumberScheduled' => 'int',
+        'desiredNumberScheduled' => 'int',
+        'numberAvailable' => 'int',
+        'numberMisscheduled' => 'int',
+        'numberReady' => 'int',
+        'numberUnavailable' => 'int',
+        'observedGeneration' => 'int',
+        'updatedNumberScheduled' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -75,14 +75,14 @@ class V1beta1DaemonSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_number_scheduled' => 'currentNumberScheduled',
-        'desired_number_scheduled' => 'desiredNumberScheduled',
-        'number_available' => 'numberAvailable',
-        'number_misscheduled' => 'numberMisscheduled',
-        'number_ready' => 'numberReady',
-        'number_unavailable' => 'numberUnavailable',
-        'observed_generation' => 'observedGeneration',
-        'updated_number_scheduled' => 'updatedNumberScheduled'
+        'currentNumberScheduled' => 'currentNumberScheduled',
+        'desiredNumberScheduled' => 'desiredNumberScheduled',
+        'numberAvailable' => 'numberAvailable',
+        'numberMisscheduled' => 'numberMisscheduled',
+        'numberReady' => 'numberReady',
+        'numberUnavailable' => 'numberUnavailable',
+        'observedGeneration' => 'observedGeneration',
+        'updatedNumberScheduled' => 'updatedNumberScheduled'
     ];
 
 
@@ -91,14 +91,14 @@ class V1beta1DaemonSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_number_scheduled' => 'setCurrentNumberScheduled',
-        'desired_number_scheduled' => 'setDesiredNumberScheduled',
-        'number_available' => 'setNumberAvailable',
-        'number_misscheduled' => 'setNumberMisscheduled',
-        'number_ready' => 'setNumberReady',
-        'number_unavailable' => 'setNumberUnavailable',
-        'observed_generation' => 'setObservedGeneration',
-        'updated_number_scheduled' => 'setUpdatedNumberScheduled'
+        'currentNumberScheduled' => 'setCurrentNumberScheduled',
+        'desiredNumberScheduled' => 'setDesiredNumberScheduled',
+        'numberAvailable' => 'setNumberAvailable',
+        'numberMisscheduled' => 'setNumberMisscheduled',
+        'numberReady' => 'setNumberReady',
+        'numberUnavailable' => 'setNumberUnavailable',
+        'observedGeneration' => 'setObservedGeneration',
+        'updatedNumberScheduled' => 'setUpdatedNumberScheduled'
     ];
 
 
@@ -107,14 +107,14 @@ class V1beta1DaemonSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_number_scheduled' => 'getCurrentNumberScheduled',
-        'desired_number_scheduled' => 'getDesiredNumberScheduled',
-        'number_available' => 'getNumberAvailable',
-        'number_misscheduled' => 'getNumberMisscheduled',
-        'number_ready' => 'getNumberReady',
-        'number_unavailable' => 'getNumberUnavailable',
-        'observed_generation' => 'getObservedGeneration',
-        'updated_number_scheduled' => 'getUpdatedNumberScheduled'
+        'currentNumberScheduled' => 'getCurrentNumberScheduled',
+        'desiredNumberScheduled' => 'getDesiredNumberScheduled',
+        'numberAvailable' => 'getNumberAvailable',
+        'numberMisscheduled' => 'getNumberMisscheduled',
+        'numberReady' => 'getNumberReady',
+        'numberUnavailable' => 'getNumberUnavailable',
+        'observedGeneration' => 'getObservedGeneration',
+        'updatedNumberScheduled' => 'getUpdatedNumberScheduled'
     ];
 
     public static function attributeMap()
@@ -148,14 +148,14 @@ class V1beta1DaemonSetStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_number_scheduled'] = isset($data['current_number_scheduled']) ? $data['current_number_scheduled'] : null;
-        $this->container['desired_number_scheduled'] = isset($data['desired_number_scheduled']) ? $data['desired_number_scheduled'] : null;
-        $this->container['number_available'] = isset($data['number_available']) ? $data['number_available'] : null;
-        $this->container['number_misscheduled'] = isset($data['number_misscheduled']) ? $data['number_misscheduled'] : null;
-        $this->container['number_ready'] = isset($data['number_ready']) ? $data['number_ready'] : null;
-        $this->container['number_unavailable'] = isset($data['number_unavailable']) ? $data['number_unavailable'] : null;
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
-        $this->container['updated_number_scheduled'] = isset($data['updated_number_scheduled']) ? $data['updated_number_scheduled'] : null;
+        $this->container['currentNumberScheduled'] = isset($data['currentNumberScheduled']) ? $data['currentNumberScheduled'] : null;
+        $this->container['desiredNumberScheduled'] = isset($data['desiredNumberScheduled']) ? $data['desiredNumberScheduled'] : null;
+        $this->container['numberAvailable'] = isset($data['numberAvailable']) ? $data['numberAvailable'] : null;
+        $this->container['numberMisscheduled'] = isset($data['numberMisscheduled']) ? $data['numberMisscheduled'] : null;
+        $this->container['numberReady'] = isset($data['numberReady']) ? $data['numberReady'] : null;
+        $this->container['numberUnavailable'] = isset($data['numberUnavailable']) ? $data['numberUnavailable'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->container['updatedNumberScheduled'] = isset($data['updatedNumberScheduled']) ? $data['updatedNumberScheduled'] : null;
     }
 
     /**
@@ -167,17 +167,17 @@ class V1beta1DaemonSetStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_number_scheduled'] === null) {
-            $invalid_properties[] = "'current_number_scheduled' can't be null";
+        if ($this->container['currentNumberScheduled'] === null) {
+            $invalid_properties[] = "'currentNumberScheduled' can't be null";
         }
-        if ($this->container['desired_number_scheduled'] === null) {
-            $invalid_properties[] = "'desired_number_scheduled' can't be null";
+        if ($this->container['desiredNumberScheduled'] === null) {
+            $invalid_properties[] = "'desiredNumberScheduled' can't be null";
         }
-        if ($this->container['number_misscheduled'] === null) {
-            $invalid_properties[] = "'number_misscheduled' can't be null";
+        if ($this->container['numberMisscheduled'] === null) {
+            $invalid_properties[] = "'numberMisscheduled' can't be null";
         }
-        if ($this->container['number_ready'] === null) {
-            $invalid_properties[] = "'number_ready' can't be null";
+        if ($this->container['numberReady'] === null) {
+            $invalid_properties[] = "'numberReady' can't be null";
         }
         return $invalid_properties;
     }
@@ -191,16 +191,16 @@ class V1beta1DaemonSetStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_number_scheduled'] === null) {
+        if ($this->container['currentNumberScheduled'] === null) {
             return false;
         }
-        if ($this->container['desired_number_scheduled'] === null) {
+        if ($this->container['desiredNumberScheduled'] === null) {
             return false;
         }
-        if ($this->container['number_misscheduled'] === null) {
+        if ($this->container['numberMisscheduled'] === null) {
             return false;
         }
-        if ($this->container['number_ready'] === null) {
+        if ($this->container['numberReady'] === null) {
             return false;
         }
         return true;
@@ -208,169 +208,169 @@ class V1beta1DaemonSetStatus implements ArrayAccess
 
 
     /**
-     * Gets current_number_scheduled
+     * Gets currentNumberScheduled
      * @return int
      */
     public function getCurrentNumberScheduled()
     {
-        return $this->container['current_number_scheduled'];
+        return $this->container['currentNumberScheduled'];
     }
 
     /**
-     * Sets current_number_scheduled
-     * @param int $current_number_scheduled The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
+     * Sets currentNumberScheduled
+     * @param int $currentNumberScheduled The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
      * @return $this
      */
-    public function setCurrentNumberScheduled($current_number_scheduled)
+    public function setCurrentNumberScheduled($currentNumberScheduled)
     {
-        $this->container['current_number_scheduled'] = $current_number_scheduled;
+        $this->container['currentNumberScheduled'] = $currentNumberScheduled;
 
         return $this;
     }
 
     /**
-     * Gets desired_number_scheduled
+     * Gets desiredNumberScheduled
      * @return int
      */
     public function getDesiredNumberScheduled()
     {
-        return $this->container['desired_number_scheduled'];
+        return $this->container['desiredNumberScheduled'];
     }
 
     /**
-     * Sets desired_number_scheduled
-     * @param int $desired_number_scheduled The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
+     * Sets desiredNumberScheduled
+     * @param int $desiredNumberScheduled The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
      * @return $this
      */
-    public function setDesiredNumberScheduled($desired_number_scheduled)
+    public function setDesiredNumberScheduled($desiredNumberScheduled)
     {
-        $this->container['desired_number_scheduled'] = $desired_number_scheduled;
+        $this->container['desiredNumberScheduled'] = $desiredNumberScheduled;
 
         return $this;
     }
 
     /**
-     * Gets number_available
+     * Gets numberAvailable
      * @return int
      */
     public function getNumberAvailable()
     {
-        return $this->container['number_available'];
+        return $this->container['numberAvailable'];
     }
 
     /**
-     * Sets number_available
-     * @param int $number_available The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)
+     * Sets numberAvailable
+     * @param int $numberAvailable The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)
      * @return $this
      */
-    public function setNumberAvailable($number_available)
+    public function setNumberAvailable($numberAvailable)
     {
-        $this->container['number_available'] = $number_available;
+        $this->container['numberAvailable'] = $numberAvailable;
 
         return $this;
     }
 
     /**
-     * Gets number_misscheduled
+     * Gets numberMisscheduled
      * @return int
      */
     public function getNumberMisscheduled()
     {
-        return $this->container['number_misscheduled'];
+        return $this->container['numberMisscheduled'];
     }
 
     /**
-     * Sets number_misscheduled
-     * @param int $number_misscheduled The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
+     * Sets numberMisscheduled
+     * @param int $numberMisscheduled The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md
      * @return $this
      */
-    public function setNumberMisscheduled($number_misscheduled)
+    public function setNumberMisscheduled($numberMisscheduled)
     {
-        $this->container['number_misscheduled'] = $number_misscheduled;
+        $this->container['numberMisscheduled'] = $numberMisscheduled;
 
         return $this;
     }
 
     /**
-     * Gets number_ready
+     * Gets numberReady
      * @return int
      */
     public function getNumberReady()
     {
-        return $this->container['number_ready'];
+        return $this->container['numberReady'];
     }
 
     /**
-     * Sets number_ready
-     * @param int $number_ready The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.
+     * Sets numberReady
+     * @param int $numberReady The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.
      * @return $this
      */
-    public function setNumberReady($number_ready)
+    public function setNumberReady($numberReady)
     {
-        $this->container['number_ready'] = $number_ready;
+        $this->container['numberReady'] = $numberReady;
 
         return $this;
     }
 
     /**
-     * Gets number_unavailable
+     * Gets numberUnavailable
      * @return int
      */
     public function getNumberUnavailable()
     {
-        return $this->container['number_unavailable'];
+        return $this->container['numberUnavailable'];
     }
 
     /**
-     * Sets number_unavailable
-     * @param int $number_unavailable The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)
+     * Sets numberUnavailable
+     * @param int $numberUnavailable The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)
      * @return $this
      */
-    public function setNumberUnavailable($number_unavailable)
+    public function setNumberUnavailable($numberUnavailable)
     {
-        $this->container['number_unavailable'] = $number_unavailable;
+        $this->container['numberUnavailable'] = $numberUnavailable;
 
         return $this;
     }
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation The most recent generation observed by the daemon set controller.
+     * Sets observedGeneration
+     * @param int $observedGeneration The most recent generation observed by the daemon set controller.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }
 
     /**
-     * Gets updated_number_scheduled
+     * Gets updatedNumberScheduled
      * @return int
      */
     public function getUpdatedNumberScheduled()
     {
-        return $this->container['updated_number_scheduled'];
+        return $this->container['updatedNumberScheduled'];
     }
 
     /**
-     * Sets updated_number_scheduled
-     * @param int $updated_number_scheduled The total number of nodes that are running updated daemon pod
+     * Sets updatedNumberScheduled
+     * @param int $updatedNumberScheduled The total number of nodes that are running updated daemon pod
      * @return $this
      */
-    public function setUpdatedNumberScheduled($updated_number_scheduled)
+    public function setUpdatedNumberScheduled($updatedNumberScheduled)
     {
-        $this->container['updated_number_scheduled'] = $updated_number_scheduled;
+        $this->container['updatedNumberScheduled'] = $updatedNumberScheduled;
 
         return $this;
     }

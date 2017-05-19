@@ -54,8 +54,8 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
-        'pod_selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector'
+        'namespaceSelector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
+        'podSelector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector'
     ];
 
     public static function swaggerTypes()
@@ -68,8 +68,8 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_selector' => 'namespaceSelector',
-        'pod_selector' => 'podSelector'
+        'namespaceSelector' => 'namespaceSelector',
+        'podSelector' => 'podSelector'
     ];
 
 
@@ -78,8 +78,8 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_selector' => 'setNamespaceSelector',
-        'pod_selector' => 'setPodSelector'
+        'namespaceSelector' => 'setNamespaceSelector',
+        'podSelector' => 'setPodSelector'
     ];
 
 
@@ -88,8 +88,8 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_selector' => 'getNamespaceSelector',
-        'pod_selector' => 'getPodSelector'
+        'namespaceSelector' => 'getNamespaceSelector',
+        'podSelector' => 'getPodSelector'
     ];
 
     public static function attributeMap()
@@ -123,8 +123,8 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_selector'] = isset($data['namespace_selector']) ? $data['namespace_selector'] : null;
-        $this->container['pod_selector'] = isset($data['pod_selector']) ? $data['pod_selector'] : null;
+        $this->container['namespaceSelector'] = isset($data['namespaceSelector']) ? $data['namespaceSelector'] : null;
+        $this->container['podSelector'] = isset($data['podSelector']) ? $data['podSelector'] : null;
     }
 
     /**
@@ -153,43 +153,43 @@ class V1beta1NetworkPolicyPeer implements ArrayAccess
 
 
     /**
-     * Gets namespace_selector
+     * Gets namespaceSelector
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector
      */
     public function getNamespaceSelector()
     {
-        return $this->container['namespace_selector'];
+        return $this->container['namespaceSelector'];
     }
 
     /**
-     * Sets namespace_selector
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $namespace_selector Selects Namespaces using cluster scoped-labels.  This matches all pods in all namespaces selected by this label selector. This field follows standard label selector semantics. If omitted, this selector selects no namespaces. If present but empty, this selector selects all namespaces.
+     * Sets namespaceSelector
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $namespaceSelector Selects Namespaces using cluster scoped-labels.  This matches all pods in all namespaces selected by this label selector. This field follows standard label selector semantics. If omitted, this selector selects no namespaces. If present but empty, this selector selects all namespaces.
      * @return $this
      */
-    public function setNamespaceSelector($namespace_selector)
+    public function setNamespaceSelector($namespaceSelector)
     {
-        $this->container['namespace_selector'] = $namespace_selector;
+        $this->container['namespaceSelector'] = $namespaceSelector;
 
         return $this;
     }
 
     /**
-     * Gets pod_selector
+     * Gets podSelector
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector
      */
     public function getPodSelector()
     {
-        return $this->container['pod_selector'];
+        return $this->container['podSelector'];
     }
 
     /**
-     * Sets pod_selector
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $pod_selector This is a label selector which selects Pods in this namespace. This field follows standard label selector semantics. If not provided, this selector selects no pods. If present but empty, this selector selects all pods in this namespace.
+     * Sets podSelector
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $podSelector This is a label selector which selects Pods in this namespace. This field follows standard label selector semantics. If not provided, this selector selects no pods. If present but empty, this selector selects all pods in this namespace.
      * @return $this
      */
-    public function setPodSelector($pod_selector)
+    public function setPodSelector($podSelector)
     {
-        $this->container['pod_selector'] = $pod_selector;
+        $this->container['podSelector'] = $podSelector;
 
         return $this;
     }

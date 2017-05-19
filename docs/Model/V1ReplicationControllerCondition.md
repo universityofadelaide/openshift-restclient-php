@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last_transition_time** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The last time the condition transitioned from one status to another. | [optional] 
+**lastTransitionTime** | [**\UniversityOfAdelaide\OpenShift\Model\V1Time**](V1Time.md) | The last time the condition transitioned from one status to another. | [optional] 
 **message** | **string** | A human readable message indicating details about the transition. | [optional] 
 **reason** | **string** | The reason for the condition&#39;s last transition. | [optional] 
 **status** | **string** | Status of the condition, one of True, False, Unknown. | 

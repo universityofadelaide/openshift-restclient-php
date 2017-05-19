@@ -55,7 +55,7 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'service_account_names' => 'string[]',
+        'serviceAccountNames' => 'string[]',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec'
     ];
 
@@ -69,7 +69,7 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'service_account_names' => 'serviceAccountNames',
+        'serviceAccountNames' => 'serviceAccountNames',
         'template' => 'template'
     ];
 
@@ -79,7 +79,7 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'service_account_names' => 'setServiceAccountNames',
+        'serviceAccountNames' => 'setServiceAccountNames',
         'template' => 'setTemplate'
     ];
 
@@ -89,7 +89,7 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'service_account_names' => 'getServiceAccountNames',
+        'serviceAccountNames' => 'getServiceAccountNames',
         'template' => 'getTemplate'
     ];
 
@@ -124,7 +124,7 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['service_account_names'] = isset($data['service_account_names']) ? $data['service_account_names'] : null;
+        $this->container['serviceAccountNames'] = isset($data['serviceAccountNames']) ? $data['serviceAccountNames'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1PodSecurityPolicyReviewSpec implements ArrayAccess
 
 
     /**
-     * Gets service_account_names
+     * Gets serviceAccountNames
      * @return string[]
      */
     public function getServiceAccountNames()
     {
-        return $this->container['service_account_names'];
+        return $this->container['serviceAccountNames'];
     }
 
     /**
-     * Sets service_account_names
-     * @param string[] $service_account_names serviceAccountNames is an optional set of ServiceAccounts to run the check with. If serviceAccountNames is empty, the template.spec.serviceAccountName is used, unless it's empty, in which case \"default\" is used instead. If serviceAccountNames is specified, template.spec.serviceAccountName is ignored.
+     * Sets serviceAccountNames
+     * @param string[] $serviceAccountNames serviceAccountNames is an optional set of ServiceAccounts to run the check with. If serviceAccountNames is empty, the template.spec.serviceAccountName is used, unless it's empty, in which case \"default\" is used instead. If serviceAccountNames is specified, template.spec.serviceAccountName is ignored.
      * @return $this
      */
-    public function setServiceAccountNames($service_account_names)
+    public function setServiceAccountNames($serviceAccountNames)
     {
-        $this->container['service_account_names'] = $service_account_names;
+        $this->container['serviceAccountNames'] = $serviceAccountNames;
 
         return $this;
     }

@@ -56,7 +56,7 @@ class V1ContainerImage implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'names' => 'string[]',
-        'size_bytes' => 'int'
+        'sizeBytes' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V1ContainerImage implements ArrayAccess
      */
     protected static $attributeMap = [
         'names' => 'names',
-        'size_bytes' => 'sizeBytes'
+        'sizeBytes' => 'sizeBytes'
     ];
 
 
@@ -80,7 +80,7 @@ class V1ContainerImage implements ArrayAccess
      */
     protected static $setters = [
         'names' => 'setNames',
-        'size_bytes' => 'setSizeBytes'
+        'sizeBytes' => 'setSizeBytes'
     ];
 
 
@@ -90,7 +90,7 @@ class V1ContainerImage implements ArrayAccess
      */
     protected static $getters = [
         'names' => 'getNames',
-        'size_bytes' => 'getSizeBytes'
+        'sizeBytes' => 'getSizeBytes'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V1ContainerImage implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
-        $this->container['size_bytes'] = isset($data['size_bytes']) ? $data['size_bytes'] : null;
+        $this->container['sizeBytes'] = isset($data['sizeBytes']) ? $data['sizeBytes'] : null;
     }
 
     /**
@@ -181,22 +181,22 @@ class V1ContainerImage implements ArrayAccess
     }
 
     /**
-     * Gets size_bytes
+     * Gets sizeBytes
      * @return int
      */
     public function getSizeBytes()
     {
-        return $this->container['size_bytes'];
+        return $this->container['sizeBytes'];
     }
 
     /**
-     * Sets size_bytes
-     * @param int $size_bytes The size of the image in bytes.
+     * Sets sizeBytes
+     * @param int $sizeBytes The size of the image in bytes.
      * @return $this
      */
-    public function setSizeBytes($size_bytes)
+    public function setSizeBytes($sizeBytes)
     {
-        $this->container['size_bytes'] = $size_bytes;
+        $this->container['sizeBytes'] = $sizeBytes;
 
         return $this;
     }

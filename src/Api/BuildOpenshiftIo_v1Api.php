@@ -28,10 +28,15 @@
 
 namespace UniversityOfAdelaide\OpenShift\Api;
 
-use \UniversityOfAdelaide\OpenShift\ApiClient;
-use \UniversityOfAdelaide\OpenShift\ApiException;
-use \UniversityOfAdelaide\OpenShift\Configuration;
-use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use UniversityOfAdelaide\OpenShift\ApiException;
+use UniversityOfAdelaide\OpenShift\Configuration;
+use UniversityOfAdelaide\OpenShift\HeaderSelector;
+use UniversityOfAdelaide\OpenShift\ObjectSerializer;
 
 /**
  * BuildOpenshiftIo_v1Api Class Doc Comment
@@ -44,47 +49,36 @@ use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
 class BuildOpenshiftIo_v1Api
 {
     /**
-     * API Client
-     *
-     * @var \UniversityOfAdelaide\OpenShift\ApiClient instance of the ApiClient
+     * @var ClientInterface
      */
-    protected $apiClient;
+    protected $client;
 
     /**
-     * Constructor
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient|null $apiClient The api client to use
+     * @var Configuration
      */
-    public function __construct(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient = null)
-    {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
+    protected $config;
 
-        $this->apiClient = $apiClient;
+    /**
+     * @param ClientInterface $client
+     * @param Configuration $config
+     * @param HeaderSelector $selector
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * Get API client
-     *
-     * @return \UniversityOfAdelaide\OpenShift\ApiClient get the API client
+     * @return Configuration
      */
-    public function getApiClient()
+    public function getConfig()
     {
-        return $this->apiClient;
-    }
-
-    /**
-     * Set the API client
-     *
-     * @param \UniversityOfAdelaide\OpenShift\ApiClient $apiClient set the API client
-     *
-     * @return BuildOpenshiftIo_v1Api
-     */
-    public function setApiClient(\UniversityOfAdelaide\OpenShift\ApiClient $apiClient)
-    {
-        $this->apiClient = $apiClient;
-        return $this;
+        return $this->config;
     }
 
     /**
@@ -94,19 +88,20 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the BinaryBuildRequestOptions (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $as_file asFile determines if the binary should be created as a file within the source rather than extracted as an archive (optional)
-     * @param string $revision_author_email revision.authorEmail of the source control user (optional)
-     * @param string $revision_author_name revision.authorName of the source control user (optional)
-     * @param string $revision_commit revision.commit is the value identifying a specific commit (optional)
-     * @param string $revision_committer_email revision.committerEmail of the source control user (optional)
-     * @param string $revision_committer_name revision.committerName of the source control user (optional)
-     * @param string $revision_message revision.message is the description of a specific commit (optional)
+     * @param string $asFile asFile determines if the binary should be created as a file within the source rather than extracted as an archive (optional)
+     * @param string $revisionAuthorEmail revision.authorEmail of the source control user (optional)
+     * @param string $revisionAuthorName revision.authorName of the source control user (optional)
+     * @param string $revisionCommit revision.commit is the value identifying a specific commit (optional)
+     * @param string $revisionCommitterEmail revision.committerEmail of the source control user (optional)
+     * @param string $revisionCommitterName revision.committerName of the source control user (optional)
+     * @param string $revisionMessage revision.message is the description of a specific commit (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return string
      */
-    public function connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinary($name, $namespace, $as_file = null, $revision_author_email = null, $revision_author_name = null, $revision_commit = null, $revision_committer_email = null, $revision_committer_name = null, $revision_message = null)
+    public function connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinary($name, $namespace, $asFile = null, $revisionAuthorEmail = null, $revisionAuthorName = null, $revisionCommit = null, $revisionCommitterEmail = null, $revisionCommitterName = null, $revisionMessage = null)
     {
-        list($response) = $this->connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinaryWithHttpInfo($name, $namespace, $as_file, $revision_author_email, $revision_author_name, $revision_commit, $revision_committer_email, $revision_committer_name, $revision_message);
+        list($response) = $this->connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinaryWithHttpInfo($name, $namespace, $asFile, $revisionAuthorEmail, $revisionAuthorName, $revisionCommit, $revisionCommitterEmail, $revisionCommitterName, $revisionMessage);
         return $response;
     }
 
@@ -117,17 +112,18 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the BinaryBuildRequestOptions (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $as_file asFile determines if the binary should be created as a file within the source rather than extracted as an archive (optional)
-     * @param string $revision_author_email revision.authorEmail of the source control user (optional)
-     * @param string $revision_author_name revision.authorName of the source control user (optional)
-     * @param string $revision_commit revision.commit is the value identifying a specific commit (optional)
-     * @param string $revision_committer_email revision.committerEmail of the source control user (optional)
-     * @param string $revision_committer_name revision.committerName of the source control user (optional)
-     * @param string $revision_message revision.message is the description of a specific commit (optional)
+     * @param string $asFile asFile determines if the binary should be created as a file within the source rather than extracted as an archive (optional)
+     * @param string $revisionAuthorEmail revision.authorEmail of the source control user (optional)
+     * @param string $revisionAuthorName revision.authorName of the source control user (optional)
+     * @param string $revisionCommit revision.commit is the value identifying a specific commit (optional)
+     * @param string $revisionCommitterEmail revision.committerEmail of the source control user (optional)
+     * @param string $revisionCommitterName revision.committerName of the source control user (optional)
+     * @param string $revisionMessage revision.message is the description of a specific commit (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinaryWithHttpInfo($name, $namespace, $as_file = null, $revision_author_email = null, $revision_author_name = null, $revision_commit = null, $revision_committer_email = null, $revision_committer_name = null, $revision_message = null)
+    public function connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinaryWithHttpInfo($name, $namespace, $asFile = null, $revisionAuthorEmail = null, $revisionAuthorName = null, $revisionCommit = null, $revisionCommitterEmail = null, $revisionCommitterName = null, $revisionMessage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -137,94 +133,156 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling connectBuildOpenshiftIoV1PostNamespacedBinaryBuildRequestOptionsInstantiatebinary');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiatebinary";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiatebinary';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['*/*']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = 'string';
 
         // query params
-        if ($as_file !== null) {
-            $queryParams['asFile'] = $this->apiClient->getSerializer()->toQueryValue($as_file);
+        if ($asFile !== null) {
+            $queryParams['asFile'] = ObjectSerializer::toQueryValue($asFile);
         }
         // query params
-        if ($revision_author_email !== null) {
-            $queryParams['revision.authorEmail'] = $this->apiClient->getSerializer()->toQueryValue($revision_author_email);
+        if ($revisionAuthorEmail !== null) {
+            $queryParams['revision.authorEmail'] = ObjectSerializer::toQueryValue($revisionAuthorEmail);
         }
         // query params
-        if ($revision_author_name !== null) {
-            $queryParams['revision.authorName'] = $this->apiClient->getSerializer()->toQueryValue($revision_author_name);
+        if ($revisionAuthorName !== null) {
+            $queryParams['revision.authorName'] = ObjectSerializer::toQueryValue($revisionAuthorName);
         }
         // query params
-        if ($revision_commit !== null) {
-            $queryParams['revision.commit'] = $this->apiClient->getSerializer()->toQueryValue($revision_commit);
+        if ($revisionCommit !== null) {
+            $queryParams['revision.commit'] = ObjectSerializer::toQueryValue($revisionCommit);
         }
         // query params
-        if ($revision_committer_email !== null) {
-            $queryParams['revision.committerEmail'] = $this->apiClient->getSerializer()->toQueryValue($revision_committer_email);
+        if ($revisionCommitterEmail !== null) {
+            $queryParams['revision.committerEmail'] = ObjectSerializer::toQueryValue($revisionCommitterEmail);
         }
         // query params
-        if ($revision_committer_name !== null) {
-            $queryParams['revision.committerName'] = $this->apiClient->getSerializer()->toQueryValue($revision_committer_name);
+        if ($revisionCommitterName !== null) {
+            $queryParams['revision.committerName'] = ObjectSerializer::toQueryValue($revisionCommitterName);
         }
         // query params
-        if ($revision_message !== null) {
-            $queryParams['revision.message'] = $this->apiClient->getSerializer()->toQueryValue($revision_message);
+        if ($revisionMessage !== null) {
+            $queryParams['revision.message'] = ObjectSerializer::toQueryValue($revisionMessage);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiatebinary'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['*/*']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['*/*'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation connectBuildOpenshiftIoV1PostNamespacedBuildWebhooks
      *
@@ -234,6 +292,7 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $path Path is the URL path to use for the current proxy request to pod. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return string
      */
     public function connectBuildOpenshiftIoV1PostNamespacedBuildWebhooks($name, $namespace, $path = null)
@@ -251,6 +310,7 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $path Path is the URL path to use for the current proxy request to pod. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function connectBuildOpenshiftIoV1PostNamespacedBuildWebhooksWithHttpInfo($name, $namespace, $path = null)
@@ -263,70 +323,132 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling connectBuildOpenshiftIoV1PostNamespacedBuildWebhooks');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['*/*']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = 'string';
 
         // query params
         if ($path !== null) {
-            $queryParams['path'] = $this->apiClient->getSerializer()->toQueryValue($path);
+            $queryParams['path'] = ObjectSerializer::toQueryValue($path);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['*/*']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['*/*'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation connectBuildOpenshiftIoV1PostNamespacedBuildWebhooksWithPath
      *
@@ -337,6 +459,7 @@ class BuildOpenshiftIo_v1Api
      * @param string $path path to the resource (required)
      * @param string $path2 Path is the URL path to use for the current proxy request to pod. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return string
      */
     public function connectBuildOpenshiftIoV1PostNamespacedBuildWebhooksWithPath($name, $namespace, $path, $path2 = null)
@@ -355,6 +478,7 @@ class BuildOpenshiftIo_v1Api
      * @param string $path path to the resource (required)
      * @param string $path2 Path is the URL path to use for the current proxy request to pod. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function connectBuildOpenshiftIoV1PostNamespacedBuildWebhooksWithPathWithHttpInfo($name, $namespace, $path, $path2 = null)
@@ -371,78 +495,136 @@ class BuildOpenshiftIo_v1Api
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling connectBuildOpenshiftIoV1PostNamespacedBuildWebhooksWithPath');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks/{path}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks/{path}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['*/*']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = 'string';
 
         // query params
         if ($path2 !== null) {
-            $queryParams['path'] = $this->apiClient->getSerializer()->toQueryValue($path2);
+            $queryParams['path'] = ObjectSerializer::toQueryValue($path2);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
         // path params
         if ($path !== null) {
-            $resourcePath = str_replace(
-                "{" . "path" . "}",
-                $this->apiClient->getSerializer()->toPathValue($path),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'path' . '}', ObjectSerializer::toPathValue($path), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/webhooks/{path}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['*/*']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['*/*'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1BuildConfigForAllNamespaces
      *
@@ -451,6 +633,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig
      */
     public function createBuildOpenshiftIoV1BuildConfigForAllNamespaces($body, $pretty = null)
@@ -467,6 +650,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1BuildConfigForAllNamespacesWithHttpInfo($body, $pretty = null)
@@ -475,22 +659,21 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1BuildConfigForAllNamespaces');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -500,34 +683,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig',
-                '/apis/build.openshift.io/v1/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1BuildForAllNamespaces
      *
@@ -536,6 +790,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function createBuildOpenshiftIoV1BuildForAllNamespaces($body, $pretty = null)
@@ -552,6 +807,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1BuildForAllNamespacesWithHttpInfo($body, $pretty = null)
@@ -560,22 +816,21 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1BuildForAllNamespaces');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -585,34 +840,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1NamespacedBuild
      *
@@ -622,6 +948,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function createBuildOpenshiftIoV1NamespacedBuild($namespace, $body, $pretty = null)
@@ -639,6 +966,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($namespace, $body, $pretty = null)
@@ -651,30 +979,25 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -684,34 +1007,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -721,6 +1115,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig
      */
     public function createBuildOpenshiftIoV1NamespacedBuildConfig($namespace, $body, $pretty = null)
@@ -738,6 +1133,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($namespace, $body, $pretty = null)
@@ -750,30 +1146,25 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -783,34 +1174,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1NamespacedBuildRequestClone
      *
@@ -821,6 +1283,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest
      */
     public function createBuildOpenshiftIoV1NamespacedBuildRequestClone($name, $namespace, $body, $pretty = null)
@@ -839,6 +1302,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1NamespacedBuildRequestCloneWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -855,38 +1319,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1NamespacedBuildRequestClone');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/clone";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/clone';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -896,34 +1351,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/clone'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation createBuildOpenshiftIoV1NamespacedBuildRequestInstantiate
      *
@@ -934,6 +1460,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest
      */
     public function createBuildOpenshiftIoV1NamespacedBuildRequestInstantiate($name, $namespace, $body, $pretty = null)
@@ -952,6 +1479,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildRequest, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBuildOpenshiftIoV1NamespacedBuildRequestInstantiateWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -968,38 +1496,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createBuildOpenshiftIoV1NamespacedBuildRequestInstantiate');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiate";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiate';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1009,34 +1528,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}/instantiate'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'POST',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildRequest', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteBuildOpenshiftIoV1CollectionNamespacedBuild
      *
@@ -1044,17 +1634,18 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuild($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuild($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteBuildOpenshiftIoV1CollectionNamespacedBuildWithHttpInfo($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteBuildOpenshiftIoV1CollectionNamespacedBuildWithHttpInfo($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1065,96 +1656,163 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildWithHttpInfo($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildWithHttpInfo($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling deleteBuildOpenshiftIoV1CollectionNamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfig
      *
@@ -1162,17 +1820,18 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfig($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfig($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfigWithHttpInfo($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfigWithHttpInfo($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1183,96 +1842,163 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfigWithHttpInfo($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfigWithHttpInfo($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling deleteBuildOpenshiftIoV1CollectionNamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteBuildOpenshiftIoV1NamespacedBuild
      *
@@ -1282,15 +2008,16 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -1303,13 +2030,14 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -1323,50 +2051,41 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1376,34 +2095,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation deleteBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -1413,15 +2203,16 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Status
      */
-    public function deleteBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
-        list($response) = $this->deleteBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty, $grace_period_seconds, $orphan_dependents, $propagation_policy);
+        list($response) = $this->deleteBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty, $gracePeriodSeconds, $orphanDependents, $propagationPolicy);
         return $response;
     }
 
@@ -1434,13 +2225,14 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param \UniversityOfAdelaide\OpenShift\Model\V1DeleteOptions $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param int $grace_period_seconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
-     * @param bool $orphan_dependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
-     * @param string $propagation_policy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param int $gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param bool $orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param string $propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Status, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty = null, $grace_period_seconds = null, $orphan_dependents = null, $propagation_policy = null)
+    public function deleteBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty = null, $gracePeriodSeconds = null, $orphanDependents = null, $propagationPolicy = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -1454,50 +2246,41 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling deleteBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Status';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($grace_period_seconds !== null) {
-            $queryParams['gracePeriodSeconds'] = $this->apiClient->getSerializer()->toQueryValue($grace_period_seconds);
+        if ($gracePeriodSeconds !== null) {
+            $queryParams['gracePeriodSeconds'] = ObjectSerializer::toQueryValue($gracePeriodSeconds);
         }
         // query params
-        if ($orphan_dependents !== null) {
-            $queryParams['orphanDependents'] = $this->apiClient->getSerializer()->toQueryValue($orphan_dependents);
+        if ($orphanDependents !== null) {
+            $queryParams['orphanDependents'] = ObjectSerializer::toQueryValue($orphanDependents);
         }
         // query params
-        if ($propagation_policy !== null) {
-            $queryParams['propagationPolicy'] = $this->apiClient->getSerializer()->toQueryValue($propagation_policy);
+        if ($propagationPolicy !== null) {
+            $queryParams['propagationPolicy'] = ObjectSerializer::toQueryValue($propagationPolicy);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1507,40 +2290,112 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Status',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Status', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'DELETE',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Status', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation getBuildOpenshiftIoV1APIResources
      *
      * 
      *
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1APIResourceList
      */
     public function getBuildOpenshiftIoV1APIResources()
@@ -1555,71 +2410,143 @@ class BuildOpenshiftIo_v1Api
      * 
      *
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1APIResourceList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBuildOpenshiftIoV1APIResourcesWithHttpInfo()
     {
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList';
+
+
 
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList',
-                '/apis/build.openshift.io/v1/'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1APIResourceList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listBuildOpenshiftIoV1BuildConfigForAllNamespaces
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList
      */
-    public function listBuildOpenshiftIoV1BuildConfigForAllNamespaces($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1BuildConfigForAllNamespaces($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listBuildOpenshiftIoV1BuildConfigForAllNamespacesWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listBuildOpenshiftIoV1BuildConfigForAllNamespacesWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1629,101 +2556,173 @@ class BuildOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBuildOpenshiftIoV1BuildConfigForAllNamespacesWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1BuildConfigForAllNamespacesWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList',
-                '/apis/build.openshift.io/v1/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listBuildOpenshiftIoV1BuildForAllNamespaces
      *
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildList
      */
-    public function listBuildOpenshiftIoV1BuildForAllNamespaces($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1BuildForAllNamespaces($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listBuildOpenshiftIoV1BuildForAllNamespacesWithHttpInfo($pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listBuildOpenshiftIoV1BuildForAllNamespacesWithHttpInfo($pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1733,84 +2732,155 @@ class BuildOpenshiftIo_v1Api
      * 
      *
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBuildOpenshiftIoV1BuildForAllNamespacesWithHttpInfo($pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1BuildForAllNamespacesWithHttpInfo($pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildList',
-                '/apis/build.openshift.io/v1/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listBuildOpenshiftIoV1NamespacedBuild
      *
@@ -1818,17 +2888,18 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildList
      */
-    public function listBuildOpenshiftIoV1NamespacedBuild($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1NamespacedBuild($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1839,96 +2910,163 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling listBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildList',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation listBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -1936,17 +3074,18 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList
      */
-    public function listBuildOpenshiftIoV1NamespacedBuildConfig($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1NamespacedBuildConfig($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->listBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($namespace, $pretty, $field_selector, $label_selector, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->listBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($namespace, $pretty, $fieldSelector, $labelSelector, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -1957,96 +3096,163 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($namespace, $pretty = null, $field_selector = null, $label_selector = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function listBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($namespace, $pretty = null, $fieldSelector = null, $labelSelector = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling listBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfigList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchBuildOpenshiftIoV1NamespacedBuild
      *
@@ -2057,6 +3263,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function patchBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $body, $pretty = null)
@@ -2075,6 +3282,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -2091,38 +3299,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2132,34 +3331,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation patchBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -2170,6 +3440,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig
      */
     public function patchBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $body, $pretty = null)
@@ -2188,6 +3459,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Patch $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -2204,38 +3476,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling patchBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2245,34 +3508,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PATCH',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['application/json-patch+json', 'application/merge-patch+json', 'application/strategic-merge-patch+json']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PATCH',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readBuildOpenshiftIoV1NamespacedBuild
      *
@@ -2284,6 +3618,7 @@ class BuildOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function readBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $pretty = null, $exact = null, $export = null)
@@ -2303,6 +3638,7 @@ class BuildOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function readBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $pretty = null, $exact = null, $export = null)
@@ -2315,78 +3651,140 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling readBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -2398,6 +3796,7 @@ class BuildOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig
      */
     public function readBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $pretty = null, $exact = null, $export = null)
@@ -2417,6 +3816,7 @@ class BuildOpenshiftIo_v1Api
      * @param bool $exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
      * @param bool $export Should this value be exported.  Export strips fields that a user can not specify. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig, HTTP status code, HTTP response headers (array of strings)
      */
     public function readBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $pretty = null, $exact = null, $export = null)
@@ -2429,78 +3829,140 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling readBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($exact !== null) {
-            $queryParams['exact'] = $this->apiClient->getSerializer()->toQueryValue($exact);
+            $queryParams['exact'] = ObjectSerializer::toQueryValue($exact);
         }
         // query params
         if ($export !== null) {
-            $queryParams['export'] = $this->apiClient->getSerializer()->toQueryValue($export);
+            $queryParams['export'] = ObjectSerializer::toQueryValue($export);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation readBuildOpenshiftIoV1NamespacedBuildLogLog
      *
@@ -2510,20 +3972,21 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $container cointainer for which to stream logs. Defaults to only container if there is one container in the pod. (optional)
      * @param bool $follow follow if true indicates that the build log should be streamed until the build terminates. (optional)
-     * @param int $limit_bytes limitBytes, If set, is the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. (optional)
+     * @param int $limitBytes limitBytes, If set, is the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. (optional)
      * @param bool $nowait noWait if true causes the call to return immediately even if the build is not available yet. Otherwise the server will wait until the build has started. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param bool $previous previous returns previous build logs. Defaults to false. (optional)
-     * @param int $since_seconds sinceSeconds is a relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. (optional)
-     * @param int $tail_lines tailLines, If set, is the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime (optional)
+     * @param int $sinceSeconds sinceSeconds is a relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. (optional)
+     * @param int $tailLines tailLines, If set, is the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime (optional)
      * @param bool $timestamps timestamps, If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line of log output. Defaults to false. (optional)
      * @param int $version version of the build for which to view logs. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildLog
      */
-    public function readBuildOpenshiftIoV1NamespacedBuildLogLog($name, $namespace, $container = null, $follow = null, $limit_bytes = null, $nowait = null, $pretty = null, $previous = null, $since_seconds = null, $tail_lines = null, $timestamps = null, $version = null)
+    public function readBuildOpenshiftIoV1NamespacedBuildLogLog($name, $namespace, $container = null, $follow = null, $limitBytes = null, $nowait = null, $pretty = null, $previous = null, $sinceSeconds = null, $tailLines = null, $timestamps = null, $version = null)
     {
-        list($response) = $this->readBuildOpenshiftIoV1NamespacedBuildLogLogWithHttpInfo($name, $namespace, $container, $follow, $limit_bytes, $nowait, $pretty, $previous, $since_seconds, $tail_lines, $timestamps, $version);
+        list($response) = $this->readBuildOpenshiftIoV1NamespacedBuildLogLogWithHttpInfo($name, $namespace, $container, $follow, $limitBytes, $nowait, $pretty, $previous, $sinceSeconds, $tailLines, $timestamps, $version);
         return $response;
     }
 
@@ -2536,18 +3999,19 @@ class BuildOpenshiftIo_v1Api
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
      * @param string $container cointainer for which to stream logs. Defaults to only container if there is one container in the pod. (optional)
      * @param bool $follow follow if true indicates that the build log should be streamed until the build terminates. (optional)
-     * @param int $limit_bytes limitBytes, If set, is the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. (optional)
+     * @param int $limitBytes limitBytes, If set, is the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. (optional)
      * @param bool $nowait noWait if true causes the call to return immediately even if the build is not available yet. Otherwise the server will wait until the build has started. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param bool $previous previous returns previous build logs. Defaults to false. (optional)
-     * @param int $since_seconds sinceSeconds is a relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. (optional)
-     * @param int $tail_lines tailLines, If set, is the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime (optional)
+     * @param int $sinceSeconds sinceSeconds is a relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. (optional)
+     * @param int $tailLines tailLines, If set, is the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime (optional)
      * @param bool $timestamps timestamps, If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line of log output. Defaults to false. (optional)
      * @param int $version version of the build for which to view logs. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildLog, HTTP status code, HTTP response headers (array of strings)
      */
-    public function readBuildOpenshiftIoV1NamespacedBuildLogLogWithHttpInfo($name, $namespace, $container = null, $follow = null, $limit_bytes = null, $nowait = null, $pretty = null, $previous = null, $since_seconds = null, $tail_lines = null, $timestamps = null, $version = null)
+    public function readBuildOpenshiftIoV1NamespacedBuildLogLogWithHttpInfo($name, $namespace, $container = null, $follow = null, $limitBytes = null, $nowait = null, $pretty = null, $previous = null, $sinceSeconds = null, $tailLines = null, $timestamps = null, $version = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -2557,106 +4021,168 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling readBuildOpenshiftIoV1NamespacedBuildLogLog');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/log";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/log';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildLog';
 
         // query params
         if ($container !== null) {
-            $queryParams['container'] = $this->apiClient->getSerializer()->toQueryValue($container);
+            $queryParams['container'] = ObjectSerializer::toQueryValue($container);
         }
         // query params
         if ($follow !== null) {
-            $queryParams['follow'] = $this->apiClient->getSerializer()->toQueryValue($follow);
+            $queryParams['follow'] = ObjectSerializer::toQueryValue($follow);
         }
         // query params
-        if ($limit_bytes !== null) {
-            $queryParams['limitBytes'] = $this->apiClient->getSerializer()->toQueryValue($limit_bytes);
+        if ($limitBytes !== null) {
+            $queryParams['limitBytes'] = ObjectSerializer::toQueryValue($limitBytes);
         }
         // query params
         if ($nowait !== null) {
-            $queryParams['nowait'] = $this->apiClient->getSerializer()->toQueryValue($nowait);
+            $queryParams['nowait'] = ObjectSerializer::toQueryValue($nowait);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
         if ($previous !== null) {
-            $queryParams['previous'] = $this->apiClient->getSerializer()->toQueryValue($previous);
+            $queryParams['previous'] = ObjectSerializer::toQueryValue($previous);
         }
         // query params
-        if ($since_seconds !== null) {
-            $queryParams['sinceSeconds'] = $this->apiClient->getSerializer()->toQueryValue($since_seconds);
+        if ($sinceSeconds !== null) {
+            $queryParams['sinceSeconds'] = ObjectSerializer::toQueryValue($sinceSeconds);
         }
         // query params
-        if ($tail_lines !== null) {
-            $queryParams['tailLines'] = $this->apiClient->getSerializer()->toQueryValue($tail_lines);
+        if ($tailLines !== null) {
+            $queryParams['tailLines'] = ObjectSerializer::toQueryValue($tailLines);
         }
         // query params
         if ($timestamps !== null) {
-            $queryParams['timestamps'] = $this->apiClient->getSerializer()->toQueryValue($timestamps);
+            $queryParams['timestamps'] = ObjectSerializer::toQueryValue($timestamps);
         }
         // query params
         if ($version !== null) {
-            $queryParams['version'] = $this->apiClient->getSerializer()->toQueryValue($version);
+            $queryParams['version'] = ObjectSerializer::toQueryValue($version);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildLog',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/log'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildLog', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildLog', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildLog', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceBuildOpenshiftIoV1NamespacedBuild
      *
@@ -2667,6 +4193,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $body, $pretty = null)
@@ -2685,6 +4212,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -2701,38 +4229,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2742,34 +4261,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -2780,6 +4370,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $body, $pretty = null)
@@ -2798,6 +4389,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -2814,38 +4406,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2855,34 +4438,105 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/buildconfigs/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1BuildConfig', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation replaceBuildOpenshiftIoV1NamespacedBuildDetails
      *
@@ -2893,6 +4547,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Build
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuildDetails($name, $namespace, $body, $pretty = null)
@@ -2911,6 +4566,7 @@ class BuildOpenshiftIo_v1Api
      * @param \UniversityOfAdelaide\OpenShift\Model\V1Build $body  (required)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1Build, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceBuildOpenshiftIoV1NamespacedBuildDetailsWithHttpInfo($name, $namespace, $body, $pretty = null)
@@ -2927,38 +4583,29 @@ class BuildOpenshiftIo_v1Api
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling replaceBuildOpenshiftIoV1NamespacedBuildDetails');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/details";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/details';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1Build';
 
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -2968,51 +4615,123 @@ class BuildOpenshiftIo_v1Api
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1Build',
-                '/apis/build.openshift.io/v1/namespaces/{namespace}/builds/{name}/details'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1Build', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'PUT',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1Build', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1BuildConfigListForAllNamespaces
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1BuildConfigListForAllNamespaces($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1BuildConfigListForAllNamespaces($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1BuildConfigListForAllNamespacesWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1BuildConfigListForAllNamespacesWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3021,102 +4740,174 @@ class BuildOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1BuildConfigListForAllNamespacesWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1BuildConfigListForAllNamespacesWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1BuildListForAllNamespaces
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1BuildListForAllNamespaces($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1BuildListForAllNamespaces($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1BuildListForAllNamespacesWithHttpInfo($field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1BuildListForAllNamespacesWithHttpInfo($fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3125,85 +4916,156 @@ class BuildOpenshiftIo_v1Api
      *
      * 
      *
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1BuildListForAllNamespacesWithHttpInfo($field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1BuildListForAllNamespacesWithHttpInfo($fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1NamespacedBuild
      *
@@ -3211,18 +5073,19 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the Build (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuild($name, $namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3233,16 +5096,17 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the Build (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildWithHttpInfo($name, $namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -3252,90 +5116,152 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling watchBuildOpenshiftIoV1NamespacedBuild');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1NamespacedBuildConfig
      *
@@ -3343,18 +5269,19 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the BuildConfig (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildConfig($name, $namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3365,16 +5292,17 @@ class BuildOpenshiftIo_v1Api
      *
      * @param string $name name of the BuildConfig (required)
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildConfigWithHttpInfo($name, $namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -3384,108 +5312,171 @@ class BuildOpenshiftIo_v1Api
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling watchBuildOpenshiftIoV1NamespacedBuildConfig');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs/{name}";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs/{name}';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($name !== null) {
-            $resourcePath = str_replace(
-                "{" . "name" . "}",
-                $this->apiClient->getSerializer()->toPathValue($name),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'name' . '}', ObjectSerializer::toPathValue($name), $resourcePath);
         }
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs/{name}'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1NamespacedBuildConfigList
      *
      * 
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildConfigList($namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildConfigList($namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildConfigListWithHttpInfo($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildConfigListWithHttpInfo($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3495,115 +5486,183 @@ class BuildOpenshiftIo_v1Api
      * 
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildConfigListWithHttpInfo($namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildConfigListWithHttpInfo($namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling watchBuildOpenshiftIoV1NamespacedBuildConfigList');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/buildconfigs'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
-
     /**
      * Operation watchBuildOpenshiftIoV1NamespacedBuildList
      *
      * 
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildList($namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildList($namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
-        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildListWithHttpInfo($namespace, $field_selector, $label_selector, $pretty, $resource_version, $timeout_seconds, $watch);
+        list($response) = $this->watchBuildOpenshiftIoV1NamespacedBuildListWithHttpInfo($namespace, $fieldSelector, $labelSelector, $pretty, $resourceVersion, $timeoutSeconds, $watch);
         return $response;
     }
 
@@ -3613,93 +5672,161 @@ class BuildOpenshiftIo_v1Api
      * 
      *
      * @param string $namespace object name and auth scope, such as for teams and projects (required)
-     * @param string $field_selector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
-     * @param string $label_selector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param string $fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param string $labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param string $pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param string $resource_version When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @param int $timeout_seconds Timeout for the list/watch call. (optional)
+     * @param string $resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param int $timeoutSeconds Timeout for the list/watch call. (optional)
      * @param bool $watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
      * @throws \UniversityOfAdelaide\OpenShift\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
      * @return array of \UniversityOfAdelaide\OpenShift\Model\V1WatchEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function watchBuildOpenshiftIoV1NamespacedBuildListWithHttpInfo($namespace, $field_selector = null, $label_selector = null, $pretty = null, $resource_version = null, $timeout_seconds = null, $watch = null)
+    public function watchBuildOpenshiftIoV1NamespacedBuildListWithHttpInfo($namespace, $fieldSelector = null, $labelSelector = null, $pretty = null, $resourceVersion = null, $timeoutSeconds = null, $watch = null)
     {
         // verify the required parameter 'namespace' is set
         if ($namespace === null) {
             throw new \InvalidArgumentException('Missing the required parameter $namespace when calling watchBuildOpenshiftIoV1NamespacedBuildList');
         }
-        // parse inputs
-        $resourcePath = "/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds";
-        $httpBody = '';
+
+        $resourcePath = '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['*/*']);
+        $httpBody = '';
+        $multipart = false;
+        $returnType = '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent';
 
         // query params
-        if ($field_selector !== null) {
-            $queryParams['fieldSelector'] = $this->apiClient->getSerializer()->toQueryValue($field_selector);
+        if ($fieldSelector !== null) {
+            $queryParams['fieldSelector'] = ObjectSerializer::toQueryValue($fieldSelector);
         }
         // query params
-        if ($label_selector !== null) {
-            $queryParams['labelSelector'] = $this->apiClient->getSerializer()->toQueryValue($label_selector);
+        if ($labelSelector !== null) {
+            $queryParams['labelSelector'] = ObjectSerializer::toQueryValue($labelSelector);
         }
         // query params
         if ($pretty !== null) {
-            $queryParams['pretty'] = $this->apiClient->getSerializer()->toQueryValue($pretty);
+            $queryParams['pretty'] = ObjectSerializer::toQueryValue($pretty);
         }
         // query params
-        if ($resource_version !== null) {
-            $queryParams['resourceVersion'] = $this->apiClient->getSerializer()->toQueryValue($resource_version);
+        if ($resourceVersion !== null) {
+            $queryParams['resourceVersion'] = ObjectSerializer::toQueryValue($resourceVersion);
         }
         // query params
-        if ($timeout_seconds !== null) {
-            $queryParams['timeoutSeconds'] = $this->apiClient->getSerializer()->toQueryValue($timeout_seconds);
+        if ($timeoutSeconds !== null) {
+            $queryParams['timeoutSeconds'] = ObjectSerializer::toQueryValue($timeoutSeconds);
         }
         // query params
         if ($watch !== null) {
-            $queryParams['watch'] = $this->apiClient->getSerializer()->toQueryValue($watch);
+            $queryParams['watch'] = ObjectSerializer::toQueryValue($watch);
         }
+
         // path params
         if ($namespace !== null) {
-            $resourcePath = str_replace(
-                "{" . "namespace" . "}",
-                $this->apiClient->getSerializer()->toPathValue($namespace),
-                $resourcePath
-            );
+            $resourcePath = str_replace('{' . 'namespace' . '}', ObjectSerializer::toPathValue($namespace), $resourcePath);
         }
+
         
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent',
-                '/apis/build.openshift.io/v1/watch/namespaces/{namespace}/builds'
-            );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $httpHeader), $statusCode, $httpHeader];
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                $httpBody = new MultipartStream($multipartContents); // for HTTP post (form)
+
+            } else {
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams); // for HTTP post (form)
+            }
+        }
+
+        if ($httpBody instanceof MultipartStream) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/yaml', 'application/vnd.kubernetes.protobuf', 'application/json;stream=watch', 'application/vnd.kubernetes.protobuf;stream=watch'],
+                ['*/*']
+            );
+        }
+
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $url = $this->config->getHost() . $resourcePath . ($query ? '?' . $query : '');
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $request = new Request(
+            'GET',
+            $url,
+            $headers,
+            $httpBody
+        );
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    "[$statusCode] Error connecting to the API ($url)",
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\UniversityOfAdelaide\OpenShift\Model\V1WatchEvent', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }

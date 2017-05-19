@@ -83,7 +83,7 @@ class V1RouteSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "alternate_backends"
+     * Test attribute "alternateBackends"
      */
     public function testPropertyAlternateBackends()
     {
@@ -131,7 +131,7 @@ class V1RouteSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "wildcard_policy"
+     * Test attribute "wildcardPolicy"
      */
     public function testPropertyWildcardPolicy()
     {

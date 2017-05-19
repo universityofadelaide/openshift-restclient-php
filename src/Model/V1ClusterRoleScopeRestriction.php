@@ -55,9 +55,9 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_escalation' => 'bool',
+        'allowEscalation' => 'bool',
         'namespaces' => 'string[]',
-        'role_names' => 'string[]'
+        'roleNames' => 'string[]'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_escalation' => 'allowEscalation',
+        'allowEscalation' => 'allowEscalation',
         'namespaces' => 'namespaces',
-        'role_names' => 'roleNames'
+        'roleNames' => 'roleNames'
     ];
 
 
@@ -81,9 +81,9 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_escalation' => 'setAllowEscalation',
+        'allowEscalation' => 'setAllowEscalation',
         'namespaces' => 'setNamespaces',
-        'role_names' => 'setRoleNames'
+        'roleNames' => 'setRoleNames'
     ];
 
 
@@ -92,9 +92,9 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_escalation' => 'getAllowEscalation',
+        'allowEscalation' => 'getAllowEscalation',
         'namespaces' => 'getNamespaces',
-        'role_names' => 'getRoleNames'
+        'roleNames' => 'getRoleNames'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_escalation'] = isset($data['allow_escalation']) ? $data['allow_escalation'] : null;
+        $this->container['allowEscalation'] = isset($data['allowEscalation']) ? $data['allowEscalation'] : null;
         $this->container['namespaces'] = isset($data['namespaces']) ? $data['namespaces'] : null;
-        $this->container['role_names'] = isset($data['role_names']) ? $data['role_names'] : null;
+        $this->container['roleNames'] = isset($data['roleNames']) ? $data['roleNames'] : null;
     }
 
     /**
@@ -142,14 +142,14 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['allow_escalation'] === null) {
-            $invalid_properties[] = "'allow_escalation' can't be null";
+        if ($this->container['allowEscalation'] === null) {
+            $invalid_properties[] = "'allowEscalation' can't be null";
         }
         if ($this->container['namespaces'] === null) {
             $invalid_properties[] = "'namespaces' can't be null";
         }
-        if ($this->container['role_names'] === null) {
-            $invalid_properties[] = "'role_names' can't be null";
+        if ($this->container['roleNames'] === null) {
+            $invalid_properties[] = "'roleNames' can't be null";
         }
         return $invalid_properties;
     }
@@ -163,13 +163,13 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['allow_escalation'] === null) {
+        if ($this->container['allowEscalation'] === null) {
             return false;
         }
         if ($this->container['namespaces'] === null) {
             return false;
         }
-        if ($this->container['role_names'] === null) {
+        if ($this->container['roleNames'] === null) {
             return false;
         }
         return true;
@@ -177,22 +177,22 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
 
 
     /**
-     * Gets allow_escalation
+     * Gets allowEscalation
      * @return bool
      */
     public function getAllowEscalation()
     {
-        return $this->container['allow_escalation'];
+        return $this->container['allowEscalation'];
     }
 
     /**
-     * Sets allow_escalation
-     * @param bool $allow_escalation AllowEscalation indicates whether you can request roles and their escalating resources
+     * Sets allowEscalation
+     * @param bool $allowEscalation AllowEscalation indicates whether you can request roles and their escalating resources
      * @return $this
      */
-    public function setAllowEscalation($allow_escalation)
+    public function setAllowEscalation($allowEscalation)
     {
-        $this->container['allow_escalation'] = $allow_escalation;
+        $this->container['allowEscalation'] = $allowEscalation;
 
         return $this;
     }
@@ -219,22 +219,22 @@ class V1ClusterRoleScopeRestriction implements ArrayAccess
     }
 
     /**
-     * Gets role_names
+     * Gets roleNames
      * @return string[]
      */
     public function getRoleNames()
     {
-        return $this->container['role_names'];
+        return $this->container['roleNames'];
     }
 
     /**
-     * Sets role_names
-     * @param string[] $role_names RoleNames is the list of cluster roles that can referenced.  * means anything
+     * Sets roleNames
+     * @param string[] $roleNames RoleNames is the list of cluster roles that can referenced.  * means anything
      * @return $this
      */
-    public function setRoleNames($role_names)
+    public function setRoleNames($roleNames)
     {
-        $this->container['role_names'] = $role_names;
+        $this->container['roleNames'] = $roleNames;
 
         return $this;
     }

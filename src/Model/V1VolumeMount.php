@@ -55,10 +55,10 @@ class V1VolumeMount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'mount_path' => 'string',
+        'mountPath' => 'string',
         'name' => 'string',
-        'read_only' => 'bool',
-        'sub_path' => 'string'
+        'readOnly' => 'bool',
+        'subPath' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1VolumeMount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'mount_path' => 'mountPath',
+        'mountPath' => 'mountPath',
         'name' => 'name',
-        'read_only' => 'readOnly',
-        'sub_path' => 'subPath'
+        'readOnly' => 'readOnly',
+        'subPath' => 'subPath'
     ];
 
 
@@ -83,10 +83,10 @@ class V1VolumeMount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'mount_path' => 'setMountPath',
+        'mountPath' => 'setMountPath',
         'name' => 'setName',
-        'read_only' => 'setReadOnly',
-        'sub_path' => 'setSubPath'
+        'readOnly' => 'setReadOnly',
+        'subPath' => 'setSubPath'
     ];
 
 
@@ -95,10 +95,10 @@ class V1VolumeMount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'mount_path' => 'getMountPath',
+        'mountPath' => 'getMountPath',
         'name' => 'getName',
-        'read_only' => 'getReadOnly',
-        'sub_path' => 'getSubPath'
+        'readOnly' => 'getReadOnly',
+        'subPath' => 'getSubPath'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1VolumeMount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;
+        $this->container['mountPath'] = isset($data['mountPath']) ? $data['mountPath'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
-        $this->container['sub_path'] = isset($data['sub_path']) ? $data['sub_path'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->container['subPath'] = isset($data['subPath']) ? $data['subPath'] : null;
     }
 
     /**
@@ -147,8 +147,8 @@ class V1VolumeMount implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['mount_path'] === null) {
-            $invalid_properties[] = "'mount_path' can't be null";
+        if ($this->container['mountPath'] === null) {
+            $invalid_properties[] = "'mountPath' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
@@ -165,7 +165,7 @@ class V1VolumeMount implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['mount_path'] === null) {
+        if ($this->container['mountPath'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -176,22 +176,22 @@ class V1VolumeMount implements ArrayAccess
 
 
     /**
-     * Gets mount_path
+     * Gets mountPath
      * @return string
      */
     public function getMountPath()
     {
-        return $this->container['mount_path'];
+        return $this->container['mountPath'];
     }
 
     /**
-     * Sets mount_path
-     * @param string $mount_path Path within the container at which the volume should be mounted.  Must not contain ':'.
+     * Sets mountPath
+     * @param string $mountPath Path within the container at which the volume should be mounted.  Must not contain ':'.
      * @return $this
      */
-    public function setMountPath($mount_path)
+    public function setMountPath($mountPath)
     {
-        $this->container['mount_path'] = $mount_path;
+        $this->container['mountPath'] = $mountPath;
 
         return $this;
     }
@@ -218,43 +218,43 @@ class V1VolumeMount implements ArrayAccess
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+     * Sets readOnly
+     * @param bool $readOnly Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }
 
     /**
-     * Gets sub_path
+     * Gets subPath
      * @return string
      */
     public function getSubPath()
     {
-        return $this->container['sub_path'];
+        return $this->container['subPath'];
     }
 
     /**
-     * Sets sub_path
-     * @param string $sub_path Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).
+     * Sets subPath
+     * @param string $subPath Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).
      * @return $this
      */
-    public function setSubPath($sub_path)
+    public function setSubPath($subPath)
     {
-        $this->container['sub_path'] = $sub_path;
+        $this->container['subPath'] = $subPath;
 
         return $this;
     }

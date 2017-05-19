@@ -55,11 +55,11 @@ class V1beta1DaemonSetSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'min_ready_seconds' => 'int',
+        'minReadySeconds' => 'int',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec',
-        'template_generation' => 'int',
-        'update_strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1DaemonSetUpdateStrategy'
+        'templateGeneration' => 'int',
+        'updateStrategy' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1DaemonSetUpdateStrategy'
     ];
 
     public static function swaggerTypes()
@@ -72,11 +72,11 @@ class V1beta1DaemonSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'min_ready_seconds' => 'minReadySeconds',
+        'minReadySeconds' => 'minReadySeconds',
         'selector' => 'selector',
         'template' => 'template',
-        'template_generation' => 'templateGeneration',
-        'update_strategy' => 'updateStrategy'
+        'templateGeneration' => 'templateGeneration',
+        'updateStrategy' => 'updateStrategy'
     ];
 
 
@@ -85,11 +85,11 @@ class V1beta1DaemonSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'min_ready_seconds' => 'setMinReadySeconds',
+        'minReadySeconds' => 'setMinReadySeconds',
         'selector' => 'setSelector',
         'template' => 'setTemplate',
-        'template_generation' => 'setTemplateGeneration',
-        'update_strategy' => 'setUpdateStrategy'
+        'templateGeneration' => 'setTemplateGeneration',
+        'updateStrategy' => 'setUpdateStrategy'
     ];
 
 
@@ -98,11 +98,11 @@ class V1beta1DaemonSetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'min_ready_seconds' => 'getMinReadySeconds',
+        'minReadySeconds' => 'getMinReadySeconds',
         'selector' => 'getSelector',
         'template' => 'getTemplate',
-        'template_generation' => 'getTemplateGeneration',
-        'update_strategy' => 'getUpdateStrategy'
+        'templateGeneration' => 'getTemplateGeneration',
+        'updateStrategy' => 'getUpdateStrategy'
     ];
 
     public static function attributeMap()
@@ -136,11 +136,11 @@ class V1beta1DaemonSetSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['min_ready_seconds'] = isset($data['min_ready_seconds']) ? $data['min_ready_seconds'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['template_generation'] = isset($data['template_generation']) ? $data['template_generation'] : null;
-        $this->container['update_strategy'] = isset($data['update_strategy']) ? $data['update_strategy'] : null;
+        $this->container['templateGeneration'] = isset($data['templateGeneration']) ? $data['templateGeneration'] : null;
+        $this->container['updateStrategy'] = isset($data['updateStrategy']) ? $data['updateStrategy'] : null;
     }
 
     /**
@@ -175,22 +175,22 @@ class V1beta1DaemonSetSpec implements ArrayAccess
 
 
     /**
-     * Gets min_ready_seconds
+     * Gets minReadySeconds
      * @return int
      */
     public function getMinReadySeconds()
     {
-        return $this->container['min_ready_seconds'];
+        return $this->container['minReadySeconds'];
     }
 
     /**
-     * Sets min_ready_seconds
-     * @param int $min_ready_seconds The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).
+     * Sets minReadySeconds
+     * @param int $minReadySeconds The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).
      * @return $this
      */
-    public function setMinReadySeconds($min_ready_seconds)
+    public function setMinReadySeconds($minReadySeconds)
     {
-        $this->container['min_ready_seconds'] = $min_ready_seconds;
+        $this->container['minReadySeconds'] = $minReadySeconds;
 
         return $this;
     }
@@ -238,43 +238,43 @@ class V1beta1DaemonSetSpec implements ArrayAccess
     }
 
     /**
-     * Gets template_generation
+     * Gets templateGeneration
      * @return int
      */
     public function getTemplateGeneration()
     {
-        return $this->container['template_generation'];
+        return $this->container['templateGeneration'];
     }
 
     /**
-     * Sets template_generation
-     * @param int $template_generation A sequence number representing a specific generation of the template. Populated by the system. It can be set only during the creation.
+     * Sets templateGeneration
+     * @param int $templateGeneration A sequence number representing a specific generation of the template. Populated by the system. It can be set only during the creation.
      * @return $this
      */
-    public function setTemplateGeneration($template_generation)
+    public function setTemplateGeneration($templateGeneration)
     {
-        $this->container['template_generation'] = $template_generation;
+        $this->container['templateGeneration'] = $templateGeneration;
 
         return $this;
     }
 
     /**
-     * Gets update_strategy
+     * Gets updateStrategy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1DaemonSetUpdateStrategy
      */
     public function getUpdateStrategy()
     {
-        return $this->container['update_strategy'];
+        return $this->container['updateStrategy'];
     }
 
     /**
-     * Sets update_strategy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1DaemonSetUpdateStrategy $update_strategy An update strategy to replace existing DaemonSet pods with new pods.
+     * Sets updateStrategy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1DaemonSetUpdateStrategy $updateStrategy An update strategy to replace existing DaemonSet pods with new pods.
      * @return $this
      */
-    public function setUpdateStrategy($update_strategy)
+    public function setUpdateStrategy($updateStrategy)
     {
-        $this->container['update_strategy'] = $update_strategy;
+        $this->container['updateStrategy'] = $updateStrategy;
 
         return $this;
     }

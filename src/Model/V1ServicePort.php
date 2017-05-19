@@ -56,10 +56,10 @@ class V1ServicePort implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'node_port' => 'int',
+        'nodePort' => 'int',
         'port' => 'int',
         'protocol' => 'string',
-        'target_port' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
+        'targetPort' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
     ];
 
     public static function swaggerTypes()
@@ -73,10 +73,10 @@ class V1ServicePort implements ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'node_port' => 'nodePort',
+        'nodePort' => 'nodePort',
         'port' => 'port',
         'protocol' => 'protocol',
-        'target_port' => 'targetPort'
+        'targetPort' => 'targetPort'
     ];
 
 
@@ -86,10 +86,10 @@ class V1ServicePort implements ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'node_port' => 'setNodePort',
+        'nodePort' => 'setNodePort',
         'port' => 'setPort',
         'protocol' => 'setProtocol',
-        'target_port' => 'setTargetPort'
+        'targetPort' => 'setTargetPort'
     ];
 
 
@@ -99,10 +99,10 @@ class V1ServicePort implements ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'node_port' => 'getNodePort',
+        'nodePort' => 'getNodePort',
         'port' => 'getPort',
         'protocol' => 'getProtocol',
-        'target_port' => 'getTargetPort'
+        'targetPort' => 'getTargetPort'
     ];
 
     public static function attributeMap()
@@ -137,10 +137,10 @@ class V1ServicePort implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['node_port'] = isset($data['node_port']) ? $data['node_port'] : null;
+        $this->container['nodePort'] = isset($data['nodePort']) ? $data['nodePort'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['target_port'] = isset($data['target_port']) ? $data['target_port'] : null;
+        $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
     }
 
     /**
@@ -196,22 +196,22 @@ class V1ServicePort implements ArrayAccess
     }
 
     /**
-     * Gets node_port
+     * Gets nodePort
      * @return int
      */
     public function getNodePort()
     {
-        return $this->container['node_port'];
+        return $this->container['nodePort'];
     }
 
     /**
-     * Sets node_port
-     * @param int $node_port The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://kubernetes.io/docs/user-guide/services#type--nodeport
+     * Sets nodePort
+     * @param int $nodePort The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://kubernetes.io/docs/user-guide/services#type--nodeport
      * @return $this
      */
-    public function setNodePort($node_port)
+    public function setNodePort($nodePort)
     {
-        $this->container['node_port'] = $node_port;
+        $this->container['nodePort'] = $nodePort;
 
         return $this;
     }
@@ -259,22 +259,22 @@ class V1ServicePort implements ArrayAccess
     }
 
     /**
-     * Gets target_port
+     * Gets targetPort
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getTargetPort()
     {
-        return $this->container['target_port'];
+        return $this->container['targetPort'];
     }
 
     /**
-     * Sets target_port
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $target_port Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://kubernetes.io/docs/user-guide/services#defining-a-service
+     * Sets targetPort
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $targetPort Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://kubernetes.io/docs/user-guide/services#defining-a-service
      * @return $this
      */
-    public function setTargetPort($target_port)
+    public function setTargetPort($targetPort)
     {
-        $this->container['target_port'] = $target_port;
+        $this->container['targetPort'] = $targetPort;
 
         return $this;
     }

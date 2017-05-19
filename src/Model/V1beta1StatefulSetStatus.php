@@ -55,7 +55,7 @@ class V1beta1StatefulSetStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'observed_generation' => 'int',
+        'observedGeneration' => 'int',
         'replicas' => 'int'
     ];
 
@@ -69,7 +69,7 @@ class V1beta1StatefulSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'observed_generation' => 'observedGeneration',
+        'observedGeneration' => 'observedGeneration',
         'replicas' => 'replicas'
     ];
 
@@ -79,7 +79,7 @@ class V1beta1StatefulSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'observed_generation' => 'setObservedGeneration',
+        'observedGeneration' => 'setObservedGeneration',
         'replicas' => 'setReplicas'
     ];
 
@@ -89,7 +89,7 @@ class V1beta1StatefulSetStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'observed_generation' => 'getObservedGeneration',
+        'observedGeneration' => 'getObservedGeneration',
         'replicas' => 'getReplicas'
     ];
 
@@ -124,7 +124,7 @@ class V1beta1StatefulSetStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['observed_generation'] = isset($data['observed_generation']) ? $data['observed_generation'] : null;
+        $this->container['observedGeneration'] = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1beta1StatefulSetStatus implements ArrayAccess
 
 
     /**
-     * Gets observed_generation
+     * Gets observedGeneration
      * @return int
      */
     public function getObservedGeneration()
     {
-        return $this->container['observed_generation'];
+        return $this->container['observedGeneration'];
     }
 
     /**
-     * Sets observed_generation
-     * @param int $observed_generation most recent generation observed by this StatefulSet.
+     * Sets observedGeneration
+     * @param int $observedGeneration most recent generation observed by this StatefulSet.
      * @return $this
      */
-    public function setObservedGeneration($observed_generation)
+    public function setObservedGeneration($observedGeneration)
     {
-        $this->container['observed_generation'] = $observed_generation;
+        $this->container['observedGeneration'] = $observedGeneration;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1PolicyBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1PolicyBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_modified"
+     * Test attribute "lastModified"
      */
     public function testPropertyLastModified()
     {
@@ -115,7 +115,7 @@ class V1PolicyBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "policy_ref"
+     * Test attribute "policyRef"
      */
     public function testPropertyPolicyRef()
     {
@@ -123,7 +123,7 @@ class V1PolicyBindingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "role_bindings"
+     * Test attribute "roleBindings"
      */
     public function testPropertyRoleBindings()
     {

@@ -55,8 +55,8 @@ class V1OwnerReference implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'block_owner_deletion' => 'bool',
+        'apiVersion' => 'string',
+        'blockOwnerDeletion' => 'bool',
         'controller' => 'bool',
         'kind' => 'string',
         'name' => 'string',
@@ -73,8 +73,8 @@ class V1OwnerReference implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'block_owner_deletion' => 'blockOwnerDeletion',
+        'apiVersion' => 'apiVersion',
+        'blockOwnerDeletion' => 'blockOwnerDeletion',
         'controller' => 'controller',
         'kind' => 'kind',
         'name' => 'name',
@@ -87,8 +87,8 @@ class V1OwnerReference implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'block_owner_deletion' => 'setBlockOwnerDeletion',
+        'apiVersion' => 'setApiVersion',
+        'blockOwnerDeletion' => 'setBlockOwnerDeletion',
         'controller' => 'setController',
         'kind' => 'setKind',
         'name' => 'setName',
@@ -101,8 +101,8 @@ class V1OwnerReference implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'block_owner_deletion' => 'getBlockOwnerDeletion',
+        'apiVersion' => 'getApiVersion',
+        'blockOwnerDeletion' => 'getBlockOwnerDeletion',
         'controller' => 'getController',
         'kind' => 'getKind',
         'name' => 'getName',
@@ -140,8 +140,8 @@ class V1OwnerReference implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['block_owner_deletion'] = isset($data['block_owner_deletion']) ? $data['block_owner_deletion'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['blockOwnerDeletion'] = isset($data['blockOwnerDeletion']) ? $data['blockOwnerDeletion'] : null;
         $this->container['controller'] = isset($data['controller']) ? $data['controller'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -157,8 +157,8 @@ class V1OwnerReference implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['api_version'] === null) {
-            $invalid_properties[] = "'api_version' can't be null";
+        if ($this->container['apiVersion'] === null) {
+            $invalid_properties[] = "'apiVersion' can't be null";
         }
         if ($this->container['kind'] === null) {
             $invalid_properties[] = "'kind' can't be null";
@@ -181,7 +181,7 @@ class V1OwnerReference implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['api_version'] === null) {
+        if ($this->container['apiVersion'] === null) {
             return false;
         }
         if ($this->container['kind'] === null) {
@@ -198,43 +198,43 @@ class V1OwnerReference implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version API version of the referent.
+     * Sets apiVersion
+     * @param string $apiVersion API version of the referent.
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets block_owner_deletion
+     * Gets blockOwnerDeletion
      * @return bool
      */
     public function getBlockOwnerDeletion()
     {
-        return $this->container['block_owner_deletion'];
+        return $this->container['blockOwnerDeletion'];
     }
 
     /**
-     * Sets block_owner_deletion
-     * @param bool $block_owner_deletion If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
+     * Sets blockOwnerDeletion
+     * @param bool $blockOwnerDeletion If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
      * @return $this
      */
-    public function setBlockOwnerDeletion($block_owner_deletion)
+    public function setBlockOwnerDeletion($blockOwnerDeletion)
     {
-        $this->container['block_owner_deletion'] = $block_owner_deletion;
+        $this->container['blockOwnerDeletion'] = $blockOwnerDeletion;
 
         return $this;
     }

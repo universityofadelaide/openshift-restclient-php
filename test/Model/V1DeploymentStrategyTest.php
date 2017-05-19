@@ -83,7 +83,7 @@ class V1DeploymentStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "active_deadline_seconds"
+     * Test attribute "activeDeadlineSeconds"
      */
     public function testPropertyActiveDeadlineSeconds()
     {
@@ -99,7 +99,7 @@ class V1DeploymentStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "custom_params"
+     * Test attribute "customParams"
      */
     public function testPropertyCustomParams()
     {
@@ -115,7 +115,7 @@ class V1DeploymentStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "recreate_params"
+     * Test attribute "recreateParams"
      */
     public function testPropertyRecreateParams()
     {
@@ -131,7 +131,7 @@ class V1DeploymentStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "rolling_params"
+     * Test attribute "rollingParams"
      */
     public function testPropertyRollingParams()
     {

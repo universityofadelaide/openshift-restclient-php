@@ -55,7 +55,7 @@ class V1ImageLayer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'media_type' => 'string',
+        'mediaType' => 'string',
         'name' => 'string',
         'size' => 'int'
     ];
@@ -70,7 +70,7 @@ class V1ImageLayer implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'media_type' => 'mediaType',
+        'mediaType' => 'mediaType',
         'name' => 'name',
         'size' => 'size'
     ];
@@ -81,7 +81,7 @@ class V1ImageLayer implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'media_type' => 'setMediaType',
+        'mediaType' => 'setMediaType',
         'name' => 'setName',
         'size' => 'setSize'
     ];
@@ -92,7 +92,7 @@ class V1ImageLayer implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'media_type' => 'getMediaType',
+        'mediaType' => 'getMediaType',
         'name' => 'getName',
         'size' => 'getSize'
     ];
@@ -128,7 +128,7 @@ class V1ImageLayer implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['media_type'] = isset($data['media_type']) ? $data['media_type'] : null;
+        $this->container['mediaType'] = isset($data['mediaType']) ? $data['mediaType'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
@@ -142,8 +142,8 @@ class V1ImageLayer implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['media_type'] === null) {
-            $invalid_properties[] = "'media_type' can't be null";
+        if ($this->container['mediaType'] === null) {
+            $invalid_properties[] = "'mediaType' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
@@ -163,7 +163,7 @@ class V1ImageLayer implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['media_type'] === null) {
+        if ($this->container['mediaType'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -177,22 +177,22 @@ class V1ImageLayer implements ArrayAccess
 
 
     /**
-     * Gets media_type
+     * Gets mediaType
      * @return string
      */
     public function getMediaType()
     {
-        return $this->container['media_type'];
+        return $this->container['mediaType'];
     }
 
     /**
-     * Sets media_type
-     * @param string $media_type MediaType of the referenced object.
+     * Sets mediaType
+     * @param string $mediaType MediaType of the referenced object.
      * @return $this
      */
-    public function setMediaType($media_type)
+    public function setMediaType($mediaType)
     {
-        $this->container['media_type'] = $media_type;
+        $this->container['mediaType'] = $mediaType;
 
         return $this;
     }

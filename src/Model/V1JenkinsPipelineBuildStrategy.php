@@ -57,7 +57,7 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     protected static $swaggerTypes = [
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
         'jenkinsfile' => 'string',
-        'jenkinsfile_path' => 'string'
+        'jenkinsfilePath' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -72,7 +72,7 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     protected static $attributeMap = [
         'env' => 'env',
         'jenkinsfile' => 'jenkinsfile',
-        'jenkinsfile_path' => 'jenkinsfilePath'
+        'jenkinsfilePath' => 'jenkinsfilePath'
     ];
 
 
@@ -83,7 +83,7 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     protected static $setters = [
         'env' => 'setEnv',
         'jenkinsfile' => 'setJenkinsfile',
-        'jenkinsfile_path' => 'setJenkinsfilePath'
+        'jenkinsfilePath' => 'setJenkinsfilePath'
     ];
 
 
@@ -94,7 +94,7 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     protected static $getters = [
         'env' => 'getEnv',
         'jenkinsfile' => 'getJenkinsfile',
-        'jenkinsfile_path' => 'getJenkinsfilePath'
+        'jenkinsfilePath' => 'getJenkinsfilePath'
     ];
 
     public static function attributeMap()
@@ -130,7 +130,7 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     {
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
         $this->container['jenkinsfile'] = isset($data['jenkinsfile']) ? $data['jenkinsfile'] : null;
-        $this->container['jenkinsfile_path'] = isset($data['jenkinsfile_path']) ? $data['jenkinsfile_path'] : null;
+        $this->container['jenkinsfilePath'] = isset($data['jenkinsfilePath']) ? $data['jenkinsfilePath'] : null;
     }
 
     /**
@@ -201,22 +201,22 @@ class V1JenkinsPipelineBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets jenkinsfile_path
+     * Gets jenkinsfilePath
      * @return string
      */
     public function getJenkinsfilePath()
     {
-        return $this->container['jenkinsfile_path'];
+        return $this->container['jenkinsfilePath'];
     }
 
     /**
-     * Sets jenkinsfile_path
-     * @param string $jenkinsfile_path JenkinsfilePath is the optional path of the Jenkinsfile that will be used to configure the pipeline relative to the root of the context (contextDir). If both JenkinsfilePath & Jenkinsfile are both not specified, this defaults to Jenkinsfile in the root of the specified contextDir.
+     * Sets jenkinsfilePath
+     * @param string $jenkinsfilePath JenkinsfilePath is the optional path of the Jenkinsfile that will be used to configure the pipeline relative to the root of the context (contextDir). If both JenkinsfilePath & Jenkinsfile are both not specified, this defaults to Jenkinsfile in the root of the specified contextDir.
      * @return $this
      */
-    public function setJenkinsfilePath($jenkinsfile_path)
+    public function setJenkinsfilePath($jenkinsfilePath)
     {
-        $this->container['jenkinsfile_path'] = $jenkinsfile_path;
+        $this->container['jenkinsfilePath'] = $jenkinsfilePath;
 
         return $this;
     }

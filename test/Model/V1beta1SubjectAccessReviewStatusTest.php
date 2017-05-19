@@ -91,7 +91,7 @@ class V1beta1SubjectAccessReviewStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "evaluation_error"
+     * Test attribute "evaluationError"
      */
     public function testPropertyEvaluationError()
     {

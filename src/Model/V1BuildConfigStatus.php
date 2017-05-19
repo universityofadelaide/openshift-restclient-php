@@ -55,7 +55,7 @@ class V1BuildConfigStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'last_version' => 'int'
+        'lastVersion' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1BuildConfigStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_version' => 'lastVersion'
+        'lastVersion' => 'lastVersion'
     ];
 
 
@@ -77,7 +77,7 @@ class V1BuildConfigStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'last_version' => 'setLastVersion'
+        'lastVersion' => 'setLastVersion'
     ];
 
 
@@ -86,7 +86,7 @@ class V1BuildConfigStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'last_version' => 'getLastVersion'
+        'lastVersion' => 'getLastVersion'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1BuildConfigStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['last_version'] = isset($data['last_version']) ? $data['last_version'] : null;
+        $this->container['lastVersion'] = isset($data['lastVersion']) ? $data['lastVersion'] : null;
     }
 
     /**
@@ -132,8 +132,8 @@ class V1BuildConfigStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['last_version'] === null) {
-            $invalid_properties[] = "'last_version' can't be null";
+        if ($this->container['lastVersion'] === null) {
+            $invalid_properties[] = "'lastVersion' can't be null";
         }
         return $invalid_properties;
     }
@@ -147,7 +147,7 @@ class V1BuildConfigStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['last_version'] === null) {
+        if ($this->container['lastVersion'] === null) {
             return false;
         }
         return true;
@@ -155,22 +155,22 @@ class V1BuildConfigStatus implements ArrayAccess
 
 
     /**
-     * Gets last_version
+     * Gets lastVersion
      * @return int
      */
     public function getLastVersion()
     {
-        return $this->container['last_version'];
+        return $this->container['lastVersion'];
     }
 
     /**
-     * Sets last_version
-     * @param int $last_version lastVersion is used to inform about number of last triggered build.
+     * Sets lastVersion
+     * @param int $lastVersion lastVersion is used to inform about number of last triggered build.
      * @return $this
      */
-    public function setLastVersion($last_version)
+    public function setLastVersion($lastVersion)
     {
-        $this->container['last_version'] = $last_version;
+        $this->container['lastVersion'] = $lastVersion;
 
         return $this;
     }

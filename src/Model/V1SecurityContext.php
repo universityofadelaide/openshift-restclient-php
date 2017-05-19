@@ -57,10 +57,10 @@ class V1SecurityContext implements ArrayAccess
     protected static $swaggerTypes = [
         'capabilities' => '\UniversityOfAdelaide\OpenShift\Model\V1Capabilities',
         'privileged' => 'bool',
-        'read_only_root_filesystem' => 'bool',
-        'run_as_non_root' => 'bool',
-        'run_as_user' => 'int',
-        'se_linux_options' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions'
+        'readOnlyRootFilesystem' => 'bool',
+        'runAsNonRoot' => 'bool',
+        'runAsUser' => 'int',
+        'seLinuxOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions'
     ];
 
     public static function swaggerTypes()
@@ -75,10 +75,10 @@ class V1SecurityContext implements ArrayAccess
     protected static $attributeMap = [
         'capabilities' => 'capabilities',
         'privileged' => 'privileged',
-        'read_only_root_filesystem' => 'readOnlyRootFilesystem',
-        'run_as_non_root' => 'runAsNonRoot',
-        'run_as_user' => 'runAsUser',
-        'se_linux_options' => 'seLinuxOptions'
+        'readOnlyRootFilesystem' => 'readOnlyRootFilesystem',
+        'runAsNonRoot' => 'runAsNonRoot',
+        'runAsUser' => 'runAsUser',
+        'seLinuxOptions' => 'seLinuxOptions'
     ];
 
 
@@ -89,10 +89,10 @@ class V1SecurityContext implements ArrayAccess
     protected static $setters = [
         'capabilities' => 'setCapabilities',
         'privileged' => 'setPrivileged',
-        'read_only_root_filesystem' => 'setReadOnlyRootFilesystem',
-        'run_as_non_root' => 'setRunAsNonRoot',
-        'run_as_user' => 'setRunAsUser',
-        'se_linux_options' => 'setSeLinuxOptions'
+        'readOnlyRootFilesystem' => 'setReadOnlyRootFilesystem',
+        'runAsNonRoot' => 'setRunAsNonRoot',
+        'runAsUser' => 'setRunAsUser',
+        'seLinuxOptions' => 'setSeLinuxOptions'
     ];
 
 
@@ -103,10 +103,10 @@ class V1SecurityContext implements ArrayAccess
     protected static $getters = [
         'capabilities' => 'getCapabilities',
         'privileged' => 'getPrivileged',
-        'read_only_root_filesystem' => 'getReadOnlyRootFilesystem',
-        'run_as_non_root' => 'getRunAsNonRoot',
-        'run_as_user' => 'getRunAsUser',
-        'se_linux_options' => 'getSeLinuxOptions'
+        'readOnlyRootFilesystem' => 'getReadOnlyRootFilesystem',
+        'runAsNonRoot' => 'getRunAsNonRoot',
+        'runAsUser' => 'getRunAsUser',
+        'seLinuxOptions' => 'getSeLinuxOptions'
     ];
 
     public static function attributeMap()
@@ -142,10 +142,10 @@ class V1SecurityContext implements ArrayAccess
     {
         $this->container['capabilities'] = isset($data['capabilities']) ? $data['capabilities'] : null;
         $this->container['privileged'] = isset($data['privileged']) ? $data['privileged'] : null;
-        $this->container['read_only_root_filesystem'] = isset($data['read_only_root_filesystem']) ? $data['read_only_root_filesystem'] : null;
-        $this->container['run_as_non_root'] = isset($data['run_as_non_root']) ? $data['run_as_non_root'] : null;
-        $this->container['run_as_user'] = isset($data['run_as_user']) ? $data['run_as_user'] : null;
-        $this->container['se_linux_options'] = isset($data['se_linux_options']) ? $data['se_linux_options'] : null;
+        $this->container['readOnlyRootFilesystem'] = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
+        $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['runAsUser'] = isset($data['runAsUser']) ? $data['runAsUser'] : null;
+        $this->container['seLinuxOptions'] = isset($data['seLinuxOptions']) ? $data['seLinuxOptions'] : null;
     }
 
     /**
@@ -216,85 +216,85 @@ class V1SecurityContext implements ArrayAccess
     }
 
     /**
-     * Gets read_only_root_filesystem
+     * Gets readOnlyRootFilesystem
      * @return bool
      */
     public function getReadOnlyRootFilesystem()
     {
-        return $this->container['read_only_root_filesystem'];
+        return $this->container['readOnlyRootFilesystem'];
     }
 
     /**
-     * Sets read_only_root_filesystem
-     * @param bool $read_only_root_filesystem Whether this container has a read-only root filesystem. Default is false.
+     * Sets readOnlyRootFilesystem
+     * @param bool $readOnlyRootFilesystem Whether this container has a read-only root filesystem. Default is false.
      * @return $this
      */
-    public function setReadOnlyRootFilesystem($read_only_root_filesystem)
+    public function setReadOnlyRootFilesystem($readOnlyRootFilesystem)
     {
-        $this->container['read_only_root_filesystem'] = $read_only_root_filesystem;
+        $this->container['readOnlyRootFilesystem'] = $readOnlyRootFilesystem;
 
         return $this;
     }
 
     /**
-     * Gets run_as_non_root
+     * Gets runAsNonRoot
      * @return bool
      */
     public function getRunAsNonRoot()
     {
-        return $this->container['run_as_non_root'];
+        return $this->container['runAsNonRoot'];
     }
 
     /**
-     * Sets run_as_non_root
-     * @param bool $run_as_non_root Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+     * Sets runAsNonRoot
+     * @param bool $runAsNonRoot Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
      * @return $this
      */
-    public function setRunAsNonRoot($run_as_non_root)
+    public function setRunAsNonRoot($runAsNonRoot)
     {
-        $this->container['run_as_non_root'] = $run_as_non_root;
+        $this->container['runAsNonRoot'] = $runAsNonRoot;
 
         return $this;
     }
 
     /**
-     * Gets run_as_user
+     * Gets runAsUser
      * @return int
      */
     public function getRunAsUser()
     {
-        return $this->container['run_as_user'];
+        return $this->container['runAsUser'];
     }
 
     /**
-     * Sets run_as_user
-     * @param int $run_as_user The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+     * Sets runAsUser
+     * @param int $runAsUser The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
      * @return $this
      */
-    public function setRunAsUser($run_as_user)
+    public function setRunAsUser($runAsUser)
     {
-        $this->container['run_as_user'] = $run_as_user;
+        $this->container['runAsUser'] = $runAsUser;
 
         return $this;
     }
 
     /**
-     * Gets se_linux_options
+     * Gets seLinuxOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions
      */
     public function getSeLinuxOptions()
     {
-        return $this->container['se_linux_options'];
+        return $this->container['seLinuxOptions'];
     }
 
     /**
-     * Sets se_linux_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $se_linux_options The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+     * Sets seLinuxOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $seLinuxOptions The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
      * @return $this
      */
-    public function setSeLinuxOptions($se_linux_options)
+    public function setSeLinuxOptions($seLinuxOptions)
     {
-        $this->container['se_linux_options'] = $se_linux_options;
+        $this->container['seLinuxOptions'] = $seLinuxOptions;
 
         return $this;
     }

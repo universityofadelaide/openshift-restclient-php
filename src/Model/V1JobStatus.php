@@ -56,10 +56,10 @@ class V1JobStatus implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'active' => 'int',
-        'completion_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'completionTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1JobCondition[]',
         'failed' => 'int',
-        'start_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'startTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'succeeded' => 'int'
     ];
 
@@ -74,10 +74,10 @@ class V1JobStatus implements ArrayAccess
      */
     protected static $attributeMap = [
         'active' => 'active',
-        'completion_time' => 'completionTime',
+        'completionTime' => 'completionTime',
         'conditions' => 'conditions',
         'failed' => 'failed',
-        'start_time' => 'startTime',
+        'startTime' => 'startTime',
         'succeeded' => 'succeeded'
     ];
 
@@ -88,10 +88,10 @@ class V1JobStatus implements ArrayAccess
      */
     protected static $setters = [
         'active' => 'setActive',
-        'completion_time' => 'setCompletionTime',
+        'completionTime' => 'setCompletionTime',
         'conditions' => 'setConditions',
         'failed' => 'setFailed',
-        'start_time' => 'setStartTime',
+        'startTime' => 'setStartTime',
         'succeeded' => 'setSucceeded'
     ];
 
@@ -102,10 +102,10 @@ class V1JobStatus implements ArrayAccess
      */
     protected static $getters = [
         'active' => 'getActive',
-        'completion_time' => 'getCompletionTime',
+        'completionTime' => 'getCompletionTime',
         'conditions' => 'getConditions',
         'failed' => 'getFailed',
-        'start_time' => 'getStartTime',
+        'startTime' => 'getStartTime',
         'succeeded' => 'getSucceeded'
     ];
 
@@ -141,10 +141,10 @@ class V1JobStatus implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['completion_time'] = isset($data['completion_time']) ? $data['completion_time'] : null;
+        $this->container['completionTime'] = isset($data['completionTime']) ? $data['completionTime'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
         $this->container['succeeded'] = isset($data['succeeded']) ? $data['succeeded'] : null;
     }
 
@@ -195,22 +195,22 @@ class V1JobStatus implements ArrayAccess
     }
 
     /**
-     * Gets completion_time
+     * Gets completionTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getCompletionTime()
     {
-        return $this->container['completion_time'];
+        return $this->container['completionTime'];
     }
 
     /**
-     * Sets completion_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $completion_time CompletionTime represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
+     * Sets completionTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $completionTime CompletionTime represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
      * @return $this
      */
-    public function setCompletionTime($completion_time)
+    public function setCompletionTime($completionTime)
     {
-        $this->container['completion_time'] = $completion_time;
+        $this->container['completionTime'] = $completionTime;
 
         return $this;
     }
@@ -258,22 +258,22 @@ class V1JobStatus implements ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $start_time StartTime represents time when the job was acknowledged by the Job Manager. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
+     * Sets startTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startTime StartTime represents time when the job was acknowledged by the Job Manager. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }

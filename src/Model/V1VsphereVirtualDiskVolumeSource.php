@@ -55,8 +55,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
-        'volume_path' => 'string'
+        'fsType' => 'string',
+        'volumePath' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
-        'volume_path' => 'volumePath'
+        'fsType' => 'fsType',
+        'volumePath' => 'volumePath'
     ];
 
 
@@ -79,8 +79,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
-        'volume_path' => 'setVolumePath'
+        'fsType' => 'setFsType',
+        'volumePath' => 'setVolumePath'
     ];
 
 
@@ -89,8 +89,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
-        'volume_path' => 'getVolumePath'
+        'fsType' => 'getFsType',
+        'volumePath' => 'getVolumePath'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
-        $this->container['volume_path'] = isset($data['volume_path']) ? $data['volume_path'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->container['volumePath'] = isset($data['volumePath']) ? $data['volumePath'] : null;
     }
 
     /**
@@ -137,8 +137,8 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['volume_path'] === null) {
-            $invalid_properties[] = "'volume_path' can't be null";
+        if ($this->container['volumePath'] === null) {
+            $invalid_properties[] = "'volumePath' can't be null";
         }
         return $invalid_properties;
     }
@@ -152,7 +152,7 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['volume_path'] === null) {
+        if ($this->container['volumePath'] === null) {
             return false;
         }
         return true;
@@ -160,43 +160,43 @@ class V1VsphereVirtualDiskVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
+     * Sets fsType
+     * @param string $fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
 
     /**
-     * Gets volume_path
+     * Gets volumePath
      * @return string
      */
     public function getVolumePath()
     {
-        return $this->container['volume_path'];
+        return $this->container['volumePath'];
     }
 
     /**
-     * Sets volume_path
-     * @param string $volume_path Path that identifies vSphere volume vmdk
+     * Sets volumePath
+     * @param string $volumePath Path that identifies vSphere volume vmdk
      * @return $this
      */
-    public function setVolumePath($volume_path)
+    public function setVolumePath($volumePath)
     {
-        $this->container['volume_path'] = $volume_path;
+        $this->container['volumePath'] = $volumePath;
 
         return $this;
     }

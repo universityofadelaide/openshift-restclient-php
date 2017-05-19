@@ -83,15 +83,15 @@ class V1ServiceSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "cluster_ip"
+     * Test attribute "clusterIP"
      */
-    public function testPropertyClusterIp()
+    public function testPropertyClusterIP()
     {
 
     }
 
     /**
-     * Test attribute "deprecated_public_i_ps"
+     * Test attribute "deprecatedPublicIPs"
      */
     public function testPropertyDeprecatedPublicIPs()
     {
@@ -99,7 +99,7 @@ class V1ServiceSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "external_i_ps"
+     * Test attribute "externalIPs"
      */
     public function testPropertyExternalIPs()
     {
@@ -107,7 +107,7 @@ class V1ServiceSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "external_name"
+     * Test attribute "externalName"
      */
     public function testPropertyExternalName()
     {
@@ -115,15 +115,15 @@ class V1ServiceSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "load_balancer_ip"
+     * Test attribute "loadBalancerIP"
      */
-    public function testPropertyLoadBalancerIp()
+    public function testPropertyLoadBalancerIP()
     {
 
     }
 
     /**
-     * Test attribute "load_balancer_source_ranges"
+     * Test attribute "loadBalancerSourceRanges"
      */
     public function testPropertyLoadBalancerSourceRanges()
     {
@@ -147,7 +147,7 @@ class V1ServiceSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "session_affinity"
+     * Test attribute "sessionAffinity"
      */
     public function testPropertySessionAffinity()
     {

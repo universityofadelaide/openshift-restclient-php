@@ -56,15 +56,15 @@ class V1NodeSystemInfo implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'architecture' => 'string',
-        'boot_id' => 'string',
-        'container_runtime_version' => 'string',
-        'kernel_version' => 'string',
-        'kube_proxy_version' => 'string',
-        'kubelet_version' => 'string',
-        'machine_id' => 'string',
-        'operating_system' => 'string',
-        'os_image' => 'string',
-        'system_uuid' => 'string'
+        'bootID' => 'string',
+        'containerRuntimeVersion' => 'string',
+        'kernelVersion' => 'string',
+        'kubeProxyVersion' => 'string',
+        'kubeletVersion' => 'string',
+        'machineID' => 'string',
+        'operatingSystem' => 'string',
+        'osImage' => 'string',
+        'systemUUID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -78,15 +78,15 @@ class V1NodeSystemInfo implements ArrayAccess
      */
     protected static $attributeMap = [
         'architecture' => 'architecture',
-        'boot_id' => 'bootID',
-        'container_runtime_version' => 'containerRuntimeVersion',
-        'kernel_version' => 'kernelVersion',
-        'kube_proxy_version' => 'kubeProxyVersion',
-        'kubelet_version' => 'kubeletVersion',
-        'machine_id' => 'machineID',
-        'operating_system' => 'operatingSystem',
-        'os_image' => 'osImage',
-        'system_uuid' => 'systemUUID'
+        'bootID' => 'bootID',
+        'containerRuntimeVersion' => 'containerRuntimeVersion',
+        'kernelVersion' => 'kernelVersion',
+        'kubeProxyVersion' => 'kubeProxyVersion',
+        'kubeletVersion' => 'kubeletVersion',
+        'machineID' => 'machineID',
+        'operatingSystem' => 'operatingSystem',
+        'osImage' => 'osImage',
+        'systemUUID' => 'systemUUID'
     ];
 
 
@@ -96,15 +96,15 @@ class V1NodeSystemInfo implements ArrayAccess
      */
     protected static $setters = [
         'architecture' => 'setArchitecture',
-        'boot_id' => 'setBootId',
-        'container_runtime_version' => 'setContainerRuntimeVersion',
-        'kernel_version' => 'setKernelVersion',
-        'kube_proxy_version' => 'setKubeProxyVersion',
-        'kubelet_version' => 'setKubeletVersion',
-        'machine_id' => 'setMachineId',
-        'operating_system' => 'setOperatingSystem',
-        'os_image' => 'setOsImage',
-        'system_uuid' => 'setSystemUuid'
+        'bootID' => 'setBootID',
+        'containerRuntimeVersion' => 'setContainerRuntimeVersion',
+        'kernelVersion' => 'setKernelVersion',
+        'kubeProxyVersion' => 'setKubeProxyVersion',
+        'kubeletVersion' => 'setKubeletVersion',
+        'machineID' => 'setMachineID',
+        'operatingSystem' => 'setOperatingSystem',
+        'osImage' => 'setOsImage',
+        'systemUUID' => 'setSystemUUID'
     ];
 
 
@@ -114,15 +114,15 @@ class V1NodeSystemInfo implements ArrayAccess
      */
     protected static $getters = [
         'architecture' => 'getArchitecture',
-        'boot_id' => 'getBootId',
-        'container_runtime_version' => 'getContainerRuntimeVersion',
-        'kernel_version' => 'getKernelVersion',
-        'kube_proxy_version' => 'getKubeProxyVersion',
-        'kubelet_version' => 'getKubeletVersion',
-        'machine_id' => 'getMachineId',
-        'operating_system' => 'getOperatingSystem',
-        'os_image' => 'getOsImage',
-        'system_uuid' => 'getSystemUuid'
+        'bootID' => 'getBootID',
+        'containerRuntimeVersion' => 'getContainerRuntimeVersion',
+        'kernelVersion' => 'getKernelVersion',
+        'kubeProxyVersion' => 'getKubeProxyVersion',
+        'kubeletVersion' => 'getKubeletVersion',
+        'machineID' => 'getMachineID',
+        'operatingSystem' => 'getOperatingSystem',
+        'osImage' => 'getOsImage',
+        'systemUUID' => 'getSystemUUID'
     ];
 
     public static function attributeMap()
@@ -157,15 +157,15 @@ class V1NodeSystemInfo implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['architecture'] = isset($data['architecture']) ? $data['architecture'] : null;
-        $this->container['boot_id'] = isset($data['boot_id']) ? $data['boot_id'] : null;
-        $this->container['container_runtime_version'] = isset($data['container_runtime_version']) ? $data['container_runtime_version'] : null;
-        $this->container['kernel_version'] = isset($data['kernel_version']) ? $data['kernel_version'] : null;
-        $this->container['kube_proxy_version'] = isset($data['kube_proxy_version']) ? $data['kube_proxy_version'] : null;
-        $this->container['kubelet_version'] = isset($data['kubelet_version']) ? $data['kubelet_version'] : null;
-        $this->container['machine_id'] = isset($data['machine_id']) ? $data['machine_id'] : null;
-        $this->container['operating_system'] = isset($data['operating_system']) ? $data['operating_system'] : null;
-        $this->container['os_image'] = isset($data['os_image']) ? $data['os_image'] : null;
-        $this->container['system_uuid'] = isset($data['system_uuid']) ? $data['system_uuid'] : null;
+        $this->container['bootID'] = isset($data['bootID']) ? $data['bootID'] : null;
+        $this->container['containerRuntimeVersion'] = isset($data['containerRuntimeVersion']) ? $data['containerRuntimeVersion'] : null;
+        $this->container['kernelVersion'] = isset($data['kernelVersion']) ? $data['kernelVersion'] : null;
+        $this->container['kubeProxyVersion'] = isset($data['kubeProxyVersion']) ? $data['kubeProxyVersion'] : null;
+        $this->container['kubeletVersion'] = isset($data['kubeletVersion']) ? $data['kubeletVersion'] : null;
+        $this->container['machineID'] = isset($data['machineID']) ? $data['machineID'] : null;
+        $this->container['operatingSystem'] = isset($data['operatingSystem']) ? $data['operatingSystem'] : null;
+        $this->container['osImage'] = isset($data['osImage']) ? $data['osImage'] : null;
+        $this->container['systemUUID'] = isset($data['systemUUID']) ? $data['systemUUID'] : null;
     }
 
     /**
@@ -180,32 +180,32 @@ class V1NodeSystemInfo implements ArrayAccess
         if ($this->container['architecture'] === null) {
             $invalid_properties[] = "'architecture' can't be null";
         }
-        if ($this->container['boot_id'] === null) {
-            $invalid_properties[] = "'boot_id' can't be null";
+        if ($this->container['bootID'] === null) {
+            $invalid_properties[] = "'bootID' can't be null";
         }
-        if ($this->container['container_runtime_version'] === null) {
-            $invalid_properties[] = "'container_runtime_version' can't be null";
+        if ($this->container['containerRuntimeVersion'] === null) {
+            $invalid_properties[] = "'containerRuntimeVersion' can't be null";
         }
-        if ($this->container['kernel_version'] === null) {
-            $invalid_properties[] = "'kernel_version' can't be null";
+        if ($this->container['kernelVersion'] === null) {
+            $invalid_properties[] = "'kernelVersion' can't be null";
         }
-        if ($this->container['kube_proxy_version'] === null) {
-            $invalid_properties[] = "'kube_proxy_version' can't be null";
+        if ($this->container['kubeProxyVersion'] === null) {
+            $invalid_properties[] = "'kubeProxyVersion' can't be null";
         }
-        if ($this->container['kubelet_version'] === null) {
-            $invalid_properties[] = "'kubelet_version' can't be null";
+        if ($this->container['kubeletVersion'] === null) {
+            $invalid_properties[] = "'kubeletVersion' can't be null";
         }
-        if ($this->container['machine_id'] === null) {
-            $invalid_properties[] = "'machine_id' can't be null";
+        if ($this->container['machineID'] === null) {
+            $invalid_properties[] = "'machineID' can't be null";
         }
-        if ($this->container['operating_system'] === null) {
-            $invalid_properties[] = "'operating_system' can't be null";
+        if ($this->container['operatingSystem'] === null) {
+            $invalid_properties[] = "'operatingSystem' can't be null";
         }
-        if ($this->container['os_image'] === null) {
-            $invalid_properties[] = "'os_image' can't be null";
+        if ($this->container['osImage'] === null) {
+            $invalid_properties[] = "'osImage' can't be null";
         }
-        if ($this->container['system_uuid'] === null) {
-            $invalid_properties[] = "'system_uuid' can't be null";
+        if ($this->container['systemUUID'] === null) {
+            $invalid_properties[] = "'systemUUID' can't be null";
         }
         return $invalid_properties;
     }
@@ -222,31 +222,31 @@ class V1NodeSystemInfo implements ArrayAccess
         if ($this->container['architecture'] === null) {
             return false;
         }
-        if ($this->container['boot_id'] === null) {
+        if ($this->container['bootID'] === null) {
             return false;
         }
-        if ($this->container['container_runtime_version'] === null) {
+        if ($this->container['containerRuntimeVersion'] === null) {
             return false;
         }
-        if ($this->container['kernel_version'] === null) {
+        if ($this->container['kernelVersion'] === null) {
             return false;
         }
-        if ($this->container['kube_proxy_version'] === null) {
+        if ($this->container['kubeProxyVersion'] === null) {
             return false;
         }
-        if ($this->container['kubelet_version'] === null) {
+        if ($this->container['kubeletVersion'] === null) {
             return false;
         }
-        if ($this->container['machine_id'] === null) {
+        if ($this->container['machineID'] === null) {
             return false;
         }
-        if ($this->container['operating_system'] === null) {
+        if ($this->container['operatingSystem'] === null) {
             return false;
         }
-        if ($this->container['os_image'] === null) {
+        if ($this->container['osImage'] === null) {
             return false;
         }
-        if ($this->container['system_uuid'] === null) {
+        if ($this->container['systemUUID'] === null) {
             return false;
         }
         return true;
@@ -275,190 +275,190 @@ class V1NodeSystemInfo implements ArrayAccess
     }
 
     /**
-     * Gets boot_id
+     * Gets bootID
      * @return string
      */
-    public function getBootId()
+    public function getBootID()
     {
-        return $this->container['boot_id'];
+        return $this->container['bootID'];
     }
 
     /**
-     * Sets boot_id
-     * @param string $boot_id Boot ID reported by the node.
+     * Sets bootID
+     * @param string $bootID Boot ID reported by the node.
      * @return $this
      */
-    public function setBootId($boot_id)
+    public function setBootID($bootID)
     {
-        $this->container['boot_id'] = $boot_id;
+        $this->container['bootID'] = $bootID;
 
         return $this;
     }
 
     /**
-     * Gets container_runtime_version
+     * Gets containerRuntimeVersion
      * @return string
      */
     public function getContainerRuntimeVersion()
     {
-        return $this->container['container_runtime_version'];
+        return $this->container['containerRuntimeVersion'];
     }
 
     /**
-     * Sets container_runtime_version
-     * @param string $container_runtime_version ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
+     * Sets containerRuntimeVersion
+     * @param string $containerRuntimeVersion ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
      * @return $this
      */
-    public function setContainerRuntimeVersion($container_runtime_version)
+    public function setContainerRuntimeVersion($containerRuntimeVersion)
     {
-        $this->container['container_runtime_version'] = $container_runtime_version;
+        $this->container['containerRuntimeVersion'] = $containerRuntimeVersion;
 
         return $this;
     }
 
     /**
-     * Gets kernel_version
+     * Gets kernelVersion
      * @return string
      */
     public function getKernelVersion()
     {
-        return $this->container['kernel_version'];
+        return $this->container['kernelVersion'];
     }
 
     /**
-     * Sets kernel_version
-     * @param string $kernel_version Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).
+     * Sets kernelVersion
+     * @param string $kernelVersion Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).
      * @return $this
      */
-    public function setKernelVersion($kernel_version)
+    public function setKernelVersion($kernelVersion)
     {
-        $this->container['kernel_version'] = $kernel_version;
+        $this->container['kernelVersion'] = $kernelVersion;
 
         return $this;
     }
 
     /**
-     * Gets kube_proxy_version
+     * Gets kubeProxyVersion
      * @return string
      */
     public function getKubeProxyVersion()
     {
-        return $this->container['kube_proxy_version'];
+        return $this->container['kubeProxyVersion'];
     }
 
     /**
-     * Sets kube_proxy_version
-     * @param string $kube_proxy_version KubeProxy Version reported by the node.
+     * Sets kubeProxyVersion
+     * @param string $kubeProxyVersion KubeProxy Version reported by the node.
      * @return $this
      */
-    public function setKubeProxyVersion($kube_proxy_version)
+    public function setKubeProxyVersion($kubeProxyVersion)
     {
-        $this->container['kube_proxy_version'] = $kube_proxy_version;
+        $this->container['kubeProxyVersion'] = $kubeProxyVersion;
 
         return $this;
     }
 
     /**
-     * Gets kubelet_version
+     * Gets kubeletVersion
      * @return string
      */
     public function getKubeletVersion()
     {
-        return $this->container['kubelet_version'];
+        return $this->container['kubeletVersion'];
     }
 
     /**
-     * Sets kubelet_version
-     * @param string $kubelet_version Kubelet Version reported by the node.
+     * Sets kubeletVersion
+     * @param string $kubeletVersion Kubelet Version reported by the node.
      * @return $this
      */
-    public function setKubeletVersion($kubelet_version)
+    public function setKubeletVersion($kubeletVersion)
     {
-        $this->container['kubelet_version'] = $kubelet_version;
+        $this->container['kubeletVersion'] = $kubeletVersion;
 
         return $this;
     }
 
     /**
-     * Gets machine_id
+     * Gets machineID
      * @return string
      */
-    public function getMachineId()
+    public function getMachineID()
     {
-        return $this->container['machine_id'];
+        return $this->container['machineID'];
     }
 
     /**
-     * Sets machine_id
-     * @param string $machine_id MachineID reported by the node. For unique machine identification in the cluster this field is prefered. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html
+     * Sets machineID
+     * @param string $machineID MachineID reported by the node. For unique machine identification in the cluster this field is prefered. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html
      * @return $this
      */
-    public function setMachineId($machine_id)
+    public function setMachineID($machineID)
     {
-        $this->container['machine_id'] = $machine_id;
+        $this->container['machineID'] = $machineID;
 
         return $this;
     }
 
     /**
-     * Gets operating_system
+     * Gets operatingSystem
      * @return string
      */
     public function getOperatingSystem()
     {
-        return $this->container['operating_system'];
+        return $this->container['operatingSystem'];
     }
 
     /**
-     * Sets operating_system
-     * @param string $operating_system The Operating System reported by the node
+     * Sets operatingSystem
+     * @param string $operatingSystem The Operating System reported by the node
      * @return $this
      */
-    public function setOperatingSystem($operating_system)
+    public function setOperatingSystem($operatingSystem)
     {
-        $this->container['operating_system'] = $operating_system;
+        $this->container['operatingSystem'] = $operatingSystem;
 
         return $this;
     }
 
     /**
-     * Gets os_image
+     * Gets osImage
      * @return string
      */
     public function getOsImage()
     {
-        return $this->container['os_image'];
+        return $this->container['osImage'];
     }
 
     /**
-     * Sets os_image
-     * @param string $os_image OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
+     * Sets osImage
+     * @param string $osImage OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
      * @return $this
      */
-    public function setOsImage($os_image)
+    public function setOsImage($osImage)
     {
-        $this->container['os_image'] = $os_image;
+        $this->container['osImage'] = $osImage;
 
         return $this;
     }
 
     /**
-     * Gets system_uuid
+     * Gets systemUUID
      * @return string
      */
-    public function getSystemUuid()
+    public function getSystemUUID()
     {
-        return $this->container['system_uuid'];
+        return $this->container['systemUUID'];
     }
 
     /**
-     * Sets system_uuid
-     * @param string $system_uuid SystemUUID reported by the node. For unique machine identification MachineID is prefered. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html
+     * Sets systemUUID
+     * @param string $systemUUID SystemUUID reported by the node. For unique machine identification MachineID is prefered. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html
      * @return $this
      */
-    public function setSystemUuid($system_uuid)
+    public function setSystemUUID($systemUUID)
     {
-        $this->container['system_uuid'] = $system_uuid;
+        $this->container['systemUUID'] = $systemUUID;
 
         return $this;
     }

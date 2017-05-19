@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**build_date** | **string** |  | 
+**buildDate** | **string** |  | 
 **compiler** | **string** |  | 
-**git_commit** | **string** |  | 
-**git_tree_state** | **string** |  | 
-**git_version** | **string** |  | 
-**go_version** | **string** |  | 
+**gitCommit** | **string** |  | 
+**gitTreeState** | **string** |  | 
+**gitVersion** | **string** |  | 
+**goVersion** | **string** |  | 
 **major** | **string** |  | 
 **minor** | **string** |  | 
 **platform** | **string** |  | 

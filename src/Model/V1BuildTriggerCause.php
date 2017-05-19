@@ -55,11 +55,11 @@ class V1BuildTriggerCause implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bitbucket_web_hook' => '\UniversityOfAdelaide\OpenShift\Model\V1BitbucketWebHookCause',
-        'generic_web_hook' => '\UniversityOfAdelaide\OpenShift\Model\V1GenericWebHookCause',
-        'github_web_hook' => '\UniversityOfAdelaide\OpenShift\Model\V1GitHubWebHookCause',
-        'gitlab_web_hook' => '\UniversityOfAdelaide\OpenShift\Model\V1GitLabWebHookCause',
-        'image_change_build' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageChangeCause',
+        'bitbucketWebHook' => '\UniversityOfAdelaide\OpenShift\Model\V1BitbucketWebHookCause',
+        'genericWebHook' => '\UniversityOfAdelaide\OpenShift\Model\V1GenericWebHookCause',
+        'githubWebHook' => '\UniversityOfAdelaide\OpenShift\Model\V1GitHubWebHookCause',
+        'gitlabWebHook' => '\UniversityOfAdelaide\OpenShift\Model\V1GitLabWebHookCause',
+        'imageChangeBuild' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageChangeCause',
         'message' => 'string'
     ];
 
@@ -73,11 +73,11 @@ class V1BuildTriggerCause implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bitbucket_web_hook' => 'bitbucketWebHook',
-        'generic_web_hook' => 'genericWebHook',
-        'github_web_hook' => 'githubWebHook',
-        'gitlab_web_hook' => 'gitlabWebHook',
-        'image_change_build' => 'imageChangeBuild',
+        'bitbucketWebHook' => 'bitbucketWebHook',
+        'genericWebHook' => 'genericWebHook',
+        'githubWebHook' => 'githubWebHook',
+        'gitlabWebHook' => 'gitlabWebHook',
+        'imageChangeBuild' => 'imageChangeBuild',
         'message' => 'message'
     ];
 
@@ -87,11 +87,11 @@ class V1BuildTriggerCause implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bitbucket_web_hook' => 'setBitbucketWebHook',
-        'generic_web_hook' => 'setGenericWebHook',
-        'github_web_hook' => 'setGithubWebHook',
-        'gitlab_web_hook' => 'setGitlabWebHook',
-        'image_change_build' => 'setImageChangeBuild',
+        'bitbucketWebHook' => 'setBitbucketWebHook',
+        'genericWebHook' => 'setGenericWebHook',
+        'githubWebHook' => 'setGithubWebHook',
+        'gitlabWebHook' => 'setGitlabWebHook',
+        'imageChangeBuild' => 'setImageChangeBuild',
         'message' => 'setMessage'
     ];
 
@@ -101,11 +101,11 @@ class V1BuildTriggerCause implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bitbucket_web_hook' => 'getBitbucketWebHook',
-        'generic_web_hook' => 'getGenericWebHook',
-        'github_web_hook' => 'getGithubWebHook',
-        'gitlab_web_hook' => 'getGitlabWebHook',
-        'image_change_build' => 'getImageChangeBuild',
+        'bitbucketWebHook' => 'getBitbucketWebHook',
+        'genericWebHook' => 'getGenericWebHook',
+        'githubWebHook' => 'getGithubWebHook',
+        'gitlabWebHook' => 'getGitlabWebHook',
+        'imageChangeBuild' => 'getImageChangeBuild',
         'message' => 'getMessage'
     ];
 
@@ -140,11 +140,11 @@ class V1BuildTriggerCause implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bitbucket_web_hook'] = isset($data['bitbucket_web_hook']) ? $data['bitbucket_web_hook'] : null;
-        $this->container['generic_web_hook'] = isset($data['generic_web_hook']) ? $data['generic_web_hook'] : null;
-        $this->container['github_web_hook'] = isset($data['github_web_hook']) ? $data['github_web_hook'] : null;
-        $this->container['gitlab_web_hook'] = isset($data['gitlab_web_hook']) ? $data['gitlab_web_hook'] : null;
-        $this->container['image_change_build'] = isset($data['image_change_build']) ? $data['image_change_build'] : null;
+        $this->container['bitbucketWebHook'] = isset($data['bitbucketWebHook']) ? $data['bitbucketWebHook'] : null;
+        $this->container['genericWebHook'] = isset($data['genericWebHook']) ? $data['genericWebHook'] : null;
+        $this->container['githubWebHook'] = isset($data['githubWebHook']) ? $data['githubWebHook'] : null;
+        $this->container['gitlabWebHook'] = isset($data['gitlabWebHook']) ? $data['gitlabWebHook'] : null;
+        $this->container['imageChangeBuild'] = isset($data['imageChangeBuild']) ? $data['imageChangeBuild'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
@@ -174,106 +174,106 @@ class V1BuildTriggerCause implements ArrayAccess
 
 
     /**
-     * Gets bitbucket_web_hook
+     * Gets bitbucketWebHook
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BitbucketWebHookCause
      */
     public function getBitbucketWebHook()
     {
-        return $this->container['bitbucket_web_hook'];
+        return $this->container['bitbucketWebHook'];
     }
 
     /**
-     * Sets bitbucket_web_hook
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1BitbucketWebHookCause $bitbucket_web_hook BitbucketWebHook represents data for a Bitbucket webhook that fired a specific build.
+     * Sets bitbucketWebHook
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1BitbucketWebHookCause $bitbucketWebHook BitbucketWebHook represents data for a Bitbucket webhook that fired a specific build.
      * @return $this
      */
-    public function setBitbucketWebHook($bitbucket_web_hook)
+    public function setBitbucketWebHook($bitbucketWebHook)
     {
-        $this->container['bitbucket_web_hook'] = $bitbucket_web_hook;
+        $this->container['bitbucketWebHook'] = $bitbucketWebHook;
 
         return $this;
     }
 
     /**
-     * Gets generic_web_hook
+     * Gets genericWebHook
      * @return \UniversityOfAdelaide\OpenShift\Model\V1GenericWebHookCause
      */
     public function getGenericWebHook()
     {
-        return $this->container['generic_web_hook'];
+        return $this->container['genericWebHook'];
     }
 
     /**
-     * Sets generic_web_hook
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1GenericWebHookCause $generic_web_hook genericWebHook holds data about a builds generic webhook trigger.
+     * Sets genericWebHook
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1GenericWebHookCause $genericWebHook genericWebHook holds data about a builds generic webhook trigger.
      * @return $this
      */
-    public function setGenericWebHook($generic_web_hook)
+    public function setGenericWebHook($genericWebHook)
     {
-        $this->container['generic_web_hook'] = $generic_web_hook;
+        $this->container['genericWebHook'] = $genericWebHook;
 
         return $this;
     }
 
     /**
-     * Gets github_web_hook
+     * Gets githubWebHook
      * @return \UniversityOfAdelaide\OpenShift\Model\V1GitHubWebHookCause
      */
     public function getGithubWebHook()
     {
-        return $this->container['github_web_hook'];
+        return $this->container['githubWebHook'];
     }
 
     /**
-     * Sets github_web_hook
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1GitHubWebHookCause $github_web_hook gitHubWebHook represents data for a GitHub webhook that fired a specific build.
+     * Sets githubWebHook
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1GitHubWebHookCause $githubWebHook gitHubWebHook represents data for a GitHub webhook that fired a specific build.
      * @return $this
      */
-    public function setGithubWebHook($github_web_hook)
+    public function setGithubWebHook($githubWebHook)
     {
-        $this->container['github_web_hook'] = $github_web_hook;
+        $this->container['githubWebHook'] = $githubWebHook;
 
         return $this;
     }
 
     /**
-     * Gets gitlab_web_hook
+     * Gets gitlabWebHook
      * @return \UniversityOfAdelaide\OpenShift\Model\V1GitLabWebHookCause
      */
     public function getGitlabWebHook()
     {
-        return $this->container['gitlab_web_hook'];
+        return $this->container['gitlabWebHook'];
     }
 
     /**
-     * Sets gitlab_web_hook
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1GitLabWebHookCause $gitlab_web_hook GitLabWebHook represents data for a GitLab webhook that fired a specific build.
+     * Sets gitlabWebHook
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1GitLabWebHookCause $gitlabWebHook GitLabWebHook represents data for a GitLab webhook that fired a specific build.
      * @return $this
      */
-    public function setGitlabWebHook($gitlab_web_hook)
+    public function setGitlabWebHook($gitlabWebHook)
     {
-        $this->container['gitlab_web_hook'] = $gitlab_web_hook;
+        $this->container['gitlabWebHook'] = $gitlabWebHook;
 
         return $this;
     }
 
     /**
-     * Gets image_change_build
+     * Gets imageChangeBuild
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeCause
      */
     public function getImageChangeBuild()
     {
-        return $this->container['image_change_build'];
+        return $this->container['imageChangeBuild'];
     }
 
     /**
-     * Sets image_change_build
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeCause $image_change_build imageChangeBuild stores information about an imagechange event that triggered a new build.
+     * Sets imageChangeBuild
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageChangeCause $imageChangeBuild imageChangeBuild stores information about an imagechange event that triggered a new build.
      * @return $this
      */
-    public function setImageChangeBuild($image_change_build)
+    public function setImageChangeBuild($imageChangeBuild)
     {
-        $this->container['image_change_build'] = $image_change_build;
+        $this->container['imageChangeBuild'] = $imageChangeBuild;
 
         return $this;
     }

@@ -55,7 +55,7 @@ class V1SecretBuildSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'destination_dir' => 'string',
+        'destinationDir' => 'string',
         'secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
@@ -69,7 +69,7 @@ class V1SecretBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'destination_dir' => 'destinationDir',
+        'destinationDir' => 'destinationDir',
         'secret' => 'secret'
     ];
 
@@ -79,7 +79,7 @@ class V1SecretBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'destination_dir' => 'setDestinationDir',
+        'destinationDir' => 'setDestinationDir',
         'secret' => 'setSecret'
     ];
 
@@ -89,7 +89,7 @@ class V1SecretBuildSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'destination_dir' => 'getDestinationDir',
+        'destinationDir' => 'getDestinationDir',
         'secret' => 'getSecret'
     ];
 
@@ -124,7 +124,7 @@ class V1SecretBuildSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['destination_dir'] = isset($data['destination_dir']) ? $data['destination_dir'] : null;
+        $this->container['destinationDir'] = isset($data['destinationDir']) ? $data['destinationDir'] : null;
         $this->container['secret'] = isset($data['secret']) ? $data['secret'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1SecretBuildSource implements ArrayAccess
 
 
     /**
-     * Gets destination_dir
+     * Gets destinationDir
      * @return string
      */
     public function getDestinationDir()
     {
-        return $this->container['destination_dir'];
+        return $this->container['destinationDir'];
     }
 
     /**
-     * Sets destination_dir
-     * @param string $destination_dir destinationDir is the directory where the files from the secret should be available for the build time. For the Source build strategy, these will be injected into a container where the assemble script runs. Later, when the script finishes, all files injected will be truncated to zero length. For the Docker build strategy, these will be copied into the build directory, where the Dockerfile is located, so users can ADD or COPY them during docker build.
+     * Sets destinationDir
+     * @param string $destinationDir destinationDir is the directory where the files from the secret should be available for the build time. For the Source build strategy, these will be injected into a container where the assemble script runs. Later, when the script finishes, all files injected will be truncated to zero length. For the Docker build strategy, these will be copied into the build directory, where the Dockerfile is located, so users can ADD or COPY them during docker build.
      * @return $this
      */
-    public function setDestinationDir($destination_dir)
+    public function setDestinationDir($destinationDir)
     {
-        $this->container['destination_dir'] = $destination_dir;
+        $this->container['destinationDir'] = $destinationDir;
 
         return $this;
     }

@@ -107,7 +107,7 @@ class V1TagReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "import_policy"
+     * Test attribute "importPolicy"
      */
     public function testPropertyImportPolicy()
     {
@@ -131,7 +131,7 @@ class V1TagReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "reference_policy"
+     * Test attribute "referencePolicy"
      */
     public function testPropertyReferencePolicy()
     {

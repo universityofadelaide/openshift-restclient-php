@@ -55,12 +55,12 @@ class V1ObjectReference implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'field_path' => 'string',
+        'apiVersion' => 'string',
+        'fieldPath' => 'string',
         'kind' => 'string',
         'name' => 'string',
         'namespace' => 'string',
-        'resource_version' => 'string',
+        'resourceVersion' => 'string',
         'uid' => 'string'
     ];
 
@@ -74,12 +74,12 @@ class V1ObjectReference implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'field_path' => 'fieldPath',
+        'apiVersion' => 'apiVersion',
+        'fieldPath' => 'fieldPath',
         'kind' => 'kind',
         'name' => 'name',
         'namespace' => 'namespace',
-        'resource_version' => 'resourceVersion',
+        'resourceVersion' => 'resourceVersion',
         'uid' => 'uid'
     ];
 
@@ -89,12 +89,12 @@ class V1ObjectReference implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'field_path' => 'setFieldPath',
+        'apiVersion' => 'setApiVersion',
+        'fieldPath' => 'setFieldPath',
         'kind' => 'setKind',
         'name' => 'setName',
         'namespace' => 'setNamespace',
-        'resource_version' => 'setResourceVersion',
+        'resourceVersion' => 'setResourceVersion',
         'uid' => 'setUid'
     ];
 
@@ -104,12 +104,12 @@ class V1ObjectReference implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'field_path' => 'getFieldPath',
+        'apiVersion' => 'getApiVersion',
+        'fieldPath' => 'getFieldPath',
         'kind' => 'getKind',
         'name' => 'getName',
         'namespace' => 'getNamespace',
-        'resource_version' => 'getResourceVersion',
+        'resourceVersion' => 'getResourceVersion',
         'uid' => 'getUid'
     ];
 
@@ -144,12 +144,12 @@ class V1ObjectReference implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['field_path'] = isset($data['field_path']) ? $data['field_path'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['fieldPath'] = isset($data['fieldPath']) ? $data['fieldPath'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['resource_version'] = isset($data['resource_version']) ? $data['resource_version'] : null;
+        $this->container['resourceVersion'] = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
@@ -179,43 +179,43 @@ class V1ObjectReference implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version API version of the referent.
+     * Sets apiVersion
+     * @param string $apiVersion API version of the referent.
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets field_path
+     * Gets fieldPath
      * @return string
      */
     public function getFieldPath()
     {
-        return $this->container['field_path'];
+        return $this->container['fieldPath'];
     }
 
     /**
-     * Sets field_path
-     * @param string $field_path If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
+     * Sets fieldPath
+     * @param string $fieldPath If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
      * @return $this
      */
-    public function setFieldPath($field_path)
+    public function setFieldPath($fieldPath)
     {
-        $this->container['field_path'] = $field_path;
+        $this->container['fieldPath'] = $fieldPath;
 
         return $this;
     }
@@ -284,22 +284,22 @@ class V1ObjectReference implements ArrayAccess
     }
 
     /**
-     * Gets resource_version
+     * Gets resourceVersion
      * @return string
      */
     public function getResourceVersion()
     {
-        return $this->container['resource_version'];
+        return $this->container['resourceVersion'];
     }
 
     /**
-     * Sets resource_version
-     * @param string $resource_version Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
+     * Sets resourceVersion
+     * @param string $resourceVersion Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
      * @return $this
      */
-    public function setResourceVersion($resource_version)
+    public function setResourceVersion($resourceVersion)
     {
-        $this->container['resource_version'] = $resource_version;
+        $this->container['resourceVersion'] = $resourceVersion;
 
         return $this;
     }

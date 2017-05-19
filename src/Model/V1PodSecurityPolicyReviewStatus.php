@@ -55,7 +55,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allowed_service_accounts' => '\UniversityOfAdelaide\OpenShift\Model\V1ServiceAccountPodSecurityPolicyReviewStatus[]'
+        'allowedServiceAccounts' => '\UniversityOfAdelaide\OpenShift\Model\V1ServiceAccountPodSecurityPolicyReviewStatus[]'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allowed_service_accounts' => 'allowedServiceAccounts'
+        'allowedServiceAccounts' => 'allowedServiceAccounts'
     ];
 
 
@@ -77,7 +77,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allowed_service_accounts' => 'setAllowedServiceAccounts'
+        'allowedServiceAccounts' => 'setAllowedServiceAccounts'
     ];
 
 
@@ -86,7 +86,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allowed_service_accounts' => 'getAllowedServiceAccounts'
+        'allowedServiceAccounts' => 'getAllowedServiceAccounts'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allowed_service_accounts'] = isset($data['allowed_service_accounts']) ? $data['allowed_service_accounts'] : null;
+        $this->container['allowedServiceAccounts'] = isset($data['allowedServiceAccounts']) ? $data['allowedServiceAccounts'] : null;
     }
 
     /**
@@ -132,8 +132,8 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['allowed_service_accounts'] === null) {
-            $invalid_properties[] = "'allowed_service_accounts' can't be null";
+        if ($this->container['allowedServiceAccounts'] === null) {
+            $invalid_properties[] = "'allowedServiceAccounts' can't be null";
         }
         return $invalid_properties;
     }
@@ -147,7 +147,7 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['allowed_service_accounts'] === null) {
+        if ($this->container['allowedServiceAccounts'] === null) {
             return false;
         }
         return true;
@@ -155,22 +155,22 @@ class V1PodSecurityPolicyReviewStatus implements ArrayAccess
 
 
     /**
-     * Gets allowed_service_accounts
+     * Gets allowedServiceAccounts
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ServiceAccountPodSecurityPolicyReviewStatus[]
      */
     public function getAllowedServiceAccounts()
     {
-        return $this->container['allowed_service_accounts'];
+        return $this->container['allowedServiceAccounts'];
     }
 
     /**
-     * Sets allowed_service_accounts
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ServiceAccountPodSecurityPolicyReviewStatus[] $allowed_service_accounts allowedServiceAccounts returns the list of service accounts in *this* namespace that have the power to create the PodTemplateSpec.
+     * Sets allowedServiceAccounts
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ServiceAccountPodSecurityPolicyReviewStatus[] $allowedServiceAccounts allowedServiceAccounts returns the list of service accounts in *this* namespace that have the power to create the PodTemplateSpec.
      * @return $this
      */
-    public function setAllowedServiceAccounts($allowed_service_accounts)
+    public function setAllowedServiceAccounts($allowedServiceAccounts)
     {
-        $this->container['allowed_service_accounts'] = $allowed_service_accounts;
+        $this->container['allowedServiceAccounts'] = $allowedServiceAccounts;
 
         return $this;
     }

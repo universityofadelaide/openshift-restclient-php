@@ -91,9 +91,9 @@ class V1ImageChangeTriggerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_triggered_image_id"
+     * Test attribute "lastTriggeredImageID"
      */
-    public function testPropertyLastTriggeredImageId()
+    public function testPropertyLastTriggeredImageID()
     {
 
     }

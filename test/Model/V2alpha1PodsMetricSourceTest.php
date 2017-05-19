@@ -83,7 +83,7 @@ class V2alpha1PodsMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "metric_name"
+     * Test attribute "metricName"
      */
     public function testPropertyMetricName()
     {
@@ -91,7 +91,7 @@ class V2alpha1PodsMetricSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_average_value"
+     * Test attribute "targetAverageValue"
      */
     public function testPropertyTargetAverageValue()
     {

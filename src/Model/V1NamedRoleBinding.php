@@ -56,7 +56,7 @@ class V1NamedRoleBinding implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'role_binding' => '\UniversityOfAdelaide\OpenShift\Model\V1RoleBinding'
+        'roleBinding' => '\UniversityOfAdelaide\OpenShift\Model\V1RoleBinding'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V1NamedRoleBinding implements ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'role_binding' => 'roleBinding'
+        'roleBinding' => 'roleBinding'
     ];
 
 
@@ -80,7 +80,7 @@ class V1NamedRoleBinding implements ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'role_binding' => 'setRoleBinding'
+        'roleBinding' => 'setRoleBinding'
     ];
 
 
@@ -90,7 +90,7 @@ class V1NamedRoleBinding implements ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'role_binding' => 'getRoleBinding'
+        'roleBinding' => 'getRoleBinding'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V1NamedRoleBinding implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['role_binding'] = isset($data['role_binding']) ? $data['role_binding'] : null;
+        $this->container['roleBinding'] = isset($data['roleBinding']) ? $data['roleBinding'] : null;
     }
 
     /**
@@ -140,8 +140,8 @@ class V1NamedRoleBinding implements ArrayAccess
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
         }
-        if ($this->container['role_binding'] === null) {
-            $invalid_properties[] = "'role_binding' can't be null";
+        if ($this->container['roleBinding'] === null) {
+            $invalid_properties[] = "'roleBinding' can't be null";
         }
         return $invalid_properties;
     }
@@ -158,7 +158,7 @@ class V1NamedRoleBinding implements ArrayAccess
         if ($this->container['name'] === null) {
             return false;
         }
-        if ($this->container['role_binding'] === null) {
+        if ($this->container['roleBinding'] === null) {
             return false;
         }
         return true;
@@ -187,22 +187,22 @@ class V1NamedRoleBinding implements ArrayAccess
     }
 
     /**
-     * Gets role_binding
+     * Gets roleBinding
      * @return \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding
      */
     public function getRoleBinding()
     {
-        return $this->container['role_binding'];
+        return $this->container['roleBinding'];
     }
 
     /**
-     * Sets role_binding
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding $role_binding RoleBinding is the role binding being named
+     * Sets roleBinding
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding $roleBinding RoleBinding is the role binding being named
      * @return $this
      */
-    public function setRoleBinding($role_binding)
+    public function setRoleBinding($roleBinding)
     {
-        $this->container['role_binding'] = $role_binding;
+        $this->container['roleBinding'] = $roleBinding;
 
         return $this;
     }

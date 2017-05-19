@@ -55,8 +55,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'claim_name' => 'string',
-        'read_only' => 'bool'
+        'claimName' => 'string',
+        'readOnly' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'claim_name' => 'claimName',
-        'read_only' => 'readOnly'
+        'claimName' => 'claimName',
+        'readOnly' => 'readOnly'
     ];
 
 
@@ -79,8 +79,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'claim_name' => 'setClaimName',
-        'read_only' => 'setReadOnly'
+        'claimName' => 'setClaimName',
+        'readOnly' => 'setReadOnly'
     ];
 
 
@@ -89,8 +89,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'claim_name' => 'getClaimName',
-        'read_only' => 'getReadOnly'
+        'claimName' => 'getClaimName',
+        'readOnly' => 'getReadOnly'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['claim_name'] = isset($data['claim_name']) ? $data['claim_name'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['claimName'] = isset($data['claimName']) ? $data['claimName'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 
     /**
@@ -137,8 +137,8 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['claim_name'] === null) {
-            $invalid_properties[] = "'claim_name' can't be null";
+        if ($this->container['claimName'] === null) {
+            $invalid_properties[] = "'claimName' can't be null";
         }
         return $invalid_properties;
     }
@@ -152,7 +152,7 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['claim_name'] === null) {
+        if ($this->container['claimName'] === null) {
             return false;
         }
         return true;
@@ -160,43 +160,43 @@ class V1PersistentVolumeClaimVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets claim_name
+     * Gets claimName
      * @return string
      */
     public function getClaimName()
     {
-        return $this->container['claim_name'];
+        return $this->container['claimName'];
     }
 
     /**
-     * Sets claim_name
-     * @param string $claim_name ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims
+     * Sets claimName
+     * @param string $claimName ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims
      * @return $this
      */
-    public function setClaimName($claim_name)
+    public function setClaimName($claimName)
     {
-        $this->container['claim_name'] = $claim_name;
+        $this->container['claimName'] = $claimName;
 
         return $this;
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only Will force the ReadOnly setting in VolumeMounts. Default false.
+     * Sets readOnly
+     * @param bool $readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

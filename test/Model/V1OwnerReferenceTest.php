@@ -83,7 +83,7 @@ class V1OwnerReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1OwnerReferenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "block_owner_deletion"
+     * Test attribute "blockOwnerDeletion"
      */
     public function testPropertyBlockOwnerDeletion()
     {

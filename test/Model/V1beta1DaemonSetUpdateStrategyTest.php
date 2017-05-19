@@ -83,7 +83,7 @@ class V1beta1DaemonSetUpdateStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "rolling_update"
+     * Test attribute "rollingUpdate"
      */
     public function testPropertyRollingUpdate()
     {

@@ -99,7 +99,7 @@ class V1JenkinsPipelineBuildStrategyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "jenkinsfile_path"
+     * Test attribute "jenkinsfilePath"
      */
     public function testPropertyJenkinsfilePath()
     {

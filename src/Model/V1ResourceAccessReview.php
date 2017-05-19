@@ -55,16 +55,16 @@ class V1ResourceAccessReview implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'content' => '\UniversityOfAdelaide\OpenShift\Model\RuntimeRawExtension',
-        'is_non_resource_url' => 'bool',
+        'isNonResourceURL' => 'bool',
         'kind' => 'string',
         'namespace' => 'string',
         'path' => 'string',
         'resource' => 'string',
-        'resource_api_group' => 'string',
-        'resource_api_version' => 'string',
-        'resource_name' => 'string',
+        'resourceAPIGroup' => 'string',
+        'resourceAPIVersion' => 'string',
+        'resourceName' => 'string',
         'verb' => 'string'
     ];
 
@@ -78,16 +78,16 @@ class V1ResourceAccessReview implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'content' => 'content',
-        'is_non_resource_url' => 'isNonResourceURL',
+        'isNonResourceURL' => 'isNonResourceURL',
         'kind' => 'kind',
         'namespace' => 'namespace',
         'path' => 'path',
         'resource' => 'resource',
-        'resource_api_group' => 'resourceAPIGroup',
-        'resource_api_version' => 'resourceAPIVersion',
-        'resource_name' => 'resourceName',
+        'resourceAPIGroup' => 'resourceAPIGroup',
+        'resourceAPIVersion' => 'resourceAPIVersion',
+        'resourceName' => 'resourceName',
         'verb' => 'verb'
     ];
 
@@ -97,16 +97,16 @@ class V1ResourceAccessReview implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'content' => 'setContent',
-        'is_non_resource_url' => 'setIsNonResourceUrl',
+        'isNonResourceURL' => 'setIsNonResourceURL',
         'kind' => 'setKind',
         'namespace' => 'setNamespace',
         'path' => 'setPath',
         'resource' => 'setResource',
-        'resource_api_group' => 'setResourceApiGroup',
-        'resource_api_version' => 'setResourceApiVersion',
-        'resource_name' => 'setResourceName',
+        'resourceAPIGroup' => 'setResourceAPIGroup',
+        'resourceAPIVersion' => 'setResourceAPIVersion',
+        'resourceName' => 'setResourceName',
         'verb' => 'setVerb'
     ];
 
@@ -116,16 +116,16 @@ class V1ResourceAccessReview implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'content' => 'getContent',
-        'is_non_resource_url' => 'getIsNonResourceUrl',
+        'isNonResourceURL' => 'getIsNonResourceURL',
         'kind' => 'getKind',
         'namespace' => 'getNamespace',
         'path' => 'getPath',
         'resource' => 'getResource',
-        'resource_api_group' => 'getResourceApiGroup',
-        'resource_api_version' => 'getResourceApiVersion',
-        'resource_name' => 'getResourceName',
+        'resourceAPIGroup' => 'getResourceAPIGroup',
+        'resourceAPIVersion' => 'getResourceAPIVersion',
+        'resourceName' => 'getResourceName',
         'verb' => 'getVerb'
     ];
 
@@ -160,16 +160,16 @@ class V1ResourceAccessReview implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['is_non_resource_url'] = isset($data['is_non_resource_url']) ? $data['is_non_resource_url'] : null;
+        $this->container['isNonResourceURL'] = isset($data['isNonResourceURL']) ? $data['isNonResourceURL'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
-        $this->container['resource_api_group'] = isset($data['resource_api_group']) ? $data['resource_api_group'] : null;
-        $this->container['resource_api_version'] = isset($data['resource_api_version']) ? $data['resource_api_version'] : null;
-        $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
+        $this->container['resourceAPIGroup'] = isset($data['resourceAPIGroup']) ? $data['resourceAPIGroup'] : null;
+        $this->container['resourceAPIVersion'] = isset($data['resourceAPIVersion']) ? $data['resourceAPIVersion'] : null;
+        $this->container['resourceName'] = isset($data['resourceName']) ? $data['resourceName'] : null;
         $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
     }
 
@@ -182,8 +182,8 @@ class V1ResourceAccessReview implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['is_non_resource_url'] === null) {
-            $invalid_properties[] = "'is_non_resource_url' can't be null";
+        if ($this->container['isNonResourceURL'] === null) {
+            $invalid_properties[] = "'isNonResourceURL' can't be null";
         }
         if ($this->container['namespace'] === null) {
             $invalid_properties[] = "'namespace' can't be null";
@@ -194,14 +194,14 @@ class V1ResourceAccessReview implements ArrayAccess
         if ($this->container['resource'] === null) {
             $invalid_properties[] = "'resource' can't be null";
         }
-        if ($this->container['resource_api_group'] === null) {
-            $invalid_properties[] = "'resource_api_group' can't be null";
+        if ($this->container['resourceAPIGroup'] === null) {
+            $invalid_properties[] = "'resourceAPIGroup' can't be null";
         }
-        if ($this->container['resource_api_version'] === null) {
-            $invalid_properties[] = "'resource_api_version' can't be null";
+        if ($this->container['resourceAPIVersion'] === null) {
+            $invalid_properties[] = "'resourceAPIVersion' can't be null";
         }
-        if ($this->container['resource_name'] === null) {
-            $invalid_properties[] = "'resource_name' can't be null";
+        if ($this->container['resourceName'] === null) {
+            $invalid_properties[] = "'resourceName' can't be null";
         }
         if ($this->container['verb'] === null) {
             $invalid_properties[] = "'verb' can't be null";
@@ -218,7 +218,7 @@ class V1ResourceAccessReview implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_non_resource_url'] === null) {
+        if ($this->container['isNonResourceURL'] === null) {
             return false;
         }
         if ($this->container['namespace'] === null) {
@@ -230,13 +230,13 @@ class V1ResourceAccessReview implements ArrayAccess
         if ($this->container['resource'] === null) {
             return false;
         }
-        if ($this->container['resource_api_group'] === null) {
+        if ($this->container['resourceAPIGroup'] === null) {
             return false;
         }
-        if ($this->container['resource_api_version'] === null) {
+        if ($this->container['resourceAPIVersion'] === null) {
             return false;
         }
-        if ($this->container['resource_name'] === null) {
+        if ($this->container['resourceName'] === null) {
             return false;
         }
         if ($this->container['verb'] === null) {
@@ -247,22 +247,22 @@ class V1ResourceAccessReview implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -289,22 +289,22 @@ class V1ResourceAccessReview implements ArrayAccess
     }
 
     /**
-     * Gets is_non_resource_url
+     * Gets isNonResourceURL
      * @return bool
      */
-    public function getIsNonResourceUrl()
+    public function getIsNonResourceURL()
     {
-        return $this->container['is_non_resource_url'];
+        return $this->container['isNonResourceURL'];
     }
 
     /**
-     * Sets is_non_resource_url
-     * @param bool $is_non_resource_url IsNonResourceURL is true if this is a request for a non-resource URL (outside of the resource hieraarchy)
+     * Sets isNonResourceURL
+     * @param bool $isNonResourceURL IsNonResourceURL is true if this is a request for a non-resource URL (outside of the resource hieraarchy)
      * @return $this
      */
-    public function setIsNonResourceUrl($is_non_resource_url)
+    public function setIsNonResourceURL($isNonResourceURL)
     {
-        $this->container['is_non_resource_url'] = $is_non_resource_url;
+        $this->container['isNonResourceURL'] = $isNonResourceURL;
 
         return $this;
     }
@@ -394,64 +394,64 @@ class V1ResourceAccessReview implements ArrayAccess
     }
 
     /**
-     * Gets resource_api_group
+     * Gets resourceAPIGroup
      * @return string
      */
-    public function getResourceApiGroup()
+    public function getResourceAPIGroup()
     {
-        return $this->container['resource_api_group'];
+        return $this->container['resourceAPIGroup'];
     }
 
     /**
-     * Sets resource_api_group
-     * @param string $resource_api_group Group is the API group of the resource Serialized as resourceAPIGroup to avoid confusion with the 'groups' field when inlined
+     * Sets resourceAPIGroup
+     * @param string $resourceAPIGroup Group is the API group of the resource Serialized as resourceAPIGroup to avoid confusion with the 'groups' field when inlined
      * @return $this
      */
-    public function setResourceApiGroup($resource_api_group)
+    public function setResourceAPIGroup($resourceAPIGroup)
     {
-        $this->container['resource_api_group'] = $resource_api_group;
+        $this->container['resourceAPIGroup'] = $resourceAPIGroup;
 
         return $this;
     }
 
     /**
-     * Gets resource_api_version
+     * Gets resourceAPIVersion
      * @return string
      */
-    public function getResourceApiVersion()
+    public function getResourceAPIVersion()
     {
-        return $this->container['resource_api_version'];
+        return $this->container['resourceAPIVersion'];
     }
 
     /**
-     * Sets resource_api_version
-     * @param string $resource_api_version Version is the API version of the resource Serialized as resourceAPIVersion to avoid confusion with TypeMeta.apiVersion and ObjectMeta.resourceVersion when inlined
+     * Sets resourceAPIVersion
+     * @param string $resourceAPIVersion Version is the API version of the resource Serialized as resourceAPIVersion to avoid confusion with TypeMeta.apiVersion and ObjectMeta.resourceVersion when inlined
      * @return $this
      */
-    public function setResourceApiVersion($resource_api_version)
+    public function setResourceAPIVersion($resourceAPIVersion)
     {
-        $this->container['resource_api_version'] = $resource_api_version;
+        $this->container['resourceAPIVersion'] = $resourceAPIVersion;
 
         return $this;
     }
 
     /**
-     * Gets resource_name
+     * Gets resourceName
      * @return string
      */
     public function getResourceName()
     {
-        return $this->container['resource_name'];
+        return $this->container['resourceName'];
     }
 
     /**
-     * Sets resource_name
-     * @param string $resource_name ResourceName is the name of the resource being requested for a \"get\" or deleted for a \"delete\"
+     * Sets resourceName
+     * @param string $resourceName ResourceName is the name of the resource being requested for a \"get\" or deleted for a \"delete\"
      * @return $this
      */
-    public function setResourceName($resource_name)
+    public function setResourceName($resourceName)
     {
-        $this->container['resource_name'] = $resource_name;
+        $this->container['resourceName'] = $resourceName;
 
         return $this;
     }

@@ -55,7 +55,7 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'evaluation_error' => 'string',
+        'evaluationError' => 'string',
         'rules' => '\UniversityOfAdelaide\OpenShift\Model\V1PolicyRule[]'
     ];
 
@@ -69,7 +69,7 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'evaluation_error' => 'evaluationError',
+        'evaluationError' => 'evaluationError',
         'rules' => 'rules'
     ];
 
@@ -79,7 +79,7 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'evaluation_error' => 'setEvaluationError',
+        'evaluationError' => 'setEvaluationError',
         'rules' => 'setRules'
     ];
 
@@ -89,7 +89,7 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'evaluation_error' => 'getEvaluationError',
+        'evaluationError' => 'getEvaluationError',
         'rules' => 'getRules'
     ];
 
@@ -124,7 +124,7 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['evaluation_error'] = isset($data['evaluation_error']) ? $data['evaluation_error'] : null;
+        $this->container['evaluationError'] = isset($data['evaluationError']) ? $data['evaluationError'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
     }
 
@@ -160,22 +160,22 @@ class V1SubjectRulesReviewStatus implements ArrayAccess
 
 
     /**
-     * Gets evaluation_error
+     * Gets evaluationError
      * @return string
      */
     public function getEvaluationError()
     {
-        return $this->container['evaluation_error'];
+        return $this->container['evaluationError'];
     }
 
     /**
-     * Sets evaluation_error
-     * @param string $evaluation_error EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated.
+     * Sets evaluationError
+     * @param string $evaluationError EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated.
      * @return $this
      */
-    public function setEvaluationError($evaluation_error)
+    public function setEvaluationError($evaluationError)
     {
-        $this->container['evaluation_error'] = $evaluation_error;
+        $this->container['evaluationError'] = $evaluationError;
 
         return $this;
     }

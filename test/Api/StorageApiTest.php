@@ -29,7 +29,6 @@
 namespace UniversityOfAdelaide\OpenShift;
 
 use \UniversityOfAdelaide\OpenShift\Configuration;
-use \UniversityOfAdelaide\OpenShift\ApiClient;
 use \UniversityOfAdelaide\OpenShift\ApiException;
 use \UniversityOfAdelaide\OpenShift\ObjectSerializer;
 

@@ -55,8 +55,8 @@ class V1beta1IngressBackend implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'service_name' => 'string',
-        'service_port' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
+        'serviceName' => 'string',
+        'servicePort' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1beta1IngressBackend implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'service_name' => 'serviceName',
-        'service_port' => 'servicePort'
+        'serviceName' => 'serviceName',
+        'servicePort' => 'servicePort'
     ];
 
 
@@ -79,8 +79,8 @@ class V1beta1IngressBackend implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'service_name' => 'setServiceName',
-        'service_port' => 'setServicePort'
+        'serviceName' => 'setServiceName',
+        'servicePort' => 'setServicePort'
     ];
 
 
@@ -89,8 +89,8 @@ class V1beta1IngressBackend implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'service_name' => 'getServiceName',
-        'service_port' => 'getServicePort'
+        'serviceName' => 'getServiceName',
+        'servicePort' => 'getServicePort'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1beta1IngressBackend implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
-        $this->container['service_port'] = isset($data['service_port']) ? $data['service_port'] : null;
+        $this->container['serviceName'] = isset($data['serviceName']) ? $data['serviceName'] : null;
+        $this->container['servicePort'] = isset($data['servicePort']) ? $data['servicePort'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V1beta1IngressBackend implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['service_name'] === null) {
-            $invalid_properties[] = "'service_name' can't be null";
+        if ($this->container['serviceName'] === null) {
+            $invalid_properties[] = "'serviceName' can't be null";
         }
-        if ($this->container['service_port'] === null) {
-            $invalid_properties[] = "'service_port' can't be null";
+        if ($this->container['servicePort'] === null) {
+            $invalid_properties[] = "'servicePort' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V1beta1IngressBackend implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['service_name'] === null) {
+        if ($this->container['serviceName'] === null) {
             return false;
         }
-        if ($this->container['service_port'] === null) {
+        if ($this->container['servicePort'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V1beta1IngressBackend implements ArrayAccess
 
 
     /**
-     * Gets service_name
+     * Gets serviceName
      * @return string
      */
     public function getServiceName()
     {
-        return $this->container['service_name'];
+        return $this->container['serviceName'];
     }
 
     /**
-     * Sets service_name
-     * @param string $service_name Specifies the name of the referenced service.
+     * Sets serviceName
+     * @param string $serviceName Specifies the name of the referenced service.
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setServiceName($serviceName)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['serviceName'] = $serviceName;
 
         return $this;
     }
 
     /**
-     * Gets service_port
+     * Gets servicePort
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getServicePort()
     {
-        return $this->container['service_port'];
+        return $this->container['servicePort'];
     }
 
     /**
-     * Sets service_port
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $service_port Specifies the port of the referenced service.
+     * Sets servicePort
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $servicePort Specifies the port of the referenced service.
      * @return $this
      */
-    public function setServicePort($service_port)
+    public function setServicePort($servicePort)
     {
-        $this->container['service_port'] = $service_port;
+        $this->container['servicePort'] = $servicePort;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_number_scheduled"
+     * Test attribute "currentNumberScheduled"
      */
     public function testPropertyCurrentNumberScheduled()
     {
@@ -91,7 +91,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "desired_number_scheduled"
+     * Test attribute "desiredNumberScheduled"
      */
     public function testPropertyDesiredNumberScheduled()
     {
@@ -99,7 +99,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "number_available"
+     * Test attribute "numberAvailable"
      */
     public function testPropertyNumberAvailable()
     {
@@ -107,7 +107,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "number_misscheduled"
+     * Test attribute "numberMisscheduled"
      */
     public function testPropertyNumberMisscheduled()
     {
@@ -115,7 +115,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "number_ready"
+     * Test attribute "numberReady"
      */
     public function testPropertyNumberReady()
     {
@@ -123,7 +123,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "number_unavailable"
+     * Test attribute "numberUnavailable"
      */
     public function testPropertyNumberUnavailable()
     {
@@ -131,7 +131,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {
@@ -139,7 +139,7 @@ class V1beta1DaemonSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "updated_number_scheduled"
+     * Test attribute "updatedNumberScheduled"
      */
     public function testPropertyUpdatedNumberScheduled()
     {

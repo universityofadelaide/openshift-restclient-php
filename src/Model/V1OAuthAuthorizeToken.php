@@ -55,18 +55,18 @@ class V1OAuthAuthorizeToken implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'client_name' => 'string',
-        'code_challenge' => 'string',
-        'code_challenge_method' => 'string',
-        'expires_in' => 'int',
+        'apiVersion' => 'string',
+        'clientName' => 'string',
+        'codeChallenge' => 'string',
+        'codeChallengeMethod' => 'string',
+        'expiresIn' => 'int',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'redirect_uri' => 'string',
+        'redirectURI' => 'string',
         'scopes' => 'string[]',
         'state' => 'string',
-        'user_name' => 'string',
-        'user_uid' => 'string'
+        'userName' => 'string',
+        'userUID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -79,18 +79,18 @@ class V1OAuthAuthorizeToken implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'client_name' => 'clientName',
-        'code_challenge' => 'codeChallenge',
-        'code_challenge_method' => 'codeChallengeMethod',
-        'expires_in' => 'expiresIn',
+        'apiVersion' => 'apiVersion',
+        'clientName' => 'clientName',
+        'codeChallenge' => 'codeChallenge',
+        'codeChallengeMethod' => 'codeChallengeMethod',
+        'expiresIn' => 'expiresIn',
         'kind' => 'kind',
         'metadata' => 'metadata',
-        'redirect_uri' => 'redirectURI',
+        'redirectURI' => 'redirectURI',
         'scopes' => 'scopes',
         'state' => 'state',
-        'user_name' => 'userName',
-        'user_uid' => 'userUID'
+        'userName' => 'userName',
+        'userUID' => 'userUID'
     ];
 
 
@@ -99,18 +99,18 @@ class V1OAuthAuthorizeToken implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'client_name' => 'setClientName',
-        'code_challenge' => 'setCodeChallenge',
-        'code_challenge_method' => 'setCodeChallengeMethod',
-        'expires_in' => 'setExpiresIn',
+        'apiVersion' => 'setApiVersion',
+        'clientName' => 'setClientName',
+        'codeChallenge' => 'setCodeChallenge',
+        'codeChallengeMethod' => 'setCodeChallengeMethod',
+        'expiresIn' => 'setExpiresIn',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
-        'redirect_uri' => 'setRedirectUri',
+        'redirectURI' => 'setRedirectURI',
         'scopes' => 'setScopes',
         'state' => 'setState',
-        'user_name' => 'setUserName',
-        'user_uid' => 'setUserUid'
+        'userName' => 'setUserName',
+        'userUID' => 'setUserUID'
     ];
 
 
@@ -119,18 +119,18 @@ class V1OAuthAuthorizeToken implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'client_name' => 'getClientName',
-        'code_challenge' => 'getCodeChallenge',
-        'code_challenge_method' => 'getCodeChallengeMethod',
-        'expires_in' => 'getExpiresIn',
+        'apiVersion' => 'getApiVersion',
+        'clientName' => 'getClientName',
+        'codeChallenge' => 'getCodeChallenge',
+        'codeChallengeMethod' => 'getCodeChallengeMethod',
+        'expiresIn' => 'getExpiresIn',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
-        'redirect_uri' => 'getRedirectUri',
+        'redirectURI' => 'getRedirectURI',
         'scopes' => 'getScopes',
         'state' => 'getState',
-        'user_name' => 'getUserName',
-        'user_uid' => 'getUserUid'
+        'userName' => 'getUserName',
+        'userUID' => 'getUserUID'
     ];
 
     public static function attributeMap()
@@ -164,18 +164,18 @@ class V1OAuthAuthorizeToken implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
-        $this->container['code_challenge'] = isset($data['code_challenge']) ? $data['code_challenge'] : null;
-        $this->container['code_challenge_method'] = isset($data['code_challenge_method']) ? $data['code_challenge_method'] : null;
-        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['clientName'] = isset($data['clientName']) ? $data['clientName'] : null;
+        $this->container['codeChallenge'] = isset($data['codeChallenge']) ? $data['codeChallenge'] : null;
+        $this->container['codeChallengeMethod'] = isset($data['codeChallengeMethod']) ? $data['codeChallengeMethod'] : null;
+        $this->container['expiresIn'] = isset($data['expiresIn']) ? $data['expiresIn'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['redirect_uri'] = isset($data['redirect_uri']) ? $data['redirect_uri'] : null;
+        $this->container['redirectURI'] = isset($data['redirectURI']) ? $data['redirectURI'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
-        $this->container['user_uid'] = isset($data['user_uid']) ? $data['user_uid'] : null;
+        $this->container['userName'] = isset($data['userName']) ? $data['userName'] : null;
+        $this->container['userUID'] = isset($data['userUID']) ? $data['userUID'] : null;
     }
 
     /**
@@ -204,106 +204,106 @@ class V1OAuthAuthorizeToken implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets client_name
+     * Gets clientName
      * @return string
      */
     public function getClientName()
     {
-        return $this->container['client_name'];
+        return $this->container['clientName'];
     }
 
     /**
-     * Sets client_name
-     * @param string $client_name ClientName references the client that created this token.
+     * Sets clientName
+     * @param string $clientName ClientName references the client that created this token.
      * @return $this
      */
-    public function setClientName($client_name)
+    public function setClientName($clientName)
     {
-        $this->container['client_name'] = $client_name;
+        $this->container['clientName'] = $clientName;
 
         return $this;
     }
 
     /**
-     * Gets code_challenge
+     * Gets codeChallenge
      * @return string
      */
     public function getCodeChallenge()
     {
-        return $this->container['code_challenge'];
+        return $this->container['codeChallenge'];
     }
 
     /**
-     * Sets code_challenge
-     * @param string $code_challenge CodeChallenge is the optional code_challenge associated with this authorization code, as described in rfc7636
+     * Sets codeChallenge
+     * @param string $codeChallenge CodeChallenge is the optional code_challenge associated with this authorization code, as described in rfc7636
      * @return $this
      */
-    public function setCodeChallenge($code_challenge)
+    public function setCodeChallenge($codeChallenge)
     {
-        $this->container['code_challenge'] = $code_challenge;
+        $this->container['codeChallenge'] = $codeChallenge;
 
         return $this;
     }
 
     /**
-     * Gets code_challenge_method
+     * Gets codeChallengeMethod
      * @return string
      */
     public function getCodeChallengeMethod()
     {
-        return $this->container['code_challenge_method'];
+        return $this->container['codeChallengeMethod'];
     }
 
     /**
-     * Sets code_challenge_method
-     * @param string $code_challenge_method CodeChallengeMethod is the optional code_challenge_method associated with this authorization code, as described in rfc7636
+     * Sets codeChallengeMethod
+     * @param string $codeChallengeMethod CodeChallengeMethod is the optional code_challenge_method associated with this authorization code, as described in rfc7636
      * @return $this
      */
-    public function setCodeChallengeMethod($code_challenge_method)
+    public function setCodeChallengeMethod($codeChallengeMethod)
     {
-        $this->container['code_challenge_method'] = $code_challenge_method;
+        $this->container['codeChallengeMethod'] = $codeChallengeMethod;
 
         return $this;
     }
 
     /**
-     * Gets expires_in
+     * Gets expiresIn
      * @return int
      */
     public function getExpiresIn()
     {
-        return $this->container['expires_in'];
+        return $this->container['expiresIn'];
     }
 
     /**
-     * Sets expires_in
-     * @param int $expires_in ExpiresIn is the seconds from CreationTime before this token expires.
+     * Sets expiresIn
+     * @param int $expiresIn ExpiresIn is the seconds from CreationTime before this token expires.
      * @return $this
      */
-    public function setExpiresIn($expires_in)
+    public function setExpiresIn($expiresIn)
     {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['expiresIn'] = $expiresIn;
 
         return $this;
     }
@@ -351,22 +351,22 @@ class V1OAuthAuthorizeToken implements ArrayAccess
     }
 
     /**
-     * Gets redirect_uri
+     * Gets redirectURI
      * @return string
      */
-    public function getRedirectUri()
+    public function getRedirectURI()
     {
-        return $this->container['redirect_uri'];
+        return $this->container['redirectURI'];
     }
 
     /**
-     * Sets redirect_uri
-     * @param string $redirect_uri RedirectURI is the redirection associated with the token.
+     * Sets redirectURI
+     * @param string $redirectURI RedirectURI is the redirection associated with the token.
      * @return $this
      */
-    public function setRedirectUri($redirect_uri)
+    public function setRedirectURI($redirectURI)
     {
-        $this->container['redirect_uri'] = $redirect_uri;
+        $this->container['redirectURI'] = $redirectURI;
 
         return $this;
     }
@@ -414,43 +414,43 @@ class V1OAuthAuthorizeToken implements ArrayAccess
     }
 
     /**
-     * Gets user_name
+     * Gets userName
      * @return string
      */
     public function getUserName()
     {
-        return $this->container['user_name'];
+        return $this->container['userName'];
     }
 
     /**
-     * Sets user_name
-     * @param string $user_name UserName is the user name associated with this token
+     * Sets userName
+     * @param string $userName UserName is the user name associated with this token
      * @return $this
      */
-    public function setUserName($user_name)
+    public function setUserName($userName)
     {
-        $this->container['user_name'] = $user_name;
+        $this->container['userName'] = $userName;
 
         return $this;
     }
 
     /**
-     * Gets user_uid
+     * Gets userUID
      * @return string
      */
-    public function getUserUid()
+    public function getUserUID()
     {
-        return $this->container['user_uid'];
+        return $this->container['userUID'];
     }
 
     /**
-     * Sets user_uid
-     * @param string $user_uid UserUID is the unique UID associated with this token. UserUID and UserName must both match for this token to be valid.
+     * Sets userUID
+     * @param string $userUID UserUID is the unique UID associated with this token. UserUID and UserName must both match for this token to be valid.
      * @return $this
      */
-    public function setUserUid($user_uid)
+    public function setUserUID($userUID)
     {
-        $this->container['user_uid'] = $user_uid;
+        $this->container['userUID'] = $userUID;
 
         return $this;
     }

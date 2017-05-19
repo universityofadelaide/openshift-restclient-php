@@ -83,7 +83,7 @@ class V1VolumeMountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "mount_path"
+     * Test attribute "mountPath"
      */
     public function testPropertyMountPath()
     {
@@ -99,7 +99,7 @@ class V1VolumeMountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -107,7 +107,7 @@ class V1VolumeMountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sub_path"
+     * Test attribute "subPath"
      */
     public function testPropertySubPath()
     {

@@ -55,7 +55,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'pod_affinity_term' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm',
+        'podAffinityTerm' => '\UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm',
         'weight' => 'int'
     ];
 
@@ -69,7 +69,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pod_affinity_term' => 'podAffinityTerm',
+        'podAffinityTerm' => 'podAffinityTerm',
         'weight' => 'weight'
     ];
 
@@ -79,7 +79,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'pod_affinity_term' => 'setPodAffinityTerm',
+        'podAffinityTerm' => 'setPodAffinityTerm',
         'weight' => 'setWeight'
     ];
 
@@ -89,7 +89,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'pod_affinity_term' => 'getPodAffinityTerm',
+        'podAffinityTerm' => 'getPodAffinityTerm',
         'weight' => 'getWeight'
     ];
 
@@ -124,7 +124,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['pod_affinity_term'] = isset($data['pod_affinity_term']) ? $data['pod_affinity_term'] : null;
+        $this->container['podAffinityTerm'] = isset($data['podAffinityTerm']) ? $data['podAffinityTerm'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
 
@@ -137,8 +137,8 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['pod_affinity_term'] === null) {
-            $invalid_properties[] = "'pod_affinity_term' can't be null";
+        if ($this->container['podAffinityTerm'] === null) {
+            $invalid_properties[] = "'podAffinityTerm' can't be null";
         }
         if ($this->container['weight'] === null) {
             $invalid_properties[] = "'weight' can't be null";
@@ -155,7 +155,7 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['pod_affinity_term'] === null) {
+        if ($this->container['podAffinityTerm'] === null) {
             return false;
         }
         if ($this->container['weight'] === null) {
@@ -166,22 +166,22 @@ class V1WeightedPodAffinityTerm implements ArrayAccess
 
 
     /**
-     * Gets pod_affinity_term
+     * Gets podAffinityTerm
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm
      */
     public function getPodAffinityTerm()
     {
-        return $this->container['pod_affinity_term'];
+        return $this->container['podAffinityTerm'];
     }
 
     /**
-     * Sets pod_affinity_term
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm $pod_affinity_term Required. A pod affinity term, associated with the corresponding weight.
+     * Sets podAffinityTerm
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodAffinityTerm $podAffinityTerm Required. A pod affinity term, associated with the corresponding weight.
      * @return $this
      */
-    public function setPodAffinityTerm($pod_affinity_term)
+    public function setPodAffinityTerm($podAffinityTerm)
     {
-        $this->container['pod_affinity_term'] = $pod_affinity_term;
+        $this->container['podAffinityTerm'] = $podAffinityTerm;
 
         return $this;
     }

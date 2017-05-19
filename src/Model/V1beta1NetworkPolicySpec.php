@@ -55,7 +55,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ingress' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1NetworkPolicyIngressRule[]',
-        'pod_selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector'
+        'podSelector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector'
     ];
 
     public static function swaggerTypes()
@@ -69,7 +69,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'ingress' => 'ingress',
-        'pod_selector' => 'podSelector'
+        'podSelector' => 'podSelector'
     ];
 
 
@@ -79,7 +79,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
      */
     protected static $setters = [
         'ingress' => 'setIngress',
-        'pod_selector' => 'setPodSelector'
+        'podSelector' => 'setPodSelector'
     ];
 
 
@@ -89,7 +89,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
      */
     protected static $getters = [
         'ingress' => 'getIngress',
-        'pod_selector' => 'getPodSelector'
+        'podSelector' => 'getPodSelector'
     ];
 
     public static function attributeMap()
@@ -124,7 +124,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ingress'] = isset($data['ingress']) ? $data['ingress'] : null;
-        $this->container['pod_selector'] = isset($data['pod_selector']) ? $data['pod_selector'] : null;
+        $this->container['podSelector'] = isset($data['podSelector']) ? $data['podSelector'] : null;
     }
 
     /**
@@ -136,8 +136,8 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['pod_selector'] === null) {
-            $invalid_properties[] = "'pod_selector' can't be null";
+        if ($this->container['podSelector'] === null) {
+            $invalid_properties[] = "'podSelector' can't be null";
         }
         return $invalid_properties;
     }
@@ -151,7 +151,7 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['pod_selector'] === null) {
+        if ($this->container['podSelector'] === null) {
             return false;
         }
         return true;
@@ -180,22 +180,22 @@ class V1beta1NetworkPolicySpec implements ArrayAccess
     }
 
     /**
-     * Gets pod_selector
+     * Gets podSelector
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector
      */
     public function getPodSelector()
     {
-        return $this->container['pod_selector'];
+        return $this->container['podSelector'];
     }
 
     /**
-     * Sets pod_selector
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $pod_selector Selects the pods to which this NetworkPolicy object applies.  The array of ingress rules is applied to any pods selected by this field. Multiple network policies can select the same set of pods.  In this case, the ingress rules for each are combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector matches all pods in this namespace.
+     * Sets podSelector
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelector $podSelector Selects the pods to which this NetworkPolicy object applies.  The array of ingress rules is applied to any pods selected by this field. Multiple network policies can select the same set of pods.  In this case, the ingress rules for each are combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector matches all pods in this namespace.
      * @return $this
      */
-    public function setPodSelector($pod_selector)
+    public function setPodSelector($podSelector)
     {
-        $this->container['pod_selector'] = $pod_selector;
+        $this->container['podSelector'] = $podSelector;
 
         return $this;
     }

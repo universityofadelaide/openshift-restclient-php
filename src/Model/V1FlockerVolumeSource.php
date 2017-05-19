@@ -55,8 +55,8 @@ class V1FlockerVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataset_name' => 'string',
-        'dataset_uuid' => 'string'
+        'datasetName' => 'string',
+        'datasetUUID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1FlockerVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataset_name' => 'datasetName',
-        'dataset_uuid' => 'datasetUUID'
+        'datasetName' => 'datasetName',
+        'datasetUUID' => 'datasetUUID'
     ];
 
 
@@ -79,8 +79,8 @@ class V1FlockerVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dataset_name' => 'setDatasetName',
-        'dataset_uuid' => 'setDatasetUuid'
+        'datasetName' => 'setDatasetName',
+        'datasetUUID' => 'setDatasetUUID'
     ];
 
 
@@ -89,8 +89,8 @@ class V1FlockerVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dataset_name' => 'getDatasetName',
-        'dataset_uuid' => 'getDatasetUuid'
+        'datasetName' => 'getDatasetName',
+        'datasetUUID' => 'getDatasetUUID'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1FlockerVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dataset_name'] = isset($data['dataset_name']) ? $data['dataset_name'] : null;
-        $this->container['dataset_uuid'] = isset($data['dataset_uuid']) ? $data['dataset_uuid'] : null;
+        $this->container['datasetName'] = isset($data['datasetName']) ? $data['datasetName'] : null;
+        $this->container['datasetUUID'] = isset($data['datasetUUID']) ? $data['datasetUUID'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1FlockerVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets dataset_name
+     * Gets datasetName
      * @return string
      */
     public function getDatasetName()
     {
-        return $this->container['dataset_name'];
+        return $this->container['datasetName'];
     }
 
     /**
-     * Sets dataset_name
-     * @param string $dataset_name Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+     * Sets datasetName
+     * @param string $datasetName Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
      * @return $this
      */
-    public function setDatasetName($dataset_name)
+    public function setDatasetName($datasetName)
     {
-        $this->container['dataset_name'] = $dataset_name;
+        $this->container['datasetName'] = $datasetName;
 
         return $this;
     }
 
     /**
-     * Gets dataset_uuid
+     * Gets datasetUUID
      * @return string
      */
-    public function getDatasetUuid()
+    public function getDatasetUUID()
     {
-        return $this->container['dataset_uuid'];
+        return $this->container['datasetUUID'];
     }
 
     /**
-     * Sets dataset_uuid
-     * @param string $dataset_uuid UUID of the dataset. This is unique identifier of a Flocker dataset
+     * Sets datasetUUID
+     * @param string $datasetUUID UUID of the dataset. This is unique identifier of a Flocker dataset
      * @return $this
      */
-    public function setDatasetUuid($dataset_uuid)
+    public function setDatasetUUID($datasetUUID)
     {
-        $this->container['dataset_uuid'] = $dataset_uuid;
+        $this->container['datasetUUID'] = $datasetUUID;
 
         return $this;
     }

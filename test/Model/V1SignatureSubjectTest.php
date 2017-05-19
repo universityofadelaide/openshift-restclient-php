@@ -83,7 +83,7 @@ class V1SignatureSubjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "common_name"
+     * Test attribute "commonName"
      */
     public function testPropertyCommonName()
     {
@@ -99,9 +99,9 @@ class V1SignatureSubjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "public_key_id"
+     * Test attribute "publicKeyID"
      */
-    public function testPropertyPublicKeyId()
+    public function testPropertyPublicKeyID()
     {
 
     }

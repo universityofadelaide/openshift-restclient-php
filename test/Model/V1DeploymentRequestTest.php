@@ -83,9 +83,17 @@ class V1DeploymentRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
+    {
+
+    }
+
+    /**
+     * Test attribute "excludeTriggers"
+     */
+    public function testPropertyExcludeTriggers()
     {
 
     }

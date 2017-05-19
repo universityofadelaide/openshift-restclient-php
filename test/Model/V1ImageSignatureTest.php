@@ -83,7 +83,7 @@ class V1ImageSignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -115,7 +115,7 @@ class V1ImageSignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_identity"
+     * Test attribute "imageIdentity"
      */
     public function testPropertyImageIdentity()
     {
@@ -123,7 +123,7 @@ class V1ImageSignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "issued_by"
+     * Test attribute "issuedBy"
      */
     public function testPropertyIssuedBy()
     {
@@ -131,7 +131,7 @@ class V1ImageSignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "issued_to"
+     * Test attribute "issuedTo"
      */
     public function testPropertyIssuedTo()
     {
@@ -155,7 +155,7 @@ class V1ImageSignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "signed_claims"
+     * Test attribute "signedClaims"
      */
     public function testPropertySignedClaims()
     {

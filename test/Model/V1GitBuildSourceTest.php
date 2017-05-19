@@ -83,7 +83,7 @@ class V1GitBuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "http_proxy"
+     * Test attribute "httpProxy"
      */
     public function testPropertyHttpProxy()
     {
@@ -91,7 +91,7 @@ class V1GitBuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "https_proxy"
+     * Test attribute "httpsProxy"
      */
     public function testPropertyHttpsProxy()
     {
@@ -99,7 +99,7 @@ class V1GitBuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "no_proxy"
+     * Test attribute "noProxy"
      */
     public function testPropertyNoProxy()
     {

@@ -55,10 +55,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cpu_utilization' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1CPUTargetUtilization',
-        'max_replicas' => 'int',
-        'min_replicas' => 'int',
-        'scale_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SubresourceReference'
+        'cpuUtilization' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1CPUTargetUtilization',
+        'maxReplicas' => 'int',
+        'minReplicas' => 'int',
+        'scaleRef' => '\UniversityOfAdelaide\OpenShift\Model\V1beta1SubresourceReference'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cpu_utilization' => 'cpuUtilization',
-        'max_replicas' => 'maxReplicas',
-        'min_replicas' => 'minReplicas',
-        'scale_ref' => 'scaleRef'
+        'cpuUtilization' => 'cpuUtilization',
+        'maxReplicas' => 'maxReplicas',
+        'minReplicas' => 'minReplicas',
+        'scaleRef' => 'scaleRef'
     ];
 
 
@@ -83,10 +83,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cpu_utilization' => 'setCpuUtilization',
-        'max_replicas' => 'setMaxReplicas',
-        'min_replicas' => 'setMinReplicas',
-        'scale_ref' => 'setScaleRef'
+        'cpuUtilization' => 'setCpuUtilization',
+        'maxReplicas' => 'setMaxReplicas',
+        'minReplicas' => 'setMinReplicas',
+        'scaleRef' => 'setScaleRef'
     ];
 
 
@@ -95,10 +95,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cpu_utilization' => 'getCpuUtilization',
-        'max_replicas' => 'getMaxReplicas',
-        'min_replicas' => 'getMinReplicas',
-        'scale_ref' => 'getScaleRef'
+        'cpuUtilization' => 'getCpuUtilization',
+        'maxReplicas' => 'getMaxReplicas',
+        'minReplicas' => 'getMinReplicas',
+        'scaleRef' => 'getScaleRef'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cpu_utilization'] = isset($data['cpu_utilization']) ? $data['cpu_utilization'] : null;
-        $this->container['max_replicas'] = isset($data['max_replicas']) ? $data['max_replicas'] : null;
-        $this->container['min_replicas'] = isset($data['min_replicas']) ? $data['min_replicas'] : null;
-        $this->container['scale_ref'] = isset($data['scale_ref']) ? $data['scale_ref'] : null;
+        $this->container['cpuUtilization'] = isset($data['cpuUtilization']) ? $data['cpuUtilization'] : null;
+        $this->container['maxReplicas'] = isset($data['maxReplicas']) ? $data['maxReplicas'] : null;
+        $this->container['minReplicas'] = isset($data['minReplicas']) ? $data['minReplicas'] : null;
+        $this->container['scaleRef'] = isset($data['scaleRef']) ? $data['scaleRef'] : null;
     }
 
     /**
@@ -147,11 +147,11 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['max_replicas'] === null) {
-            $invalid_properties[] = "'max_replicas' can't be null";
+        if ($this->container['maxReplicas'] === null) {
+            $invalid_properties[] = "'maxReplicas' can't be null";
         }
-        if ($this->container['scale_ref'] === null) {
-            $invalid_properties[] = "'scale_ref' can't be null";
+        if ($this->container['scaleRef'] === null) {
+            $invalid_properties[] = "'scaleRef' can't be null";
         }
         return $invalid_properties;
     }
@@ -165,10 +165,10 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['max_replicas'] === null) {
+        if ($this->container['maxReplicas'] === null) {
             return false;
         }
-        if ($this->container['scale_ref'] === null) {
+        if ($this->container['scaleRef'] === null) {
             return false;
         }
         return true;
@@ -176,85 +176,85 @@ class V1beta1HorizontalPodAutoscalerSpec implements ArrayAccess
 
 
     /**
-     * Gets cpu_utilization
+     * Gets cpuUtilization
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1CPUTargetUtilization
      */
     public function getCpuUtilization()
     {
-        return $this->container['cpu_utilization'];
+        return $this->container['cpuUtilization'];
     }
 
     /**
-     * Sets cpu_utilization
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1CPUTargetUtilization $cpu_utilization target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified it defaults to the target CPU utilization at 80% of the requested resources.
+     * Sets cpuUtilization
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1CPUTargetUtilization $cpuUtilization target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified it defaults to the target CPU utilization at 80% of the requested resources.
      * @return $this
      */
-    public function setCpuUtilization($cpu_utilization)
+    public function setCpuUtilization($cpuUtilization)
     {
-        $this->container['cpu_utilization'] = $cpu_utilization;
+        $this->container['cpuUtilization'] = $cpuUtilization;
 
         return $this;
     }
 
     /**
-     * Gets max_replicas
+     * Gets maxReplicas
      * @return int
      */
     public function getMaxReplicas()
     {
-        return $this->container['max_replicas'];
+        return $this->container['maxReplicas'];
     }
 
     /**
-     * Sets max_replicas
-     * @param int $max_replicas upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * Sets maxReplicas
+     * @param int $maxReplicas upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * @return $this
      */
-    public function setMaxReplicas($max_replicas)
+    public function setMaxReplicas($maxReplicas)
     {
-        $this->container['max_replicas'] = $max_replicas;
+        $this->container['maxReplicas'] = $maxReplicas;
 
         return $this;
     }
 
     /**
-     * Gets min_replicas
+     * Gets minReplicas
      * @return int
      */
     public function getMinReplicas()
     {
-        return $this->container['min_replicas'];
+        return $this->container['minReplicas'];
     }
 
     /**
-     * Sets min_replicas
-     * @param int $min_replicas lower limit for the number of pods that can be set by the autoscaler, default 1.
+     * Sets minReplicas
+     * @param int $minReplicas lower limit for the number of pods that can be set by the autoscaler, default 1.
      * @return $this
      */
-    public function setMinReplicas($min_replicas)
+    public function setMinReplicas($minReplicas)
     {
-        $this->container['min_replicas'] = $min_replicas;
+        $this->container['minReplicas'] = $minReplicas;
 
         return $this;
     }
 
     /**
-     * Gets scale_ref
+     * Gets scaleRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1beta1SubresourceReference
      */
     public function getScaleRef()
     {
-        return $this->container['scale_ref'];
+        return $this->container['scaleRef'];
     }
 
     /**
-     * Sets scale_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SubresourceReference $scale_ref reference to Scale subresource; horizontal pod autoscaler will learn the current resource consumption from its status, and will set the desired number of pods by modifying its spec.
+     * Sets scaleRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1beta1SubresourceReference $scaleRef reference to Scale subresource; horizontal pod autoscaler will learn the current resource consumption from its status, and will set the desired number of pods by modifying its spec.
      * @return $this
      */
-    public function setScaleRef($scale_ref)
+    public function setScaleRef($scaleRef)
     {
-        $this->container['scale_ref'] = $scale_ref;
+        $this->container['scaleRef'] = $scaleRef;
 
         return $this;
     }

@@ -55,26 +55,26 @@ class V1PodSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active_deadline_seconds' => 'int',
+        'activeDeadlineSeconds' => 'int',
         'affinity' => '\UniversityOfAdelaide\OpenShift\Model\V1Affinity',
-        'automount_service_account_token' => 'bool',
+        'automountServiceAccountToken' => 'bool',
         'containers' => '\UniversityOfAdelaide\OpenShift\Model\V1Container[]',
-        'dns_policy' => 'string',
-        'host_ipc' => 'bool',
-        'host_network' => 'bool',
-        'host_pid' => 'bool',
+        'dnsPolicy' => 'string',
+        'hostIPC' => 'bool',
+        'hostNetwork' => 'bool',
+        'hostPID' => 'bool',
         'hostname' => 'string',
-        'image_pull_secrets' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]',
-        'init_containers' => '\UniversityOfAdelaide\OpenShift\Model\V1Container[]',
-        'node_name' => 'string',
-        'node_selector' => 'map[string,string]',
-        'restart_policy' => 'string',
-        'scheduler_name' => 'string',
-        'security_context' => '\UniversityOfAdelaide\OpenShift\Model\V1PodSecurityContext',
-        'service_account' => 'string',
-        'service_account_name' => 'string',
+        'imagePullSecrets' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]',
+        'initContainers' => '\UniversityOfAdelaide\OpenShift\Model\V1Container[]',
+        'nodeName' => 'string',
+        'nodeSelector' => 'map[string,string]',
+        'restartPolicy' => 'string',
+        'schedulerName' => 'string',
+        'securityContext' => '\UniversityOfAdelaide\OpenShift\Model\V1PodSecurityContext',
+        'serviceAccount' => 'string',
+        'serviceAccountName' => 'string',
         'subdomain' => 'string',
-        'termination_grace_period_seconds' => 'int',
+        'terminationGracePeriodSeconds' => 'int',
         'tolerations' => '\UniversityOfAdelaide\OpenShift\Model\V1Toleration[]',
         'volumes' => '\UniversityOfAdelaide\OpenShift\Model\V1Volume[]'
     ];
@@ -89,26 +89,26 @@ class V1PodSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_deadline_seconds' => 'activeDeadlineSeconds',
+        'activeDeadlineSeconds' => 'activeDeadlineSeconds',
         'affinity' => 'affinity',
-        'automount_service_account_token' => 'automountServiceAccountToken',
+        'automountServiceAccountToken' => 'automountServiceAccountToken',
         'containers' => 'containers',
-        'dns_policy' => 'dnsPolicy',
-        'host_ipc' => 'hostIPC',
-        'host_network' => 'hostNetwork',
-        'host_pid' => 'hostPID',
+        'dnsPolicy' => 'dnsPolicy',
+        'hostIPC' => 'hostIPC',
+        'hostNetwork' => 'hostNetwork',
+        'hostPID' => 'hostPID',
         'hostname' => 'hostname',
-        'image_pull_secrets' => 'imagePullSecrets',
-        'init_containers' => 'initContainers',
-        'node_name' => 'nodeName',
-        'node_selector' => 'nodeSelector',
-        'restart_policy' => 'restartPolicy',
-        'scheduler_name' => 'schedulerName',
-        'security_context' => 'securityContext',
-        'service_account' => 'serviceAccount',
-        'service_account_name' => 'serviceAccountName',
+        'imagePullSecrets' => 'imagePullSecrets',
+        'initContainers' => 'initContainers',
+        'nodeName' => 'nodeName',
+        'nodeSelector' => 'nodeSelector',
+        'restartPolicy' => 'restartPolicy',
+        'schedulerName' => 'schedulerName',
+        'securityContext' => 'securityContext',
+        'serviceAccount' => 'serviceAccount',
+        'serviceAccountName' => 'serviceAccountName',
         'subdomain' => 'subdomain',
-        'termination_grace_period_seconds' => 'terminationGracePeriodSeconds',
+        'terminationGracePeriodSeconds' => 'terminationGracePeriodSeconds',
         'tolerations' => 'tolerations',
         'volumes' => 'volumes'
     ];
@@ -119,26 +119,26 @@ class V1PodSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active_deadline_seconds' => 'setActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'setActiveDeadlineSeconds',
         'affinity' => 'setAffinity',
-        'automount_service_account_token' => 'setAutomountServiceAccountToken',
+        'automountServiceAccountToken' => 'setAutomountServiceAccountToken',
         'containers' => 'setContainers',
-        'dns_policy' => 'setDnsPolicy',
-        'host_ipc' => 'setHostIpc',
-        'host_network' => 'setHostNetwork',
-        'host_pid' => 'setHostPid',
+        'dnsPolicy' => 'setDnsPolicy',
+        'hostIPC' => 'setHostIPC',
+        'hostNetwork' => 'setHostNetwork',
+        'hostPID' => 'setHostPID',
         'hostname' => 'setHostname',
-        'image_pull_secrets' => 'setImagePullSecrets',
-        'init_containers' => 'setInitContainers',
-        'node_name' => 'setNodeName',
-        'node_selector' => 'setNodeSelector',
-        'restart_policy' => 'setRestartPolicy',
-        'scheduler_name' => 'setSchedulerName',
-        'security_context' => 'setSecurityContext',
-        'service_account' => 'setServiceAccount',
-        'service_account_name' => 'setServiceAccountName',
+        'imagePullSecrets' => 'setImagePullSecrets',
+        'initContainers' => 'setInitContainers',
+        'nodeName' => 'setNodeName',
+        'nodeSelector' => 'setNodeSelector',
+        'restartPolicy' => 'setRestartPolicy',
+        'schedulerName' => 'setSchedulerName',
+        'securityContext' => 'setSecurityContext',
+        'serviceAccount' => 'setServiceAccount',
+        'serviceAccountName' => 'setServiceAccountName',
         'subdomain' => 'setSubdomain',
-        'termination_grace_period_seconds' => 'setTerminationGracePeriodSeconds',
+        'terminationGracePeriodSeconds' => 'setTerminationGracePeriodSeconds',
         'tolerations' => 'setTolerations',
         'volumes' => 'setVolumes'
     ];
@@ -149,26 +149,26 @@ class V1PodSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active_deadline_seconds' => 'getActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'getActiveDeadlineSeconds',
         'affinity' => 'getAffinity',
-        'automount_service_account_token' => 'getAutomountServiceAccountToken',
+        'automountServiceAccountToken' => 'getAutomountServiceAccountToken',
         'containers' => 'getContainers',
-        'dns_policy' => 'getDnsPolicy',
-        'host_ipc' => 'getHostIpc',
-        'host_network' => 'getHostNetwork',
-        'host_pid' => 'getHostPid',
+        'dnsPolicy' => 'getDnsPolicy',
+        'hostIPC' => 'getHostIPC',
+        'hostNetwork' => 'getHostNetwork',
+        'hostPID' => 'getHostPID',
         'hostname' => 'getHostname',
-        'image_pull_secrets' => 'getImagePullSecrets',
-        'init_containers' => 'getInitContainers',
-        'node_name' => 'getNodeName',
-        'node_selector' => 'getNodeSelector',
-        'restart_policy' => 'getRestartPolicy',
-        'scheduler_name' => 'getSchedulerName',
-        'security_context' => 'getSecurityContext',
-        'service_account' => 'getServiceAccount',
-        'service_account_name' => 'getServiceAccountName',
+        'imagePullSecrets' => 'getImagePullSecrets',
+        'initContainers' => 'getInitContainers',
+        'nodeName' => 'getNodeName',
+        'nodeSelector' => 'getNodeSelector',
+        'restartPolicy' => 'getRestartPolicy',
+        'schedulerName' => 'getSchedulerName',
+        'securityContext' => 'getSecurityContext',
+        'serviceAccount' => 'getServiceAccount',
+        'serviceAccountName' => 'getServiceAccountName',
         'subdomain' => 'getSubdomain',
-        'termination_grace_period_seconds' => 'getTerminationGracePeriodSeconds',
+        'terminationGracePeriodSeconds' => 'getTerminationGracePeriodSeconds',
         'tolerations' => 'getTolerations',
         'volumes' => 'getVolumes'
     ];
@@ -204,26 +204,26 @@ class V1PodSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active_deadline_seconds'] = isset($data['active_deadline_seconds']) ? $data['active_deadline_seconds'] : null;
+        $this->container['activeDeadlineSeconds'] = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         $this->container['affinity'] = isset($data['affinity']) ? $data['affinity'] : null;
-        $this->container['automount_service_account_token'] = isset($data['automount_service_account_token']) ? $data['automount_service_account_token'] : null;
+        $this->container['automountServiceAccountToken'] = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
-        $this->container['dns_policy'] = isset($data['dns_policy']) ? $data['dns_policy'] : null;
-        $this->container['host_ipc'] = isset($data['host_ipc']) ? $data['host_ipc'] : null;
-        $this->container['host_network'] = isset($data['host_network']) ? $data['host_network'] : null;
-        $this->container['host_pid'] = isset($data['host_pid']) ? $data['host_pid'] : null;
+        $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
+        $this->container['hostIPC'] = isset($data['hostIPC']) ? $data['hostIPC'] : null;
+        $this->container['hostNetwork'] = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
+        $this->container['hostPID'] = isset($data['hostPID']) ? $data['hostPID'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
-        $this->container['image_pull_secrets'] = isset($data['image_pull_secrets']) ? $data['image_pull_secrets'] : null;
-        $this->container['init_containers'] = isset($data['init_containers']) ? $data['init_containers'] : null;
-        $this->container['node_name'] = isset($data['node_name']) ? $data['node_name'] : null;
-        $this->container['node_selector'] = isset($data['node_selector']) ? $data['node_selector'] : null;
-        $this->container['restart_policy'] = isset($data['restart_policy']) ? $data['restart_policy'] : null;
-        $this->container['scheduler_name'] = isset($data['scheduler_name']) ? $data['scheduler_name'] : null;
-        $this->container['security_context'] = isset($data['security_context']) ? $data['security_context'] : null;
-        $this->container['service_account'] = isset($data['service_account']) ? $data['service_account'] : null;
-        $this->container['service_account_name'] = isset($data['service_account_name']) ? $data['service_account_name'] : null;
+        $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
+        $this->container['initContainers'] = isset($data['initContainers']) ? $data['initContainers'] : null;
+        $this->container['nodeName'] = isset($data['nodeName']) ? $data['nodeName'] : null;
+        $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
+        $this->container['restartPolicy'] = isset($data['restartPolicy']) ? $data['restartPolicy'] : null;
+        $this->container['schedulerName'] = isset($data['schedulerName']) ? $data['schedulerName'] : null;
+        $this->container['securityContext'] = isset($data['securityContext']) ? $data['securityContext'] : null;
+        $this->container['serviceAccount'] = isset($data['serviceAccount']) ? $data['serviceAccount'] : null;
+        $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
         $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
-        $this->container['termination_grace_period_seconds'] = isset($data['termination_grace_period_seconds']) ? $data['termination_grace_period_seconds'] : null;
+        $this->container['terminationGracePeriodSeconds'] = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
         $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
@@ -260,22 +260,22 @@ class V1PodSpec implements ArrayAccess
 
 
     /**
-     * Gets active_deadline_seconds
+     * Gets activeDeadlineSeconds
      * @return int
      */
     public function getActiveDeadlineSeconds()
     {
-        return $this->container['active_deadline_seconds'];
+        return $this->container['activeDeadlineSeconds'];
     }
 
     /**
-     * Sets active_deadline_seconds
-     * @param int $active_deadline_seconds Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
+     * Sets activeDeadlineSeconds
+     * @param int $activeDeadlineSeconds Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
      * @return $this
      */
-    public function setActiveDeadlineSeconds($active_deadline_seconds)
+    public function setActiveDeadlineSeconds($activeDeadlineSeconds)
     {
-        $this->container['active_deadline_seconds'] = $active_deadline_seconds;
+        $this->container['activeDeadlineSeconds'] = $activeDeadlineSeconds;
 
         return $this;
     }
@@ -302,22 +302,22 @@ class V1PodSpec implements ArrayAccess
     }
 
     /**
-     * Gets automount_service_account_token
+     * Gets automountServiceAccountToken
      * @return bool
      */
     public function getAutomountServiceAccountToken()
     {
-        return $this->container['automount_service_account_token'];
+        return $this->container['automountServiceAccountToken'];
     }
 
     /**
-     * Sets automount_service_account_token
-     * @param bool $automount_service_account_token AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
+     * Sets automountServiceAccountToken
+     * @param bool $automountServiceAccountToken AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
      * @return $this
      */
-    public function setAutomountServiceAccountToken($automount_service_account_token)
+    public function setAutomountServiceAccountToken($automountServiceAccountToken)
     {
-        $this->container['automount_service_account_token'] = $automount_service_account_token;
+        $this->container['automountServiceAccountToken'] = $automountServiceAccountToken;
 
         return $this;
     }
@@ -344,85 +344,85 @@ class V1PodSpec implements ArrayAccess
     }
 
     /**
-     * Gets dns_policy
+     * Gets dnsPolicy
      * @return string
      */
     public function getDnsPolicy()
     {
-        return $this->container['dns_policy'];
+        return $this->container['dnsPolicy'];
     }
 
     /**
-     * Sets dns_policy
-     * @param string $dns_policy Set DNS policy for containers within the pod. One of 'ClusterFirstWithHostNet', 'ClusterFirst' or 'Default'. Defaults to \"ClusterFirst\". To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
+     * Sets dnsPolicy
+     * @param string $dnsPolicy Set DNS policy for containers within the pod. One of 'ClusterFirstWithHostNet', 'ClusterFirst' or 'Default'. Defaults to \"ClusterFirst\". To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
      * @return $this
      */
-    public function setDnsPolicy($dns_policy)
+    public function setDnsPolicy($dnsPolicy)
     {
-        $this->container['dns_policy'] = $dns_policy;
+        $this->container['dnsPolicy'] = $dnsPolicy;
 
         return $this;
     }
 
     /**
-     * Gets host_ipc
+     * Gets hostIPC
      * @return bool
      */
-    public function getHostIpc()
+    public function getHostIPC()
     {
-        return $this->container['host_ipc'];
+        return $this->container['hostIPC'];
     }
 
     /**
-     * Sets host_ipc
-     * @param bool $host_ipc Use the host's ipc namespace. Optional: Default to false.
+     * Sets hostIPC
+     * @param bool $hostIPC Use the host's ipc namespace. Optional: Default to false.
      * @return $this
      */
-    public function setHostIpc($host_ipc)
+    public function setHostIPC($hostIPC)
     {
-        $this->container['host_ipc'] = $host_ipc;
+        $this->container['hostIPC'] = $hostIPC;
 
         return $this;
     }
 
     /**
-     * Gets host_network
+     * Gets hostNetwork
      * @return bool
      */
     public function getHostNetwork()
     {
-        return $this->container['host_network'];
+        return $this->container['hostNetwork'];
     }
 
     /**
-     * Sets host_network
-     * @param bool $host_network Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified. Default to false.
+     * Sets hostNetwork
+     * @param bool $hostNetwork Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified. Default to false.
      * @return $this
      */
-    public function setHostNetwork($host_network)
+    public function setHostNetwork($hostNetwork)
     {
-        $this->container['host_network'] = $host_network;
+        $this->container['hostNetwork'] = $hostNetwork;
 
         return $this;
     }
 
     /**
-     * Gets host_pid
+     * Gets hostPID
      * @return bool
      */
-    public function getHostPid()
+    public function getHostPID()
     {
-        return $this->container['host_pid'];
+        return $this->container['hostPID'];
     }
 
     /**
-     * Sets host_pid
-     * @param bool $host_pid Use the host's pid namespace. Optional: Default to false.
+     * Sets hostPID
+     * @param bool $hostPID Use the host's pid namespace. Optional: Default to false.
      * @return $this
      */
-    public function setHostPid($host_pid)
+    public function setHostPID($hostPID)
     {
-        $this->container['host_pid'] = $host_pid;
+        $this->container['hostPID'] = $hostPID;
 
         return $this;
     }
@@ -449,190 +449,190 @@ class V1PodSpec implements ArrayAccess
     }
 
     /**
-     * Gets image_pull_secrets
+     * Gets imagePullSecrets
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[]
      */
     public function getImagePullSecrets()
     {
-        return $this->container['image_pull_secrets'];
+        return $this->container['imagePullSecrets'];
     }
 
     /**
-     * Sets image_pull_secrets
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[] $image_pull_secrets ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
+     * Sets imagePullSecrets
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference[] $imagePullSecrets ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
      * @return $this
      */
-    public function setImagePullSecrets($image_pull_secrets)
+    public function setImagePullSecrets($imagePullSecrets)
     {
-        $this->container['image_pull_secrets'] = $image_pull_secrets;
+        $this->container['imagePullSecrets'] = $imagePullSecrets;
 
         return $this;
     }
 
     /**
-     * Gets init_containers
+     * Gets initContainers
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Container[]
      */
     public function getInitContainers()
     {
-        return $this->container['init_containers'];
+        return $this->container['initContainers'];
     }
 
     /**
-     * Sets init_containers
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Container[] $init_containers List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, or Liveness probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers
+     * Sets initContainers
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Container[] $initContainers List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, or Liveness probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers
      * @return $this
      */
-    public function setInitContainers($init_containers)
+    public function setInitContainers($initContainers)
     {
-        $this->container['init_containers'] = $init_containers;
+        $this->container['initContainers'] = $initContainers;
 
         return $this;
     }
 
     /**
-     * Gets node_name
+     * Gets nodeName
      * @return string
      */
     public function getNodeName()
     {
-        return $this->container['node_name'];
+        return $this->container['nodeName'];
     }
 
     /**
-     * Sets node_name
-     * @param string $node_name NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+     * Sets nodeName
+     * @param string $nodeName NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
      * @return $this
      */
-    public function setNodeName($node_name)
+    public function setNodeName($nodeName)
     {
-        $this->container['node_name'] = $node_name;
+        $this->container['nodeName'] = $nodeName;
 
         return $this;
     }
 
     /**
-     * Gets node_selector
+     * Gets nodeSelector
      * @return map[string,string]
      */
     public function getNodeSelector()
     {
-        return $this->container['node_selector'];
+        return $this->container['nodeSelector'];
     }
 
     /**
-     * Sets node_selector
-     * @param map[string,string] $node_selector NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection/README
+     * Sets nodeSelector
+     * @param map[string,string] $nodeSelector NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection/README
      * @return $this
      */
-    public function setNodeSelector($node_selector)
+    public function setNodeSelector($nodeSelector)
     {
-        $this->container['node_selector'] = $node_selector;
+        $this->container['nodeSelector'] = $nodeSelector;
 
         return $this;
     }
 
     /**
-     * Gets restart_policy
+     * Gets restartPolicy
      * @return string
      */
     public function getRestartPolicy()
     {
-        return $this->container['restart_policy'];
+        return $this->container['restartPolicy'];
     }
 
     /**
-     * Sets restart_policy
-     * @param string $restart_policy Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy
+     * Sets restartPolicy
+     * @param string $restartPolicy Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy
      * @return $this
      */
-    public function setRestartPolicy($restart_policy)
+    public function setRestartPolicy($restartPolicy)
     {
-        $this->container['restart_policy'] = $restart_policy;
+        $this->container['restartPolicy'] = $restartPolicy;
 
         return $this;
     }
 
     /**
-     * Gets scheduler_name
+     * Gets schedulerName
      * @return string
      */
     public function getSchedulerName()
     {
-        return $this->container['scheduler_name'];
+        return $this->container['schedulerName'];
     }
 
     /**
-     * Sets scheduler_name
-     * @param string $scheduler_name If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler.
+     * Sets schedulerName
+     * @param string $schedulerName If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler.
      * @return $this
      */
-    public function setSchedulerName($scheduler_name)
+    public function setSchedulerName($schedulerName)
     {
-        $this->container['scheduler_name'] = $scheduler_name;
+        $this->container['schedulerName'] = $schedulerName;
 
         return $this;
     }
 
     /**
-     * Gets security_context
+     * Gets securityContext
      * @return \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityContext
      */
     public function getSecurityContext()
     {
-        return $this->container['security_context'];
+        return $this->container['securityContext'];
     }
 
     /**
-     * Sets security_context
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityContext $security_context SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field.
+     * Sets securityContext
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityContext $securityContext SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field.
      * @return $this
      */
-    public function setSecurityContext($security_context)
+    public function setSecurityContext($securityContext)
     {
-        $this->container['security_context'] = $security_context;
+        $this->container['securityContext'] = $securityContext;
 
         return $this;
     }
 
     /**
-     * Gets service_account
+     * Gets serviceAccount
      * @return string
      */
     public function getServiceAccount()
     {
-        return $this->container['service_account'];
+        return $this->container['serviceAccount'];
     }
 
     /**
-     * Sets service_account
-     * @param string $service_account DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.
+     * Sets serviceAccount
+     * @param string $serviceAccount DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.
      * @return $this
      */
-    public function setServiceAccount($service_account)
+    public function setServiceAccount($serviceAccount)
     {
-        $this->container['service_account'] = $service_account;
+        $this->container['serviceAccount'] = $serviceAccount;
 
         return $this;
     }
 
     /**
-     * Gets service_account_name
+     * Gets serviceAccountName
      * @return string
      */
     public function getServiceAccountName()
     {
-        return $this->container['service_account_name'];
+        return $this->container['serviceAccountName'];
     }
 
     /**
-     * Sets service_account_name
-     * @param string $service_account_name ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md
+     * Sets serviceAccountName
+     * @param string $serviceAccountName ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md
      * @return $this
      */
-    public function setServiceAccountName($service_account_name)
+    public function setServiceAccountName($serviceAccountName)
     {
-        $this->container['service_account_name'] = $service_account_name;
+        $this->container['serviceAccountName'] = $serviceAccountName;
 
         return $this;
     }
@@ -659,22 +659,22 @@ class V1PodSpec implements ArrayAccess
     }
 
     /**
-     * Gets termination_grace_period_seconds
+     * Gets terminationGracePeriodSeconds
      * @return int
      */
     public function getTerminationGracePeriodSeconds()
     {
-        return $this->container['termination_grace_period_seconds'];
+        return $this->container['terminationGracePeriodSeconds'];
     }
 
     /**
-     * Sets termination_grace_period_seconds
-     * @param int $termination_grace_period_seconds Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+     * Sets terminationGracePeriodSeconds
+     * @param int $terminationGracePeriodSeconds Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
      * @return $this
      */
-    public function setTerminationGracePeriodSeconds($termination_grace_period_seconds)
+    public function setTerminationGracePeriodSeconds($terminationGracePeriodSeconds)
     {
-        $this->container['termination_grace_period_seconds'] = $termination_grace_period_seconds;
+        $this->container['terminationGracePeriodSeconds'] = $terminationGracePeriodSeconds;
 
         return $this;
     }

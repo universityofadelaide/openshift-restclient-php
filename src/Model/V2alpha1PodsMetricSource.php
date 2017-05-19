@@ -55,8 +55,8 @@ class V2alpha1PodsMetricSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'metric_name' => 'string',
-        'target_average_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
+        'metricName' => 'string',
+        'targetAverageValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V2alpha1PodsMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'metric_name' => 'metricName',
-        'target_average_value' => 'targetAverageValue'
+        'metricName' => 'metricName',
+        'targetAverageValue' => 'targetAverageValue'
     ];
 
 
@@ -79,8 +79,8 @@ class V2alpha1PodsMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'metric_name' => 'setMetricName',
-        'target_average_value' => 'setTargetAverageValue'
+        'metricName' => 'setMetricName',
+        'targetAverageValue' => 'setTargetAverageValue'
     ];
 
 
@@ -89,8 +89,8 @@ class V2alpha1PodsMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'metric_name' => 'getMetricName',
-        'target_average_value' => 'getTargetAverageValue'
+        'metricName' => 'getMetricName',
+        'targetAverageValue' => 'getTargetAverageValue'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V2alpha1PodsMetricSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['target_average_value'] = isset($data['target_average_value']) ? $data['target_average_value'] : null;
+        $this->container['metricName'] = isset($data['metricName']) ? $data['metricName'] : null;
+        $this->container['targetAverageValue'] = isset($data['targetAverageValue']) ? $data['targetAverageValue'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V2alpha1PodsMetricSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['metric_name'] === null) {
-            $invalid_properties[] = "'metric_name' can't be null";
+        if ($this->container['metricName'] === null) {
+            $invalid_properties[] = "'metricName' can't be null";
         }
-        if ($this->container['target_average_value'] === null) {
-            $invalid_properties[] = "'target_average_value' can't be null";
+        if ($this->container['targetAverageValue'] === null) {
+            $invalid_properties[] = "'targetAverageValue' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V2alpha1PodsMetricSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['metric_name'] === null) {
+        if ($this->container['metricName'] === null) {
             return false;
         }
-        if ($this->container['target_average_value'] === null) {
+        if ($this->container['targetAverageValue'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V2alpha1PodsMetricSource implements ArrayAccess
 
 
     /**
-     * Gets metric_name
+     * Gets metricName
      * @return string
      */
     public function getMetricName()
     {
-        return $this->container['metric_name'];
+        return $this->container['metricName'];
     }
 
     /**
-     * Sets metric_name
-     * @param string $metric_name metricName is the name of the metric in question
+     * Sets metricName
+     * @param string $metricName metricName is the name of the metric in question
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setMetricName($metricName)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['metricName'] = $metricName;
 
         return $this;
     }
 
     /**
-     * Gets target_average_value
+     * Gets targetAverageValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getTargetAverageValue()
     {
-        return $this->container['target_average_value'];
+        return $this->container['targetAverageValue'];
     }
 
     /**
-     * Sets target_average_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $target_average_value targetAverageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+     * Sets targetAverageValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $targetAverageValue targetAverageValue is the target value of the average of the metric across all relevant pods (as a quantity)
      * @return $this
      */
-    public function setTargetAverageValue($target_average_value)
+    public function setTargetAverageValue($targetAverageValue)
     {
-        $this->container['target_average_value'] = $target_average_value;
+        $this->container['targetAverageValue'] = $targetAverageValue;
 
         return $this;
     }

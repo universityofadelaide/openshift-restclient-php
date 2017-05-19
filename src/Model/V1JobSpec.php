@@ -55,9 +55,9 @@ class V1JobSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active_deadline_seconds' => 'int',
+        'activeDeadlineSeconds' => 'int',
         'completions' => 'int',
-        'manual_selector' => 'bool',
+        'manualSelector' => 'bool',
         'parallelism' => 'int',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector',
         'template' => '\UniversityOfAdelaide\OpenShift\Model\V1PodTemplateSpec'
@@ -73,9 +73,9 @@ class V1JobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_deadline_seconds' => 'activeDeadlineSeconds',
+        'activeDeadlineSeconds' => 'activeDeadlineSeconds',
         'completions' => 'completions',
-        'manual_selector' => 'manualSelector',
+        'manualSelector' => 'manualSelector',
         'parallelism' => 'parallelism',
         'selector' => 'selector',
         'template' => 'template'
@@ -87,9 +87,9 @@ class V1JobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active_deadline_seconds' => 'setActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'setActiveDeadlineSeconds',
         'completions' => 'setCompletions',
-        'manual_selector' => 'setManualSelector',
+        'manualSelector' => 'setManualSelector',
         'parallelism' => 'setParallelism',
         'selector' => 'setSelector',
         'template' => 'setTemplate'
@@ -101,9 +101,9 @@ class V1JobSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active_deadline_seconds' => 'getActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'getActiveDeadlineSeconds',
         'completions' => 'getCompletions',
-        'manual_selector' => 'getManualSelector',
+        'manualSelector' => 'getManualSelector',
         'parallelism' => 'getParallelism',
         'selector' => 'getSelector',
         'template' => 'getTemplate'
@@ -140,9 +140,9 @@ class V1JobSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active_deadline_seconds'] = isset($data['active_deadline_seconds']) ? $data['active_deadline_seconds'] : null;
+        $this->container['activeDeadlineSeconds'] = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         $this->container['completions'] = isset($data['completions']) ? $data['completions'] : null;
-        $this->container['manual_selector'] = isset($data['manual_selector']) ? $data['manual_selector'] : null;
+        $this->container['manualSelector'] = isset($data['manualSelector']) ? $data['manualSelector'] : null;
         $this->container['parallelism'] = isset($data['parallelism']) ? $data['parallelism'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
@@ -180,22 +180,22 @@ class V1JobSpec implements ArrayAccess
 
 
     /**
-     * Gets active_deadline_seconds
+     * Gets activeDeadlineSeconds
      * @return int
      */
     public function getActiveDeadlineSeconds()
     {
-        return $this->container['active_deadline_seconds'];
+        return $this->container['activeDeadlineSeconds'];
     }
 
     /**
-     * Sets active_deadline_seconds
-     * @param int $active_deadline_seconds Optional duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer
+     * Sets activeDeadlineSeconds
+     * @param int $activeDeadlineSeconds Optional duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer
      * @return $this
      */
-    public function setActiveDeadlineSeconds($active_deadline_seconds)
+    public function setActiveDeadlineSeconds($activeDeadlineSeconds)
     {
-        $this->container['active_deadline_seconds'] = $active_deadline_seconds;
+        $this->container['activeDeadlineSeconds'] = $activeDeadlineSeconds;
 
         return $this;
     }
@@ -222,22 +222,22 @@ class V1JobSpec implements ArrayAccess
     }
 
     /**
-     * Gets manual_selector
+     * Gets manualSelector
      * @return bool
      */
     public function getManualSelector()
     {
-        return $this->container['manual_selector'];
+        return $this->container['manualSelector'];
     }
 
     /**
-     * Sets manual_selector
-     * @param bool $manual_selector ManualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: http://releases.k8s.io/HEAD/docs/design/selector-generation.md
+     * Sets manualSelector
+     * @param bool $manualSelector ManualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: http://releases.k8s.io/HEAD/docs/design/selector-generation.md
      * @return $this
      */
-    public function setManualSelector($manual_selector)
+    public function setManualSelector($manualSelector)
     {
-        $this->container['manual_selector'] = $manual_selector;
+        $this->container['manualSelector'] = $manualSelector;
 
         return $this;
     }

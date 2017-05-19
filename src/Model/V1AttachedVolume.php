@@ -55,7 +55,7 @@ class V1AttachedVolume implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_path' => 'string',
+        'devicePath' => 'string',
         'name' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class V1AttachedVolume implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_path' => 'devicePath',
+        'devicePath' => 'devicePath',
         'name' => 'name'
     ];
 
@@ -79,7 +79,7 @@ class V1AttachedVolume implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_path' => 'setDevicePath',
+        'devicePath' => 'setDevicePath',
         'name' => 'setName'
     ];
 
@@ -89,7 +89,7 @@ class V1AttachedVolume implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_path' => 'getDevicePath',
+        'devicePath' => 'getDevicePath',
         'name' => 'getName'
     ];
 
@@ -124,7 +124,7 @@ class V1AttachedVolume implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_path'] = isset($data['device_path']) ? $data['device_path'] : null;
+        $this->container['devicePath'] = isset($data['devicePath']) ? $data['devicePath'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
@@ -137,8 +137,8 @@ class V1AttachedVolume implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['device_path'] === null) {
-            $invalid_properties[] = "'device_path' can't be null";
+        if ($this->container['devicePath'] === null) {
+            $invalid_properties[] = "'devicePath' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
@@ -155,7 +155,7 @@ class V1AttachedVolume implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['device_path'] === null) {
+        if ($this->container['devicePath'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -166,22 +166,22 @@ class V1AttachedVolume implements ArrayAccess
 
 
     /**
-     * Gets device_path
+     * Gets devicePath
      * @return string
      */
     public function getDevicePath()
     {
-        return $this->container['device_path'];
+        return $this->container['devicePath'];
     }
 
     /**
-     * Sets device_path
-     * @param string $device_path DevicePath represents the device path where the volume should be available
+     * Sets devicePath
+     * @param string $devicePath DevicePath represents the device path where the volume should be available
      * @return $this
      */
-    public function setDevicePath($device_path)
+    public function setDevicePath($devicePath)
     {
-        $this->container['device_path'] = $device_path;
+        $this->container['devicePath'] = $devicePath;
 
         return $this;
     }

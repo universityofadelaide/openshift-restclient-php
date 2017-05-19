@@ -55,9 +55,9 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'metric_name' => 'string',
+        'metricName' => 'string',
         'target' => '\UniversityOfAdelaide\OpenShift\Model\V2alpha1CrossVersionObjectReference',
-        'target_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
+        'targetValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'metric_name' => 'metricName',
+        'metricName' => 'metricName',
         'target' => 'target',
-        'target_value' => 'targetValue'
+        'targetValue' => 'targetValue'
     ];
 
 
@@ -81,9 +81,9 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'metric_name' => 'setMetricName',
+        'metricName' => 'setMetricName',
         'target' => 'setTarget',
-        'target_value' => 'setTargetValue'
+        'targetValue' => 'setTargetValue'
     ];
 
 
@@ -92,9 +92,9 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'metric_name' => 'getMetricName',
+        'metricName' => 'getMetricName',
         'target' => 'getTarget',
-        'target_value' => 'getTargetValue'
+        'targetValue' => 'getTargetValue'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
+        $this->container['metricName'] = isset($data['metricName']) ? $data['metricName'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
-        $this->container['target_value'] = isset($data['target_value']) ? $data['target_value'] : null;
+        $this->container['targetValue'] = isset($data['targetValue']) ? $data['targetValue'] : null;
     }
 
     /**
@@ -142,14 +142,14 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['metric_name'] === null) {
-            $invalid_properties[] = "'metric_name' can't be null";
+        if ($this->container['metricName'] === null) {
+            $invalid_properties[] = "'metricName' can't be null";
         }
         if ($this->container['target'] === null) {
             $invalid_properties[] = "'target' can't be null";
         }
-        if ($this->container['target_value'] === null) {
-            $invalid_properties[] = "'target_value' can't be null";
+        if ($this->container['targetValue'] === null) {
+            $invalid_properties[] = "'targetValue' can't be null";
         }
         return $invalid_properties;
     }
@@ -163,13 +163,13 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['metric_name'] === null) {
+        if ($this->container['metricName'] === null) {
             return false;
         }
         if ($this->container['target'] === null) {
             return false;
         }
-        if ($this->container['target_value'] === null) {
+        if ($this->container['targetValue'] === null) {
             return false;
         }
         return true;
@@ -177,22 +177,22 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
 
 
     /**
-     * Gets metric_name
+     * Gets metricName
      * @return string
      */
     public function getMetricName()
     {
-        return $this->container['metric_name'];
+        return $this->container['metricName'];
     }
 
     /**
-     * Sets metric_name
-     * @param string $metric_name metricName is the name of the metric in question.
+     * Sets metricName
+     * @param string $metricName metricName is the name of the metric in question.
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setMetricName($metricName)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['metricName'] = $metricName;
 
         return $this;
     }
@@ -219,22 +219,22 @@ class V2alpha1ObjectMetricSource implements ArrayAccess
     }
 
     /**
-     * Gets target_value
+     * Gets targetValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getTargetValue()
     {
-        return $this->container['target_value'];
+        return $this->container['targetValue'];
     }
 
     /**
-     * Sets target_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $target_value targetValue is the target value of the metric (as a quantity).
+     * Sets targetValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $targetValue targetValue is the target value of the metric (as a quantity).
      * @return $this
      */
-    public function setTargetValue($target_value)
+    public function setTargetValue($targetValue)
     {
-        $this->container['target_value'] = $target_value;
+        $this->container['targetValue'] = $targetValue;
 
         return $this;
     }

@@ -83,7 +83,7 @@ class V1APIVersionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,9 +99,9 @@ class V1APIVersionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "server_address_by_client_cid_rs"
+     * Test attribute "serverAddressByClientCIDRs"
      */
-    public function testPropertyServerAddressByClientCidRs()
+    public function testPropertyServerAddressByClientCIDRs()
     {
 
     }

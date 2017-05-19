@@ -55,17 +55,17 @@ class V1BuildRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'binary' => '\UniversityOfAdelaide\OpenShift\Model\V1BinaryBuildSource',
-        'docker_strategy_options' => '\UniversityOfAdelaide\OpenShift\Model\V1DockerStrategyOptions',
+        'dockerStrategyOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1DockerStrategyOptions',
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'kind' => 'string',
-        'last_version' => 'int',
+        'lastVersion' => 'int',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'revision' => '\UniversityOfAdelaide\OpenShift\Model\V1SourceRevision',
-        'triggered_by' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerCause[]',
-        'triggered_by_image' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
+        'triggeredBy' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerCause[]',
+        'triggeredByImage' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -78,17 +78,17 @@ class V1BuildRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'binary' => 'binary',
-        'docker_strategy_options' => 'dockerStrategyOptions',
+        'dockerStrategyOptions' => 'dockerStrategyOptions',
         'env' => 'env',
         'from' => 'from',
         'kind' => 'kind',
-        'last_version' => 'lastVersion',
+        'lastVersion' => 'lastVersion',
         'metadata' => 'metadata',
         'revision' => 'revision',
-        'triggered_by' => 'triggeredBy',
-        'triggered_by_image' => 'triggeredByImage'
+        'triggeredBy' => 'triggeredBy',
+        'triggeredByImage' => 'triggeredByImage'
     ];
 
 
@@ -97,17 +97,17 @@ class V1BuildRequest implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'binary' => 'setBinary',
-        'docker_strategy_options' => 'setDockerStrategyOptions',
+        'dockerStrategyOptions' => 'setDockerStrategyOptions',
         'env' => 'setEnv',
         'from' => 'setFrom',
         'kind' => 'setKind',
-        'last_version' => 'setLastVersion',
+        'lastVersion' => 'setLastVersion',
         'metadata' => 'setMetadata',
         'revision' => 'setRevision',
-        'triggered_by' => 'setTriggeredBy',
-        'triggered_by_image' => 'setTriggeredByImage'
+        'triggeredBy' => 'setTriggeredBy',
+        'triggeredByImage' => 'setTriggeredByImage'
     ];
 
 
@@ -116,17 +116,17 @@ class V1BuildRequest implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'binary' => 'getBinary',
-        'docker_strategy_options' => 'getDockerStrategyOptions',
+        'dockerStrategyOptions' => 'getDockerStrategyOptions',
         'env' => 'getEnv',
         'from' => 'getFrom',
         'kind' => 'getKind',
-        'last_version' => 'getLastVersion',
+        'lastVersion' => 'getLastVersion',
         'metadata' => 'getMetadata',
         'revision' => 'getRevision',
-        'triggered_by' => 'getTriggeredBy',
-        'triggered_by_image' => 'getTriggeredByImage'
+        'triggeredBy' => 'getTriggeredBy',
+        'triggeredByImage' => 'getTriggeredByImage'
     ];
 
     public static function attributeMap()
@@ -160,17 +160,17 @@ class V1BuildRequest implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['binary'] = isset($data['binary']) ? $data['binary'] : null;
-        $this->container['docker_strategy_options'] = isset($data['docker_strategy_options']) ? $data['docker_strategy_options'] : null;
+        $this->container['dockerStrategyOptions'] = isset($data['dockerStrategyOptions']) ? $data['dockerStrategyOptions'] : null;
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['last_version'] = isset($data['last_version']) ? $data['last_version'] : null;
+        $this->container['lastVersion'] = isset($data['lastVersion']) ? $data['lastVersion'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['revision'] = isset($data['revision']) ? $data['revision'] : null;
-        $this->container['triggered_by'] = isset($data['triggered_by']) ? $data['triggered_by'] : null;
-        $this->container['triggered_by_image'] = isset($data['triggered_by_image']) ? $data['triggered_by_image'] : null;
+        $this->container['triggeredBy'] = isset($data['triggeredBy']) ? $data['triggeredBy'] : null;
+        $this->container['triggeredByImage'] = isset($data['triggeredByImage']) ? $data['triggeredByImage'] : null;
     }
 
     /**
@@ -182,8 +182,8 @@ class V1BuildRequest implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['triggered_by'] === null) {
-            $invalid_properties[] = "'triggered_by' can't be null";
+        if ($this->container['triggeredBy'] === null) {
+            $invalid_properties[] = "'triggeredBy' can't be null";
         }
         return $invalid_properties;
     }
@@ -197,7 +197,7 @@ class V1BuildRequest implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['triggered_by'] === null) {
+        if ($this->container['triggeredBy'] === null) {
             return false;
         }
         return true;
@@ -205,22 +205,22 @@ class V1BuildRequest implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -247,22 +247,22 @@ class V1BuildRequest implements ArrayAccess
     }
 
     /**
-     * Gets docker_strategy_options
+     * Gets dockerStrategyOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1DockerStrategyOptions
      */
     public function getDockerStrategyOptions()
     {
-        return $this->container['docker_strategy_options'];
+        return $this->container['dockerStrategyOptions'];
     }
 
     /**
-     * Sets docker_strategy_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1DockerStrategyOptions $docker_strategy_options DockerStrategyOptions contains additional docker-strategy specific options for the build
+     * Sets dockerStrategyOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1DockerStrategyOptions $dockerStrategyOptions DockerStrategyOptions contains additional docker-strategy specific options for the build
      * @return $this
      */
-    public function setDockerStrategyOptions($docker_strategy_options)
+    public function setDockerStrategyOptions($dockerStrategyOptions)
     {
-        $this->container['docker_strategy_options'] = $docker_strategy_options;
+        $this->container['dockerStrategyOptions'] = $dockerStrategyOptions;
 
         return $this;
     }
@@ -331,22 +331,22 @@ class V1BuildRequest implements ArrayAccess
     }
 
     /**
-     * Gets last_version
+     * Gets lastVersion
      * @return int
      */
     public function getLastVersion()
     {
-        return $this->container['last_version'];
+        return $this->container['lastVersion'];
     }
 
     /**
-     * Sets last_version
-     * @param int $last_version lastVersion (optional) is the LastVersion of the BuildConfig that was used to generate the build. If the BuildConfig in the generator doesn't match, a build will not be generated.
+     * Sets lastVersion
+     * @param int $lastVersion lastVersion (optional) is the LastVersion of the BuildConfig that was used to generate the build. If the BuildConfig in the generator doesn't match, a build will not be generated.
      * @return $this
      */
-    public function setLastVersion($last_version)
+    public function setLastVersion($lastVersion)
     {
-        $this->container['last_version'] = $last_version;
+        $this->container['lastVersion'] = $lastVersion;
 
         return $this;
     }
@@ -394,43 +394,43 @@ class V1BuildRequest implements ArrayAccess
     }
 
     /**
-     * Gets triggered_by
+     * Gets triggeredBy
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerCause[]
      */
     public function getTriggeredBy()
     {
-        return $this->container['triggered_by'];
+        return $this->container['triggeredBy'];
     }
 
     /**
-     * Sets triggered_by
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerCause[] $triggered_by triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers.
+     * Sets triggeredBy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerCause[] $triggeredBy triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers.
      * @return $this
      */
-    public function setTriggeredBy($triggered_by)
+    public function setTriggeredBy($triggeredBy)
     {
-        $this->container['triggered_by'] = $triggered_by;
+        $this->container['triggeredBy'] = $triggeredBy;
 
         return $this;
     }
 
     /**
-     * Gets triggered_by_image
+     * Gets triggeredByImage
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getTriggeredByImage()
     {
-        return $this->container['triggered_by_image'];
+        return $this->container['triggeredByImage'];
     }
 
     /**
-     * Sets triggered_by_image
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $triggered_by_image triggeredByImage is the Image that triggered this build.
+     * Sets triggeredByImage
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $triggeredByImage triggeredByImage is the Image that triggered this build.
      * @return $this
      */
-    public function setTriggeredByImage($triggered_by_image)
+    public function setTriggeredByImage($triggeredByImage)
     {
-        $this->container['triggered_by_image'] = $triggered_by_image;
+        $this->container['triggeredByImage'] = $triggeredByImage;
 
         return $this;
     }

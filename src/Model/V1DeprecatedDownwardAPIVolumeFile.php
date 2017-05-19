@@ -55,10 +55,10 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'field_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector',
+        'fieldRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector',
         'mode' => 'int',
         'name' => 'string',
-        'resource_field_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector'
+        'resourceFieldRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'field_ref' => 'fieldRef',
+        'fieldRef' => 'fieldRef',
         'mode' => 'mode',
         'name' => 'name',
-        'resource_field_ref' => 'resourceFieldRef'
+        'resourceFieldRef' => 'resourceFieldRef'
     ];
 
 
@@ -83,10 +83,10 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'field_ref' => 'setFieldRef',
+        'fieldRef' => 'setFieldRef',
         'mode' => 'setMode',
         'name' => 'setName',
-        'resource_field_ref' => 'setResourceFieldRef'
+        'resourceFieldRef' => 'setResourceFieldRef'
     ];
 
 
@@ -95,10 +95,10 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'field_ref' => 'getFieldRef',
+        'fieldRef' => 'getFieldRef',
         'mode' => 'getMode',
         'name' => 'getName',
-        'resource_field_ref' => 'getResourceFieldRef'
+        'resourceFieldRef' => 'getResourceFieldRef'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['field_ref'] = isset($data['field_ref']) ? $data['field_ref'] : null;
+        $this->container['fieldRef'] = isset($data['fieldRef']) ? $data['fieldRef'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['resource_field_ref'] = isset($data['resource_field_ref']) ? $data['resource_field_ref'] : null;
+        $this->container['resourceFieldRef'] = isset($data['resourceFieldRef']) ? $data['resourceFieldRef'] : null;
     }
 
     /**
@@ -170,22 +170,22 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
 
 
     /**
-     * Gets field_ref
+     * Gets fieldRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector
      */
     public function getFieldRef()
     {
-        return $this->container['field_ref'];
+        return $this->container['fieldRef'];
     }
 
     /**
-     * Sets field_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector $field_ref Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+     * Sets fieldRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectFieldSelector $fieldRef Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
      * @return $this
      */
-    public function setFieldRef($field_ref)
+    public function setFieldRef($fieldRef)
     {
-        $this->container['field_ref'] = $field_ref;
+        $this->container['fieldRef'] = $fieldRef;
 
         return $this;
     }
@@ -233,22 +233,22 @@ class V1DeprecatedDownwardAPIVolumeFile implements ArrayAccess
     }
 
     /**
-     * Gets resource_field_ref
+     * Gets resourceFieldRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector
      */
     public function getResourceFieldRef()
     {
-        return $this->container['resource_field_ref'];
+        return $this->container['resourceFieldRef'];
     }
 
     /**
-     * Sets resource_field_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector $resource_field_ref Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+     * Sets resourceFieldRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceFieldSelector $resourceFieldRef Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
      * @return $this
      */
-    public function setResourceFieldRef($resource_field_ref)
+    public function setResourceFieldRef($resourceFieldRef)
     {
-        $this->container['resource_field_ref'] = $resource_field_ref;
+        $this->container['resourceFieldRef'] = $resourceFieldRef;
 
         return $this;
     }

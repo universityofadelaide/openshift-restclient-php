@@ -55,10 +55,10 @@ class V1TLSConfig implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ca_certificate' => 'string',
+        'caCertificate' => 'string',
         'certificate' => 'string',
-        'destination_ca_certificate' => 'string',
-        'insecure_edge_termination_policy' => 'string',
+        'destinationCACertificate' => 'string',
+        'insecureEdgeTerminationPolicy' => 'string',
         'key' => 'string',
         'termination' => 'string'
     ];
@@ -73,10 +73,10 @@ class V1TLSConfig implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ca_certificate' => 'caCertificate',
+        'caCertificate' => 'caCertificate',
         'certificate' => 'certificate',
-        'destination_ca_certificate' => 'destinationCACertificate',
-        'insecure_edge_termination_policy' => 'insecureEdgeTerminationPolicy',
+        'destinationCACertificate' => 'destinationCACertificate',
+        'insecureEdgeTerminationPolicy' => 'insecureEdgeTerminationPolicy',
         'key' => 'key',
         'termination' => 'termination'
     ];
@@ -87,10 +87,10 @@ class V1TLSConfig implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ca_certificate' => 'setCaCertificate',
+        'caCertificate' => 'setCaCertificate',
         'certificate' => 'setCertificate',
-        'destination_ca_certificate' => 'setDestinationCaCertificate',
-        'insecure_edge_termination_policy' => 'setInsecureEdgeTerminationPolicy',
+        'destinationCACertificate' => 'setDestinationCACertificate',
+        'insecureEdgeTerminationPolicy' => 'setInsecureEdgeTerminationPolicy',
         'key' => 'setKey',
         'termination' => 'setTermination'
     ];
@@ -101,10 +101,10 @@ class V1TLSConfig implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ca_certificate' => 'getCaCertificate',
+        'caCertificate' => 'getCaCertificate',
         'certificate' => 'getCertificate',
-        'destination_ca_certificate' => 'getDestinationCaCertificate',
-        'insecure_edge_termination_policy' => 'getInsecureEdgeTerminationPolicy',
+        'destinationCACertificate' => 'getDestinationCACertificate',
+        'insecureEdgeTerminationPolicy' => 'getInsecureEdgeTerminationPolicy',
         'key' => 'getKey',
         'termination' => 'getTermination'
     ];
@@ -140,10 +140,10 @@ class V1TLSConfig implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ca_certificate'] = isset($data['ca_certificate']) ? $data['ca_certificate'] : null;
+        $this->container['caCertificate'] = isset($data['caCertificate']) ? $data['caCertificate'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
-        $this->container['destination_ca_certificate'] = isset($data['destination_ca_certificate']) ? $data['destination_ca_certificate'] : null;
-        $this->container['insecure_edge_termination_policy'] = isset($data['insecure_edge_termination_policy']) ? $data['insecure_edge_termination_policy'] : null;
+        $this->container['destinationCACertificate'] = isset($data['destinationCACertificate']) ? $data['destinationCACertificate'] : null;
+        $this->container['insecureEdgeTerminationPolicy'] = isset($data['insecureEdgeTerminationPolicy']) ? $data['insecureEdgeTerminationPolicy'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['termination'] = isset($data['termination']) ? $data['termination'] : null;
     }
@@ -180,22 +180,22 @@ class V1TLSConfig implements ArrayAccess
 
 
     /**
-     * Gets ca_certificate
+     * Gets caCertificate
      * @return string
      */
     public function getCaCertificate()
     {
-        return $this->container['ca_certificate'];
+        return $this->container['caCertificate'];
     }
 
     /**
-     * Sets ca_certificate
-     * @param string $ca_certificate caCertificate provides the cert authority certificate contents
+     * Sets caCertificate
+     * @param string $caCertificate caCertificate provides the cert authority certificate contents
      * @return $this
      */
-    public function setCaCertificate($ca_certificate)
+    public function setCaCertificate($caCertificate)
     {
-        $this->container['ca_certificate'] = $ca_certificate;
+        $this->container['caCertificate'] = $caCertificate;
 
         return $this;
     }
@@ -222,43 +222,43 @@ class V1TLSConfig implements ArrayAccess
     }
 
     /**
-     * Gets destination_ca_certificate
+     * Gets destinationCACertificate
      * @return string
      */
-    public function getDestinationCaCertificate()
+    public function getDestinationCACertificate()
     {
-        return $this->container['destination_ca_certificate'];
+        return $this->container['destinationCACertificate'];
     }
 
     /**
-     * Sets destination_ca_certificate
-     * @param string $destination_ca_certificate destinationCACertificate provides the contents of the ca certificate of the final destination.  When using reencrypt termination this file should be provided in order to have routers use it for health checks on the secure connection. If this field is not specified, the router may provide its own destination CA and perform hostname validation using the short service name (service.namespace.svc), which allows infrastructure generated certificates to automatically verify.
+     * Sets destinationCACertificate
+     * @param string $destinationCACertificate destinationCACertificate provides the contents of the ca certificate of the final destination.  When using reencrypt termination this file should be provided in order to have routers use it for health checks on the secure connection. If this field is not specified, the router may provide its own destination CA and perform hostname validation using the short service name (service.namespace.svc), which allows infrastructure generated certificates to automatically verify.
      * @return $this
      */
-    public function setDestinationCaCertificate($destination_ca_certificate)
+    public function setDestinationCACertificate($destinationCACertificate)
     {
-        $this->container['destination_ca_certificate'] = $destination_ca_certificate;
+        $this->container['destinationCACertificate'] = $destinationCACertificate;
 
         return $this;
     }
 
     /**
-     * Gets insecure_edge_termination_policy
+     * Gets insecureEdgeTerminationPolicy
      * @return string
      */
     public function getInsecureEdgeTerminationPolicy()
     {
-        return $this->container['insecure_edge_termination_policy'];
+        return $this->container['insecureEdgeTerminationPolicy'];
     }
 
     /**
-     * Sets insecure_edge_termination_policy
-     * @param string $insecure_edge_termination_policy insecureEdgeTerminationPolicy indicates the desired behavior for insecure connections to a route. While each router may make its own decisions on which ports to expose, this is normally port 80.  * Allow - traffic is sent to the server on the insecure port (default) * Disable - no traffic is allowed on the insecure port. * Redirect - clients are redirected to the secure port.
+     * Sets insecureEdgeTerminationPolicy
+     * @param string $insecureEdgeTerminationPolicy insecureEdgeTerminationPolicy indicates the desired behavior for insecure connections to a route. While each router may make its own decisions on which ports to expose, this is normally port 80.  * Allow - traffic is sent to the server on the insecure port (default) * Disable - no traffic is allowed on the insecure port. * Redirect - clients are redirected to the secure port.
      * @return $this
      */
-    public function setInsecureEdgeTerminationPolicy($insecure_edge_termination_policy)
+    public function setInsecureEdgeTerminationPolicy($insecureEdgeTerminationPolicy)
     {
-        $this->container['insecure_edge_termination_policy'] = $insecure_edge_termination_policy;
+        $this->container['insecureEdgeTerminationPolicy'] = $insecureEdgeTerminationPolicy;
 
         return $this;
     }

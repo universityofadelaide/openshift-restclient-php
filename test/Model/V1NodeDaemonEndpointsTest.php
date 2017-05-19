@@ -83,7 +83,7 @@ class V1NodeDaemonEndpointsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "kubelet_endpoint"
+     * Test attribute "kubeletEndpoint"
      */
     public function testPropertyKubeletEndpoint()
     {

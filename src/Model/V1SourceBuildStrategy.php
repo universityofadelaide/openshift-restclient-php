@@ -56,12 +56,12 @@ class V1SourceBuildStrategy implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'force_pull' => 'bool',
+        'forcePull' => 'bool',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'incremental' => 'bool',
-        'pull_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
-        'runtime_artifacts' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[]',
-        'runtime_image' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'pullSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'runtimeArtifacts' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[]',
+        'runtimeImage' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
         'scripts' => 'string'
     ];
 
@@ -76,12 +76,12 @@ class V1SourceBuildStrategy implements ArrayAccess
      */
     protected static $attributeMap = [
         'env' => 'env',
-        'force_pull' => 'forcePull',
+        'forcePull' => 'forcePull',
         'from' => 'from',
         'incremental' => 'incremental',
-        'pull_secret' => 'pullSecret',
-        'runtime_artifacts' => 'runtimeArtifacts',
-        'runtime_image' => 'runtimeImage',
+        'pullSecret' => 'pullSecret',
+        'runtimeArtifacts' => 'runtimeArtifacts',
+        'runtimeImage' => 'runtimeImage',
         'scripts' => 'scripts'
     ];
 
@@ -92,12 +92,12 @@ class V1SourceBuildStrategy implements ArrayAccess
      */
     protected static $setters = [
         'env' => 'setEnv',
-        'force_pull' => 'setForcePull',
+        'forcePull' => 'setForcePull',
         'from' => 'setFrom',
         'incremental' => 'setIncremental',
-        'pull_secret' => 'setPullSecret',
-        'runtime_artifacts' => 'setRuntimeArtifacts',
-        'runtime_image' => 'setRuntimeImage',
+        'pullSecret' => 'setPullSecret',
+        'runtimeArtifacts' => 'setRuntimeArtifacts',
+        'runtimeImage' => 'setRuntimeImage',
         'scripts' => 'setScripts'
     ];
 
@@ -108,12 +108,12 @@ class V1SourceBuildStrategy implements ArrayAccess
      */
     protected static $getters = [
         'env' => 'getEnv',
-        'force_pull' => 'getForcePull',
+        'forcePull' => 'getForcePull',
         'from' => 'getFrom',
         'incremental' => 'getIncremental',
-        'pull_secret' => 'getPullSecret',
-        'runtime_artifacts' => 'getRuntimeArtifacts',
-        'runtime_image' => 'getRuntimeImage',
+        'pullSecret' => 'getPullSecret',
+        'runtimeArtifacts' => 'getRuntimeArtifacts',
+        'runtimeImage' => 'getRuntimeImage',
         'scripts' => 'getScripts'
     ];
 
@@ -149,12 +149,12 @@ class V1SourceBuildStrategy implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
-        $this->container['force_pull'] = isset($data['force_pull']) ? $data['force_pull'] : null;
+        $this->container['forcePull'] = isset($data['forcePull']) ? $data['forcePull'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['incremental'] = isset($data['incremental']) ? $data['incremental'] : null;
-        $this->container['pull_secret'] = isset($data['pull_secret']) ? $data['pull_secret'] : null;
-        $this->container['runtime_artifacts'] = isset($data['runtime_artifacts']) ? $data['runtime_artifacts'] : null;
-        $this->container['runtime_image'] = isset($data['runtime_image']) ? $data['runtime_image'] : null;
+        $this->container['pullSecret'] = isset($data['pullSecret']) ? $data['pullSecret'] : null;
+        $this->container['runtimeArtifacts'] = isset($data['runtimeArtifacts']) ? $data['runtimeArtifacts'] : null;
+        $this->container['runtimeImage'] = isset($data['runtimeImage']) ? $data['runtimeImage'] : null;
         $this->container['scripts'] = isset($data['scripts']) ? $data['scripts'] : null;
     }
 
@@ -211,22 +211,22 @@ class V1SourceBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets force_pull
+     * Gets forcePull
      * @return bool
      */
     public function getForcePull()
     {
-        return $this->container['force_pull'];
+        return $this->container['forcePull'];
     }
 
     /**
-     * Sets force_pull
-     * @param bool $force_pull forcePull describes if the builder should pull the images from registry prior to building.
+     * Sets forcePull
+     * @param bool $forcePull forcePull describes if the builder should pull the images from registry prior to building.
      * @return $this
      */
-    public function setForcePull($force_pull)
+    public function setForcePull($forcePull)
     {
-        $this->container['force_pull'] = $force_pull;
+        $this->container['forcePull'] = $forcePull;
 
         return $this;
     }
@@ -274,64 +274,64 @@ class V1SourceBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets pull_secret
+     * Gets pullSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getPullSecret()
     {
-        return $this->container['pull_secret'];
+        return $this->container['pullSecret'];
     }
 
     /**
-     * Sets pull_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pull_secret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
+     * Sets pullSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pullSecret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
      * @return $this
      */
-    public function setPullSecret($pull_secret)
+    public function setPullSecret($pullSecret)
     {
-        $this->container['pull_secret'] = $pull_secret;
+        $this->container['pullSecret'] = $pullSecret;
 
         return $this;
     }
 
     /**
-     * Gets runtime_artifacts
+     * Gets runtimeArtifacts
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[]
      */
     public function getRuntimeArtifacts()
     {
-        return $this->container['runtime_artifacts'];
+        return $this->container['runtimeArtifacts'];
     }
 
     /**
-     * Sets runtime_artifacts
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[] $runtime_artifacts runtimeArtifacts specifies a list of source/destination pairs that will be copied from the builder to the runtime image. sourcePath can be a file or directory. destinationDir must be a directory. destinationDir can also be empty or equal to \".\", in this case it just refers to the root of WORKDIR. Deprecated: This feature will be removed in a future release. Use ImageSource to copy binary artifacts created from one build into a separate runtime image.
+     * Sets runtimeArtifacts
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageSourcePath[] $runtimeArtifacts runtimeArtifacts specifies a list of source/destination pairs that will be copied from the builder to the runtime image. sourcePath can be a file or directory. destinationDir must be a directory. destinationDir can also be empty or equal to \".\", in this case it just refers to the root of WORKDIR. Deprecated: This feature will be removed in a future release. Use ImageSource to copy binary artifacts created from one build into a separate runtime image.
      * @return $this
      */
-    public function setRuntimeArtifacts($runtime_artifacts)
+    public function setRuntimeArtifacts($runtimeArtifacts)
     {
-        $this->container['runtime_artifacts'] = $runtime_artifacts;
+        $this->container['runtimeArtifacts'] = $runtimeArtifacts;
 
         return $this;
     }
 
     /**
-     * Gets runtime_image
+     * Gets runtimeImage
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getRuntimeImage()
     {
-        return $this->container['runtime_image'];
+        return $this->container['runtimeImage'];
     }
 
     /**
-     * Sets runtime_image
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $runtime_image runtimeImage is an optional image that is used to run an application without unneeded dependencies installed. The building of the application is still done in the builder image but, post build, you can copy the needed artifacts in the runtime image for use. Deprecated: This feature will be removed in a future release. Use ImageSource to copy binary artifacts created from one build into a separate runtime image.
+     * Sets runtimeImage
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $runtimeImage runtimeImage is an optional image that is used to run an application without unneeded dependencies installed. The building of the application is still done in the builder image but, post build, you can copy the needed artifacts in the runtime image for use. Deprecated: This feature will be removed in a future release. Use ImageSource to copy binary artifacts created from one build into a separate runtime image.
      * @return $this
      */
-    public function setRuntimeImage($runtime_image)
+    public function setRuntimeImage($runtimeImage)
     {
-        $this->container['runtime_image'] = $runtime_image;
+        $this->container['runtimeImage'] = $runtimeImage;
 
         return $this;
     }

@@ -55,8 +55,8 @@ class V1User implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
-        'full_name' => 'string',
+        'apiVersion' => 'string',
+        'fullName' => 'string',
         'groups' => 'string[]',
         'identities' => 'string[]',
         'kind' => 'string',
@@ -73,8 +73,8 @@ class V1User implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
-        'full_name' => 'fullName',
+        'apiVersion' => 'apiVersion',
+        'fullName' => 'fullName',
         'groups' => 'groups',
         'identities' => 'identities',
         'kind' => 'kind',
@@ -87,8 +87,8 @@ class V1User implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
-        'full_name' => 'setFullName',
+        'apiVersion' => 'setApiVersion',
+        'fullName' => 'setFullName',
         'groups' => 'setGroups',
         'identities' => 'setIdentities',
         'kind' => 'setKind',
@@ -101,8 +101,8 @@ class V1User implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
-        'full_name' => 'getFullName',
+        'apiVersion' => 'getApiVersion',
+        'fullName' => 'getFullName',
         'groups' => 'getGroups',
         'identities' => 'getIdentities',
         'kind' => 'getKind',
@@ -140,8 +140,8 @@ class V1User implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['full_name'] = isset($data['full_name']) ? $data['full_name'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['fullName'] = isset($data['fullName']) ? $data['fullName'] : null;
         $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
         $this->container['identities'] = isset($data['identities']) ? $data['identities'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
@@ -186,43 +186,43 @@ class V1User implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
 
     /**
-     * Gets full_name
+     * Gets fullName
      * @return string
      */
     public function getFullName()
     {
-        return $this->container['full_name'];
+        return $this->container['fullName'];
     }
 
     /**
-     * Sets full_name
-     * @param string $full_name FullName is the full name of user
+     * Sets fullName
+     * @param string $fullName FullName is the full name of user
      * @return $this
      */
-    public function setFullName($full_name)
+    public function setFullName($fullName)
     {
-        $this->container['full_name'] = $full_name;
+        $this->container['fullName'] = $fullName;
 
         return $this;
     }

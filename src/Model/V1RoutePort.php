@@ -55,7 +55,7 @@ class V1RoutePort implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'target_port' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
+        'targetPort' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString'
     ];
 
     public static function swaggerTypes()
@@ -68,7 +68,7 @@ class V1RoutePort implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'target_port' => 'targetPort'
+        'targetPort' => 'targetPort'
     ];
 
 
@@ -77,7 +77,7 @@ class V1RoutePort implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'target_port' => 'setTargetPort'
+        'targetPort' => 'setTargetPort'
     ];
 
 
@@ -86,7 +86,7 @@ class V1RoutePort implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'target_port' => 'getTargetPort'
+        'targetPort' => 'getTargetPort'
     ];
 
     public static function attributeMap()
@@ -120,7 +120,7 @@ class V1RoutePort implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['target_port'] = isset($data['target_port']) ? $data['target_port'] : null;
+        $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
     }
 
     /**
@@ -132,8 +132,8 @@ class V1RoutePort implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['target_port'] === null) {
-            $invalid_properties[] = "'target_port' can't be null";
+        if ($this->container['targetPort'] === null) {
+            $invalid_properties[] = "'targetPort' can't be null";
         }
         return $invalid_properties;
     }
@@ -147,7 +147,7 @@ class V1RoutePort implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['target_port'] === null) {
+        if ($this->container['targetPort'] === null) {
             return false;
         }
         return true;
@@ -155,22 +155,22 @@ class V1RoutePort implements ArrayAccess
 
 
     /**
-     * Gets target_port
+     * Gets targetPort
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getTargetPort()
     {
-        return $this->container['target_port'];
+        return $this->container['targetPort'];
     }
 
     /**
-     * Sets target_port
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $target_port The target port on pods selected by the service this route points to. If this is a string, it will be looked up as a named port in the target endpoints port list. Required
+     * Sets targetPort
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $targetPort The target port on pods selected by the service this route points to. If this is a string, it will be looked up as a named port in the target endpoints port list. Required
      * @return $this
      */
-    public function setTargetPort($target_port)
+    public function setTargetPort($targetPort)
     {
-        $this->container['target_port'] = $target_port;
+        $this->container['targetPort'] = $targetPort;
 
         return $this;
     }

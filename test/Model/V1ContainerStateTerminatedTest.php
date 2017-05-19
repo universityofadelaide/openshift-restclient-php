@@ -83,15 +83,15 @@ class V1ContainerStateTerminatedTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "container_id"
+     * Test attribute "containerID"
      */
-    public function testPropertyContainerId()
+    public function testPropertyContainerID()
     {
 
     }
 
     /**
-     * Test attribute "exit_code"
+     * Test attribute "exitCode"
      */
     public function testPropertyExitCode()
     {
@@ -99,7 +99,7 @@ class V1ContainerStateTerminatedTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "finished_at"
+     * Test attribute "finishedAt"
      */
     public function testPropertyFinishedAt()
     {
@@ -131,7 +131,7 @@ class V1ContainerStateTerminatedTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "started_at"
+     * Test attribute "startedAt"
      */
     public function testPropertyStartedAt()
     {

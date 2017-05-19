@@ -56,7 +56,7 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'rule' => 'string',
-        'se_linux_options' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions'
+        'seLinuxOptions' => '\UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions'
     ];
 
     public static function swaggerTypes()
@@ -70,7 +70,7 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
      */
     protected static $attributeMap = [
         'rule' => 'rule',
-        'se_linux_options' => 'seLinuxOptions'
+        'seLinuxOptions' => 'seLinuxOptions'
     ];
 
 
@@ -80,7 +80,7 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
      */
     protected static $setters = [
         'rule' => 'setRule',
-        'se_linux_options' => 'setSeLinuxOptions'
+        'seLinuxOptions' => 'setSeLinuxOptions'
     ];
 
 
@@ -90,7 +90,7 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
      */
     protected static $getters = [
         'rule' => 'getRule',
-        'se_linux_options' => 'getSeLinuxOptions'
+        'seLinuxOptions' => 'getSeLinuxOptions'
     ];
 
     public static function attributeMap()
@@ -125,7 +125,7 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
-        $this->container['se_linux_options'] = isset($data['se_linux_options']) ? $data['se_linux_options'] : null;
+        $this->container['seLinuxOptions'] = isset($data['seLinuxOptions']) ? $data['seLinuxOptions'] : null;
     }
 
     /**
@@ -181,22 +181,22 @@ class V1beta1SELinuxStrategyOptions implements ArrayAccess
     }
 
     /**
-     * Gets se_linux_options
+     * Gets seLinuxOptions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions
      */
     public function getSeLinuxOptions()
     {
-        return $this->container['se_linux_options'];
+        return $this->container['seLinuxOptions'];
     }
 
     /**
-     * Sets se_linux_options
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $se_linux_options seLinuxOptions required to run as; required for MustRunAs More info: http://releases.k8s.io/HEAD/docs/design/security_context.md#security-context
+     * Sets seLinuxOptions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SELinuxOptions $seLinuxOptions seLinuxOptions required to run as; required for MustRunAs More info: http://releases.k8s.io/HEAD/docs/design/security_context.md#security-context
      * @return $this
      */
-    public function setSeLinuxOptions($se_linux_options)
+    public function setSeLinuxOptions($seLinuxOptions)
     {
-        $this->container['se_linux_options'] = $se_linux_options;
+        $this->container['seLinuxOptions'] = $seLinuxOptions;
 
         return $this;
     }

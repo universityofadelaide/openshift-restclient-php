@@ -58,7 +58,7 @@ class V1APIResource implements ArrayAccess
         'kind' => 'string',
         'name' => 'string',
         'namespaced' => 'bool',
-        'short_names' => 'string[]',
+        'shortNames' => 'string[]',
         'verbs' => 'string[]'
     ];
 
@@ -75,7 +75,7 @@ class V1APIResource implements ArrayAccess
         'kind' => 'kind',
         'name' => 'name',
         'namespaced' => 'namespaced',
-        'short_names' => 'shortNames',
+        'shortNames' => 'shortNames',
         'verbs' => 'verbs'
     ];
 
@@ -88,7 +88,7 @@ class V1APIResource implements ArrayAccess
         'kind' => 'setKind',
         'name' => 'setName',
         'namespaced' => 'setNamespaced',
-        'short_names' => 'setShortNames',
+        'shortNames' => 'setShortNames',
         'verbs' => 'setVerbs'
     ];
 
@@ -101,7 +101,7 @@ class V1APIResource implements ArrayAccess
         'kind' => 'getKind',
         'name' => 'getName',
         'namespaced' => 'getNamespaced',
-        'short_names' => 'getShortNames',
+        'shortNames' => 'getShortNames',
         'verbs' => 'getVerbs'
     ];
 
@@ -139,7 +139,7 @@ class V1APIResource implements ArrayAccess
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaced'] = isset($data['namespaced']) ? $data['namespaced'] : null;
-        $this->container['short_names'] = isset($data['short_names']) ? $data['short_names'] : null;
+        $this->container['shortNames'] = isset($data['shortNames']) ? $data['shortNames'] : null;
         $this->container['verbs'] = isset($data['verbs']) ? $data['verbs'] : null;
     }
 
@@ -256,22 +256,22 @@ class V1APIResource implements ArrayAccess
     }
 
     /**
-     * Gets short_names
+     * Gets shortNames
      * @return string[]
      */
     public function getShortNames()
     {
-        return $this->container['short_names'];
+        return $this->container['shortNames'];
     }
 
     /**
-     * Sets short_names
-     * @param string[] $short_names shortNames is a list of suggested short names of the resource.
+     * Sets shortNames
+     * @param string[] $shortNames shortNames is a list of suggested short names of the resource.
      * @return $this
      */
-    public function setShortNames($short_names)
+    public function setShortNames($shortNames)
     {
-        $this->container['short_names'] = $short_names;
+        $this->container['shortNames'] = $shortNames;
 
         return $this;
     }

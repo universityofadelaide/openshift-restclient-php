@@ -55,9 +55,9 @@ class V1StageInfo implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_milliseconds' => 'int',
+        'durationMilliseconds' => 'int',
         'name' => 'string',
-        'start_time' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'startTime' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'steps' => '\UniversityOfAdelaide\OpenShift\Model\V1StepInfo[]'
     ];
 
@@ -71,9 +71,9 @@ class V1StageInfo implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_milliseconds' => 'durationMilliseconds',
+        'durationMilliseconds' => 'durationMilliseconds',
         'name' => 'name',
-        'start_time' => 'startTime',
+        'startTime' => 'startTime',
         'steps' => 'steps'
     ];
 
@@ -83,9 +83,9 @@ class V1StageInfo implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_milliseconds' => 'setDurationMilliseconds',
+        'durationMilliseconds' => 'setDurationMilliseconds',
         'name' => 'setName',
-        'start_time' => 'setStartTime',
+        'startTime' => 'setStartTime',
         'steps' => 'setSteps'
     ];
 
@@ -95,9 +95,9 @@ class V1StageInfo implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_milliseconds' => 'getDurationMilliseconds',
+        'durationMilliseconds' => 'getDurationMilliseconds',
         'name' => 'getName',
-        'start_time' => 'getStartTime',
+        'startTime' => 'getStartTime',
         'steps' => 'getSteps'
     ];
 
@@ -132,9 +132,9 @@ class V1StageInfo implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_milliseconds'] = isset($data['duration_milliseconds']) ? $data['duration_milliseconds'] : null;
+        $this->container['durationMilliseconds'] = isset($data['durationMilliseconds']) ? $data['durationMilliseconds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
         $this->container['steps'] = isset($data['steps']) ? $data['steps'] : null;
     }
 
@@ -164,22 +164,22 @@ class V1StageInfo implements ArrayAccess
 
 
     /**
-     * Gets duration_milliseconds
+     * Gets durationMilliseconds
      * @return int
      */
     public function getDurationMilliseconds()
     {
-        return $this->container['duration_milliseconds'];
+        return $this->container['durationMilliseconds'];
     }
 
     /**
-     * Sets duration_milliseconds
-     * @param int $duration_milliseconds durationMilliseconds identifies how long the stage took to complete in milliseconds. Note: the duration of a stage can exceed the sum of the duration of the steps within the stage as not all actions are accounted for in explicit build steps.
+     * Sets durationMilliseconds
+     * @param int $durationMilliseconds durationMilliseconds identifies how long the stage took to complete in milliseconds. Note: the duration of a stage can exceed the sum of the duration of the steps within the stage as not all actions are accounted for in explicit build steps.
      * @return $this
      */
-    public function setDurationMilliseconds($duration_milliseconds)
+    public function setDurationMilliseconds($durationMilliseconds)
     {
-        $this->container['duration_milliseconds'] = $duration_milliseconds;
+        $this->container['durationMilliseconds'] = $durationMilliseconds;
 
         return $this;
     }
@@ -206,22 +206,22 @@ class V1StageInfo implements ArrayAccess
     }
 
     /**
-     * Gets start_time
+     * Gets startTime
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $start_time startTime is a timestamp representing the server time when this Stage started. It is represented in RFC3339 form and is in UTC.
+     * Sets startTime
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $startTime startTime is a timestamp representing the server time when this Stage started. It is represented in RFC3339 form and is in UTC.
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }

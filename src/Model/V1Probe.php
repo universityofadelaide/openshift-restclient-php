@@ -56,13 +56,13 @@ class V1Probe implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'exec' => '\UniversityOfAdelaide\OpenShift\Model\V1ExecAction',
-        'failure_threshold' => 'int',
-        'http_get' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction',
-        'initial_delay_seconds' => 'int',
-        'period_seconds' => 'int',
-        'success_threshold' => 'int',
-        'tcp_socket' => '\UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction',
-        'timeout_seconds' => 'int'
+        'failureThreshold' => 'int',
+        'httpGet' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction',
+        'initialDelaySeconds' => 'int',
+        'periodSeconds' => 'int',
+        'successThreshold' => 'int',
+        'tcpSocket' => '\UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction',
+        'timeoutSeconds' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -76,13 +76,13 @@ class V1Probe implements ArrayAccess
      */
     protected static $attributeMap = [
         'exec' => 'exec',
-        'failure_threshold' => 'failureThreshold',
-        'http_get' => 'httpGet',
-        'initial_delay_seconds' => 'initialDelaySeconds',
-        'period_seconds' => 'periodSeconds',
-        'success_threshold' => 'successThreshold',
-        'tcp_socket' => 'tcpSocket',
-        'timeout_seconds' => 'timeoutSeconds'
+        'failureThreshold' => 'failureThreshold',
+        'httpGet' => 'httpGet',
+        'initialDelaySeconds' => 'initialDelaySeconds',
+        'periodSeconds' => 'periodSeconds',
+        'successThreshold' => 'successThreshold',
+        'tcpSocket' => 'tcpSocket',
+        'timeoutSeconds' => 'timeoutSeconds'
     ];
 
 
@@ -92,13 +92,13 @@ class V1Probe implements ArrayAccess
      */
     protected static $setters = [
         'exec' => 'setExec',
-        'failure_threshold' => 'setFailureThreshold',
-        'http_get' => 'setHttpGet',
-        'initial_delay_seconds' => 'setInitialDelaySeconds',
-        'period_seconds' => 'setPeriodSeconds',
-        'success_threshold' => 'setSuccessThreshold',
-        'tcp_socket' => 'setTcpSocket',
-        'timeout_seconds' => 'setTimeoutSeconds'
+        'failureThreshold' => 'setFailureThreshold',
+        'httpGet' => 'setHttpGet',
+        'initialDelaySeconds' => 'setInitialDelaySeconds',
+        'periodSeconds' => 'setPeriodSeconds',
+        'successThreshold' => 'setSuccessThreshold',
+        'tcpSocket' => 'setTcpSocket',
+        'timeoutSeconds' => 'setTimeoutSeconds'
     ];
 
 
@@ -108,13 +108,13 @@ class V1Probe implements ArrayAccess
      */
     protected static $getters = [
         'exec' => 'getExec',
-        'failure_threshold' => 'getFailureThreshold',
-        'http_get' => 'getHttpGet',
-        'initial_delay_seconds' => 'getInitialDelaySeconds',
-        'period_seconds' => 'getPeriodSeconds',
-        'success_threshold' => 'getSuccessThreshold',
-        'tcp_socket' => 'getTcpSocket',
-        'timeout_seconds' => 'getTimeoutSeconds'
+        'failureThreshold' => 'getFailureThreshold',
+        'httpGet' => 'getHttpGet',
+        'initialDelaySeconds' => 'getInitialDelaySeconds',
+        'periodSeconds' => 'getPeriodSeconds',
+        'successThreshold' => 'getSuccessThreshold',
+        'tcpSocket' => 'getTcpSocket',
+        'timeoutSeconds' => 'getTimeoutSeconds'
     ];
 
     public static function attributeMap()
@@ -149,13 +149,13 @@ class V1Probe implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['exec'] = isset($data['exec']) ? $data['exec'] : null;
-        $this->container['failure_threshold'] = isset($data['failure_threshold']) ? $data['failure_threshold'] : null;
-        $this->container['http_get'] = isset($data['http_get']) ? $data['http_get'] : null;
-        $this->container['initial_delay_seconds'] = isset($data['initial_delay_seconds']) ? $data['initial_delay_seconds'] : null;
-        $this->container['period_seconds'] = isset($data['period_seconds']) ? $data['period_seconds'] : null;
-        $this->container['success_threshold'] = isset($data['success_threshold']) ? $data['success_threshold'] : null;
-        $this->container['tcp_socket'] = isset($data['tcp_socket']) ? $data['tcp_socket'] : null;
-        $this->container['timeout_seconds'] = isset($data['timeout_seconds']) ? $data['timeout_seconds'] : null;
+        $this->container['failureThreshold'] = isset($data['failureThreshold']) ? $data['failureThreshold'] : null;
+        $this->container['httpGet'] = isset($data['httpGet']) ? $data['httpGet'] : null;
+        $this->container['initialDelaySeconds'] = isset($data['initialDelaySeconds']) ? $data['initialDelaySeconds'] : null;
+        $this->container['periodSeconds'] = isset($data['periodSeconds']) ? $data['periodSeconds'] : null;
+        $this->container['successThreshold'] = isset($data['successThreshold']) ? $data['successThreshold'] : null;
+        $this->container['tcpSocket'] = isset($data['tcpSocket']) ? $data['tcpSocket'] : null;
+        $this->container['timeoutSeconds'] = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 
     /**
@@ -205,148 +205,148 @@ class V1Probe implements ArrayAccess
     }
 
     /**
-     * Gets failure_threshold
+     * Gets failureThreshold
      * @return int
      */
     public function getFailureThreshold()
     {
-        return $this->container['failure_threshold'];
+        return $this->container['failureThreshold'];
     }
 
     /**
-     * Sets failure_threshold
-     * @param int $failure_threshold Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+     * Sets failureThreshold
+     * @param int $failureThreshold Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
      * @return $this
      */
-    public function setFailureThreshold($failure_threshold)
+    public function setFailureThreshold($failureThreshold)
     {
-        $this->container['failure_threshold'] = $failure_threshold;
+        $this->container['failureThreshold'] = $failureThreshold;
 
         return $this;
     }
 
     /**
-     * Gets http_get
+     * Gets httpGet
      * @return \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction
      */
     public function getHttpGet()
     {
-        return $this->container['http_get'];
+        return $this->container['httpGet'];
     }
 
     /**
-     * Sets http_get
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction $http_get HTTPGet specifies the http request to perform.
+     * Sets httpGet
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPGetAction $httpGet HTTPGet specifies the http request to perform.
      * @return $this
      */
-    public function setHttpGet($http_get)
+    public function setHttpGet($httpGet)
     {
-        $this->container['http_get'] = $http_get;
+        $this->container['httpGet'] = $httpGet;
 
         return $this;
     }
 
     /**
-     * Gets initial_delay_seconds
+     * Gets initialDelaySeconds
      * @return int
      */
     public function getInitialDelaySeconds()
     {
-        return $this->container['initial_delay_seconds'];
+        return $this->container['initialDelaySeconds'];
     }
 
     /**
-     * Sets initial_delay_seconds
-     * @param int $initial_delay_seconds Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+     * Sets initialDelaySeconds
+     * @param int $initialDelaySeconds Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
      * @return $this
      */
-    public function setInitialDelaySeconds($initial_delay_seconds)
+    public function setInitialDelaySeconds($initialDelaySeconds)
     {
-        $this->container['initial_delay_seconds'] = $initial_delay_seconds;
+        $this->container['initialDelaySeconds'] = $initialDelaySeconds;
 
         return $this;
     }
 
     /**
-     * Gets period_seconds
+     * Gets periodSeconds
      * @return int
      */
     public function getPeriodSeconds()
     {
-        return $this->container['period_seconds'];
+        return $this->container['periodSeconds'];
     }
 
     /**
-     * Sets period_seconds
-     * @param int $period_seconds How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+     * Sets periodSeconds
+     * @param int $periodSeconds How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
      * @return $this
      */
-    public function setPeriodSeconds($period_seconds)
+    public function setPeriodSeconds($periodSeconds)
     {
-        $this->container['period_seconds'] = $period_seconds;
+        $this->container['periodSeconds'] = $periodSeconds;
 
         return $this;
     }
 
     /**
-     * Gets success_threshold
+     * Gets successThreshold
      * @return int
      */
     public function getSuccessThreshold()
     {
-        return $this->container['success_threshold'];
+        return $this->container['successThreshold'];
     }
 
     /**
-     * Sets success_threshold
-     * @param int $success_threshold Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
+     * Sets successThreshold
+     * @param int $successThreshold Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
      * @return $this
      */
-    public function setSuccessThreshold($success_threshold)
+    public function setSuccessThreshold($successThreshold)
     {
-        $this->container['success_threshold'] = $success_threshold;
+        $this->container['successThreshold'] = $successThreshold;
 
         return $this;
     }
 
     /**
-     * Gets tcp_socket
+     * Gets tcpSocket
      * @return \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction
      */
     public function getTcpSocket()
     {
-        return $this->container['tcp_socket'];
+        return $this->container['tcpSocket'];
     }
 
     /**
-     * Sets tcp_socket
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction $tcp_socket TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
+     * Sets tcpSocket
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TCPSocketAction $tcpSocket TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
      * @return $this
      */
-    public function setTcpSocket($tcp_socket)
+    public function setTcpSocket($tcpSocket)
     {
-        $this->container['tcp_socket'] = $tcp_socket;
+        $this->container['tcpSocket'] = $tcpSocket;
 
         return $this;
     }
 
     /**
-     * Gets timeout_seconds
+     * Gets timeoutSeconds
      * @return int
      */
     public function getTimeoutSeconds()
     {
-        return $this->container['timeout_seconds'];
+        return $this->container['timeoutSeconds'];
     }
 
     /**
-     * Sets timeout_seconds
-     * @param int $timeout_seconds Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+     * Sets timeoutSeconds
+     * @param int $timeoutSeconds Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
      * @return $this
      */
-    public function setTimeoutSeconds($timeout_seconds)
+    public function setTimeoutSeconds($timeoutSeconds)
     {
-        $this->container['timeout_seconds'] = $timeout_seconds;
+        $this->container['timeoutSeconds'] = $timeoutSeconds;
 
         return $this;
     }

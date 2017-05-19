@@ -83,7 +83,7 @@ class V1beta1DaemonSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_ready_seconds"
+     * Test attribute "minReadySeconds"
      */
     public function testPropertyMinReadySeconds()
     {
@@ -107,7 +107,7 @@ class V1beta1DaemonSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "template_generation"
+     * Test attribute "templateGeneration"
      */
     public function testPropertyTemplateGeneration()
     {
@@ -115,7 +115,7 @@ class V1beta1DaemonSetSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "update_strategy"
+     * Test attribute "updateStrategy"
      */
     public function testPropertyUpdateStrategy()
     {

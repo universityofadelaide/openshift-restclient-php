@@ -58,7 +58,7 @@ class V1Toleration implements ArrayAccess
         'effect' => 'string',
         'key' => 'string',
         'operator' => 'string',
-        'toleration_seconds' => 'int',
+        'tolerationSeconds' => 'int',
         'value' => 'string'
     ];
 
@@ -75,7 +75,7 @@ class V1Toleration implements ArrayAccess
         'effect' => 'effect',
         'key' => 'key',
         'operator' => 'operator',
-        'toleration_seconds' => 'tolerationSeconds',
+        'tolerationSeconds' => 'tolerationSeconds',
         'value' => 'value'
     ];
 
@@ -88,7 +88,7 @@ class V1Toleration implements ArrayAccess
         'effect' => 'setEffect',
         'key' => 'setKey',
         'operator' => 'setOperator',
-        'toleration_seconds' => 'setTolerationSeconds',
+        'tolerationSeconds' => 'setTolerationSeconds',
         'value' => 'setValue'
     ];
 
@@ -101,7 +101,7 @@ class V1Toleration implements ArrayAccess
         'effect' => 'getEffect',
         'key' => 'getKey',
         'operator' => 'getOperator',
-        'toleration_seconds' => 'getTolerationSeconds',
+        'tolerationSeconds' => 'getTolerationSeconds',
         'value' => 'getValue'
     ];
 
@@ -139,7 +139,7 @@ class V1Toleration implements ArrayAccess
         $this->container['effect'] = isset($data['effect']) ? $data['effect'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
-        $this->container['toleration_seconds'] = isset($data['toleration_seconds']) ? $data['toleration_seconds'] : null;
+        $this->container['tolerationSeconds'] = isset($data['tolerationSeconds']) ? $data['tolerationSeconds'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -232,22 +232,22 @@ class V1Toleration implements ArrayAccess
     }
 
     /**
-     * Gets toleration_seconds
+     * Gets tolerationSeconds
      * @return int
      */
     public function getTolerationSeconds()
     {
-        return $this->container['toleration_seconds'];
+        return $this->container['tolerationSeconds'];
     }
 
     /**
-     * Sets toleration_seconds
-     * @param int $toleration_seconds TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+     * Sets tolerationSeconds
+     * @param int $tolerationSeconds TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
      * @return $this
      */
-    public function setTolerationSeconds($toleration_seconds)
+    public function setTolerationSeconds($tolerationSeconds)
     {
-        $this->container['toleration_seconds'] = $toleration_seconds;
+        $this->container['tolerationSeconds'] = $tolerationSeconds;
 
         return $this;
     }

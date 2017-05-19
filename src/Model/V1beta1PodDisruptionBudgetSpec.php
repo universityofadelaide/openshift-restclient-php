@@ -55,7 +55,7 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'min_available' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
+        'minAvailable' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
         'selector' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelector'
     ];
 
@@ -69,7 +69,7 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'min_available' => 'minAvailable',
+        'minAvailable' => 'minAvailable',
         'selector' => 'selector'
     ];
 
@@ -79,7 +79,7 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'min_available' => 'setMinAvailable',
+        'minAvailable' => 'setMinAvailable',
         'selector' => 'setSelector'
     ];
 
@@ -89,7 +89,7 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'min_available' => 'getMinAvailable',
+        'minAvailable' => 'getMinAvailable',
         'selector' => 'getSelector'
     ];
 
@@ -124,7 +124,7 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['min_available'] = isset($data['min_available']) ? $data['min_available'] : null;
+        $this->container['minAvailable'] = isset($data['minAvailable']) ? $data['minAvailable'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
     }
 
@@ -154,22 +154,22 @@ class V1beta1PodDisruptionBudgetSpec implements ArrayAccess
 
 
     /**
-     * Gets min_available
+     * Gets minAvailable
      * @return \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString
      */
     public function getMinAvailable()
     {
-        return $this->container['min_available'];
+        return $this->container['minAvailable'];
     }
 
     /**
-     * Sets min_available
-     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $min_available An eviction is allowed if at least \"minAvailable\" pods selected by \"selector\" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying \"100%\".
+     * Sets minAvailable
+     * @param \UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString $minAvailable An eviction is allowed if at least \"minAvailable\" pods selected by \"selector\" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying \"100%\".
      * @return $this
      */
-    public function setMinAvailable($min_available)
+    public function setMinAvailable($minAvailable)
     {
-        $this->container['min_available'] = $min_available;
+        $this->container['minAvailable'] = $minAvailable;
 
         return $this;
     }

@@ -55,8 +55,8 @@ class V1LabelSelector implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'match_expressions' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelectorRequirement[]',
-        'match_labels' => 'map[string,string]'
+        'matchExpressions' => '\UniversityOfAdelaide\OpenShift\Model\V1LabelSelectorRequirement[]',
+        'matchLabels' => 'map[string,string]'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1LabelSelector implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'match_expressions' => 'matchExpressions',
-        'match_labels' => 'matchLabels'
+        'matchExpressions' => 'matchExpressions',
+        'matchLabels' => 'matchLabels'
     ];
 
 
@@ -79,8 +79,8 @@ class V1LabelSelector implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'match_expressions' => 'setMatchExpressions',
-        'match_labels' => 'setMatchLabels'
+        'matchExpressions' => 'setMatchExpressions',
+        'matchLabels' => 'setMatchLabels'
     ];
 
 
@@ -89,8 +89,8 @@ class V1LabelSelector implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'match_expressions' => 'getMatchExpressions',
-        'match_labels' => 'getMatchLabels'
+        'matchExpressions' => 'getMatchExpressions',
+        'matchLabels' => 'getMatchLabels'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1LabelSelector implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['match_expressions'] = isset($data['match_expressions']) ? $data['match_expressions'] : null;
-        $this->container['match_labels'] = isset($data['match_labels']) ? $data['match_labels'] : null;
+        $this->container['matchExpressions'] = isset($data['matchExpressions']) ? $data['matchExpressions'] : null;
+        $this->container['matchLabels'] = isset($data['matchLabels']) ? $data['matchLabels'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1LabelSelector implements ArrayAccess
 
 
     /**
-     * Gets match_expressions
+     * Gets matchExpressions
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LabelSelectorRequirement[]
      */
     public function getMatchExpressions()
     {
-        return $this->container['match_expressions'];
+        return $this->container['matchExpressions'];
     }
 
     /**
-     * Sets match_expressions
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelectorRequirement[] $match_expressions matchExpressions is a list of label selector requirements. The requirements are ANDed.
+     * Sets matchExpressions
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LabelSelectorRequirement[] $matchExpressions matchExpressions is a list of label selector requirements. The requirements are ANDed.
      * @return $this
      */
-    public function setMatchExpressions($match_expressions)
+    public function setMatchExpressions($matchExpressions)
     {
-        $this->container['match_expressions'] = $match_expressions;
+        $this->container['matchExpressions'] = $matchExpressions;
 
         return $this;
     }
 
     /**
-     * Gets match_labels
+     * Gets matchLabels
      * @return map[string,string]
      */
     public function getMatchLabels()
     {
-        return $this->container['match_labels'];
+        return $this->container['matchLabels'];
     }
 
     /**
-     * Sets match_labels
-     * @param map[string,string] $match_labels matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.
+     * Sets matchLabels
+     * @param map[string,string] $matchLabels matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.
      * @return $this
      */
-    public function setMatchLabels($match_labels)
+    public function setMatchLabels($matchLabels)
     {
-        $this->container['match_labels'] = $match_labels;
+        $this->container['matchLabels'] = $matchLabels;
 
         return $this;
     }

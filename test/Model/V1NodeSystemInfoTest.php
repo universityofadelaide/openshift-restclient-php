@@ -91,15 +91,15 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "boot_id"
+     * Test attribute "bootID"
      */
-    public function testPropertyBootId()
+    public function testPropertyBootID()
     {
 
     }
 
     /**
-     * Test attribute "container_runtime_version"
+     * Test attribute "containerRuntimeVersion"
      */
     public function testPropertyContainerRuntimeVersion()
     {
@@ -107,7 +107,7 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "kernel_version"
+     * Test attribute "kernelVersion"
      */
     public function testPropertyKernelVersion()
     {
@@ -115,7 +115,7 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "kube_proxy_version"
+     * Test attribute "kubeProxyVersion"
      */
     public function testPropertyKubeProxyVersion()
     {
@@ -123,7 +123,7 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "kubelet_version"
+     * Test attribute "kubeletVersion"
      */
     public function testPropertyKubeletVersion()
     {
@@ -131,15 +131,15 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "machine_id"
+     * Test attribute "machineID"
      */
-    public function testPropertyMachineId()
+    public function testPropertyMachineID()
     {
 
     }
 
     /**
-     * Test attribute "operating_system"
+     * Test attribute "operatingSystem"
      */
     public function testPropertyOperatingSystem()
     {
@@ -147,7 +147,7 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "os_image"
+     * Test attribute "osImage"
      */
     public function testPropertyOsImage()
     {
@@ -155,9 +155,9 @@ class V1NodeSystemInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "system_uuid"
+     * Test attribute "systemUUID"
      */
-    public function testPropertySystemUuid()
+    public function testPropertySystemUUID()
     {
 
     }

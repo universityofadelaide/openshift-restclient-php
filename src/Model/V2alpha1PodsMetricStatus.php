@@ -55,8 +55,8 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_average_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
-        'metric_name' => 'string'
+        'currentAverageValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
+        'metricName' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_average_value' => 'currentAverageValue',
-        'metric_name' => 'metricName'
+        'currentAverageValue' => 'currentAverageValue',
+        'metricName' => 'metricName'
     ];
 
 
@@ -79,8 +79,8 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_average_value' => 'setCurrentAverageValue',
-        'metric_name' => 'setMetricName'
+        'currentAverageValue' => 'setCurrentAverageValue',
+        'metricName' => 'setMetricName'
     ];
 
 
@@ -89,8 +89,8 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_average_value' => 'getCurrentAverageValue',
-        'metric_name' => 'getMetricName'
+        'currentAverageValue' => 'getCurrentAverageValue',
+        'metricName' => 'getMetricName'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_average_value'] = isset($data['current_average_value']) ? $data['current_average_value'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
+        $this->container['currentAverageValue'] = isset($data['currentAverageValue']) ? $data['currentAverageValue'] : null;
+        $this->container['metricName'] = isset($data['metricName']) ? $data['metricName'] : null;
     }
 
     /**
@@ -137,11 +137,11 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_average_value'] === null) {
-            $invalid_properties[] = "'current_average_value' can't be null";
+        if ($this->container['currentAverageValue'] === null) {
+            $invalid_properties[] = "'currentAverageValue' can't be null";
         }
-        if ($this->container['metric_name'] === null) {
-            $invalid_properties[] = "'metric_name' can't be null";
+        if ($this->container['metricName'] === null) {
+            $invalid_properties[] = "'metricName' can't be null";
         }
         return $invalid_properties;
     }
@@ -155,10 +155,10 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_average_value'] === null) {
+        if ($this->container['currentAverageValue'] === null) {
             return false;
         }
-        if ($this->container['metric_name'] === null) {
+        if ($this->container['metricName'] === null) {
             return false;
         }
         return true;
@@ -166,43 +166,43 @@ class V2alpha1PodsMetricStatus implements ArrayAccess
 
 
     /**
-     * Gets current_average_value
+     * Gets currentAverageValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getCurrentAverageValue()
     {
-        return $this->container['current_average_value'];
+        return $this->container['currentAverageValue'];
     }
 
     /**
-     * Sets current_average_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $current_average_value currentAverageValue is the current value of the average of the metric across all relevant pods (as a quantity)
+     * Sets currentAverageValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $currentAverageValue currentAverageValue is the current value of the average of the metric across all relevant pods (as a quantity)
      * @return $this
      */
-    public function setCurrentAverageValue($current_average_value)
+    public function setCurrentAverageValue($currentAverageValue)
     {
-        $this->container['current_average_value'] = $current_average_value;
+        $this->container['currentAverageValue'] = $currentAverageValue;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets metricName
      * @return string
      */
     public function getMetricName()
     {
-        return $this->container['metric_name'];
+        return $this->container['metricName'];
     }
 
     /**
-     * Sets metric_name
-     * @param string $metric_name metricName is the name of the metric in question
+     * Sets metricName
+     * @param string $metricName metricName is the name of the metric in question
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setMetricName($metricName)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['metricName'] = $metricName;
 
         return $this;
     }

@@ -55,10 +55,10 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fs_type' => 'string',
+        'fsType' => 'string',
         'partition' => 'int',
-        'pd_name' => 'string',
-        'read_only' => 'bool'
+        'pdName' => 'string',
+        'readOnly' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -71,10 +71,10 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_type' => 'fsType',
+        'fsType' => 'fsType',
         'partition' => 'partition',
-        'pd_name' => 'pdName',
-        'read_only' => 'readOnly'
+        'pdName' => 'pdName',
+        'readOnly' => 'readOnly'
     ];
 
 
@@ -83,10 +83,10 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fs_type' => 'setFsType',
+        'fsType' => 'setFsType',
         'partition' => 'setPartition',
-        'pd_name' => 'setPdName',
-        'read_only' => 'setReadOnly'
+        'pdName' => 'setPdName',
+        'readOnly' => 'setReadOnly'
     ];
 
 
@@ -95,10 +95,10 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fs_type' => 'getFsType',
+        'fsType' => 'getFsType',
         'partition' => 'getPartition',
-        'pd_name' => 'getPdName',
-        'read_only' => 'getReadOnly'
+        'pdName' => 'getPdName',
+        'readOnly' => 'getReadOnly'
     ];
 
     public static function attributeMap()
@@ -132,10 +132,10 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;
+        $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
         $this->container['partition'] = isset($data['partition']) ? $data['partition'] : null;
-        $this->container['pd_name'] = isset($data['pd_name']) ? $data['pd_name'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['pdName'] = isset($data['pdName']) ? $data['pdName'] : null;
+        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 
     /**
@@ -147,8 +147,8 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['pd_name'] === null) {
-            $invalid_properties[] = "'pd_name' can't be null";
+        if ($this->container['pdName'] === null) {
+            $invalid_properties[] = "'pdName' can't be null";
         }
         return $invalid_properties;
     }
@@ -162,7 +162,7 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['pd_name'] === null) {
+        if ($this->container['pdName'] === null) {
             return false;
         }
         return true;
@@ -170,22 +170,22 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
 
 
     /**
-     * Gets fs_type
+     * Gets fsType
      * @return string
      */
     public function getFsType()
     {
-        return $this->container['fs_type'];
+        return $this->container['fsType'];
     }
 
     /**
-     * Sets fs_type
-     * @param string $fs_type Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+     * Sets fsType
+     * @param string $fsType Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
      * @return $this
      */
-    public function setFsType($fs_type)
+    public function setFsType($fsType)
     {
-        $this->container['fs_type'] = $fs_type;
+        $this->container['fsType'] = $fsType;
 
         return $this;
     }
@@ -212,43 +212,43 @@ class V1GCEPersistentDiskVolumeSource implements ArrayAccess
     }
 
     /**
-     * Gets pd_name
+     * Gets pdName
      * @return string
      */
     public function getPdName()
     {
-        return $this->container['pd_name'];
+        return $this->container['pdName'];
     }
 
     /**
-     * Sets pd_name
-     * @param string $pd_name Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+     * Sets pdName
+     * @param string $pdName Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
      * @return $this
      */
-    public function setPdName($pd_name)
+    public function setPdName($pdName)
     {
-        $this->container['pd_name'] = $pd_name;
+        $this->container['pdName'] = $pdName;
 
         return $this;
     }
 
     /**
-     * Gets read_only
+     * Gets readOnly
      * @return bool
      */
     public function getReadOnly()
     {
-        return $this->container['read_only'];
+        return $this->container['readOnly'];
     }
 
     /**
-     * Sets read_only
-     * @param bool $read_only ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+     * Sets readOnly
+     * @param bool $readOnly ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setReadOnly($readOnly)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['readOnly'] = $readOnly;
 
         return $this;
     }

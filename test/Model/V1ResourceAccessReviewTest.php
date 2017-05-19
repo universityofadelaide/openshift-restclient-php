@@ -83,7 +83,7 @@ class V1ResourceAccessReviewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,9 +99,9 @@ class V1ResourceAccessReviewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "is_non_resource_url"
+     * Test attribute "isNonResourceURL"
      */
-    public function testPropertyIsNonResourceUrl()
+    public function testPropertyIsNonResourceURL()
     {
 
     }
@@ -139,23 +139,23 @@ class V1ResourceAccessReviewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_api_group"
+     * Test attribute "resourceAPIGroup"
      */
-    public function testPropertyResourceApiGroup()
+    public function testPropertyResourceAPIGroup()
     {
 
     }
 
     /**
-     * Test attribute "resource_api_version"
+     * Test attribute "resourceAPIVersion"
      */
-    public function testPropertyResourceApiVersion()
+    public function testPropertyResourceAPIVersion()
     {
 
     }
 
     /**
-     * Test attribute "resource_name"
+     * Test attribute "resourceName"
      */
     public function testPropertyResourceName()
     {

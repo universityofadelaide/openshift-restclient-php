@@ -57,8 +57,8 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     protected static $swaggerTypes = [
         'extra' => 'map[string,string[]]',
         'groups' => 'string[]',
-        'non_resource_attributes' => '\UniversityOfAdelaide\OpenShift\Model\V1NonResourceAttributes',
-        'resource_attributes' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceAttributes',
+        'nonResourceAttributes' => '\UniversityOfAdelaide\OpenShift\Model\V1NonResourceAttributes',
+        'resourceAttributes' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceAttributes',
         'user' => 'string'
     ];
 
@@ -74,8 +74,8 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     protected static $attributeMap = [
         'extra' => 'extra',
         'groups' => 'groups',
-        'non_resource_attributes' => 'nonResourceAttributes',
-        'resource_attributes' => 'resourceAttributes',
+        'nonResourceAttributes' => 'nonResourceAttributes',
+        'resourceAttributes' => 'resourceAttributes',
         'user' => 'user'
     ];
 
@@ -87,8 +87,8 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     protected static $setters = [
         'extra' => 'setExtra',
         'groups' => 'setGroups',
-        'non_resource_attributes' => 'setNonResourceAttributes',
-        'resource_attributes' => 'setResourceAttributes',
+        'nonResourceAttributes' => 'setNonResourceAttributes',
+        'resourceAttributes' => 'setResourceAttributes',
         'user' => 'setUser'
     ];
 
@@ -100,8 +100,8 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     protected static $getters = [
         'extra' => 'getExtra',
         'groups' => 'getGroups',
-        'non_resource_attributes' => 'getNonResourceAttributes',
-        'resource_attributes' => 'getResourceAttributes',
+        'nonResourceAttributes' => 'getNonResourceAttributes',
+        'resourceAttributes' => 'getResourceAttributes',
         'user' => 'getUser'
     ];
 
@@ -138,8 +138,8 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     {
         $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
-        $this->container['non_resource_attributes'] = isset($data['non_resource_attributes']) ? $data['non_resource_attributes'] : null;
-        $this->container['resource_attributes'] = isset($data['resource_attributes']) ? $data['resource_attributes'] : null;
+        $this->container['nonResourceAttributes'] = isset($data['nonResourceAttributes']) ? $data['nonResourceAttributes'] : null;
+        $this->container['resourceAttributes'] = isset($data['resourceAttributes']) ? $data['resourceAttributes'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -211,43 +211,43 @@ class V1SubjectAccessReviewSpec implements ArrayAccess
     }
 
     /**
-     * Gets non_resource_attributes
+     * Gets nonResourceAttributes
      * @return \UniversityOfAdelaide\OpenShift\Model\V1NonResourceAttributes
      */
     public function getNonResourceAttributes()
     {
-        return $this->container['non_resource_attributes'];
+        return $this->container['nonResourceAttributes'];
     }
 
     /**
-     * Sets non_resource_attributes
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1NonResourceAttributes $non_resource_attributes NonResourceAttributes describes information for a non-resource access request
+     * Sets nonResourceAttributes
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1NonResourceAttributes $nonResourceAttributes NonResourceAttributes describes information for a non-resource access request
      * @return $this
      */
-    public function setNonResourceAttributes($non_resource_attributes)
+    public function setNonResourceAttributes($nonResourceAttributes)
     {
-        $this->container['non_resource_attributes'] = $non_resource_attributes;
+        $this->container['nonResourceAttributes'] = $nonResourceAttributes;
 
         return $this;
     }
 
     /**
-     * Gets resource_attributes
+     * Gets resourceAttributes
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ResourceAttributes
      */
     public function getResourceAttributes()
     {
-        return $this->container['resource_attributes'];
+        return $this->container['resourceAttributes'];
     }
 
     /**
-     * Sets resource_attributes
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceAttributes $resource_attributes ResourceAuthorizationAttributes describes information for a resource access request
+     * Sets resourceAttributes
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ResourceAttributes $resourceAttributes ResourceAuthorizationAttributes describes information for a resource access request
      * @return $this
      */
-    public function setResourceAttributes($resource_attributes)
+    public function setResourceAttributes($resourceAttributes)
     {
-        $this->container['resource_attributes'] = $resource_attributes;
+        $this->container['resourceAttributes'] = $resourceAttributes;
 
         return $this;
     }

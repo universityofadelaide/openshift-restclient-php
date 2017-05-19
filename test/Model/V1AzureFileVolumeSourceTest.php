@@ -83,7 +83,7 @@ class V1AzureFileVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
@@ -91,7 +91,7 @@ class V1AzureFileVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "secret_name"
+     * Test attribute "secretName"
      */
     public function testPropertySecretName()
     {
@@ -99,7 +99,7 @@ class V1AzureFileVolumeSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "share_name"
+     * Test attribute "shareName"
      */
     public function testPropertyShareName()
     {

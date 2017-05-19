@@ -83,7 +83,7 @@ class V1beta1IngressBackendTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_name"
+     * Test attribute "serviceName"
      */
     public function testPropertyServiceName()
     {
@@ -91,7 +91,7 @@ class V1beta1IngressBackendTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_port"
+     * Test attribute "servicePort"
      */
     public function testPropertyServicePort()
     {

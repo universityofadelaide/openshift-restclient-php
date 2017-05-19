@@ -55,13 +55,13 @@ class V1DeploymentStrategy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active_deadline_seconds' => 'int',
+        'activeDeadlineSeconds' => 'int',
         'annotations' => 'map[string,string]',
-        'custom_params' => '\UniversityOfAdelaide\OpenShift\Model\V1CustomDeploymentStrategyParams',
+        'customParams' => '\UniversityOfAdelaide\OpenShift\Model\V1CustomDeploymentStrategyParams',
         'labels' => 'map[string,string]',
-        'recreate_params' => '\UniversityOfAdelaide\OpenShift\Model\V1RecreateDeploymentStrategyParams',
+        'recreateParams' => '\UniversityOfAdelaide\OpenShift\Model\V1RecreateDeploymentStrategyParams',
         'resources' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceRequirements',
-        'rolling_params' => '\UniversityOfAdelaide\OpenShift\Model\V1RollingDeploymentStrategyParams',
+        'rollingParams' => '\UniversityOfAdelaide\OpenShift\Model\V1RollingDeploymentStrategyParams',
         'type' => 'string'
     ];
 
@@ -75,13 +75,13 @@ class V1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_deadline_seconds' => 'activeDeadlineSeconds',
+        'activeDeadlineSeconds' => 'activeDeadlineSeconds',
         'annotations' => 'annotations',
-        'custom_params' => 'customParams',
+        'customParams' => 'customParams',
         'labels' => 'labels',
-        'recreate_params' => 'recreateParams',
+        'recreateParams' => 'recreateParams',
         'resources' => 'resources',
-        'rolling_params' => 'rollingParams',
+        'rollingParams' => 'rollingParams',
         'type' => 'type'
     ];
 
@@ -91,13 +91,13 @@ class V1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active_deadline_seconds' => 'setActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'setActiveDeadlineSeconds',
         'annotations' => 'setAnnotations',
-        'custom_params' => 'setCustomParams',
+        'customParams' => 'setCustomParams',
         'labels' => 'setLabels',
-        'recreate_params' => 'setRecreateParams',
+        'recreateParams' => 'setRecreateParams',
         'resources' => 'setResources',
-        'rolling_params' => 'setRollingParams',
+        'rollingParams' => 'setRollingParams',
         'type' => 'setType'
     ];
 
@@ -107,13 +107,13 @@ class V1DeploymentStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active_deadline_seconds' => 'getActiveDeadlineSeconds',
+        'activeDeadlineSeconds' => 'getActiveDeadlineSeconds',
         'annotations' => 'getAnnotations',
-        'custom_params' => 'getCustomParams',
+        'customParams' => 'getCustomParams',
         'labels' => 'getLabels',
-        'recreate_params' => 'getRecreateParams',
+        'recreateParams' => 'getRecreateParams',
         'resources' => 'getResources',
-        'rolling_params' => 'getRollingParams',
+        'rollingParams' => 'getRollingParams',
         'type' => 'getType'
     ];
 
@@ -148,13 +148,13 @@ class V1DeploymentStrategy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active_deadline_seconds'] = isset($data['active_deadline_seconds']) ? $data['active_deadline_seconds'] : null;
+        $this->container['activeDeadlineSeconds'] = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
-        $this->container['custom_params'] = isset($data['custom_params']) ? $data['custom_params'] : null;
+        $this->container['customParams'] = isset($data['customParams']) ? $data['customParams'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['recreate_params'] = isset($data['recreate_params']) ? $data['recreate_params'] : null;
+        $this->container['recreateParams'] = isset($data['recreateParams']) ? $data['recreateParams'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['rolling_params'] = isset($data['rolling_params']) ? $data['rolling_params'] : null;
+        $this->container['rollingParams'] = isset($data['rollingParams']) ? $data['rollingParams'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -184,22 +184,22 @@ class V1DeploymentStrategy implements ArrayAccess
 
 
     /**
-     * Gets active_deadline_seconds
+     * Gets activeDeadlineSeconds
      * @return int
      */
     public function getActiveDeadlineSeconds()
     {
-        return $this->container['active_deadline_seconds'];
+        return $this->container['activeDeadlineSeconds'];
     }
 
     /**
-     * Sets active_deadline_seconds
-     * @param int $active_deadline_seconds ActiveDeadlineSeconds is the duration in seconds that the deployer pods for this deployment config may be active on a node before the system actively tries to terminate them.
+     * Sets activeDeadlineSeconds
+     * @param int $activeDeadlineSeconds ActiveDeadlineSeconds is the duration in seconds that the deployer pods for this deployment config may be active on a node before the system actively tries to terminate them.
      * @return $this
      */
-    public function setActiveDeadlineSeconds($active_deadline_seconds)
+    public function setActiveDeadlineSeconds($activeDeadlineSeconds)
     {
-        $this->container['active_deadline_seconds'] = $active_deadline_seconds;
+        $this->container['activeDeadlineSeconds'] = $activeDeadlineSeconds;
 
         return $this;
     }
@@ -226,22 +226,22 @@ class V1DeploymentStrategy implements ArrayAccess
     }
 
     /**
-     * Gets custom_params
+     * Gets customParams
      * @return \UniversityOfAdelaide\OpenShift\Model\V1CustomDeploymentStrategyParams
      */
     public function getCustomParams()
     {
-        return $this->container['custom_params'];
+        return $this->container['customParams'];
     }
 
     /**
-     * Sets custom_params
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1CustomDeploymentStrategyParams $custom_params CustomParams are the input to the Custom deployment strategy, and may also be specified for the Recreate and Rolling strategies to customize the execution process that runs the deployment.
+     * Sets customParams
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1CustomDeploymentStrategyParams $customParams CustomParams are the input to the Custom deployment strategy, and may also be specified for the Recreate and Rolling strategies to customize the execution process that runs the deployment.
      * @return $this
      */
-    public function setCustomParams($custom_params)
+    public function setCustomParams($customParams)
     {
-        $this->container['custom_params'] = $custom_params;
+        $this->container['customParams'] = $customParams;
 
         return $this;
     }
@@ -268,22 +268,22 @@ class V1DeploymentStrategy implements ArrayAccess
     }
 
     /**
-     * Gets recreate_params
+     * Gets recreateParams
      * @return \UniversityOfAdelaide\OpenShift\Model\V1RecreateDeploymentStrategyParams
      */
     public function getRecreateParams()
     {
-        return $this->container['recreate_params'];
+        return $this->container['recreateParams'];
     }
 
     /**
-     * Sets recreate_params
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1RecreateDeploymentStrategyParams $recreate_params RecreateParams are the input to the Recreate deployment strategy.
+     * Sets recreateParams
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1RecreateDeploymentStrategyParams $recreateParams RecreateParams are the input to the Recreate deployment strategy.
      * @return $this
      */
-    public function setRecreateParams($recreate_params)
+    public function setRecreateParams($recreateParams)
     {
-        $this->container['recreate_params'] = $recreate_params;
+        $this->container['recreateParams'] = $recreateParams;
 
         return $this;
     }
@@ -310,22 +310,22 @@ class V1DeploymentStrategy implements ArrayAccess
     }
 
     /**
-     * Gets rolling_params
+     * Gets rollingParams
      * @return \UniversityOfAdelaide\OpenShift\Model\V1RollingDeploymentStrategyParams
      */
     public function getRollingParams()
     {
-        return $this->container['rolling_params'];
+        return $this->container['rollingParams'];
     }
 
     /**
-     * Sets rolling_params
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1RollingDeploymentStrategyParams $rolling_params RollingParams are the input to the Rolling deployment strategy.
+     * Sets rollingParams
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1RollingDeploymentStrategyParams $rollingParams RollingParams are the input to the Rolling deployment strategy.
      * @return $this
      */
-    public function setRollingParams($rolling_params)
+    public function setRollingParams($rollingParams)
     {
-        $this->container['rolling_params'] = $rolling_params;
+        $this->container['rollingParams'] = $rollingParams;
 
         return $this;
     }

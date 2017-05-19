@@ -83,7 +83,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "aws_elastic_block_store"
+     * Test attribute "awsElasticBlockStore"
      */
     public function testPropertyAwsElasticBlockStore()
     {
@@ -91,7 +91,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "azure_disk"
+     * Test attribute "azureDisk"
      */
     public function testPropertyAzureDisk()
     {
@@ -99,7 +99,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "azure_file"
+     * Test attribute "azureFile"
      */
     public function testPropertyAzureFile()
     {
@@ -123,7 +123,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "config_map"
+     * Test attribute "configMap"
      */
     public function testPropertyConfigMap()
     {
@@ -131,15 +131,15 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "downward_api"
+     * Test attribute "downwardAPI"
      */
-    public function testPropertyDownwardApi()
+    public function testPropertyDownwardAPI()
     {
 
     }
 
     /**
-     * Test attribute "empty_dir"
+     * Test attribute "emptyDir"
      */
     public function testPropertyEmptyDir()
     {
@@ -155,7 +155,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "flex_volume"
+     * Test attribute "flexVolume"
      */
     public function testPropertyFlexVolume()
     {
@@ -171,7 +171,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "gce_persistent_disk"
+     * Test attribute "gcePersistentDisk"
      */
     public function testPropertyGcePersistentDisk()
     {
@@ -179,7 +179,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "git_repo"
+     * Test attribute "gitRepo"
      */
     public function testPropertyGitRepo()
     {
@@ -195,7 +195,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "host_path"
+     * Test attribute "hostPath"
      */
     public function testPropertyHostPath()
     {
@@ -235,7 +235,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "persistent_volume_claim"
+     * Test attribute "persistentVolumeClaim"
      */
     public function testPropertyPersistentVolumeClaim()
     {
@@ -243,7 +243,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "photon_persistent_disk"
+     * Test attribute "photonPersistentDisk"
      */
     public function testPropertyPhotonPersistentDisk()
     {
@@ -251,7 +251,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "portworx_volume"
+     * Test attribute "portworxVolume"
      */
     public function testPropertyPortworxVolume()
     {
@@ -283,9 +283,9 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "scale_io"
+     * Test attribute "scaleIO"
      */
-    public function testPropertyScaleIo()
+    public function testPropertyScaleIO()
     {
 
     }
@@ -299,7 +299,7 @@ class V1VolumeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "vsphere_volume"
+     * Test attribute "vsphereVolume"
      */
     public function testPropertyVsphereVolume()
     {

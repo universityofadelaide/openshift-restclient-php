@@ -99,7 +99,7 @@ class V1ImageSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pull_secret"
+     * Test attribute "pullSecret"
      */
     public function testPropertyPullSecret()
     {

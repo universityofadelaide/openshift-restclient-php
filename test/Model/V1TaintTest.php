@@ -99,7 +99,7 @@ class V1TaintTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "time_added"
+     * Test attribute "timeAdded"
      */
     public function testPropertyTimeAdded()
     {

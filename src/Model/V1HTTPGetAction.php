@@ -56,7 +56,7 @@ class V1HTTPGetAction implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
-        'http_headers' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPHeader[]',
+        'httpHeaders' => '\UniversityOfAdelaide\OpenShift\Model\V1HTTPHeader[]',
         'path' => 'string',
         'port' => '\UniversityOfAdelaide\OpenShift\Model\IntstrIntOrString',
         'scheme' => 'string'
@@ -73,7 +73,7 @@ class V1HTTPGetAction implements ArrayAccess
      */
     protected static $attributeMap = [
         'host' => 'host',
-        'http_headers' => 'httpHeaders',
+        'httpHeaders' => 'httpHeaders',
         'path' => 'path',
         'port' => 'port',
         'scheme' => 'scheme'
@@ -86,7 +86,7 @@ class V1HTTPGetAction implements ArrayAccess
      */
     protected static $setters = [
         'host' => 'setHost',
-        'http_headers' => 'setHttpHeaders',
+        'httpHeaders' => 'setHttpHeaders',
         'path' => 'setPath',
         'port' => 'setPort',
         'scheme' => 'setScheme'
@@ -99,7 +99,7 @@ class V1HTTPGetAction implements ArrayAccess
      */
     protected static $getters = [
         'host' => 'getHost',
-        'http_headers' => 'getHttpHeaders',
+        'httpHeaders' => 'getHttpHeaders',
         'path' => 'getPath',
         'port' => 'getPort',
         'scheme' => 'getScheme'
@@ -137,7 +137,7 @@ class V1HTTPGetAction implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['http_headers'] = isset($data['http_headers']) ? $data['http_headers'] : null;
+        $this->container['httpHeaders'] = isset($data['httpHeaders']) ? $data['httpHeaders'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
@@ -196,22 +196,22 @@ class V1HTTPGetAction implements ArrayAccess
     }
 
     /**
-     * Gets http_headers
+     * Gets httpHeaders
      * @return \UniversityOfAdelaide\OpenShift\Model\V1HTTPHeader[]
      */
     public function getHttpHeaders()
     {
-        return $this->container['http_headers'];
+        return $this->container['httpHeaders'];
     }
 
     /**
-     * Sets http_headers
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPHeader[] $http_headers Custom headers to set in the request. HTTP allows repeated headers.
+     * Sets httpHeaders
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1HTTPHeader[] $httpHeaders Custom headers to set in the request. HTTP allows repeated headers.
      * @return $this
      */
-    public function setHttpHeaders($http_headers)
+    public function setHttpHeaders($httpHeaders)
     {
-        $this->container['http_headers'] = $http_headers;
+        $this->container['httpHeaders'] = $httpHeaders;
 
         return $this;
     }

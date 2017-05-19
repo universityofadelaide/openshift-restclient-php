@@ -55,9 +55,9 @@ class V1ContainerPort implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'container_port' => 'int',
-        'host_ip' => 'string',
-        'host_port' => 'int',
+        'containerPort' => 'int',
+        'hostIP' => 'string',
+        'hostPort' => 'int',
         'name' => 'string',
         'protocol' => 'string'
     ];
@@ -72,9 +72,9 @@ class V1ContainerPort implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_port' => 'containerPort',
-        'host_ip' => 'hostIP',
-        'host_port' => 'hostPort',
+        'containerPort' => 'containerPort',
+        'hostIP' => 'hostIP',
+        'hostPort' => 'hostPort',
         'name' => 'name',
         'protocol' => 'protocol'
     ];
@@ -85,9 +85,9 @@ class V1ContainerPort implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'container_port' => 'setContainerPort',
-        'host_ip' => 'setHostIp',
-        'host_port' => 'setHostPort',
+        'containerPort' => 'setContainerPort',
+        'hostIP' => 'setHostIP',
+        'hostPort' => 'setHostPort',
         'name' => 'setName',
         'protocol' => 'setProtocol'
     ];
@@ -98,9 +98,9 @@ class V1ContainerPort implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'container_port' => 'getContainerPort',
-        'host_ip' => 'getHostIp',
-        'host_port' => 'getHostPort',
+        'containerPort' => 'getContainerPort',
+        'hostIP' => 'getHostIP',
+        'hostPort' => 'getHostPort',
         'name' => 'getName',
         'protocol' => 'getProtocol'
     ];
@@ -136,9 +136,9 @@ class V1ContainerPort implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['container_port'] = isset($data['container_port']) ? $data['container_port'] : null;
-        $this->container['host_ip'] = isset($data['host_ip']) ? $data['host_ip'] : null;
-        $this->container['host_port'] = isset($data['host_port']) ? $data['host_port'] : null;
+        $this->container['containerPort'] = isset($data['containerPort']) ? $data['containerPort'] : null;
+        $this->container['hostIP'] = isset($data['hostIP']) ? $data['hostIP'] : null;
+        $this->container['hostPort'] = isset($data['hostPort']) ? $data['hostPort'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
     }
@@ -152,8 +152,8 @@ class V1ContainerPort implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['container_port'] === null) {
-            $invalid_properties[] = "'container_port' can't be null";
+        if ($this->container['containerPort'] === null) {
+            $invalid_properties[] = "'containerPort' can't be null";
         }
         return $invalid_properties;
     }
@@ -167,7 +167,7 @@ class V1ContainerPort implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['container_port'] === null) {
+        if ($this->container['containerPort'] === null) {
             return false;
         }
         return true;
@@ -175,64 +175,64 @@ class V1ContainerPort implements ArrayAccess
 
 
     /**
-     * Gets container_port
+     * Gets containerPort
      * @return int
      */
     public function getContainerPort()
     {
-        return $this->container['container_port'];
+        return $this->container['containerPort'];
     }
 
     /**
-     * Sets container_port
-     * @param int $container_port Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+     * Sets containerPort
+     * @param int $containerPort Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
      * @return $this
      */
-    public function setContainerPort($container_port)
+    public function setContainerPort($containerPort)
     {
-        $this->container['container_port'] = $container_port;
+        $this->container['containerPort'] = $containerPort;
 
         return $this;
     }
 
     /**
-     * Gets host_ip
+     * Gets hostIP
      * @return string
      */
-    public function getHostIp()
+    public function getHostIP()
     {
-        return $this->container['host_ip'];
+        return $this->container['hostIP'];
     }
 
     /**
-     * Sets host_ip
-     * @param string $host_ip What host IP to bind the external port to.
+     * Sets hostIP
+     * @param string $hostIP What host IP to bind the external port to.
      * @return $this
      */
-    public function setHostIp($host_ip)
+    public function setHostIP($hostIP)
     {
-        $this->container['host_ip'] = $host_ip;
+        $this->container['hostIP'] = $hostIP;
 
         return $this;
     }
 
     /**
-     * Gets host_port
+     * Gets hostPort
      * @return int
      */
     public function getHostPort()
     {
-        return $this->container['host_port'];
+        return $this->container['hostPort'];
     }
 
     /**
-     * Sets host_port
-     * @param int $host_port Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+     * Sets hostPort
+     * @param int $hostPort Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
      * @return $this
      */
-    public function setHostPort($host_port)
+    public function setHostPort($hostPort)
     {
-        $this->container['host_port'] = $host_port;
+        $this->container['hostPort'] = $hostPort;
 
         return $this;
     }

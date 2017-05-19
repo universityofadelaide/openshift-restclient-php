@@ -55,8 +55,8 @@ class V1ImageChangeCause implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'from_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'image_id' => 'string'
+        'fromRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
+        'imageID' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,8 +69,8 @@ class V1ImageChangeCause implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'from_ref' => 'fromRef',
-        'image_id' => 'imageID'
+        'fromRef' => 'fromRef',
+        'imageID' => 'imageID'
     ];
 
 
@@ -79,8 +79,8 @@ class V1ImageChangeCause implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'from_ref' => 'setFromRef',
-        'image_id' => 'setImageId'
+        'fromRef' => 'setFromRef',
+        'imageID' => 'setImageID'
     ];
 
 
@@ -89,8 +89,8 @@ class V1ImageChangeCause implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'from_ref' => 'getFromRef',
-        'image_id' => 'getImageId'
+        'fromRef' => 'getFromRef',
+        'imageID' => 'getImageID'
     ];
 
     public static function attributeMap()
@@ -124,8 +124,8 @@ class V1ImageChangeCause implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['from_ref'] = isset($data['from_ref']) ? $data['from_ref'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['fromRef'] = isset($data['fromRef']) ? $data['fromRef'] : null;
+        $this->container['imageID'] = isset($data['imageID']) ? $data['imageID'] : null;
     }
 
     /**
@@ -154,43 +154,43 @@ class V1ImageChangeCause implements ArrayAccess
 
 
     /**
-     * Gets from_ref
+     * Gets fromRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference
      */
     public function getFromRef()
     {
-        return $this->container['from_ref'];
+        return $this->container['fromRef'];
     }
 
     /**
-     * Sets from_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $from_ref fromRef contains detailed information about an image that triggered a build.
+     * Sets fromRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectReference $fromRef fromRef contains detailed information about an image that triggered a build.
      * @return $this
      */
-    public function setFromRef($from_ref)
+    public function setFromRef($fromRef)
     {
-        $this->container['from_ref'] = $from_ref;
+        $this->container['fromRef'] = $fromRef;
 
         return $this;
     }
 
     /**
-     * Gets image_id
+     * Gets imageID
      * @return string
      */
-    public function getImageId()
+    public function getImageID()
     {
-        return $this->container['image_id'];
+        return $this->container['imageID'];
     }
 
     /**
-     * Sets image_id
-     * @param string $image_id imageID is the ID of the image that triggered a a new build.
+     * Sets imageID
+     * @param string $imageID imageID is the ID of the image that triggered a a new build.
      * @return $this
      */
-    public function setImageId($image_id)
+    public function setImageID($imageID)
     {
-        $this->container['image_id'] = $image_id;
+        $this->container['imageID'] = $imageID;
 
         return $this;
     }

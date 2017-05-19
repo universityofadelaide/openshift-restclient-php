@@ -19,7 +19,7 @@ get the code version
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\VersionApi();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\VersionApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getCodeVersion();

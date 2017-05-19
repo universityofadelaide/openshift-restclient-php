@@ -55,14 +55,14 @@ class V1DockerBuildStrategy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'build_args' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'dockerfile_path' => 'string',
+        'buildArgs' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
+        'dockerfilePath' => 'string',
         'env' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]',
-        'force_pull' => 'bool',
+        'forcePull' => 'bool',
         'from' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectReference',
-        'image_optimization_policy' => 'string',
-        'no_cache' => 'bool',
-        'pull_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
+        'imageOptimizationPolicy' => 'string',
+        'noCache' => 'bool',
+        'pullSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference'
     ];
 
     public static function swaggerTypes()
@@ -75,14 +75,14 @@ class V1DockerBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'build_args' => 'buildArgs',
-        'dockerfile_path' => 'dockerfilePath',
+        'buildArgs' => 'buildArgs',
+        'dockerfilePath' => 'dockerfilePath',
         'env' => 'env',
-        'force_pull' => 'forcePull',
+        'forcePull' => 'forcePull',
         'from' => 'from',
-        'image_optimization_policy' => 'imageOptimizationPolicy',
-        'no_cache' => 'noCache',
-        'pull_secret' => 'pullSecret'
+        'imageOptimizationPolicy' => 'imageOptimizationPolicy',
+        'noCache' => 'noCache',
+        'pullSecret' => 'pullSecret'
     ];
 
 
@@ -91,14 +91,14 @@ class V1DockerBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'build_args' => 'setBuildArgs',
-        'dockerfile_path' => 'setDockerfilePath',
+        'buildArgs' => 'setBuildArgs',
+        'dockerfilePath' => 'setDockerfilePath',
         'env' => 'setEnv',
-        'force_pull' => 'setForcePull',
+        'forcePull' => 'setForcePull',
         'from' => 'setFrom',
-        'image_optimization_policy' => 'setImageOptimizationPolicy',
-        'no_cache' => 'setNoCache',
-        'pull_secret' => 'setPullSecret'
+        'imageOptimizationPolicy' => 'setImageOptimizationPolicy',
+        'noCache' => 'setNoCache',
+        'pullSecret' => 'setPullSecret'
     ];
 
 
@@ -107,14 +107,14 @@ class V1DockerBuildStrategy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'build_args' => 'getBuildArgs',
-        'dockerfile_path' => 'getDockerfilePath',
+        'buildArgs' => 'getBuildArgs',
+        'dockerfilePath' => 'getDockerfilePath',
         'env' => 'getEnv',
-        'force_pull' => 'getForcePull',
+        'forcePull' => 'getForcePull',
         'from' => 'getFrom',
-        'image_optimization_policy' => 'getImageOptimizationPolicy',
-        'no_cache' => 'getNoCache',
-        'pull_secret' => 'getPullSecret'
+        'imageOptimizationPolicy' => 'getImageOptimizationPolicy',
+        'noCache' => 'getNoCache',
+        'pullSecret' => 'getPullSecret'
     ];
 
     public static function attributeMap()
@@ -148,14 +148,14 @@ class V1DockerBuildStrategy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['build_args'] = isset($data['build_args']) ? $data['build_args'] : null;
-        $this->container['dockerfile_path'] = isset($data['dockerfile_path']) ? $data['dockerfile_path'] : null;
+        $this->container['buildArgs'] = isset($data['buildArgs']) ? $data['buildArgs'] : null;
+        $this->container['dockerfilePath'] = isset($data['dockerfilePath']) ? $data['dockerfilePath'] : null;
         $this->container['env'] = isset($data['env']) ? $data['env'] : null;
-        $this->container['force_pull'] = isset($data['force_pull']) ? $data['force_pull'] : null;
+        $this->container['forcePull'] = isset($data['forcePull']) ? $data['forcePull'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['image_optimization_policy'] = isset($data['image_optimization_policy']) ? $data['image_optimization_policy'] : null;
-        $this->container['no_cache'] = isset($data['no_cache']) ? $data['no_cache'] : null;
-        $this->container['pull_secret'] = isset($data['pull_secret']) ? $data['pull_secret'] : null;
+        $this->container['imageOptimizationPolicy'] = isset($data['imageOptimizationPolicy']) ? $data['imageOptimizationPolicy'] : null;
+        $this->container['noCache'] = isset($data['noCache']) ? $data['noCache'] : null;
+        $this->container['pullSecret'] = isset($data['pullSecret']) ? $data['pullSecret'] : null;
     }
 
     /**
@@ -184,43 +184,43 @@ class V1DockerBuildStrategy implements ArrayAccess
 
 
     /**
-     * Gets build_args
+     * Gets buildArgs
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[]
      */
     public function getBuildArgs()
     {
-        return $this->container['build_args'];
+        return $this->container['buildArgs'];
     }
 
     /**
-     * Sets build_args
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[] $build_args buildArgs contains build arguments that will be resolved in the Dockerfile.  See https://docs.docker.com/engine/reference/builder/#/arg for more details.
+     * Sets buildArgs
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVar[] $buildArgs buildArgs contains build arguments that will be resolved in the Dockerfile.  See https://docs.docker.com/engine/reference/builder/#/arg for more details.
      * @return $this
      */
-    public function setBuildArgs($build_args)
+    public function setBuildArgs($buildArgs)
     {
-        $this->container['build_args'] = $build_args;
+        $this->container['buildArgs'] = $buildArgs;
 
         return $this;
     }
 
     /**
-     * Gets dockerfile_path
+     * Gets dockerfilePath
      * @return string
      */
     public function getDockerfilePath()
     {
-        return $this->container['dockerfile_path'];
+        return $this->container['dockerfilePath'];
     }
 
     /**
-     * Sets dockerfile_path
-     * @param string $dockerfile_path dockerfilePath is the path of the Dockerfile that will be used to build the Docker image, relative to the root of the context (contextDir).
+     * Sets dockerfilePath
+     * @param string $dockerfilePath dockerfilePath is the path of the Dockerfile that will be used to build the Docker image, relative to the root of the context (contextDir).
      * @return $this
      */
-    public function setDockerfilePath($dockerfile_path)
+    public function setDockerfilePath($dockerfilePath)
     {
-        $this->container['dockerfile_path'] = $dockerfile_path;
+        $this->container['dockerfilePath'] = $dockerfilePath;
 
         return $this;
     }
@@ -247,22 +247,22 @@ class V1DockerBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets force_pull
+     * Gets forcePull
      * @return bool
      */
     public function getForcePull()
     {
-        return $this->container['force_pull'];
+        return $this->container['forcePull'];
     }
 
     /**
-     * Sets force_pull
-     * @param bool $force_pull forcePull describes if the builder should pull the images from registry prior to building.
+     * Sets forcePull
+     * @param bool $forcePull forcePull describes if the builder should pull the images from registry prior to building.
      * @return $this
      */
-    public function setForcePull($force_pull)
+    public function setForcePull($forcePull)
     {
-        $this->container['force_pull'] = $force_pull;
+        $this->container['forcePull'] = $forcePull;
 
         return $this;
     }
@@ -289,64 +289,64 @@ class V1DockerBuildStrategy implements ArrayAccess
     }
 
     /**
-     * Gets image_optimization_policy
+     * Gets imageOptimizationPolicy
      * @return string
      */
     public function getImageOptimizationPolicy()
     {
-        return $this->container['image_optimization_policy'];
+        return $this->container['imageOptimizationPolicy'];
     }
 
     /**
-     * Sets image_optimization_policy
-     * @param string $image_optimization_policy imageOptimizationPolicy describes what optimizations the system can use when building images to reduce the final size or time spent building the image. The default policy is 'None' which means the final build image will be equivalent to an image created by the Docker build API. The experimental policy 'SkipLayers' will avoid commiting new layers in between each image step, and will fail if the Dockerfile cannot provide compatibility with the 'None' policy. An additional experimental policy 'SkipLayersAndWarn' is the same as 'SkipLayers' but simply warns if compatibility cannot be preserved.
+     * Sets imageOptimizationPolicy
+     * @param string $imageOptimizationPolicy imageOptimizationPolicy describes what optimizations the system can use when building images to reduce the final size or time spent building the image. The default policy is 'None' which means the final build image will be equivalent to an image created by the Docker build API. The experimental policy 'SkipLayers' will avoid commiting new layers in between each image step, and will fail if the Dockerfile cannot provide compatibility with the 'None' policy. An additional experimental policy 'SkipLayersAndWarn' is the same as 'SkipLayers' but simply warns if compatibility cannot be preserved.
      * @return $this
      */
-    public function setImageOptimizationPolicy($image_optimization_policy)
+    public function setImageOptimizationPolicy($imageOptimizationPolicy)
     {
-        $this->container['image_optimization_policy'] = $image_optimization_policy;
+        $this->container['imageOptimizationPolicy'] = $imageOptimizationPolicy;
 
         return $this;
     }
 
     /**
-     * Gets no_cache
+     * Gets noCache
      * @return bool
      */
     public function getNoCache()
     {
-        return $this->container['no_cache'];
+        return $this->container['noCache'];
     }
 
     /**
-     * Sets no_cache
-     * @param bool $no_cache noCache if set to true indicates that the docker build must be executed with the --no-cache=true flag
+     * Sets noCache
+     * @param bool $noCache noCache if set to true indicates that the docker build must be executed with the --no-cache=true flag
      * @return $this
      */
-    public function setNoCache($no_cache)
+    public function setNoCache($noCache)
     {
-        $this->container['no_cache'] = $no_cache;
+        $this->container['noCache'] = $noCache;
 
         return $this;
     }
 
     /**
-     * Gets pull_secret
+     * Gets pullSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getPullSecret()
     {
-        return $this->container['pull_secret'];
+        return $this->container['pullSecret'];
     }
 
     /**
-     * Sets pull_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pull_secret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
+     * Sets pullSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $pullSecret pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries
      * @return $this
      */
-    public function setPullSecret($pull_secret)
+    public function setPullSecret($pullSecret)
     {
-        $this->container['pull_secret'] = $pull_secret;
+        $this->container['pullSecret'] = $pullSecret;
 
         return $this;
     }

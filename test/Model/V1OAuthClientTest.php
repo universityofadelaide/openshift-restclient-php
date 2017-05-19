@@ -83,7 +83,7 @@ class V1OAuthClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additional_secrets"
+     * Test attribute "additionalSecrets"
      */
     public function testPropertyAdditionalSecrets()
     {
@@ -91,7 +91,7 @@ class V1OAuthClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1OAuthClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "grant_method"
+     * Test attribute "grantMethod"
      */
     public function testPropertyGrantMethod()
     {
@@ -123,15 +123,15 @@ class V1OAuthClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "redirect_ur_is"
+     * Test attribute "redirectURIs"
      */
-    public function testPropertyRedirectUrIs()
+    public function testPropertyRedirectURIs()
     {
 
     }
 
     /**
-     * Test attribute "respond_with_challenges"
+     * Test attribute "respondWithChallenges"
      */
     public function testPropertyRespondWithChallenges()
     {
@@ -139,7 +139,7 @@ class V1OAuthClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "scope_restrictions"
+     * Test attribute "scopeRestrictions"
      */
     public function testPropertyScopeRestrictions()
     {

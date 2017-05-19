@@ -83,7 +83,7 @@ class V1EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -99,7 +99,7 @@ class V1EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "first_timestamp"
+     * Test attribute "firstTimestamp"
      */
     public function testPropertyFirstTimestamp()
     {
@@ -107,7 +107,7 @@ class V1EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "involved_object"
+     * Test attribute "involvedObject"
      */
     public function testPropertyInvolvedObject()
     {
@@ -123,7 +123,7 @@ class V1EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_timestamp"
+     * Test attribute "lastTimestamp"
      */
     public function testPropertyLastTimestamp()
     {

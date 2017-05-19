@@ -83,7 +83,7 @@ class V1PodSecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fs_group"
+     * Test attribute "fsGroup"
      */
     public function testPropertyFsGroup()
     {
@@ -91,7 +91,7 @@ class V1PodSecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_non_root"
+     * Test attribute "runAsNonRoot"
      */
     public function testPropertyRunAsNonRoot()
     {
@@ -99,7 +99,7 @@ class V1PodSecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "run_as_user"
+     * Test attribute "runAsUser"
      */
     public function testPropertyRunAsUser()
     {
@@ -107,7 +107,7 @@ class V1PodSecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "se_linux_options"
+     * Test attribute "seLinuxOptions"
      */
     public function testPropertySeLinuxOptions()
     {
@@ -115,7 +115,7 @@ class V1PodSecurityContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "supplemental_groups"
+     * Test attribute "supplementalGroups"
      */
     public function testPropertySupplementalGroups()
     {

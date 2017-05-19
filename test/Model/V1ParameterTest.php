@@ -91,7 +91,7 @@ class V1ParameterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_name"
+     * Test attribute "displayName"
      */
     public function testPropertyDisplayName()
     {

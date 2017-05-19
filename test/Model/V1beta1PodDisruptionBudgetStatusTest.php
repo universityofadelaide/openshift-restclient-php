@@ -83,7 +83,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_healthy"
+     * Test attribute "currentHealthy"
      */
     public function testPropertyCurrentHealthy()
     {
@@ -91,7 +91,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "desired_healthy"
+     * Test attribute "desiredHealthy"
      */
     public function testPropertyDesiredHealthy()
     {
@@ -99,7 +99,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "disrupted_pods"
+     * Test attribute "disruptedPods"
      */
     public function testPropertyDisruptedPods()
     {
@@ -107,7 +107,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "disruptions_allowed"
+     * Test attribute "disruptionsAllowed"
      */
     public function testPropertyDisruptionsAllowed()
     {
@@ -115,7 +115,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "expected_pods"
+     * Test attribute "expectedPods"
      */
     public function testPropertyExpectedPods()
     {
@@ -123,7 +123,7 @@ class V1beta1PodDisruptionBudgetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {

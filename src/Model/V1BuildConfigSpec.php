@@ -55,14 +55,14 @@ class V1BuildConfigSpec implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'completion_deadline_seconds' => 'int',
-        'node_selector' => 'map[string,string]',
+        'completionDeadlineSeconds' => 'int',
+        'nodeSelector' => 'map[string,string]',
         'output' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildOutput',
-        'post_commit' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec',
+        'postCommit' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec',
         'resources' => '\UniversityOfAdelaide\OpenShift\Model\V1ResourceRequirements',
         'revision' => '\UniversityOfAdelaide\OpenShift\Model\V1SourceRevision',
-        'run_policy' => 'string',
-        'service_account' => 'string',
+        'runPolicy' => 'string',
+        'serviceAccount' => 'string',
         'source' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildSource',
         'strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildStrategy',
         'triggers' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerPolicy[]'
@@ -78,14 +78,14 @@ class V1BuildConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'completion_deadline_seconds' => 'completionDeadlineSeconds',
-        'node_selector' => 'nodeSelector',
+        'completionDeadlineSeconds' => 'completionDeadlineSeconds',
+        'nodeSelector' => 'nodeSelector',
         'output' => 'output',
-        'post_commit' => 'postCommit',
+        'postCommit' => 'postCommit',
         'resources' => 'resources',
         'revision' => 'revision',
-        'run_policy' => 'runPolicy',
-        'service_account' => 'serviceAccount',
+        'runPolicy' => 'runPolicy',
+        'serviceAccount' => 'serviceAccount',
         'source' => 'source',
         'strategy' => 'strategy',
         'triggers' => 'triggers'
@@ -97,14 +97,14 @@ class V1BuildConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'completion_deadline_seconds' => 'setCompletionDeadlineSeconds',
-        'node_selector' => 'setNodeSelector',
+        'completionDeadlineSeconds' => 'setCompletionDeadlineSeconds',
+        'nodeSelector' => 'setNodeSelector',
         'output' => 'setOutput',
-        'post_commit' => 'setPostCommit',
+        'postCommit' => 'setPostCommit',
         'resources' => 'setResources',
         'revision' => 'setRevision',
-        'run_policy' => 'setRunPolicy',
-        'service_account' => 'setServiceAccount',
+        'runPolicy' => 'setRunPolicy',
+        'serviceAccount' => 'setServiceAccount',
         'source' => 'setSource',
         'strategy' => 'setStrategy',
         'triggers' => 'setTriggers'
@@ -116,14 +116,14 @@ class V1BuildConfigSpec implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'completion_deadline_seconds' => 'getCompletionDeadlineSeconds',
-        'node_selector' => 'getNodeSelector',
+        'completionDeadlineSeconds' => 'getCompletionDeadlineSeconds',
+        'nodeSelector' => 'getNodeSelector',
         'output' => 'getOutput',
-        'post_commit' => 'getPostCommit',
+        'postCommit' => 'getPostCommit',
         'resources' => 'getResources',
         'revision' => 'getRevision',
-        'run_policy' => 'getRunPolicy',
-        'service_account' => 'getServiceAccount',
+        'runPolicy' => 'getRunPolicy',
+        'serviceAccount' => 'getServiceAccount',
         'source' => 'getSource',
         'strategy' => 'getStrategy',
         'triggers' => 'getTriggers'
@@ -160,14 +160,14 @@ class V1BuildConfigSpec implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['completion_deadline_seconds'] = isset($data['completion_deadline_seconds']) ? $data['completion_deadline_seconds'] : null;
-        $this->container['node_selector'] = isset($data['node_selector']) ? $data['node_selector'] : null;
+        $this->container['completionDeadlineSeconds'] = isset($data['completionDeadlineSeconds']) ? $data['completionDeadlineSeconds'] : null;
+        $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['post_commit'] = isset($data['post_commit']) ? $data['post_commit'] : null;
+        $this->container['postCommit'] = isset($data['postCommit']) ? $data['postCommit'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['revision'] = isset($data['revision']) ? $data['revision'] : null;
-        $this->container['run_policy'] = isset($data['run_policy']) ? $data['run_policy'] : null;
-        $this->container['service_account'] = isset($data['service_account']) ? $data['service_account'] : null;
+        $this->container['runPolicy'] = isset($data['runPolicy']) ? $data['runPolicy'] : null;
+        $this->container['serviceAccount'] = isset($data['serviceAccount']) ? $data['serviceAccount'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
@@ -182,8 +182,8 @@ class V1BuildConfigSpec implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['node_selector'] === null) {
-            $invalid_properties[] = "'node_selector' can't be null";
+        if ($this->container['nodeSelector'] === null) {
+            $invalid_properties[] = "'nodeSelector' can't be null";
         }
         if ($this->container['strategy'] === null) {
             $invalid_properties[] = "'strategy' can't be null";
@@ -203,7 +203,7 @@ class V1BuildConfigSpec implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['node_selector'] === null) {
+        if ($this->container['nodeSelector'] === null) {
             return false;
         }
         if ($this->container['strategy'] === null) {
@@ -217,43 +217,43 @@ class V1BuildConfigSpec implements ArrayAccess
 
 
     /**
-     * Gets completion_deadline_seconds
+     * Gets completionDeadlineSeconds
      * @return int
      */
     public function getCompletionDeadlineSeconds()
     {
-        return $this->container['completion_deadline_seconds'];
+        return $this->container['completionDeadlineSeconds'];
     }
 
     /**
-     * Sets completion_deadline_seconds
-     * @param int $completion_deadline_seconds completionDeadlineSeconds is an optional duration in seconds, counted from the time when a build pod gets scheduled in the system, that the build may be active on a node before the system actively tries to terminate the build; value must be positive integer
+     * Sets completionDeadlineSeconds
+     * @param int $completionDeadlineSeconds completionDeadlineSeconds is an optional duration in seconds, counted from the time when a build pod gets scheduled in the system, that the build may be active on a node before the system actively tries to terminate the build; value must be positive integer
      * @return $this
      */
-    public function setCompletionDeadlineSeconds($completion_deadline_seconds)
+    public function setCompletionDeadlineSeconds($completionDeadlineSeconds)
     {
-        $this->container['completion_deadline_seconds'] = $completion_deadline_seconds;
+        $this->container['completionDeadlineSeconds'] = $completionDeadlineSeconds;
 
         return $this;
     }
 
     /**
-     * Gets node_selector
+     * Gets nodeSelector
      * @return map[string,string]
      */
     public function getNodeSelector()
     {
-        return $this->container['node_selector'];
+        return $this->container['nodeSelector'];
     }
 
     /**
-     * Sets node_selector
-     * @param map[string,string] $node_selector nodeSelector is a selector which must be true for the build pod to fit on a node If nil, it can be overridden by default build nodeselector values for the cluster. If set to an empty map or a map with any values, default build nodeselector values are ignored.
+     * Sets nodeSelector
+     * @param map[string,string] $nodeSelector nodeSelector is a selector which must be true for the build pod to fit on a node If nil, it can be overridden by default build nodeselector values for the cluster. If set to an empty map or a map with any values, default build nodeselector values are ignored.
      * @return $this
      */
-    public function setNodeSelector($node_selector)
+    public function setNodeSelector($nodeSelector)
     {
-        $this->container['node_selector'] = $node_selector;
+        $this->container['nodeSelector'] = $nodeSelector;
 
         return $this;
     }
@@ -280,22 +280,22 @@ class V1BuildConfigSpec implements ArrayAccess
     }
 
     /**
-     * Gets post_commit
+     * Gets postCommit
      * @return \UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec
      */
     public function getPostCommit()
     {
-        return $this->container['post_commit'];
+        return $this->container['postCommit'];
     }
 
     /**
-     * Sets post_commit
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec $post_commit postCommit is a build hook executed after the build output image is committed, before it is pushed to a registry.
+     * Sets postCommit
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec $postCommit postCommit is a build hook executed after the build output image is committed, before it is pushed to a registry.
      * @return $this
      */
-    public function setPostCommit($post_commit)
+    public function setPostCommit($postCommit)
     {
-        $this->container['post_commit'] = $post_commit;
+        $this->container['postCommit'] = $postCommit;
 
         return $this;
     }
@@ -343,43 +343,43 @@ class V1BuildConfigSpec implements ArrayAccess
     }
 
     /**
-     * Gets run_policy
+     * Gets runPolicy
      * @return string
      */
     public function getRunPolicy()
     {
-        return $this->container['run_policy'];
+        return $this->container['runPolicy'];
     }
 
     /**
-     * Sets run_policy
-     * @param string $run_policy RunPolicy describes how the new build created from this build configuration will be scheduled for execution. This is optional, if not specified we default to \"Serial\".
+     * Sets runPolicy
+     * @param string $runPolicy RunPolicy describes how the new build created from this build configuration will be scheduled for execution. This is optional, if not specified we default to \"Serial\".
      * @return $this
      */
-    public function setRunPolicy($run_policy)
+    public function setRunPolicy($runPolicy)
     {
-        $this->container['run_policy'] = $run_policy;
+        $this->container['runPolicy'] = $runPolicy;
 
         return $this;
     }
 
     /**
-     * Gets service_account
+     * Gets serviceAccount
      * @return string
      */
     public function getServiceAccount()
     {
-        return $this->container['service_account'];
+        return $this->container['serviceAccount'];
     }
 
     /**
-     * Sets service_account
-     * @param string $service_account serviceAccount is the name of the ServiceAccount to use to run the pod created by this build. The pod will be allowed to use secrets referenced by the ServiceAccount
+     * Sets serviceAccount
+     * @param string $serviceAccount serviceAccount is the name of the ServiceAccount to use to run the pod created by this build. The pod will be allowed to use secrets referenced by the ServiceAccount
      * @return $this
      */
-    public function setServiceAccount($service_account)
+    public function setServiceAccount($serviceAccount)
     {
-        $this->container['service_account'] = $service_account;
+        $this->container['serviceAccount'] = $serviceAccount;
 
         return $this;
     }

@@ -55,8 +55,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_average_utilization' => 'int',
-        'current_average_value' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
+        'currentAverageUtilization' => 'int',
+        'currentAverageValue' => '\UniversityOfAdelaide\OpenShift\Model\ResourceQuantity',
         'name' => 'string'
     ];
 
@@ -70,8 +70,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_average_utilization' => 'currentAverageUtilization',
-        'current_average_value' => 'currentAverageValue',
+        'currentAverageUtilization' => 'currentAverageUtilization',
+        'currentAverageValue' => 'currentAverageValue',
         'name' => 'name'
     ];
 
@@ -81,8 +81,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_average_utilization' => 'setCurrentAverageUtilization',
-        'current_average_value' => 'setCurrentAverageValue',
+        'currentAverageUtilization' => 'setCurrentAverageUtilization',
+        'currentAverageValue' => 'setCurrentAverageValue',
         'name' => 'setName'
     ];
 
@@ -92,8 +92,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_average_utilization' => 'getCurrentAverageUtilization',
-        'current_average_value' => 'getCurrentAverageValue',
+        'currentAverageUtilization' => 'getCurrentAverageUtilization',
+        'currentAverageValue' => 'getCurrentAverageValue',
         'name' => 'getName'
     ];
 
@@ -128,8 +128,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_average_utilization'] = isset($data['current_average_utilization']) ? $data['current_average_utilization'] : null;
-        $this->container['current_average_value'] = isset($data['current_average_value']) ? $data['current_average_value'] : null;
+        $this->container['currentAverageUtilization'] = isset($data['currentAverageUtilization']) ? $data['currentAverageUtilization'] : null;
+        $this->container['currentAverageValue'] = isset($data['currentAverageValue']) ? $data['currentAverageValue'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
@@ -142,8 +142,8 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['current_average_value'] === null) {
-            $invalid_properties[] = "'current_average_value' can't be null";
+        if ($this->container['currentAverageValue'] === null) {
+            $invalid_properties[] = "'currentAverageValue' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
@@ -160,7 +160,7 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['current_average_value'] === null) {
+        if ($this->container['currentAverageValue'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -171,43 +171,43 @@ class V2alpha1ResourceMetricStatus implements ArrayAccess
 
 
     /**
-     * Gets current_average_utilization
+     * Gets currentAverageUtilization
      * @return int
      */
     public function getCurrentAverageUtilization()
     {
-        return $this->container['current_average_utilization'];
+        return $this->container['currentAverageUtilization'];
     }
 
     /**
-     * Sets current_average_utilization
-     * @param int $current_average_utilization currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.  It will only be present if `targetAverageValue` was set in the corresponding metric specification.
+     * Sets currentAverageUtilization
+     * @param int $currentAverageUtilization currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.  It will only be present if `targetAverageValue` was set in the corresponding metric specification.
      * @return $this
      */
-    public function setCurrentAverageUtilization($current_average_utilization)
+    public function setCurrentAverageUtilization($currentAverageUtilization)
     {
-        $this->container['current_average_utilization'] = $current_average_utilization;
+        $this->container['currentAverageUtilization'] = $currentAverageUtilization;
 
         return $this;
     }
 
     /**
-     * Gets current_average_value
+     * Gets currentAverageValue
      * @return \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity
      */
     public function getCurrentAverageValue()
     {
-        return $this->container['current_average_value'];
+        return $this->container['currentAverageValue'];
     }
 
     /**
-     * Sets current_average_value
-     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $current_average_value currentAverageValue is the the current value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type. It will always be set, regardless of the corresponding metric specification.
+     * Sets currentAverageValue
+     * @param \UniversityOfAdelaide\OpenShift\Model\ResourceQuantity $currentAverageValue currentAverageValue is the the current value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type. It will always be set, regardless of the corresponding metric specification.
      * @return $this
      */
-    public function setCurrentAverageValue($current_average_value)
+    public function setCurrentAverageValue($currentAverageValue)
     {
-        $this->container['current_average_value'] = $current_average_value;
+        $this->container['currentAverageValue'] = $currentAverageValue;
 
         return $this;
     }

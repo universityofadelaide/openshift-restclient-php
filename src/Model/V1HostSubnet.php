@@ -55,9 +55,9 @@ class V1HostSubnet implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_version' => 'string',
+        'apiVersion' => 'string',
         'host' => 'string',
-        'host_ip' => 'string',
+        'hostIP' => 'string',
         'kind' => 'string',
         'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
         'subnet' => 'string'
@@ -73,9 +73,9 @@ class V1HostSubnet implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_version' => 'apiVersion',
+        'apiVersion' => 'apiVersion',
         'host' => 'host',
-        'host_ip' => 'hostIP',
+        'hostIP' => 'hostIP',
         'kind' => 'kind',
         'metadata' => 'metadata',
         'subnet' => 'subnet'
@@ -87,9 +87,9 @@ class V1HostSubnet implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_version' => 'setApiVersion',
+        'apiVersion' => 'setApiVersion',
         'host' => 'setHost',
-        'host_ip' => 'setHostIp',
+        'hostIP' => 'setHostIP',
         'kind' => 'setKind',
         'metadata' => 'setMetadata',
         'subnet' => 'setSubnet'
@@ -101,9 +101,9 @@ class V1HostSubnet implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_version' => 'getApiVersion',
+        'apiVersion' => 'getApiVersion',
         'host' => 'getHost',
-        'host_ip' => 'getHostIp',
+        'hostIP' => 'getHostIP',
         'kind' => 'getKind',
         'metadata' => 'getMetadata',
         'subnet' => 'getSubnet'
@@ -140,9 +140,9 @@ class V1HostSubnet implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['host_ip'] = isset($data['host_ip']) ? $data['host_ip'] : null;
+        $this->container['hostIP'] = isset($data['hostIP']) ? $data['hostIP'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['subnet'] = isset($data['subnet']) ? $data['subnet'] : null;
@@ -160,8 +160,8 @@ class V1HostSubnet implements ArrayAccess
         if ($this->container['host'] === null) {
             $invalid_properties[] = "'host' can't be null";
         }
-        if ($this->container['host_ip'] === null) {
-            $invalid_properties[] = "'host_ip' can't be null";
+        if ($this->container['hostIP'] === null) {
+            $invalid_properties[] = "'hostIP' can't be null";
         }
         if ($this->container['subnet'] === null) {
             $invalid_properties[] = "'subnet' can't be null";
@@ -181,7 +181,7 @@ class V1HostSubnet implements ArrayAccess
         if ($this->container['host'] === null) {
             return false;
         }
-        if ($this->container['host_ip'] === null) {
+        if ($this->container['hostIP'] === null) {
             return false;
         }
         if ($this->container['subnet'] === null) {
@@ -192,22 +192,22 @@ class V1HostSubnet implements ArrayAccess
 
 
     /**
-     * Gets api_version
+     * Gets apiVersion
      * @return string
      */
     public function getApiVersion()
     {
-        return $this->container['api_version'];
+        return $this->container['apiVersion'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets apiVersion
+     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setApiVersion($apiVersion)
     {
-        $this->container['api_version'] = $api_version;
+        $this->container['apiVersion'] = $apiVersion;
 
         return $this;
     }
@@ -234,22 +234,22 @@ class V1HostSubnet implements ArrayAccess
     }
 
     /**
-     * Gets host_ip
+     * Gets hostIP
      * @return string
      */
-    public function getHostIp()
+    public function getHostIP()
     {
-        return $this->container['host_ip'];
+        return $this->container['hostIP'];
     }
 
     /**
-     * Sets host_ip
-     * @param string $host_ip HostIP is the IP address to be used as a VTEP by other nodes in the overlay network
+     * Sets hostIP
+     * @param string $hostIP HostIP is the IP address to be used as a VTEP by other nodes in the overlay network
      * @return $this
      */
-    public function setHostIp($host_ip)
+    public function setHostIP($hostIP)
     {
-        $this->container['host_ip'] = $host_ip;
+        $this->container['hostIP'] = $hostIP;
 
         return $this;
     }

@@ -54,7 +54,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'target_percentage' => 'int'
+        'targetPercentage' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -67,7 +67,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'target_percentage' => 'targetPercentage'
+        'targetPercentage' => 'targetPercentage'
     ];
 
 
@@ -76,7 +76,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'target_percentage' => 'setTargetPercentage'
+        'targetPercentage' => 'setTargetPercentage'
     ];
 
 
@@ -85,7 +85,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'target_percentage' => 'getTargetPercentage'
+        'targetPercentage' => 'getTargetPercentage'
     ];
 
     public static function attributeMap()
@@ -119,7 +119,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['target_percentage'] = isset($data['target_percentage']) ? $data['target_percentage'] : null;
+        $this->container['targetPercentage'] = isset($data['targetPercentage']) ? $data['targetPercentage'] : null;
     }
 
     /**
@@ -131,8 +131,8 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['target_percentage'] === null) {
-            $invalid_properties[] = "'target_percentage' can't be null";
+        if ($this->container['targetPercentage'] === null) {
+            $invalid_properties[] = "'targetPercentage' can't be null";
         }
         return $invalid_properties;
     }
@@ -146,7 +146,7 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['target_percentage'] === null) {
+        if ($this->container['targetPercentage'] === null) {
             return false;
         }
         return true;
@@ -154,22 +154,22 @@ class V1beta1CPUTargetUtilization implements ArrayAccess
 
 
     /**
-     * Gets target_percentage
+     * Gets targetPercentage
      * @return int
      */
     public function getTargetPercentage()
     {
-        return $this->container['target_percentage'];
+        return $this->container['targetPercentage'];
     }
 
     /**
-     * Sets target_percentage
-     * @param int $target_percentage fraction of the requested CPU that should be utilized/used, e.g. 70 means that 70% of the requested CPU should be in use.
+     * Sets targetPercentage
+     * @param int $targetPercentage fraction of the requested CPU that should be utilized/used, e.g. 70 means that 70% of the requested CPU should be in use.
      * @return $this
      */
-    public function setTargetPercentage($target_percentage)
+    public function setTargetPercentage($targetPercentage)
     {
-        $this->container['target_percentage'] = $target_percentage;
+        $this->container['targetPercentage'] = $targetPercentage;
 
         return $this;
     }

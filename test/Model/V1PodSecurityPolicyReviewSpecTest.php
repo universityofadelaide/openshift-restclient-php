@@ -83,7 +83,7 @@ class V1PodSecurityPolicyReviewSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "service_account_names"
+     * Test attribute "serviceAccountNames"
      */
     public function testPropertyServiceAccountNames()
     {

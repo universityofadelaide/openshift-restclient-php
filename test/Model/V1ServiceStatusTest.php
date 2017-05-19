@@ -83,7 +83,7 @@ class V1ServiceStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "load_balancer"
+     * Test attribute "loadBalancer"
      */
     public function testPropertyLoadBalancer()
     {

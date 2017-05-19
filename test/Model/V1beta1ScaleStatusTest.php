@@ -99,7 +99,7 @@ class V1beta1ScaleStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "target_selector"
+     * Test attribute "targetSelector"
      */
     public function testPropertyTargetSelector()
     {

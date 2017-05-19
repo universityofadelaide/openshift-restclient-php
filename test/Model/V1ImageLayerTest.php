@@ -83,7 +83,7 @@ class V1ImageLayerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "media_type"
+     * Test attribute "mediaType"
      */
     public function testPropertyMediaType()
     {

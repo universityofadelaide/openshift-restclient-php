@@ -57,7 +57,7 @@ class V1EnvVar implements ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'value' => 'string',
-        'value_from' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVarSource'
+        'valueFrom' => '\UniversityOfAdelaide\OpenShift\Model\V1EnvVarSource'
     ];
 
     public static function swaggerTypes()
@@ -72,7 +72,7 @@ class V1EnvVar implements ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'value' => 'value',
-        'value_from' => 'valueFrom'
+        'valueFrom' => 'valueFrom'
     ];
 
 
@@ -83,7 +83,7 @@ class V1EnvVar implements ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'value' => 'setValue',
-        'value_from' => 'setValueFrom'
+        'valueFrom' => 'setValueFrom'
     ];
 
 
@@ -94,7 +94,7 @@ class V1EnvVar implements ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'value' => 'getValue',
-        'value_from' => 'getValueFrom'
+        'valueFrom' => 'getValueFrom'
     ];
 
     public static function attributeMap()
@@ -130,7 +130,7 @@ class V1EnvVar implements ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['value_from'] = isset($data['value_from']) ? $data['value_from'] : null;
+        $this->container['valueFrom'] = isset($data['valueFrom']) ? $data['valueFrom'] : null;
     }
 
     /**
@@ -207,22 +207,22 @@ class V1EnvVar implements ArrayAccess
     }
 
     /**
-     * Gets value_from
+     * Gets valueFrom
      * @return \UniversityOfAdelaide\OpenShift\Model\V1EnvVarSource
      */
     public function getValueFrom()
     {
-        return $this->container['value_from'];
+        return $this->container['valueFrom'];
     }
 
     /**
-     * Sets value_from
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVarSource $value_from Source for the environment variable's value. Cannot be used if value is not empty.
+     * Sets valueFrom
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1EnvVarSource $valueFrom Source for the environment variable's value. Cannot be used if value is not empty.
      * @return $this
      */
-    public function setValueFrom($value_from)
+    public function setValueFrom($valueFrom)
     {
-        $this->container['value_from'] = $value_from;
+        $this->container['valueFrom'] = $valueFrom;
 
         return $this;
     }

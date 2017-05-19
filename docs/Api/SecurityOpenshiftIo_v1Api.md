@@ -25,7 +25,7 @@ create a PodSecurityPolicyReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -74,7 +74,7 @@ create a PodSecurityPolicySelfSubjectReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -123,7 +123,7 @@ create a PodSecurityPolicySubjectReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -172,7 +172,7 @@ create a PodSecurityPolicyReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -219,7 +219,7 @@ create a PodSecurityPolicySelfSubjectReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -266,7 +266,7 @@ create a PodSecurityPolicySubjectReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
 
@@ -313,7 +313,7 @@ get available resources
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api();
+$api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getSecurityOpenshiftIoV1APIResources();

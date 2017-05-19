@@ -83,7 +83,7 @@ class V1BinaryBuildSourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "as_file"
+     * Test attribute "asFile"
      */
     public function testPropertyAsFile()
     {

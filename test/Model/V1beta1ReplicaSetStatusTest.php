@@ -83,7 +83,7 @@ class V1beta1ReplicaSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "available_replicas"
+     * Test attribute "availableReplicas"
      */
     public function testPropertyAvailableReplicas()
     {
@@ -99,7 +99,7 @@ class V1beta1ReplicaSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "fully_labeled_replicas"
+     * Test attribute "fullyLabeledReplicas"
      */
     public function testPropertyFullyLabeledReplicas()
     {
@@ -107,7 +107,7 @@ class V1beta1ReplicaSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {
@@ -115,7 +115,7 @@ class V1beta1ReplicaSetStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ready_replicas"
+     * Test attribute "readyReplicas"
      */
     public function testPropertyReadyReplicas()
     {

@@ -83,7 +83,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "available_replicas"
+     * Test attribute "availableReplicas"
      */
     public function testPropertyAvailableReplicas()
     {
@@ -107,7 +107,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "latest_version"
+     * Test attribute "latestVersion"
      */
     public function testPropertyLatestVersion()
     {
@@ -115,7 +115,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "observed_generation"
+     * Test attribute "observedGeneration"
      */
     public function testPropertyObservedGeneration()
     {
@@ -123,7 +123,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ready_replicas"
+     * Test attribute "readyReplicas"
      */
     public function testPropertyReadyReplicas()
     {
@@ -139,7 +139,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "unavailable_replicas"
+     * Test attribute "unavailableReplicas"
      */
     public function testPropertyUnavailableReplicas()
     {
@@ -147,7 +147,7 @@ class V1DeploymentConfigStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "updated_replicas"
+     * Test attribute "updatedReplicas"
      */
     public function testPropertyUpdatedReplicas()
     {

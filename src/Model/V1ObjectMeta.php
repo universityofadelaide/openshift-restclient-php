@@ -56,19 +56,19 @@ class V1ObjectMeta implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'annotations' => 'map[string,string]',
-        'cluster_name' => 'string',
-        'creation_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
-        'deletion_grace_period_seconds' => 'int',
-        'deletion_timestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'clusterName' => 'string',
+        'creationTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
+        'deletionGracePeriodSeconds' => 'int',
+        'deletionTimestamp' => '\UniversityOfAdelaide\OpenShift\Model\V1Time',
         'finalizers' => 'string[]',
-        'generate_name' => 'string',
+        'generateName' => 'string',
         'generation' => 'int',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespace' => 'string',
-        'owner_references' => '\UniversityOfAdelaide\OpenShift\Model\V1OwnerReference[]',
-        'resource_version' => 'string',
-        'self_link' => 'string',
+        'ownerReferences' => '\UniversityOfAdelaide\OpenShift\Model\V1OwnerReference[]',
+        'resourceVersion' => 'string',
+        'selfLink' => 'string',
         'uid' => 'string'
     ];
 
@@ -83,19 +83,19 @@ class V1ObjectMeta implements ArrayAccess
      */
     protected static $attributeMap = [
         'annotations' => 'annotations',
-        'cluster_name' => 'clusterName',
-        'creation_timestamp' => 'creationTimestamp',
-        'deletion_grace_period_seconds' => 'deletionGracePeriodSeconds',
-        'deletion_timestamp' => 'deletionTimestamp',
+        'clusterName' => 'clusterName',
+        'creationTimestamp' => 'creationTimestamp',
+        'deletionGracePeriodSeconds' => 'deletionGracePeriodSeconds',
+        'deletionTimestamp' => 'deletionTimestamp',
         'finalizers' => 'finalizers',
-        'generate_name' => 'generateName',
+        'generateName' => 'generateName',
         'generation' => 'generation',
         'labels' => 'labels',
         'name' => 'name',
         'namespace' => 'namespace',
-        'owner_references' => 'ownerReferences',
-        'resource_version' => 'resourceVersion',
-        'self_link' => 'selfLink',
+        'ownerReferences' => 'ownerReferences',
+        'resourceVersion' => 'resourceVersion',
+        'selfLink' => 'selfLink',
         'uid' => 'uid'
     ];
 
@@ -106,19 +106,19 @@ class V1ObjectMeta implements ArrayAccess
      */
     protected static $setters = [
         'annotations' => 'setAnnotations',
-        'cluster_name' => 'setClusterName',
-        'creation_timestamp' => 'setCreationTimestamp',
-        'deletion_grace_period_seconds' => 'setDeletionGracePeriodSeconds',
-        'deletion_timestamp' => 'setDeletionTimestamp',
+        'clusterName' => 'setClusterName',
+        'creationTimestamp' => 'setCreationTimestamp',
+        'deletionGracePeriodSeconds' => 'setDeletionGracePeriodSeconds',
+        'deletionTimestamp' => 'setDeletionTimestamp',
         'finalizers' => 'setFinalizers',
-        'generate_name' => 'setGenerateName',
+        'generateName' => 'setGenerateName',
         'generation' => 'setGeneration',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespace' => 'setNamespace',
-        'owner_references' => 'setOwnerReferences',
-        'resource_version' => 'setResourceVersion',
-        'self_link' => 'setSelfLink',
+        'ownerReferences' => 'setOwnerReferences',
+        'resourceVersion' => 'setResourceVersion',
+        'selfLink' => 'setSelfLink',
         'uid' => 'setUid'
     ];
 
@@ -129,19 +129,19 @@ class V1ObjectMeta implements ArrayAccess
      */
     protected static $getters = [
         'annotations' => 'getAnnotations',
-        'cluster_name' => 'getClusterName',
-        'creation_timestamp' => 'getCreationTimestamp',
-        'deletion_grace_period_seconds' => 'getDeletionGracePeriodSeconds',
-        'deletion_timestamp' => 'getDeletionTimestamp',
+        'clusterName' => 'getClusterName',
+        'creationTimestamp' => 'getCreationTimestamp',
+        'deletionGracePeriodSeconds' => 'getDeletionGracePeriodSeconds',
+        'deletionTimestamp' => 'getDeletionTimestamp',
         'finalizers' => 'getFinalizers',
-        'generate_name' => 'getGenerateName',
+        'generateName' => 'getGenerateName',
         'generation' => 'getGeneration',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespace' => 'getNamespace',
-        'owner_references' => 'getOwnerReferences',
-        'resource_version' => 'getResourceVersion',
-        'self_link' => 'getSelfLink',
+        'ownerReferences' => 'getOwnerReferences',
+        'resourceVersion' => 'getResourceVersion',
+        'selfLink' => 'getSelfLink',
         'uid' => 'getUid'
     ];
 
@@ -177,19 +177,19 @@ class V1ObjectMeta implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
-        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
-        $this->container['creation_timestamp'] = isset($data['creation_timestamp']) ? $data['creation_timestamp'] : null;
-        $this->container['deletion_grace_period_seconds'] = isset($data['deletion_grace_period_seconds']) ? $data['deletion_grace_period_seconds'] : null;
-        $this->container['deletion_timestamp'] = isset($data['deletion_timestamp']) ? $data['deletion_timestamp'] : null;
+        $this->container['clusterName'] = isset($data['clusterName']) ? $data['clusterName'] : null;
+        $this->container['creationTimestamp'] = isset($data['creationTimestamp']) ? $data['creationTimestamp'] : null;
+        $this->container['deletionGracePeriodSeconds'] = isset($data['deletionGracePeriodSeconds']) ? $data['deletionGracePeriodSeconds'] : null;
+        $this->container['deletionTimestamp'] = isset($data['deletionTimestamp']) ? $data['deletionTimestamp'] : null;
         $this->container['finalizers'] = isset($data['finalizers']) ? $data['finalizers'] : null;
-        $this->container['generate_name'] = isset($data['generate_name']) ? $data['generate_name'] : null;
+        $this->container['generateName'] = isset($data['generateName']) ? $data['generateName'] : null;
         $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['owner_references'] = isset($data['owner_references']) ? $data['owner_references'] : null;
-        $this->container['resource_version'] = isset($data['resource_version']) ? $data['resource_version'] : null;
-        $this->container['self_link'] = isset($data['self_link']) ? $data['self_link'] : null;
+        $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
+        $this->container['resourceVersion'] = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->container['selfLink'] = isset($data['selfLink']) ? $data['selfLink'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
@@ -240,85 +240,85 @@ class V1ObjectMeta implements ArrayAccess
     }
 
     /**
-     * Gets cluster_name
+     * Gets clusterName
      * @return string
      */
     public function getClusterName()
     {
-        return $this->container['cluster_name'];
+        return $this->container['clusterName'];
     }
 
     /**
-     * Sets cluster_name
-     * @param string $cluster_name The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
+     * Sets clusterName
+     * @param string $clusterName The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
      * @return $this
      */
-    public function setClusterName($cluster_name)
+    public function setClusterName($clusterName)
     {
-        $this->container['cluster_name'] = $cluster_name;
+        $this->container['clusterName'] = $clusterName;
 
         return $this;
     }
 
     /**
-     * Gets creation_timestamp
+     * Gets creationTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getCreationTimestamp()
     {
-        return $this->container['creation_timestamp'];
+        return $this->container['creationTimestamp'];
     }
 
     /**
-     * Sets creation_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $creation_timestamp CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.  Populated by the system. Read-only. Null for lists. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * Sets creationTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $creationTimestamp CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.  Populated by the system. Read-only. Null for lists. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
      * @return $this
      */
-    public function setCreationTimestamp($creation_timestamp)
+    public function setCreationTimestamp($creationTimestamp)
     {
-        $this->container['creation_timestamp'] = $creation_timestamp;
+        $this->container['creationTimestamp'] = $creationTimestamp;
 
         return $this;
     }
 
     /**
-     * Gets deletion_grace_period_seconds
+     * Gets deletionGracePeriodSeconds
      * @return int
      */
     public function getDeletionGracePeriodSeconds()
     {
-        return $this->container['deletion_grace_period_seconds'];
+        return $this->container['deletionGracePeriodSeconds'];
     }
 
     /**
-     * Sets deletion_grace_period_seconds
-     * @param int $deletion_grace_period_seconds Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
+     * Sets deletionGracePeriodSeconds
+     * @param int $deletionGracePeriodSeconds Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
      * @return $this
      */
-    public function setDeletionGracePeriodSeconds($deletion_grace_period_seconds)
+    public function setDeletionGracePeriodSeconds($deletionGracePeriodSeconds)
     {
-        $this->container['deletion_grace_period_seconds'] = $deletion_grace_period_seconds;
+        $this->container['deletionGracePeriodSeconds'] = $deletionGracePeriodSeconds;
 
         return $this;
     }
 
     /**
-     * Gets deletion_timestamp
+     * Gets deletionTimestamp
      * @return \UniversityOfAdelaide\OpenShift\Model\V1Time
      */
     public function getDeletionTimestamp()
     {
-        return $this->container['deletion_timestamp'];
+        return $this->container['deletionTimestamp'];
     }
 
     /**
-     * Sets deletion_timestamp
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $deletion_timestamp DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field. Once set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.  Populated by the system when a graceful deletion is requested. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * Sets deletionTimestamp
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1Time $deletionTimestamp DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field. Once set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.  Populated by the system when a graceful deletion is requested. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
      * @return $this
      */
-    public function setDeletionTimestamp($deletion_timestamp)
+    public function setDeletionTimestamp($deletionTimestamp)
     {
-        $this->container['deletion_timestamp'] = $deletion_timestamp;
+        $this->container['deletionTimestamp'] = $deletionTimestamp;
 
         return $this;
     }
@@ -345,22 +345,22 @@ class V1ObjectMeta implements ArrayAccess
     }
 
     /**
-     * Gets generate_name
+     * Gets generateName
      * @return string
      */
     public function getGenerateName()
     {
-        return $this->container['generate_name'];
+        return $this->container['generateName'];
     }
 
     /**
-     * Sets generate_name
-     * @param string $generate_name GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.  If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).  Applied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency
+     * Sets generateName
+     * @param string $generateName GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.  If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).  Applied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency
      * @return $this
      */
-    public function setGenerateName($generate_name)
+    public function setGenerateName($generateName)
     {
-        $this->container['generate_name'] = $generate_name;
+        $this->container['generateName'] = $generateName;
 
         return $this;
     }
@@ -450,64 +450,64 @@ class V1ObjectMeta implements ArrayAccess
     }
 
     /**
-     * Gets owner_references
+     * Gets ownerReferences
      * @return \UniversityOfAdelaide\OpenShift\Model\V1OwnerReference[]
      */
     public function getOwnerReferences()
     {
-        return $this->container['owner_references'];
+        return $this->container['ownerReferences'];
     }
 
     /**
-     * Sets owner_references
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1OwnerReference[] $owner_references List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.
+     * Sets ownerReferences
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1OwnerReference[] $ownerReferences List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.
      * @return $this
      */
-    public function setOwnerReferences($owner_references)
+    public function setOwnerReferences($ownerReferences)
     {
-        $this->container['owner_references'] = $owner_references;
+        $this->container['ownerReferences'] = $ownerReferences;
 
         return $this;
     }
 
     /**
-     * Gets resource_version
+     * Gets resourceVersion
      * @return string
      */
     public function getResourceVersion()
     {
-        return $this->container['resource_version'];
+        return $this->container['resourceVersion'];
     }
 
     /**
-     * Sets resource_version
-     * @param string $resource_version An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.  Populated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
+     * Sets resourceVersion
+     * @param string $resourceVersion An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.  Populated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency
      * @return $this
      */
-    public function setResourceVersion($resource_version)
+    public function setResourceVersion($resourceVersion)
     {
-        $this->container['resource_version'] = $resource_version;
+        $this->container['resourceVersion'] = $resourceVersion;
 
         return $this;
     }
 
     /**
-     * Gets self_link
+     * Gets selfLink
      * @return string
      */
     public function getSelfLink()
     {
-        return $this->container['self_link'];
+        return $this->container['selfLink'];
     }
 
     /**
-     * Sets self_link
-     * @param string $self_link SelfLink is a URL representing this object. Populated by the system. Read-only.
+     * Sets selfLink
+     * @param string $selfLink SelfLink is a URL representing this object. Populated by the system. Read-only.
      * @return $this
      */
-    public function setSelfLink($self_link)
+    public function setSelfLink($selfLink)
     {
-        $this->container['self_link'] = $self_link;
+        $this->container['selfLink'] = $selfLink;
 
         return $this;
     }

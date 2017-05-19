@@ -83,7 +83,7 @@ class V1ServiceAccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "api_version"
+     * Test attribute "apiVersion"
      */
     public function testPropertyApiVersion()
     {
@@ -91,7 +91,7 @@ class V1ServiceAccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "automount_service_account_token"
+     * Test attribute "automountServiceAccountToken"
      */
     public function testPropertyAutomountServiceAccountToken()
     {
@@ -99,7 +99,7 @@ class V1ServiceAccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "image_pull_secrets"
+     * Test attribute "imagePullSecrets"
      */
     public function testPropertyImagePullSecrets()
     {

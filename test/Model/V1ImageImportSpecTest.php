@@ -91,7 +91,7 @@ class V1ImageImportSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "import_policy"
+     * Test attribute "importPolicy"
      */
     public function testPropertyImportPolicy()
     {
@@ -99,7 +99,7 @@ class V1ImageImportSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "include_manifest"
+     * Test attribute "includeManifest"
      */
     public function testPropertyIncludeManifest()
     {
@@ -107,7 +107,7 @@ class V1ImageImportSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "reference_policy"
+     * Test attribute "referencePolicy"
      */
     public function testPropertyReferencePolicy()
     {

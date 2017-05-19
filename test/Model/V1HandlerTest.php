@@ -91,7 +91,7 @@ class V1HandlerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "http_get"
+     * Test attribute "httpGet"
      */
     public function testPropertyHttpGet()
     {
@@ -99,7 +99,7 @@ class V1HandlerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "tcp_socket"
+     * Test attribute "tcpSocket"
      */
     public function testPropertyTcpSocket()
     {

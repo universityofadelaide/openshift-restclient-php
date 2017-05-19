@@ -115,7 +115,7 @@ class V1StatusDetailsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "retry_after_seconds"
+     * Test attribute "retryAfterSeconds"
      */
     public function testPropertyRetryAfterSeconds()
     {

@@ -56,12 +56,12 @@ class V1BuildSource implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'binary' => '\UniversityOfAdelaide\OpenShift\Model\V1BinaryBuildSource',
-        'context_dir' => 'string',
+        'contextDir' => 'string',
         'dockerfile' => 'string',
         'git' => '\UniversityOfAdelaide\OpenShift\Model\V1GitBuildSource',
         'images' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageSource[]',
         'secrets' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretBuildSource[]',
-        'source_secret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
+        'sourceSecret' => '\UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference',
         'type' => 'string'
     ];
 
@@ -76,12 +76,12 @@ class V1BuildSource implements ArrayAccess
      */
     protected static $attributeMap = [
         'binary' => 'binary',
-        'context_dir' => 'contextDir',
+        'contextDir' => 'contextDir',
         'dockerfile' => 'dockerfile',
         'git' => 'git',
         'images' => 'images',
         'secrets' => 'secrets',
-        'source_secret' => 'sourceSecret',
+        'sourceSecret' => 'sourceSecret',
         'type' => 'type'
     ];
 
@@ -92,12 +92,12 @@ class V1BuildSource implements ArrayAccess
      */
     protected static $setters = [
         'binary' => 'setBinary',
-        'context_dir' => 'setContextDir',
+        'contextDir' => 'setContextDir',
         'dockerfile' => 'setDockerfile',
         'git' => 'setGit',
         'images' => 'setImages',
         'secrets' => 'setSecrets',
-        'source_secret' => 'setSourceSecret',
+        'sourceSecret' => 'setSourceSecret',
         'type' => 'setType'
     ];
 
@@ -108,12 +108,12 @@ class V1BuildSource implements ArrayAccess
      */
     protected static $getters = [
         'binary' => 'getBinary',
-        'context_dir' => 'getContextDir',
+        'contextDir' => 'getContextDir',
         'dockerfile' => 'getDockerfile',
         'git' => 'getGit',
         'images' => 'getImages',
         'secrets' => 'getSecrets',
-        'source_secret' => 'getSourceSecret',
+        'sourceSecret' => 'getSourceSecret',
         'type' => 'getType'
     ];
 
@@ -149,12 +149,12 @@ class V1BuildSource implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['binary'] = isset($data['binary']) ? $data['binary'] : null;
-        $this->container['context_dir'] = isset($data['context_dir']) ? $data['context_dir'] : null;
+        $this->container['contextDir'] = isset($data['contextDir']) ? $data['contextDir'] : null;
         $this->container['dockerfile'] = isset($data['dockerfile']) ? $data['dockerfile'] : null;
         $this->container['git'] = isset($data['git']) ? $data['git'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['secrets'] = isset($data['secrets']) ? $data['secrets'] : null;
-        $this->container['source_secret'] = isset($data['source_secret']) ? $data['source_secret'] : null;
+        $this->container['sourceSecret'] = isset($data['sourceSecret']) ? $data['sourceSecret'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -211,22 +211,22 @@ class V1BuildSource implements ArrayAccess
     }
 
     /**
-     * Gets context_dir
+     * Gets contextDir
      * @return string
      */
     public function getContextDir()
     {
-        return $this->container['context_dir'];
+        return $this->container['contextDir'];
     }
 
     /**
-     * Sets context_dir
-     * @param string $context_dir contextDir specifies the sub-directory where the source code for the application exists. This allows to have buildable sources in directory other than root of repository.
+     * Sets contextDir
+     * @param string $contextDir contextDir specifies the sub-directory where the source code for the application exists. This allows to have buildable sources in directory other than root of repository.
      * @return $this
      */
-    public function setContextDir($context_dir)
+    public function setContextDir($contextDir)
     {
-        $this->container['context_dir'] = $context_dir;
+        $this->container['contextDir'] = $contextDir;
 
         return $this;
     }
@@ -316,22 +316,22 @@ class V1BuildSource implements ArrayAccess
     }
 
     /**
-     * Gets source_secret
+     * Gets sourceSecret
      * @return \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference
      */
     public function getSourceSecret()
     {
-        return $this->container['source_secret'];
+        return $this->container['sourceSecret'];
     }
 
     /**
-     * Sets source_secret
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $source_secret sourceSecret is the name of a Secret that would be used for setting up the authentication for cloning private repository. The secret contains valid credentials for remote repository, where the data's key represent the authentication method to be used and value is the base64 encoded credentials. Supported auth methods are: ssh-privatekey.
+     * Sets sourceSecret
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1LocalObjectReference $sourceSecret sourceSecret is the name of a Secret that would be used for setting up the authentication for cloning private repository. The secret contains valid credentials for remote repository, where the data's key represent the authentication method to be used and value is the base64 encoded credentials. Supported auth methods are: ssh-privatekey.
      * @return $this
      */
-    public function setSourceSecret($source_secret)
+    public function setSourceSecret($sourceSecret)
     {
-        $this->container['source_secret'] = $source_secret;
+        $this->container['sourceSecret'] = $sourceSecret;
 
         return $this;
     }

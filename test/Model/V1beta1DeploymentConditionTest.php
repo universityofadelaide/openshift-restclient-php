@@ -83,7 +83,7 @@ class V1beta1DeploymentConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_transition_time"
+     * Test attribute "lastTransitionTime"
      */
     public function testPropertyLastTransitionTime()
     {
@@ -91,7 +91,7 @@ class V1beta1DeploymentConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_update_time"
+     * Test attribute "lastUpdateTime"
      */
     public function testPropertyLastUpdateTime()
     {

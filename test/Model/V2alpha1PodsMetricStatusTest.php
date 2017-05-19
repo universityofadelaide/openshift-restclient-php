@@ -83,7 +83,7 @@ class V2alpha1PodsMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "current_average_value"
+     * Test attribute "currentAverageValue"
      */
     public function testPropertyCurrentAverageValue()
     {
@@ -91,7 +91,7 @@ class V2alpha1PodsMetricStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "metric_name"
+     * Test attribute "metricName"
      */
     public function testPropertyMetricName()
     {

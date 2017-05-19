@@ -83,7 +83,7 @@ class V1LifecycleHookTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "exec_new_pod"
+     * Test attribute "execNewPod"
      */
     public function testPropertyExecNewPod()
     {
@@ -91,7 +91,7 @@ class V1LifecycleHookTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "failure_policy"
+     * Test attribute "failurePolicy"
      */
     public function testPropertyFailurePolicy()
     {
@@ -99,7 +99,7 @@ class V1LifecycleHookTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "tag_images"
+     * Test attribute "tagImages"
      */
     public function testPropertyTagImages()
     {

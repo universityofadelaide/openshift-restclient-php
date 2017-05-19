@@ -83,7 +83,7 @@ class V1beta1RollingUpdateDaemonSetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "max_unavailable"
+     * Test attribute "maxUnavailable"
      */
     public function testPropertyMaxUnavailable()
     {

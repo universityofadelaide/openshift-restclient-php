@@ -55,9 +55,9 @@ class V1EnvFromSource implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config_map_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapEnvSource',
+        'configMapRef' => '\UniversityOfAdelaide\OpenShift\Model\V1ConfigMapEnvSource',
         'prefix' => 'string',
-        'secret_ref' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretEnvSource'
+        'secretRef' => '\UniversityOfAdelaide\OpenShift\Model\V1SecretEnvSource'
     ];
 
     public static function swaggerTypes()
@@ -70,9 +70,9 @@ class V1EnvFromSource implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'config_map_ref' => 'configMapRef',
+        'configMapRef' => 'configMapRef',
         'prefix' => 'prefix',
-        'secret_ref' => 'secretRef'
+        'secretRef' => 'secretRef'
     ];
 
 
@@ -81,9 +81,9 @@ class V1EnvFromSource implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'config_map_ref' => 'setConfigMapRef',
+        'configMapRef' => 'setConfigMapRef',
         'prefix' => 'setPrefix',
-        'secret_ref' => 'setSecretRef'
+        'secretRef' => 'setSecretRef'
     ];
 
 
@@ -92,9 +92,9 @@ class V1EnvFromSource implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'config_map_ref' => 'getConfigMapRef',
+        'configMapRef' => 'getConfigMapRef',
         'prefix' => 'getPrefix',
-        'secret_ref' => 'getSecretRef'
+        'secretRef' => 'getSecretRef'
     ];
 
     public static function attributeMap()
@@ -128,9 +128,9 @@ class V1EnvFromSource implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['config_map_ref'] = isset($data['config_map_ref']) ? $data['config_map_ref'] : null;
+        $this->container['configMapRef'] = isset($data['configMapRef']) ? $data['configMapRef'] : null;
         $this->container['prefix'] = isset($data['prefix']) ? $data['prefix'] : null;
-        $this->container['secret_ref'] = isset($data['secret_ref']) ? $data['secret_ref'] : null;
+        $this->container['secretRef'] = isset($data['secretRef']) ? $data['secretRef'] : null;
     }
 
     /**
@@ -159,22 +159,22 @@ class V1EnvFromSource implements ArrayAccess
 
 
     /**
-     * Gets config_map_ref
+     * Gets configMapRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapEnvSource
      */
     public function getConfigMapRef()
     {
-        return $this->container['config_map_ref'];
+        return $this->container['configMapRef'];
     }
 
     /**
-     * Sets config_map_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapEnvSource $config_map_ref The ConfigMap to select from
+     * Sets configMapRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ConfigMapEnvSource $configMapRef The ConfigMap to select from
      * @return $this
      */
-    public function setConfigMapRef($config_map_ref)
+    public function setConfigMapRef($configMapRef)
     {
-        $this->container['config_map_ref'] = $config_map_ref;
+        $this->container['configMapRef'] = $configMapRef;
 
         return $this;
     }
@@ -201,22 +201,22 @@ class V1EnvFromSource implements ArrayAccess
     }
 
     /**
-     * Gets secret_ref
+     * Gets secretRef
      * @return \UniversityOfAdelaide\OpenShift\Model\V1SecretEnvSource
      */
     public function getSecretRef()
     {
-        return $this->container['secret_ref'];
+        return $this->container['secretRef'];
     }
 
     /**
-     * Sets secret_ref
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecretEnvSource $secret_ref The Secret to select from
+     * Sets secretRef
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1SecretEnvSource $secretRef The Secret to select from
      * @return $this
      */
-    public function setSecretRef($secret_ref)
+    public function setSecretRef($secretRef)
     {
-        $this->container['secret_ref'] = $secret_ref;
+        $this->container['secretRef'] = $secretRef;
 
         return $this;
     }
