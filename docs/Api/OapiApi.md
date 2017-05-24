@@ -373,6 +373,9 @@ connect POST requests to instantiatebinary of BinaryBuildRequestOptions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BinaryBuildRequestOptions
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -413,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -433,6 +436,9 @@ connect POST requests to webhooks of Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -462,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -482,6 +488,9 @@ connect POST requests to webhooks of Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -513,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -533,6 +542,9 @@ create a BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig(); // \UniversityOfAdelaide\OpenShift\Model\V1BuildConfig | 
@@ -560,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -580,6 +592,9 @@ create a Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Build(); // \UniversityOfAdelaide\OpenShift\Model\V1Build | 
@@ -607,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -627,6 +642,9 @@ create a ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterNetwork(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterNetwork | 
@@ -654,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -674,6 +692,9 @@ create a ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicy | 
@@ -701,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -721,6 +742,9 @@ create a ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterPolicyBinding | 
@@ -748,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -768,6 +792,9 @@ create a ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterResourceQuota(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterResourceQuota | 
@@ -795,7 +822,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -815,6 +842,9 @@ create a ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRole | 
@@ -842,7 +872,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -862,6 +892,9 @@ create a ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1ClusterRoleBinding | 
@@ -889,7 +922,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -909,6 +942,9 @@ create a DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeploymentConfig(); // \UniversityOfAdelaide\OpenShift\Model\V1DeploymentConfig | 
@@ -936,7 +972,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -956,6 +992,9 @@ create a DeploymentConfigRollback
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1DeploymentConfigRollback(); // \UniversityOfAdelaide\OpenShift\Model\V1DeploymentConfigRollback | 
@@ -983,7 +1022,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1003,6 +1042,9 @@ create an EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1EgressNetworkPolicy(); // \UniversityOfAdelaide\OpenShift\Model\V1EgressNetworkPolicy | 
@@ -1030,7 +1072,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1050,6 +1092,9 @@ create a Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Group(); // \UniversityOfAdelaide\OpenShift\Model\V1Group | 
@@ -1077,7 +1122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1097,6 +1142,9 @@ create a HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1HostSubnet(); // \UniversityOfAdelaide\OpenShift\Model\V1HostSubnet | 
@@ -1124,7 +1172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1144,6 +1192,9 @@ create an Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Identity(); // \UniversityOfAdelaide\OpenShift\Model\V1Identity | 
@@ -1171,7 +1222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1191,6 +1242,9 @@ create an Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Image(); // \UniversityOfAdelaide\OpenShift\Model\V1Image | 
@@ -1218,7 +1272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1238,6 +1292,9 @@ create an ImageSignature
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageSignature(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageSignature | 
@@ -1265,7 +1322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1285,6 +1342,9 @@ create an ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStream(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStream | 
@@ -1312,7 +1372,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1332,6 +1392,9 @@ create an ImageStreamImport
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamImport | 
@@ -1359,7 +1422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1379,6 +1442,9 @@ create an ImageStreamMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamMapping | 
@@ -1406,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1426,6 +1492,9 @@ create an ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag(); // \UniversityOfAdelaide\OpenShift\Model\V1ImageStreamTag | 
@@ -1453,7 +1522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1473,6 +1542,9 @@ create a LocalResourceAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalResourceAccessReview | 
@@ -1500,7 +1572,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1520,6 +1592,9 @@ create a LocalSubjectAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1LocalSubjectAccessReview | 
@@ -1547,7 +1622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1567,6 +1642,9 @@ create a Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -1596,7 +1674,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1616,6 +1694,9 @@ create a BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -1645,7 +1726,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1665,6 +1746,9 @@ create clone of a BuildRequest
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildRequest
@@ -1696,7 +1780,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1716,6 +1800,9 @@ create instantiate of a BuildRequest
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildRequest
@@ -1747,7 +1834,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1767,6 +1854,9 @@ create a DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -1796,7 +1886,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1816,6 +1906,9 @@ create a DeploymentConfigRollback
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -1845,7 +1938,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1865,6 +1958,9 @@ create rollback of a DeploymentConfigRollback
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfigRollback
@@ -1896,7 +1992,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1916,6 +2012,9 @@ create instantiate of a DeploymentRequest
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentRequest
@@ -1947,7 +2046,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -1967,6 +2066,9 @@ create an EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -1996,7 +2098,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2016,6 +2118,9 @@ create an ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2045,7 +2150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2065,6 +2170,9 @@ create an ImageStreamImport
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2094,7 +2202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2114,6 +2222,9 @@ create an ImageStreamMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2143,7 +2254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2163,6 +2274,9 @@ create an ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2192,7 +2306,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2212,6 +2326,9 @@ create a LocalResourceAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2241,7 +2358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2261,6 +2378,9 @@ create a LocalSubjectAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2290,7 +2410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2310,6 +2430,9 @@ create a PodSecurityPolicyReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2339,7 +2462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2359,6 +2482,9 @@ create a PodSecurityPolicySelfSubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2388,7 +2514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2408,6 +2534,9 @@ create a PodSecurityPolicySubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2437,7 +2566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2457,6 +2586,9 @@ create a Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2486,7 +2618,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2506,6 +2638,9 @@ create a PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2535,7 +2670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2555,6 +2690,9 @@ create a ResourceAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2584,7 +2722,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2604,6 +2742,9 @@ create a Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2633,7 +2774,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2653,6 +2794,9 @@ create a RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2682,7 +2826,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2702,6 +2846,9 @@ create a RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2731,7 +2878,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2751,6 +2898,9 @@ create a Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2780,7 +2930,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2800,6 +2950,9 @@ create a SelfSubjectRulesReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2829,7 +2982,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2849,6 +3002,9 @@ create a SubjectAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2878,7 +3034,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2898,6 +3054,9 @@ create a SubjectRulesReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2927,7 +3086,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2947,6 +3106,9 @@ create a Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -2976,7 +3138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -2996,6 +3158,9 @@ create a NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1NetNamespace(); // \UniversityOfAdelaide\OpenShift\Model\V1NetNamespace | 
@@ -3023,7 +3188,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3043,6 +3208,9 @@ create an OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken(); // \UniversityOfAdelaide\OpenShift\Model\V1OAuthAccessToken | 
@@ -3070,7 +3238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3090,6 +3258,9 @@ create an OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken(); // \UniversityOfAdelaide\OpenShift\Model\V1OAuthAuthorizeToken | 
@@ -3117,7 +3288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3137,6 +3308,9 @@ create an OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient(); // \UniversityOfAdelaide\OpenShift\Model\V1OAuthClient | 
@@ -3164,7 +3338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3184,6 +3358,9 @@ create an OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization(); // \UniversityOfAdelaide\OpenShift\Model\V1OAuthClientAuthorization | 
@@ -3211,7 +3388,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3231,6 +3408,9 @@ create a PodSecurityPolicyReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview | 
@@ -3258,7 +3438,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3278,6 +3458,9 @@ create a PodSecurityPolicySelfSubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview | 
@@ -3305,7 +3488,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3325,6 +3508,9 @@ create a PodSecurityPolicySubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview | 
@@ -3352,7 +3538,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3372,6 +3558,9 @@ create a PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1PolicyBinding | 
@@ -3399,7 +3588,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3419,6 +3608,9 @@ create a Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Policy(); // \UniversityOfAdelaide\OpenShift\Model\V1Policy | 
@@ -3446,7 +3638,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3466,6 +3658,9 @@ create a Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Project(); // \UniversityOfAdelaide\OpenShift\Model\V1Project | 
@@ -3493,7 +3688,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3513,6 +3708,9 @@ create a ProjectRequest
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ProjectRequest(); // \UniversityOfAdelaide\OpenShift\Model\V1ProjectRequest | 
@@ -3540,7 +3738,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3560,6 +3758,9 @@ create a ResourceAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1ResourceAccessReview | 
@@ -3587,7 +3788,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3607,6 +3808,9 @@ create a RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBinding | 
@@ -3634,7 +3838,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3654,6 +3858,9 @@ create a RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction(); // \UniversityOfAdelaide\OpenShift\Model\V1RoleBindingRestriction | 
@@ -3681,7 +3888,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3701,6 +3908,9 @@ create a Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Role(); // \UniversityOfAdelaide\OpenShift\Model\V1Role | 
@@ -3728,7 +3938,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3748,6 +3958,9 @@ create a Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Route(); // \UniversityOfAdelaide\OpenShift\Model\V1Route | 
@@ -3775,7 +3988,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3795,6 +4008,9 @@ create a SelfSubjectRulesReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SelfSubjectRulesReview | 
@@ -3822,7 +4038,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3842,6 +4058,9 @@ create a SubjectAccessReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectAccessReview | 
@@ -3869,7 +4088,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3889,6 +4108,9 @@ create a SubjectRulesReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview(); // \UniversityOfAdelaide\OpenShift\Model\V1SubjectRulesReview | 
@@ -3916,7 +4138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3936,6 +4158,9 @@ create a Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1Template(); // \UniversityOfAdelaide\OpenShift\Model\V1Template | 
@@ -3963,7 +4188,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -3983,6 +4208,9 @@ create an User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1User(); // \UniversityOfAdelaide\OpenShift\Model\V1User | 
@@ -4010,7 +4238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4030,6 +4258,9 @@ create an UserIdentityMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1UserIdentityMapping(); // \UniversityOfAdelaide\OpenShift\Model\V1UserIdentityMapping | 
@@ -4057,7 +4288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4077,6 +4308,9 @@ delete a ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterNetwork
@@ -4112,7 +4346,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4132,6 +4366,9 @@ delete a ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
@@ -4167,7 +4404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4187,6 +4424,9 @@ delete a ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
@@ -4222,7 +4462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4242,6 +4482,9 @@ delete a ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -4277,7 +4520,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4297,6 +4540,9 @@ delete a ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
@@ -4332,7 +4578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4352,6 +4598,9 @@ delete a ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
@@ -4387,7 +4636,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4407,6 +4656,9 @@ delete collection of ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4442,7 +4694,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4462,6 +4714,9 @@ delete collection of ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4497,7 +4752,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4517,6 +4772,9 @@ delete collection of ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4552,7 +4810,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4572,6 +4830,9 @@ delete collection of ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4607,7 +4868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4627,6 +4888,9 @@ delete collection of Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4662,7 +4926,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4682,6 +4946,9 @@ delete collection of HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4717,7 +4984,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4737,6 +5004,9 @@ delete collection of Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4772,7 +5042,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4792,6 +5062,9 @@ delete collection of Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -4827,7 +5100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4847,6 +5120,9 @@ delete collection of Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -4884,7 +5160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4904,6 +5180,9 @@ delete collection of BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -4941,7 +5220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -4961,6 +5240,9 @@ delete collection of DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -4998,7 +5280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5018,6 +5300,9 @@ delete collection of EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5055,7 +5340,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5075,6 +5360,9 @@ delete collection of ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5112,7 +5400,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5132,6 +5420,9 @@ delete collection of Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5169,7 +5460,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5189,6 +5480,9 @@ delete collection of PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5226,7 +5520,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5246,6 +5540,9 @@ delete collection of RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5283,7 +5580,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5303,6 +5600,9 @@ delete collection of Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5340,7 +5640,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5360,6 +5660,9 @@ delete collection of Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -5397,7 +5700,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5417,6 +5720,9 @@ delete collection of NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5452,7 +5758,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5472,6 +5778,9 @@ delete collection of OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5507,7 +5816,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5527,6 +5836,9 @@ delete collection of OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5562,7 +5874,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5582,6 +5894,9 @@ delete collection of OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5617,7 +5932,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5637,6 +5952,9 @@ delete collection of OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5672,7 +5990,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5692,6 +6010,9 @@ delete collection of User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -5727,7 +6048,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5747,6 +6068,9 @@ delete a Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Group
@@ -5782,7 +6106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5802,6 +6126,9 @@ delete a HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the HostSubnet
@@ -5837,7 +6164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5857,6 +6184,9 @@ delete an Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Identity
@@ -5892,7 +6222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5912,6 +6242,9 @@ delete an Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
@@ -5947,7 +6280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -5967,6 +6300,9 @@ delete an ImageSignature
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageSignature
@@ -5994,7 +6330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6014,6 +6350,9 @@ delete a Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -6051,7 +6390,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6071,6 +6410,9 @@ delete a BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildConfig
@@ -6108,7 +6450,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6128,6 +6470,9 @@ delete a DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -6165,7 +6510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6185,6 +6530,9 @@ delete an EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the EgressNetworkPolicy
@@ -6222,7 +6570,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6242,6 +6590,9 @@ delete an ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -6279,7 +6630,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6299,6 +6650,9 @@ delete an ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
@@ -6328,7 +6682,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6348,6 +6702,9 @@ delete a Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
@@ -6385,7 +6742,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6405,6 +6762,9 @@ delete a PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
@@ -6442,7 +6802,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6462,6 +6822,9 @@ delete a Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
@@ -6499,7 +6862,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6519,6 +6882,9 @@ delete a RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
@@ -6556,7 +6922,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6576,6 +6942,9 @@ delete a RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
@@ -6613,7 +6982,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6633,6 +7002,9 @@ delete a Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -6670,7 +7042,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6690,6 +7062,9 @@ delete a Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Template
@@ -6727,7 +7102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6747,6 +7122,9 @@ delete a NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the NetNamespace
@@ -6782,7 +7160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6802,6 +7180,9 @@ delete an OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAccessToken
@@ -6837,7 +7218,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6857,6 +7238,9 @@ delete an OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAuthorizeToken
@@ -6892,7 +7276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6912,6 +7296,9 @@ delete an OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClient
@@ -6947,7 +7334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -6967,6 +7354,9 @@ delete an OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClientAuthorization
@@ -7002,7 +7392,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7022,6 +7412,9 @@ delete a Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
@@ -7049,7 +7442,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7069,6 +7462,9 @@ delete an User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the User
@@ -7104,7 +7500,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7124,6 +7520,9 @@ delete an UserIdentityMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the UserIdentityMapping
@@ -7151,7 +7550,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7171,6 +7570,9 @@ get available resources
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 
@@ -7192,7 +7594,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7213,6 +7615,9 @@ list supported server API versions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
@@ -7232,7 +7637,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7252,6 +7657,9 @@ list objects of kind AppliedClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -7287,7 +7695,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7307,6 +7715,9 @@ list or watch objects of kind BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7342,7 +7753,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7362,6 +7773,9 @@ list or watch objects of kind Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7397,7 +7811,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7417,6 +7831,9 @@ list or watch objects of kind ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7452,7 +7869,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7472,6 +7889,9 @@ list or watch objects of kind ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7507,7 +7927,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7527,6 +7947,9 @@ list or watch objects of kind ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7562,7 +7985,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7582,6 +8005,9 @@ list or watch objects of kind ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7617,7 +8043,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7637,6 +8063,9 @@ list objects of kind ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7672,7 +8101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7692,6 +8121,9 @@ list objects of kind ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7727,7 +8159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7747,6 +8179,9 @@ list or watch objects of kind DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7782,7 +8217,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7802,6 +8237,9 @@ list or watch objects of kind EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7837,7 +8275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7857,6 +8295,9 @@ list or watch objects of kind Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7892,7 +8333,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7912,6 +8353,9 @@ list or watch objects of kind HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -7947,7 +8391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -7967,6 +8411,9 @@ list or watch objects of kind Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -8002,7 +8449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8022,6 +8469,9 @@ list or watch objects of kind Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -8057,7 +8507,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8077,6 +8527,9 @@ list or watch objects of kind ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -8112,7 +8565,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8132,6 +8585,9 @@ list objects of kind ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -8167,7 +8623,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8187,6 +8643,9 @@ list objects of kind AppliedClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8224,7 +8683,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8244,6 +8703,9 @@ list or watch objects of kind Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8281,7 +8743,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8301,6 +8763,9 @@ list or watch objects of kind BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8338,7 +8803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8358,6 +8823,9 @@ list or watch objects of kind DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8395,7 +8863,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8415,6 +8883,9 @@ list or watch objects of kind EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8452,7 +8923,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8472,6 +8943,9 @@ list or watch objects of kind ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8509,7 +8983,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8529,6 +9003,9 @@ list objects of kind ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8566,7 +9043,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8586,6 +9063,9 @@ list or watch objects of kind Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8623,7 +9103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8643,6 +9123,9 @@ list or watch objects of kind PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8680,7 +9163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8700,6 +9183,9 @@ list objects of kind Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8737,7 +9223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8757,6 +9243,9 @@ list objects of kind RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8794,7 +9283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8814,6 +9303,9 @@ list or watch objects of kind RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8851,7 +9343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8871,6 +9363,9 @@ list or watch objects of kind Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8908,7 +9403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8928,6 +9423,9 @@ list or watch objects of kind Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -8965,7 +9463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -8985,6 +9483,9 @@ list or watch objects of kind NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9020,7 +9521,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9040,6 +9541,9 @@ list or watch objects of kind OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9075,7 +9579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9095,6 +9599,9 @@ list or watch objects of kind OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9130,7 +9637,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9150,6 +9657,9 @@ list or watch objects of kind OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9185,7 +9695,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9205,6 +9715,9 @@ list or watch objects of kind OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9240,7 +9753,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9260,6 +9773,9 @@ list or watch objects of kind PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9295,7 +9811,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9315,6 +9831,9 @@ list or watch objects of kind Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9350,7 +9869,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9370,6 +9889,9 @@ list or watch objects of kind Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9405,7 +9927,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9425,6 +9947,9 @@ list objects of kind ProjectRequest
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9460,7 +9985,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9480,6 +10005,9 @@ list objects of kind RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9515,7 +10043,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9535,6 +10063,9 @@ list or watch objects of kind RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9570,7 +10101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9590,6 +10121,9 @@ list objects of kind Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9625,7 +10159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9645,6 +10179,9 @@ list or watch objects of kind Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9680,7 +10217,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9700,6 +10237,9 @@ list or watch objects of kind Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9735,7 +10275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9755,6 +10295,9 @@ list or watch objects of kind User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -9790,7 +10333,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9810,6 +10353,9 @@ partially update the specified ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterNetwork
@@ -9839,7 +10385,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9859,6 +10405,9 @@ partially update the specified ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
@@ -9888,7 +10437,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9908,6 +10457,9 @@ partially update the specified ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
@@ -9937,7 +10489,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -9957,6 +10509,9 @@ partially update the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -9986,7 +10541,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10006,6 +10561,9 @@ partially update status of the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -10035,7 +10593,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10055,6 +10613,9 @@ partially update the specified ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
@@ -10084,7 +10645,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10104,6 +10665,9 @@ partially update the specified ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
@@ -10133,7 +10697,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10153,6 +10717,9 @@ partially update the specified Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Group
@@ -10182,7 +10749,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10202,6 +10769,9 @@ partially update the specified HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the HostSubnet
@@ -10231,7 +10801,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10251,6 +10821,9 @@ partially update the specified Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Identity
@@ -10280,7 +10853,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10300,6 +10873,9 @@ partially update the specified Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
@@ -10329,7 +10905,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10349,6 +10925,9 @@ partially update the specified Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -10380,7 +10959,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10400,6 +10979,9 @@ partially update the specified BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildConfig
@@ -10431,7 +11013,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10451,6 +11033,9 @@ partially update the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -10482,7 +11067,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10502,6 +11087,9 @@ partially update status of the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -10533,7 +11121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10553,6 +11141,9 @@ partially update the specified EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the EgressNetworkPolicy
@@ -10584,7 +11175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10604,6 +11195,9 @@ partially update the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -10635,7 +11229,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10655,6 +11249,9 @@ partially update status of the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -10686,7 +11283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10706,6 +11303,9 @@ partially update the specified ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
@@ -10737,7 +11337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10757,6 +11357,9 @@ partially update the specified Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
@@ -10788,7 +11391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10808,6 +11411,9 @@ partially update the specified PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
@@ -10839,7 +11445,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10859,6 +11465,9 @@ partially update the specified Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
@@ -10890,7 +11499,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10910,6 +11519,9 @@ partially update the specified RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
@@ -10941,7 +11553,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -10961,6 +11573,9 @@ partially update the specified RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
@@ -10992,7 +11607,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11012,6 +11627,9 @@ partially update the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -11043,7 +11661,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11063,6 +11681,9 @@ partially update status of the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -11094,7 +11715,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11114,6 +11735,9 @@ partially update scale of the specified Scale
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Scale
@@ -11145,7 +11769,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11165,6 +11789,9 @@ partially update the specified Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Template
@@ -11196,7 +11823,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11216,6 +11843,9 @@ partially update the specified NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the NetNamespace
@@ -11245,7 +11875,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11265,6 +11895,9 @@ partially update the specified OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAccessToken
@@ -11294,7 +11927,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11314,6 +11947,9 @@ partially update the specified OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAuthorizeToken
@@ -11343,7 +11979,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11363,6 +11999,9 @@ partially update the specified OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClient
@@ -11392,7 +12031,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11412,6 +12051,9 @@ partially update the specified OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClientAuthorization
@@ -11441,7 +12083,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11461,6 +12103,9 @@ partially update the specified Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
@@ -11490,7 +12135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11510,6 +12155,9 @@ partially update the specified User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the User
@@ -11539,7 +12187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11559,6 +12207,9 @@ partially update the specified UserIdentityMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the UserIdentityMapping
@@ -11588,7 +12239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11608,6 +12259,9 @@ read the specified ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterNetwork
@@ -11639,7 +12293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11659,6 +12313,9 @@ read the specified ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
@@ -11690,7 +12347,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11710,6 +12367,9 @@ read the specified ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
@@ -11741,7 +12401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11761,6 +12421,9 @@ read the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -11792,7 +12455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11812,6 +12475,9 @@ read status of the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -11839,7 +12505,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11859,6 +12525,9 @@ read the specified ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
@@ -11886,7 +12555,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11906,6 +12575,9 @@ read the specified ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
@@ -11933,7 +12605,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -11953,6 +12625,9 @@ read the specified Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Group
@@ -11984,7 +12659,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12004,6 +12679,9 @@ read the specified HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the HostSubnet
@@ -12035,7 +12713,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12055,6 +12733,9 @@ read the specified Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Identity
@@ -12086,7 +12767,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12106,6 +12787,9 @@ read the specified Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
@@ -12137,7 +12821,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12157,6 +12841,9 @@ read the specified AppliedClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the AppliedClusterResourceQuota
@@ -12186,7 +12873,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12206,6 +12893,9 @@ read the specified Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -12239,7 +12929,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12259,6 +12949,9 @@ read the specified BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildConfig
@@ -12292,7 +12985,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12312,6 +13005,9 @@ read log of the specified BuildLog
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildLog
@@ -12359,7 +13055,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12379,6 +13075,9 @@ read the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -12412,7 +13111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12432,6 +13131,9 @@ read status of the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -12461,7 +13163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12481,6 +13183,9 @@ read log of the specified DeploymentLog
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentLog
@@ -12528,7 +13233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12548,6 +13253,9 @@ read the specified EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the EgressNetworkPolicy
@@ -12581,7 +13289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12601,6 +13309,9 @@ read the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -12634,7 +13345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12654,6 +13365,9 @@ read the specified ImageStreamImage
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamImage
@@ -12683,7 +13397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12703,6 +13417,9 @@ read status of the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -12732,7 +13449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12752,6 +13469,9 @@ read the specified ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
@@ -12781,7 +13501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12801,6 +13521,9 @@ read the specified Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
@@ -12834,7 +13557,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12854,6 +13577,9 @@ read the specified PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
@@ -12887,7 +13613,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12907,6 +13633,9 @@ read the specified Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
@@ -12936,7 +13665,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -12956,6 +13685,9 @@ read the specified RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
@@ -12985,7 +13717,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13005,6 +13737,9 @@ read the specified RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
@@ -13038,7 +13773,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13058,6 +13793,9 @@ read the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -13091,7 +13829,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13111,6 +13849,9 @@ read status of the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -13140,7 +13881,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13160,6 +13901,9 @@ read scale of the specified Scale
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Scale
@@ -13189,7 +13933,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13209,6 +13953,9 @@ read secrets of the specified SecretList
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the SecretList
@@ -13248,7 +13995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13268,6 +14015,9 @@ read the specified Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Template
@@ -13301,7 +14051,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13321,6 +14071,9 @@ read the specified NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the NetNamespace
@@ -13352,7 +14105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13372,6 +14125,9 @@ read the specified OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAccessToken
@@ -13403,7 +14159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13423,6 +14179,9 @@ read the specified OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAuthorizeToken
@@ -13454,7 +14213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13474,6 +14233,9 @@ read the specified OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClient
@@ -13505,7 +14267,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13525,6 +14287,9 @@ read the specified OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClientAuthorization
@@ -13556,7 +14321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13576,6 +14341,9 @@ read the specified Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
@@ -13603,7 +14371,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13623,6 +14391,9 @@ read the specified User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the User
@@ -13654,7 +14425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13674,6 +14445,9 @@ read the specified UserIdentityMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the UserIdentityMapping
@@ -13701,7 +14475,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13721,6 +14495,9 @@ replace the specified ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterNetwork
@@ -13750,7 +14527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13770,6 +14547,9 @@ replace the specified ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
@@ -13799,7 +14579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13819,6 +14599,9 @@ replace the specified ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
@@ -13848,7 +14631,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13868,6 +14651,9 @@ replace the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -13897,7 +14683,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13917,6 +14703,9 @@ replace status of the specified ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -13946,7 +14735,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -13966,6 +14755,9 @@ replace the specified ClusterRole
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRole
@@ -13995,7 +14787,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14015,6 +14807,9 @@ replace the specified ClusterRoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterRoleBinding
@@ -14044,7 +14839,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14064,6 +14859,9 @@ replace the specified Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Group
@@ -14093,7 +14891,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14113,6 +14911,9 @@ replace the specified HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the HostSubnet
@@ -14142,7 +14943,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14162,6 +14963,9 @@ replace the specified Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Identity
@@ -14191,7 +14995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14211,6 +15015,9 @@ replace the specified Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
@@ -14240,7 +15047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14260,6 +15067,9 @@ replace the specified Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -14291,7 +15101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14311,6 +15121,9 @@ replace the specified BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildConfig
@@ -14342,7 +15155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14362,6 +15175,9 @@ replace details of the specified Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -14393,7 +15209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14413,6 +15229,9 @@ replace the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -14444,7 +15263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14464,6 +15283,9 @@ replace status of the specified DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -14495,7 +15317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14515,6 +15337,9 @@ replace the specified EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the EgressNetworkPolicy
@@ -14546,7 +15371,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14566,6 +15391,9 @@ replace the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -14597,7 +15425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14617,6 +15445,9 @@ replace status of the specified ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -14648,7 +15479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14668,6 +15499,9 @@ replace the specified ImageStreamTag
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStreamTag
@@ -14699,7 +15533,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14719,6 +15553,9 @@ replace the specified Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
@@ -14750,7 +15587,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14770,6 +15607,9 @@ replace the specified PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
@@ -14801,7 +15641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14821,6 +15661,9 @@ replace the specified Role
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Role
@@ -14852,7 +15695,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14872,6 +15715,9 @@ replace the specified RoleBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBinding
@@ -14903,7 +15749,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14923,6 +15769,9 @@ replace the specified RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
@@ -14954,7 +15803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -14974,6 +15823,9 @@ replace the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -15005,7 +15857,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15025,6 +15877,9 @@ replace status of the specified Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -15056,7 +15911,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15076,6 +15931,9 @@ replace scale of the specified Scale
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Scale
@@ -15107,7 +15965,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15127,6 +15985,9 @@ replace the specified Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Template
@@ -15158,7 +16019,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15178,6 +16039,9 @@ replace the specified NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the NetNamespace
@@ -15207,7 +16071,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15227,6 +16091,9 @@ replace the specified OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAccessToken
@@ -15256,7 +16123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15276,6 +16143,9 @@ replace the specified OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAuthorizeToken
@@ -15305,7 +16175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15325,6 +16195,9 @@ replace the specified OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClient
@@ -15354,7 +16227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15374,6 +16247,9 @@ replace the specified OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClientAuthorization
@@ -15403,7 +16279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15423,6 +16299,9 @@ replace the specified Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
@@ -15452,7 +16331,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15472,6 +16351,9 @@ replace the specified User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the User
@@ -15501,7 +16383,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15521,6 +16403,9 @@ replace the specified UserIdentityMapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the UserIdentityMapping
@@ -15550,7 +16435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15570,6 +16455,9 @@ watch individual changes to a list of BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -15605,7 +16493,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15625,6 +16513,9 @@ watch individual changes to a list of Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -15660,7 +16551,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15680,6 +16571,9 @@ watch changes to an object of kind ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterNetwork
@@ -15717,7 +16611,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15737,6 +16631,9 @@ watch individual changes to a list of ClusterNetwork
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -15772,7 +16669,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15792,6 +16689,9 @@ watch changes to an object of kind ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicy
@@ -15829,7 +16729,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15849,6 +16749,9 @@ watch changes to an object of kind ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterPolicyBinding
@@ -15886,7 +16789,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15906,6 +16809,9 @@ watch individual changes to a list of ClusterPolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -15941,7 +16847,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -15961,6 +16867,9 @@ watch individual changes to a list of ClusterPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -15996,7 +16905,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16016,6 +16925,9 @@ watch changes to an object of kind ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ClusterResourceQuota
@@ -16053,7 +16965,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16073,6 +16985,9 @@ watch individual changes to a list of ClusterResourceQuota
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16108,7 +17023,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16128,6 +17043,9 @@ watch individual changes to a list of DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16163,7 +17081,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16183,6 +17101,9 @@ watch individual changes to a list of EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16218,7 +17139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16238,6 +17159,9 @@ watch changes to an object of kind Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Group
@@ -16275,7 +17199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16295,6 +17219,9 @@ watch individual changes to a list of Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16330,7 +17257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16350,6 +17277,9 @@ watch changes to an object of kind HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the HostSubnet
@@ -16387,7 +17317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16407,6 +17337,9 @@ watch individual changes to a list of HostSubnet
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16442,7 +17375,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16462,6 +17395,9 @@ watch changes to an object of kind Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Identity
@@ -16499,7 +17435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16519,6 +17455,9 @@ watch individual changes to a list of Identity
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16554,7 +17493,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16574,6 +17513,9 @@ watch changes to an object of kind Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Image
@@ -16611,7 +17553,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16631,6 +17573,9 @@ watch individual changes to a list of Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16666,7 +17611,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16686,6 +17631,9 @@ watch individual changes to a list of ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -16721,7 +17669,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16741,6 +17689,9 @@ watch changes to an object of kind Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Build
@@ -16780,7 +17731,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16800,6 +17751,9 @@ watch changes to an object of kind BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the BuildConfig
@@ -16839,7 +17793,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16859,6 +17813,9 @@ watch individual changes to a list of BuildConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -16896,7 +17853,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16916,6 +17873,9 @@ watch individual changes to a list of Build
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -16953,7 +17913,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -16973,6 +17933,9 @@ watch changes to an object of kind DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the DeploymentConfig
@@ -17012,7 +17975,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17032,6 +17995,9 @@ watch individual changes to a list of DeploymentConfig
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17069,7 +18035,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17089,6 +18055,9 @@ watch changes to an object of kind EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the EgressNetworkPolicy
@@ -17128,7 +18097,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17148,6 +18117,9 @@ watch individual changes to a list of EgressNetworkPolicy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17185,7 +18157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17205,6 +18177,9 @@ watch changes to an object of kind ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the ImageStream
@@ -17244,7 +18219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17264,6 +18239,9 @@ watch individual changes to a list of ImageStream
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17301,7 +18279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17321,6 +18299,9 @@ watch changes to an object of kind Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Policy
@@ -17360,7 +18341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17380,6 +18361,9 @@ watch changes to an object of kind PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the PolicyBinding
@@ -17419,7 +18403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17439,6 +18423,9 @@ watch individual changes to a list of PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17476,7 +18463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17496,6 +18483,9 @@ watch individual changes to a list of Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17533,7 +18523,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17553,6 +18543,9 @@ watch changes to an object of kind RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the RoleBindingRestriction
@@ -17592,7 +18585,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17612,6 +18605,9 @@ watch individual changes to a list of RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17649,7 +18645,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17669,6 +18665,9 @@ watch changes to an object of kind Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Route
@@ -17708,7 +18707,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17728,6 +18727,9 @@ watch individual changes to a list of Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17765,7 +18767,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17785,6 +18787,9 @@ watch changes to an object of kind Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Template
@@ -17824,7 +18829,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17844,6 +18849,9 @@ watch individual changes to a list of Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -17881,7 +18889,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17901,6 +18909,9 @@ watch changes to an object of kind NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the NetNamespace
@@ -17938,7 +18949,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -17958,6 +18969,9 @@ watch individual changes to a list of NetNamespace
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -17993,7 +19007,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18013,6 +19027,9 @@ watch changes to an object of kind OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAccessToken
@@ -18050,7 +19067,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18070,6 +19087,9 @@ watch individual changes to a list of OAuthAccessToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18105,7 +19125,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18125,6 +19145,9 @@ watch changes to an object of kind OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthAuthorizeToken
@@ -18162,7 +19185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18182,6 +19205,9 @@ watch individual changes to a list of OAuthAuthorizeToken
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18217,7 +19243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18237,6 +19263,9 @@ watch changes to an object of kind OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClient
@@ -18274,7 +19303,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18294,6 +19323,9 @@ watch changes to an object of kind OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the OAuthClientAuthorization
@@ -18331,7 +19363,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18351,6 +19383,9 @@ watch individual changes to a list of OAuthClientAuthorization
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18386,7 +19421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18406,6 +19441,9 @@ watch individual changes to a list of OAuthClient
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18441,7 +19479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18461,6 +19499,9 @@ watch individual changes to a list of PolicyBinding
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18496,7 +19537,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18516,6 +19557,9 @@ watch individual changes to a list of Policy
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18551,7 +19595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18571,6 +19615,9 @@ watch changes to an object of kind Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the Project
@@ -18608,7 +19655,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18628,6 +19675,9 @@ watch individual changes to a list of Project
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18663,7 +19713,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18683,6 +19733,9 @@ watch individual changes to a list of RoleBindingRestriction
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18718,7 +19771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18738,6 +19791,9 @@ watch individual changes to a list of Route
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18773,7 +19829,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18793,6 +19849,9 @@ watch individual changes to a list of Template
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18828,7 +19887,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18848,6 +19907,9 @@ watch changes to an object of kind User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $name = "name_example"; // string | name of the User
@@ -18885,7 +19947,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -18905,6 +19967,9 @@ watch individual changes to a list of User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\OapiApi(new \Http\Adapter\Guzzle6\Client());
 $fieldSelector = "fieldSelector_example"; // string | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -18940,7 +20005,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 

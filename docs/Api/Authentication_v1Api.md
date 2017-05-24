@@ -20,6 +20,9 @@ create a TokenReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1TokenReview(); // \UniversityOfAdelaide\OpenShift\Model\V1TokenReview | 
 $pretty = "pretty_example"; // string | If 'true', then the output is pretty printed.
@@ -46,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -66,6 +69,9 @@ get available resources
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\Authentication_v1Api(new \Http\Adapter\Guzzle6\Client());
 
@@ -87,7 +93,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 

@@ -25,6 +25,9 @@ create a PodSecurityPolicyReview
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview | 
@@ -53,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -73,6 +76,9 @@ create a PodSecurityPolicySelfSubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -102,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -122,6 +128,9 @@ create a PodSecurityPolicySubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $namespace = "namespace_example"; // string | object name and auth scope, such as for teams and projects
@@ -151,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -171,6 +180,9 @@ create a PodSecurityPolicyReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicyReview | 
@@ -198,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -218,6 +230,9 @@ create a PodSecurityPolicySelfSubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySelfSubjectReview | 
@@ -245,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -265,6 +280,9 @@ create a PodSecurityPolicySubjectReview
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 $body = new \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview(); // \UniversityOfAdelaide\OpenShift\Model\V1PodSecurityPolicySubjectReview | 
@@ -292,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 
@@ -312,6 +330,9 @@ get available resources
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\SecurityOpenshiftIo_v1Api(new \Http\Adapter\Guzzle6\Client());
 
@@ -333,7 +354,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openshift_auth](../../README.md#openshift_auth)
 
 ### HTTP request headers
 

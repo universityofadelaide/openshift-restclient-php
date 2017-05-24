@@ -56,6 +56,7 @@ class V1ImageStreamSpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'dockerImageRepository' => 'string',
+        'lookupPolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy',
         'tags' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReference[]'
     ];
 
@@ -70,6 +71,7 @@ class V1ImageStreamSpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'dockerImageRepository' => 'dockerImageRepository',
+        'lookupPolicy' => 'lookupPolicy',
         'tags' => 'tags'
     ];
 
@@ -80,6 +82,7 @@ class V1ImageStreamSpec implements ArrayAccess
      */
     protected static $setters = [
         'dockerImageRepository' => 'setDockerImageRepository',
+        'lookupPolicy' => 'setLookupPolicy',
         'tags' => 'setTags'
     ];
 
@@ -90,6 +93,7 @@ class V1ImageStreamSpec implements ArrayAccess
      */
     protected static $getters = [
         'dockerImageRepository' => 'getDockerImageRepository',
+        'lookupPolicy' => 'getLookupPolicy',
         'tags' => 'getTags'
     ];
 
@@ -125,6 +129,7 @@ class V1ImageStreamSpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['dockerImageRepository'] = isset($data['dockerImageRepository']) ? $data['dockerImageRepository'] : null;
+        $this->container['lookupPolicy'] = isset($data['lookupPolicy']) ? $data['lookupPolicy'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -164,12 +169,33 @@ class V1ImageStreamSpec implements ArrayAccess
 
     /**
      * Sets dockerImageRepository
-     * @param string $dockerImageRepository DockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server
+     * @param string $dockerImageRepository dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server
      * @return $this
      */
     public function setDockerImageRepository($dockerImageRepository)
     {
         $this->container['dockerImageRepository'] = $dockerImageRepository;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookupPolicy
+     * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy
+     */
+    public function getLookupPolicy()
+    {
+        return $this->container['lookupPolicy'];
+    }
+
+    /**
+     * Sets lookupPolicy
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy $lookupPolicy lookupPolicy controls how other resources reference images within this namespace.
+     * @return $this
+     */
+    public function setLookupPolicy($lookupPolicy)
+    {
+        $this->container['lookupPolicy'] = $lookupPolicy;
 
         return $this;
     }
@@ -185,7 +211,7 @@ class V1ImageStreamSpec implements ArrayAccess
 
     /**
      * Sets tags
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReference[] $tags Tags map arbitrary string values to specific image locators
+     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReference[] $tags tags map arbitrary string values to specific image locators
      * @return $this
      */
     public function setTags($tags)

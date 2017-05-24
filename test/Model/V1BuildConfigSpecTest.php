@@ -91,6 +91,14 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "failedBuildsHistoryLimit"
+     */
+    public function testPropertyFailedBuildsHistoryLimit()
+    {
+
+    }
+
+    /**
      * Test attribute "nodeSelector"
      */
     public function testPropertyNodeSelector()
@@ -158,6 +166,14 @@ class V1BuildConfigSpecTest extends \PHPUnit_Framework_TestCase
      * Test attribute "strategy"
      */
     public function testPropertyStrategy()
+    {
+
+    }
+
+    /**
+     * Test attribute "successfulBuildsHistoryLimit"
+     */
+    public function testPropertySuccessfulBuildsHistoryLimit()
     {
 
     }

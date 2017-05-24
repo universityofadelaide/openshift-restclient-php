@@ -91,6 +91,14 @@ class V1ImageStreamSpecTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "lookupPolicy"
+     */
+    public function testPropertyLookupPolicy()
+    {
+
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()

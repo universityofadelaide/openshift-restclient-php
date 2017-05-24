@@ -1,6 +1,6 @@
 <?php
 /**
- * V1ImageStreamTagTest
+ * V1ImageLookupPolicyTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace UniversityOfAdelaide\OpenShift;
 
 /**
- * V1ImageStreamTagTest Class Doc Comment
+ * V1ImageLookupPolicyTest Class Doc Comment
  *
  * @category    Class */
-// * @description ImageStreamTag represents an Image that is retrieved by tag name from an ImageStream.
+// * @description ImageLookupPolicy describes how an image stream can be used to override the image references used by pods, builds, and other resources in a namespace.
 /**
  * @package     UniversityOfAdelaide\OpenShift
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class V1ImageStreamTagTest extends \PHPUnit_Framework_TestCase
+class V1ImageLookupPolicyTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -75,73 +75,17 @@ class V1ImageStreamTagTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "V1ImageStreamTag"
+     * Test "V1ImageLookupPolicy"
      */
-    public function testV1ImageStreamTag()
+    public function testV1ImageLookupPolicy()
     {
 
     }
 
     /**
-     * Test attribute "apiVersion"
+     * Test attribute "local"
      */
-    public function testPropertyApiVersion()
-    {
-
-    }
-
-    /**
-     * Test attribute "conditions"
-     */
-    public function testPropertyConditions()
-    {
-
-    }
-
-    /**
-     * Test attribute "generation"
-     */
-    public function testPropertyGeneration()
-    {
-
-    }
-
-    /**
-     * Test attribute "image"
-     */
-    public function testPropertyImage()
-    {
-
-    }
-
-    /**
-     * Test attribute "kind"
-     */
-    public function testPropertyKind()
-    {
-
-    }
-
-    /**
-     * Test attribute "lookupPolicy"
-     */
-    public function testPropertyLookupPolicy()
-    {
-
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
-    {
-
-    }
-
-    /**
-     * Test attribute "tag"
-     */
-    public function testPropertyTag()
+    public function testPropertyLocal()
     {
 
     }

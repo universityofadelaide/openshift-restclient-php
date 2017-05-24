@@ -56,6 +56,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: openshift_auth
+UniversityOfAdelaide\OpenShift\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new UniversityOfAdelaide\OpenShift\Api\ApisApi();
 
 try {
@@ -1630,6 +1633,7 @@ Class | Method | HTTP request | Description
  - [V1ImageLabel](docs/Model/V1ImageLabel.md)
  - [V1ImageLayer](docs/Model/V1ImageLayer.md)
  - [V1ImageList](docs/Model/V1ImageList.md)
+ - [V1ImageLookupPolicy](docs/Model/V1ImageLookupPolicy.md)
  - [V1ImageSignature](docs/Model/V1ImageSignature.md)
  - [V1ImageSource](docs/Model/V1ImageSource.md)
  - [V1ImageSourcePath](docs/Model/V1ImageSourcePath.md)
@@ -1986,7 +1990,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## openshift_auth
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: http://localhost/oauth/authorize
+- **Scopes**: 
+ - **write:openshift**: modify
+ - **read:openshift**: read
 
 
 ## Author

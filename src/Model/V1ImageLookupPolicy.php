@@ -1,6 +1,6 @@
 <?php
 /**
- * V1ImageStreamTag
+ * V1ImageLookupPolicy
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace UniversityOfAdelaide\OpenShift\Model;
 use \ArrayAccess;
 
 /**
- * V1ImageStreamTag Class Doc Comment
+ * V1ImageLookupPolicy Class Doc Comment
  *
  * @category    Class
- * @description ImageStreamTag represents an Image that is retrieved by tag name from an ImageStream.
+ * @description ImageLookupPolicy describes how an image stream can be used to override the image references used by pods, builds, and other resources in a namespace.
  * @package     UniversityOfAdelaide\OpenShift
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class V1ImageStreamTag implements ArrayAccess
+class V1ImageLookupPolicy implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,21 +48,14 @@ class V1ImageStreamTag implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'v1.ImageStreamTag';
+    protected static $swaggerModelName = 'v1.ImageLookupPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'apiVersion' => 'string',
-        'conditions' => '\UniversityOfAdelaide\OpenShift\Model\V1TagEventCondition[]',
-        'generation' => 'int',
-        'image' => '\UniversityOfAdelaide\OpenShift\Model\V1Image',
-        'kind' => 'string',
-        'lookupPolicy' => '\UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy',
-        'metadata' => '\UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta',
-        'tag' => '\UniversityOfAdelaide\OpenShift\Model\V1TagReference'
+        'local' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -75,14 +68,7 @@ class V1ImageStreamTag implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'apiVersion' => 'apiVersion',
-        'conditions' => 'conditions',
-        'generation' => 'generation',
-        'image' => 'image',
-        'kind' => 'kind',
-        'lookupPolicy' => 'lookupPolicy',
-        'metadata' => 'metadata',
-        'tag' => 'tag'
+        'local' => 'local'
     ];
 
 
@@ -91,14 +77,7 @@ class V1ImageStreamTag implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'apiVersion' => 'setApiVersion',
-        'conditions' => 'setConditions',
-        'generation' => 'setGeneration',
-        'image' => 'setImage',
-        'kind' => 'setKind',
-        'lookupPolicy' => 'setLookupPolicy',
-        'metadata' => 'setMetadata',
-        'tag' => 'setTag'
+        'local' => 'setLocal'
     ];
 
 
@@ -107,14 +86,7 @@ class V1ImageStreamTag implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'apiVersion' => 'getApiVersion',
-        'conditions' => 'getConditions',
-        'generation' => 'getGeneration',
-        'image' => 'getImage',
-        'kind' => 'getKind',
-        'lookupPolicy' => 'getLookupPolicy',
-        'metadata' => 'getMetadata',
-        'tag' => 'getTag'
+        'local' => 'getLocal'
     ];
 
     public static function attributeMap()
@@ -148,14 +120,7 @@ class V1ImageStreamTag implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
-        $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
-        $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
-        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
-        $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['lookupPolicy'] = isset($data['lookupPolicy']) ? $data['lookupPolicy'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
     }
 
     /**
@@ -167,17 +132,8 @@ class V1ImageStreamTag implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['generation'] === null) {
-            $invalid_properties[] = "'generation' can't be null";
-        }
-        if ($this->container['image'] === null) {
-            $invalid_properties[] = "'image' can't be null";
-        }
-        if ($this->container['lookupPolicy'] === null) {
-            $invalid_properties[] = "'lookupPolicy' can't be null";
-        }
-        if ($this->container['tag'] === null) {
-            $invalid_properties[] = "'tag' can't be null";
+        if ($this->container['local'] === null) {
+            $invalid_properties[] = "'local' can't be null";
         }
         return $invalid_properties;
     }
@@ -191,16 +147,7 @@ class V1ImageStreamTag implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['generation'] === null) {
-            return false;
-        }
-        if ($this->container['image'] === null) {
-            return false;
-        }
-        if ($this->container['lookupPolicy'] === null) {
-            return false;
-        }
-        if ($this->container['tag'] === null) {
+        if ($this->container['local'] === null) {
             return false;
         }
         return true;
@@ -208,169 +155,22 @@ class V1ImageStreamTag implements ArrayAccess
 
 
     /**
-     * Gets apiVersion
-     * @return string
+     * Gets local
+     * @return bool
      */
-    public function getApiVersion()
+    public function getLocal()
     {
-        return $this->container['apiVersion'];
+        return $this->container['local'];
     }
 
     /**
-     * Sets apiVersion
-     * @param string $apiVersion APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources
+     * Sets local
+     * @param bool $local local will change the docker short image references (like \"mysql\" or \"php:latest\") on objects in this namespace to the image ID whenever they match this image stream, instead of reaching out to a remote registry. The name will be fully qualified to an image ID if found. The tag's referencePolicy is taken into account on the replaced value. Only works within the current namespace.
      * @return $this
      */
-    public function setApiVersion($apiVersion)
+    public function setLocal($local)
     {
-        $this->container['apiVersion'] = $apiVersion;
-
-        return $this;
-    }
-
-    /**
-     * Gets conditions
-     * @return \UniversityOfAdelaide\OpenShift\Model\V1TagEventCondition[]
-     */
-    public function getConditions()
-    {
-        return $this->container['conditions'];
-    }
-
-    /**
-     * Sets conditions
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagEventCondition[] $conditions conditions is an array of conditions that apply to the image stream tag.
-     * @return $this
-     */
-    public function setConditions($conditions)
-    {
-        $this->container['conditions'] = $conditions;
-
-        return $this;
-    }
-
-    /**
-     * Gets generation
-     * @return int
-     */
-    public function getGeneration()
-    {
-        return $this->container['generation'];
-    }
-
-    /**
-     * Sets generation
-     * @param int $generation generation is the current generation of the tagged image - if tag is provided and this value is not equal to the tag generation, a user has requested an import that has not completed, or conditions will be filled out indicating any error.
-     * @return $this
-     */
-    public function setGeneration($generation)
-    {
-        $this->container['generation'] = $generation;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     * @return \UniversityOfAdelaide\OpenShift\Model\V1Image
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1Image $image image associated with the ImageStream and tag.
-     * @return $this
-     */
-    public function setImage($image)
-    {
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets kind
-     * @return string
-     */
-    public function getKind()
-    {
-        return $this->container['kind'];
-    }
-
-    /**
-     * Sets kind
-     * @param string $kind Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
-     * @return $this
-     */
-    public function setKind($kind)
-    {
-        $this->container['kind'] = $kind;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookupPolicy
-     * @return \UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy
-     */
-    public function getLookupPolicy()
-    {
-        return $this->container['lookupPolicy'];
-    }
-
-    /**
-     * Sets lookupPolicy
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ImageLookupPolicy $lookupPolicy lookupPolicy indicates whether this tag will handle image references in this namespace.
-     * @return $this
-     */
-    public function setLookupPolicy($lookupPolicy)
-    {
-        $this->container['lookupPolicy'] = $lookupPolicy;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     * @return \UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1ObjectMeta $metadata Standard object's metadata.
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag
-     * @return \UniversityOfAdelaide\OpenShift\Model\V1TagReference
-     */
-    public function getTag()
-    {
-        return $this->container['tag'];
-    }
-
-    /**
-     * Sets tag
-     * @param \UniversityOfAdelaide\OpenShift\Model\V1TagReference $tag tag is the spec tag associated with this image stream tag, and it may be null if only pushes have occurred to this image stream.
-     * @return $this
-     */
-    public function setTag($tag)
-    {
-        $this->container['tag'] = $tag;
+        $this->container['local'] = $local;
 
         return $this;
     }

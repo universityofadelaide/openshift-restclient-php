@@ -56,6 +56,7 @@ class V1BuildConfigSpec implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'completionDeadlineSeconds' => 'int',
+        'failedBuildsHistoryLimit' => 'int',
         'nodeSelector' => 'map[string,string]',
         'output' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildOutput',
         'postCommit' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildPostCommitSpec',
@@ -65,6 +66,7 @@ class V1BuildConfigSpec implements ArrayAccess
         'serviceAccount' => 'string',
         'source' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildSource',
         'strategy' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildStrategy',
+        'successfulBuildsHistoryLimit' => 'int',
         'triggers' => '\UniversityOfAdelaide\OpenShift\Model\V1BuildTriggerPolicy[]'
     ];
 
@@ -79,6 +81,7 @@ class V1BuildConfigSpec implements ArrayAccess
      */
     protected static $attributeMap = [
         'completionDeadlineSeconds' => 'completionDeadlineSeconds',
+        'failedBuildsHistoryLimit' => 'failedBuildsHistoryLimit',
         'nodeSelector' => 'nodeSelector',
         'output' => 'output',
         'postCommit' => 'postCommit',
@@ -88,6 +91,7 @@ class V1BuildConfigSpec implements ArrayAccess
         'serviceAccount' => 'serviceAccount',
         'source' => 'source',
         'strategy' => 'strategy',
+        'successfulBuildsHistoryLimit' => 'successfulBuildsHistoryLimit',
         'triggers' => 'triggers'
     ];
 
@@ -98,6 +102,7 @@ class V1BuildConfigSpec implements ArrayAccess
      */
     protected static $setters = [
         'completionDeadlineSeconds' => 'setCompletionDeadlineSeconds',
+        'failedBuildsHistoryLimit' => 'setFailedBuildsHistoryLimit',
         'nodeSelector' => 'setNodeSelector',
         'output' => 'setOutput',
         'postCommit' => 'setPostCommit',
@@ -107,6 +112,7 @@ class V1BuildConfigSpec implements ArrayAccess
         'serviceAccount' => 'setServiceAccount',
         'source' => 'setSource',
         'strategy' => 'setStrategy',
+        'successfulBuildsHistoryLimit' => 'setSuccessfulBuildsHistoryLimit',
         'triggers' => 'setTriggers'
     ];
 
@@ -117,6 +123,7 @@ class V1BuildConfigSpec implements ArrayAccess
      */
     protected static $getters = [
         'completionDeadlineSeconds' => 'getCompletionDeadlineSeconds',
+        'failedBuildsHistoryLimit' => 'getFailedBuildsHistoryLimit',
         'nodeSelector' => 'getNodeSelector',
         'output' => 'getOutput',
         'postCommit' => 'getPostCommit',
@@ -126,6 +133,7 @@ class V1BuildConfigSpec implements ArrayAccess
         'serviceAccount' => 'getServiceAccount',
         'source' => 'getSource',
         'strategy' => 'getStrategy',
+        'successfulBuildsHistoryLimit' => 'getSuccessfulBuildsHistoryLimit',
         'triggers' => 'getTriggers'
     ];
 
@@ -161,6 +169,7 @@ class V1BuildConfigSpec implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['completionDeadlineSeconds'] = isset($data['completionDeadlineSeconds']) ? $data['completionDeadlineSeconds'] : null;
+        $this->container['failedBuildsHistoryLimit'] = isset($data['failedBuildsHistoryLimit']) ? $data['failedBuildsHistoryLimit'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['postCommit'] = isset($data['postCommit']) ? $data['postCommit'] : null;
@@ -170,6 +179,7 @@ class V1BuildConfigSpec implements ArrayAccess
         $this->container['serviceAccount'] = isset($data['serviceAccount']) ? $data['serviceAccount'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
+        $this->container['successfulBuildsHistoryLimit'] = isset($data['successfulBuildsHistoryLimit']) ? $data['successfulBuildsHistoryLimit'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
     }
 
@@ -233,6 +243,27 @@ class V1BuildConfigSpec implements ArrayAccess
     public function setCompletionDeadlineSeconds($completionDeadlineSeconds)
     {
         $this->container['completionDeadlineSeconds'] = $completionDeadlineSeconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets failedBuildsHistoryLimit
+     * @return int
+     */
+    public function getFailedBuildsHistoryLimit()
+    {
+        return $this->container['failedBuildsHistoryLimit'];
+    }
+
+    /**
+     * Sets failedBuildsHistoryLimit
+     * @param int $failedBuildsHistoryLimit failedBuildsHistoryLimit is the number of old failed builds to retain. If not specified, all failed builds are retained.
+     * @return $this
+     */
+    public function setFailedBuildsHistoryLimit($failedBuildsHistoryLimit)
+    {
+        $this->container['failedBuildsHistoryLimit'] = $failedBuildsHistoryLimit;
 
         return $this;
     }
@@ -422,6 +453,27 @@ class V1BuildConfigSpec implements ArrayAccess
     public function setStrategy($strategy)
     {
         $this->container['strategy'] = $strategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets successfulBuildsHistoryLimit
+     * @return int
+     */
+    public function getSuccessfulBuildsHistoryLimit()
+    {
+        return $this->container['successfulBuildsHistoryLimit'];
+    }
+
+    /**
+     * Sets successfulBuildsHistoryLimit
+     * @param int $successfulBuildsHistoryLimit successfulBuildsHistoryLimit is the number of old successful builds to retain. If not specified, all successful builds are retained.
+     * @return $this
+     */
+    public function setSuccessfulBuildsHistoryLimit($successfulBuildsHistoryLimit)
+    {
+        $this->container['successfulBuildsHistoryLimit'] = $successfulBuildsHistoryLimit;
 
         return $this;
     }
